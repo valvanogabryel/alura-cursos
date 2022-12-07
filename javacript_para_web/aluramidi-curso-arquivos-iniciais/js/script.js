@@ -1,4 +1,4 @@
-const soundsBtn = document.querySelectorAll('button');
+const soundsBtn = document.querySelectorAll('button.tecla');
 
 soundsBtn.forEach(btn => {
     btn.addEventListener('click', () => {
