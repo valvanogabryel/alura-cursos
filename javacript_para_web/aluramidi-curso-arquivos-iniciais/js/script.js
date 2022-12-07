@@ -5,5 +5,9 @@ soundsBtn.forEach(btn => {
         let btnName = btn.innerHTML.toLowerCase();
         let audio = document.querySelector(`#som_tecla_${btnName}`);
         audio.play();
+
+
+        btn.classList.add('ativa');
+        setTimeout(() => { btn.classList.remove('ativa') }, 200)
     });
 });
