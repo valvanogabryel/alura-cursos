@@ -45,6 +45,12 @@ main {
     top: -5%;
 }
 
+#change-robotron-btn {
+    position: relative;
+    bottom: 15%;
+    right: 20%;
+}
+
 .titulo {
     transform: rotate(180deg);
     font-weight: 500;
@@ -131,7 +137,8 @@ main {
     border-color: var(--main-cinza);
 }
 
-.producao {
+.producao,
+.robotron-color {
     margin-top: 1em;
     font-size: 2em;
     text-transform: uppercase;
@@ -143,12 +150,11 @@ main {
     cursor: pointer;
 }
 
-.producao:hover {
+.producao:hover,
+.robotron-color:hover {
     background: var(--main-preto);
     color: var(--main-branco)
 }
-
-
 
 /****************************** Estatísticas *****/
 .estatisticas {
