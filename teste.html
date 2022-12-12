@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            border: 1px solid black;
+        }
+
+        .div1 {
+            grid-area: 1 / 1 / 3 / 4;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .div2 {
+            grid-area: 3 / 1 / 4 / 4;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .div3 {
+            grid-area: 1 / 4 / 4 / 5;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .div4 {
+            grid-area: 4 / 4 / 6 / 6;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .div5 {
+            grid-area: 2 / 5 / 4 / 6;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .div6 {
+            grid-area: 1 / 5 / 2 / 6;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .div7 {
+            grid-area: 4 / 3 / 6 / 4;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .div8 {
+            grid-area: 4 / 1 / 5 / 3;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .div9 {
+            grid-area: 5 / 2 / 6 / 3;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+
+        .div10 {
+            grid-area: 5 / 1 / 6 / 2;
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="div1"> </div>
+        <div class="div2"> </div>
+        <div class="div3"> </div>
+        <div class="div4"> </div>
+        <div class="div5"> </div>
+        <div class="div6"> </div>
+        <div class="div7"> </div>
+        <div class="div8"> </div>
+        <div class="div9"> </div>
+        <div class="div10"> </div>
+    </div>
+</body>
+
+</html>
