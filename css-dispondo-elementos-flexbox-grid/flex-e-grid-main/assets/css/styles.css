@@ -3,10 +3,6 @@
     src: url(../font/icones.ttf); 
 }
 
-html {
-    overflow-y: hidden;
-}
-
 body {
     background: #1D232A;
     color: #fff;
@@ -39,6 +35,13 @@ body {
 
 .header__logo {
     width: 40px;
+    transition: .6s;
+}
+
+.header__logo.logo-disappear {
+    opacity: .05;
+    transform: scale(.5);
+    transition: .3s;
 }
 
 .header__notification i::before {
@@ -51,7 +54,7 @@ body {
     flex-flow: column wrap;
     background: #15191C;
     width: 75vw;
-    height: 100vh;
+    height: 180vh;
     position: absolute;
     transform: translateX(0rem);
     transition: transform .5s cubic-bezier(0.03, 0.82, 0.62, 1.18);
@@ -117,6 +120,8 @@ body {
 }
 
 .main {
+    display: grid;
+    gap: 16px;
     padding: 24px 16px;
     transition: .6s;
 }
@@ -133,45 +138,52 @@ body {
 
 .card {
     background: #2C343A;
-    overflow: hidden;
+    overflow-x: hidden;
     width: 100%;
     border-radius: 15px;
     margin-top: 20px;
 }
 
+.card--featured {
+    margin-bottom: 16px;
+}
+
 .card__content {
+    display: grid;
+    grid-template-columns: auto 1fr;
     padding: 16px;
+    gap: 8px;
+    column-gap: 24px;
 }
 
 .card__featured {
     height: 32px; 
+    grid-column: span 2;
 }
 
 .card__title {
+    grid-column: span 2;
     font-weight: 700;
     font-size: 18px;
     height: 24px;
-    margin: 8px 0;
 } 
 
 .card__author {
+    grid-column: span 2;
     color: #95999C;
     font-size: 14px;
     height: 24px;
-    margin: 8px 0;
 }
 
 .card__info {
     font-size: 14px;
     height: 24px;
-    display: inline;
     color: #95999C;
-    margin: 0 20px 0 0;
 }
 
 .card__info--time::before {
     content: '\e90c';
-    margin: 0 5px 0 0;
+    margin: 0 4px 0 0;
     font-size: 15px;
     position: relative;
     top: 2px;
@@ -179,7 +191,7 @@ body {
 
 .card__info--views::before {
     content: '\e90f';
-    margin: 0 5px 0 0;
+    margin: 0 4px 0 0;
     font-size: 15px;
     position: relative;
     top: 2px;
@@ -189,17 +201,23 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 16px;
+    background: #0480DC;
+    border-radius: 10px;
+    height: 40px;
+    width: 40px;
+    font-size: .9rem;
+    padding-left: 6px;
+    justify-self: flex-end;
 }
 
 .card__button--featured {
-    background: #0480DC;
     border-radius: 8px;
     padding: 8px;
     height: 40px;
     width: 100%;
     font-weight: 400;
     font-size: 14px;
+    grid-column: span 2;
 }
 
 .card__button--play::before {
@@ -207,4 +225,14 @@ body {
     font-size: 24px;
     font-weight: 100;
     margin-right: 8px;
+}
+
+.card__container {
+    display: grid;
+    gap: 16px;
+}
+
+.card__container__title {
+    font-weight: 700;
+    font-size: 1.2rem;
 }
