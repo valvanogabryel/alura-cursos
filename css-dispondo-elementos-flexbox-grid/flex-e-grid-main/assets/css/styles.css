@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'icones';
+    src: url(../font/icones.ttf); 
+}
+
+html {
+    overflow-y: hidden;
+}
+
+body {
+    background: #1D232A;
+    color: #fff;
+    font-family: 'Open Sans', 'icones',sans-serif;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #15191C;
+    padding: 8px 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+}
+
+.header__menu {
+    transition: .3s;
+}
+
+.header__menu i::before {
+    content:  '\e904';
+    font-size: 1.5rem;
+}
+
+.header__menu.side-menu__isShowing {
+    color: #95999C;
+    transition: .3s;
+    transform: rotatey(180deg);
+}
+
+.header__logo {
+    position: relative;
+    right: 10px;
+    width: 40px;
+}
+
+.header__notification {
+    position: relative;
+    right: 40px;
+    top: 1px;
+}
+
+.header__notification i::before {
+    content: '\e906';
+    font-size: 1.5rem;
+}
+
+.side-menu {
+    display: flex;
+    flex-flow: column wrap;
+    background: #15191C;
+    width: 75vw;
+    height: 100vh;
+    position: absolute;
+    transform: translateX(0rem);
+    transition: transform .5s cubic-bezier(0.03, 0.82, 0.62, 1.18);
+    z-index: 10;
+}
+
+.side-menu.hidden {
+    transform: translateX(-20rem);
+    transition: transform .5s cubic-bezier(0.42, -0.24, 1, 0.27);
+}
+
+.side-menu__logo {
+    align-self: center;
+    width: 7.4rem;
+    padding: 1rem;
+}
+
+.side-menu__link {
+    display: flex;
+    align-items: center;
+    color:#95999C;
+    height: 4rem;
+    padding-left: 64px;
+}
+
+.side-menu__link--active {
+    color: #fff;
+    padding-left: 56px;
+    border-left: 8px solid white;
+}
+
+.side-menu__link::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    height: 24px;
+    width: 24px;
+    font-size: 24px;
+}
+
+.side-menu__link--home::before {
+    content: "\e902";
+}
+
+.side-menu__link--videos::before {
+    content: "\e90e";
+}
+
+.side-menu__link--peaks::before {
+    content: '\e908';
+}
+
+.side-menu__link--members::before {
+    content: '\e903';
+}
+
+.side-menu__link--shirts::before {
+    content: '\e900';
+}
+
+.side-menu__link--paintings::before {
+    content: '\e90a';
+}
+
+.main {
+    transition: .6s;
+}
+
+.main.defocused {
+    filter: blur(2px);
+    transition: .3s;
+}
