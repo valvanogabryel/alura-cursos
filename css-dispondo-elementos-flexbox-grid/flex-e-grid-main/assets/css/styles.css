@@ -38,15 +38,7 @@ body {
 }
 
 .header__logo {
-    position: relative;
-    right: 10px;
     width: 40px;
-}
-
-.header__notification {
-    position: relative;
-    right: 40px;
-    top: 1px;
 }
 
 .header__notification i::before {
@@ -125,10 +117,94 @@ body {
 }
 
 .main {
+    padding: 24px 16px;
     transition: .6s;
 }
 
 .main.defocused {
     filter: blur(2px);
     transition: .3s;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card {
+    background: #2C343A;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.card__content {
+    padding: 16px;
+}
+
+.card__featured {
+    height: 32px; 
+}
+
+.card__title {
+    font-weight: 700;
+    font-size: 18px;
+    height: 24px;
+    margin: 8px 0;
+} 
+
+.card__author {
+    color: #95999C;
+    font-size: 14px;
+    height: 24px;
+    margin: 8px 0;
+}
+
+.card__info {
+    font-size: 14px;
+    height: 24px;
+    display: inline;
+    color: #95999C;
+    margin: 0 20px 0 0;
+}
+
+.card__info--time::before {
+    content: '\e90c';
+    margin: 0 5px 0 0;
+    font-size: 15px;
+    position: relative;
+    top: 2px;
+}
+
+.card__info--views::before {
+    content: '\e90f';
+    margin: 0 5px 0 0;
+    font-size: 15px;
+    position: relative;
+    top: 2px;
+}
+
+.card__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.card__button--featured {
+    background: #0480DC;
+    border-radius: 8px;
+    padding: 8px;
+    height: 40px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.card__button--play::before {
+    content: '\e90b';
+    font-size: 24px;
+    font-weight: 100;
+    margin-right: 8px;
 }
