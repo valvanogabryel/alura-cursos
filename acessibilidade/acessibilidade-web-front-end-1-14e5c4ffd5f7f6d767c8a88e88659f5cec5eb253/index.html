@@ -22,10 +22,11 @@
   <link rel="stylesheet" href="css/rodape.css">
   <link rel="stylesheet" href="css/dialogNewsletter.css">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
 </head>
 
 <body>
+  <a href="#conteudoPrincipal" class="pularNavegacao">Pular para conteúdo principal.</a>
 
   <header class="cabecalho container">
     <a href="#" class="cabecalho-logo">
@@ -59,20 +60,19 @@
 
     <nav class="cabecalho-nav">
       <ul>
-        <li class="cabecalho-nav-item"><a href="#">Sobre</a></li>
-        <li class="cabecalho-nav-item"><a href="#">Planos</a></li>
-        <li class="cabecalho-nav-item"><a href="#">Blog</a></li>
-        <li class="cabecalho-nav-item"><a href="#">Destaques</a></li>
-        <li class="cabecalho-nav-item"><a href="#">Institucional</a></li>
-        <li class="cabecalho-nav-item"><a href="#">Contato</a></li>
+        <li class="cabecalho-nav-item"><a href="#divAbout">Sobre</a></li>
+        <li class="cabecalho-nav-item"><a href="#divPlans">Planos</a></li>
+        <li class="cabecalho-nav-item"><a href="#divBlog">Blog</a></li>
+        <li class="cabecalho-nav-item"><a href="#divHighlights">Destaques</a></li>
+        <li class="cabecalho-nav-item"><a href="#divInstitutional">Institucional</a></li>
+        <li class="cabecalho-nav-item"><a href="#divContact">Contato</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="conteudo">
-
+  <main class="conteudo" role="main">
     <section class="secaoDestaque">
-      <h1 class="secaoDestaque-titulo">
+      <h1 class="secaoDestaque-titulo" id="conteudoPrincipal">
         APLICATIVOS NA MEDIDA
       </h1>
       <p class="secaoDestaque-texto">
@@ -117,7 +117,7 @@
     </section> <!--fim .secaoDiferenciais-->
 
     <section class="secaoSobre clearfix">
-      <div class="container">
+      <div class="container" id="divAbout">
         <img src="img/sobre-apeperia.png" class="secaoSobre-imgDestaque" alt>
         <h2 class="secaoSobre-titulo tituloPadrao">
           SOBRE
@@ -150,7 +150,7 @@
     </section> <!--fim .secaoSobre-->
 
     <section class="secaoPlanos">
-      <div class="container">
+      <div class="container" id="divPlans">
         <h2 class="secaoPlanos-titulo tituloPadrao">
           PLANOS
         </h2>
@@ -205,7 +205,7 @@
     </section> <!--fim .secaoPlanos-->
 
 
-    <section class="secaoBlog container">
+    <section class="secaoBlog container" id="divBlog">
       <h2 class="secaoBlog-titulo tituloPadrao">
         BLOG
       </h2>
@@ -287,7 +287,7 @@
     </section> <!--fim .secaoBlog-->
 
     <section class="secaoDestaques">
-      <div class="container">
+      <div class="container" id="divHighlights">
         <h2 class="secaoDestaques-titulo tituloPadrao">DESTAQUES</h2>
 
         <a href="http://blog.apeperia.com.br/design/conheca-primeiras-etapas-criacao-logotipo-teste-teste"
@@ -342,7 +342,7 @@
     </section> <!--fim .secaoDestaques-->
 
     <section class="secaoContato">
-      <div class="container">
+      <div class="container" id="divContact">
         <h2 class="tituloPadrao">
           CONTATO
         </h2>
@@ -355,52 +355,52 @@
           </p>
 
           <div class="contatoCampo contatoCampo--sucesso">
-            <label>Nome: </label>
-            <input type="text" class="contatoCampo--validouFoi" value="Natan Souza" required>
+            <label for="nome">Nome: </label>
+            <input type="text" class="contatoCampo--validouFoi" required id="nome">
           </div>
 
           <div class="contatoCampo contatoCampo--erro">
-            <label>Email: </label>
-            <input type="email" class="contatoCampo--validouErro" required>
+            <label for="email">Email: </label>
+            <input type="email" class="contatoCampo--validouErro" required id="email">
             <span class="contatoCampo-msg contatoCampo-msg--erro">
               Você quis dizer <a href="#">gmail.com?</a>
             </span>
           </div>
 
           <div class="contatoCampo contatoCampo--erro">
-            <label>Telefone: </label>
-            <input type="text" class="contatoCampo--validouErro" placeholder="(11) 5571-2751">
+            <label for="phone">Telefone: </label>
+            <input type="text" class="contatoCampo--validouErro" placeholder="(11) 5571-2751" id="phone">
             <span class="contatoCampo-msg contatoCampo-msg--erro">Faltou o DDD</span>
           </div>
 
           <div class="contatoCampo">
-            <label>CEP: </label>
-            <input type="text" maxlength="8" placeholder="Exemplo: 04101-300" required>
+            <label for="cep">CEP: </label>
+            <input type="text" maxlength="8" placeholder="Exemplo: 04101-300" required id="cep">
           </div>
 
           <div class="contatoCampo">
-            <label>Endereço: </label>
-            <input type="text" class="contatoCampo-campoDesabilitado" disabled value="Rua Vergueiro">
+            <label for="address">Endereço: </label>
+            <input type="text" class="contatoCampo-campoDesabilitado" readonly value="Rua Vergueiro" id="address">
           </div>
 
           <div class="contatoCampo">
-            <label>Bairro: </label>
-            <input type="text" class="contatoCampo-campoDesabilitado" disabled value="Vila Mariana">
+            <label for="neighbourhood">Bairro: </label>
+            <input type="text" class="contatoCampo-campoDesabilitado" readonly value="Vila Mariana" id="neighbourhood">
           </div>
 
           <div class="contatoCampo">
-            <label>Cidade: </label>
-            <input type="text" class="contatoCampo-campoDesabilitado" disabled value="São Paulo">
+            <label for="city">Cidade: </label>
+            <input type="text" class="contatoCampo-campoDesabilitado" readonly value="São Paulo" id="city">
           </div>
 
           <div class="contatoCampo">
-            <label>Estado: </label>
-            <input type="text" class="contatoCampo-campoDesabilitado" disabled value="SP">
+            <label id="state">Estado: </label>
+            <input type="text" class="contatoCampo-campoDesabilitado" readonly value="SP" id="state">
           </div>
 
           <div class="contatoCampo">
-            <label>Mensagem: </label>
-            <textarea name="" cols="30" rows="10" required></textarea>
+            <label for="message">Mensagem: </label>
+            <textarea name="" cols="30" rows="10" required id="message"></textarea>
           </div>
 
           <div class="contatoCampo">
@@ -423,7 +423,7 @@
     </section> <!--fim .secaoContato-->
 
     <section class="secaoInstitucional">
-      <div class="container">
+      <div class="container" id="divInstitutional">
         <h2 class="tituloPadrao">
           INSTITUCIONAL
         </h2>
@@ -440,7 +440,8 @@
           </p>
         </div>
 
-        <video src="img/formacao-java.mp4" class="secaoInstitucional-video">
+        <video src="img/formacao-java.mp4" class="secaoInstitucional-video" controls>
+          <track src="img/legenda-portugues-brasil.vtt" kind="subtitles" srclang="pt-BR" label="português (Brasil)">
         </video>
 
       </div>
