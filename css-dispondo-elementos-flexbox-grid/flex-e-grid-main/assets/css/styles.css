@@ -363,6 +363,14 @@ body {
     top: 2px;
 }
 
+.card__info--price::before {
+    content: "\e905";
+    margin: 0 4px 0 0;
+    font-size: 15px;
+    position: relative;
+    top: 2px;
+}
+
 .card__button {
     display: flex;
     justify-content: center;
@@ -402,6 +410,13 @@ body {
     margin-right: 8px;
 }
 
+.card__button--buy::before {
+    content: "\e901";
+    font-size: 24px;
+    font-weight: 100;
+    margin-right: 8px;
+}
+
 @media screen and (min-width: 1440px) {
     .card--recents {
         display: grid !important;
@@ -436,11 +451,12 @@ body {
         gap: 8px;
         cursor: pointer;
         transition: 0.1s;
+        padding: 5px;
     }
 
     .card__item:hover {
         background: #95999c1f;
-        border-radius: 0 5px 5px 0;
+        border-radius: 5px;
     }
 
     .card__item--thumbnail {
@@ -471,4 +487,16 @@ body {
 
 .card--recents {
     display: none;
+}
+
+.card__profile {
+    color: #95999c;
+    font-size: 0.9rem;
+    grid-column: span 2;
+}
+
+.card__info.card__info--price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #c8ccd0;
 }
