@@ -21,6 +21,7 @@
     <header class="header">
         <button class="header__menu" aria-label="Menu"><i></i></button>
         <img src="flex-e-grid-main/assets/img/logo.svg" alt="Logotipo da HZC" class="header__logo">
+        <p class="header__profile">Gabryel Valvano</p>
         <button class="header__notification" aria-label="Notificação"><i></i></button>
     </header>
     <nav class="side-menu hidden">
@@ -34,19 +35,57 @@
     </nav>
     <main class="main">
         <h2 class="page-title">Início</h2>
-        <article class="card card--featured">
-            <img src="./flex-e-grid-main/assets/img/banner-mobile_1.png" alt="Banner do cartão" class="card__image">
+        <article class="card card--featured featured-video">
+            <img src="./flex-e-grid-main/assets/img/banner-mobile_1.png" alt="Banner do cartão"
+                class="card__image--mobile">
+            <img src="./flex-e-grid-main/assets/img/banner_1.png" alt="Banner do cartão" class="card__image--desktop">
             <div class="card__content">
                 <p class="card__featured">Vídeo em destaque</p>
                 <h3 class="card__title">HZC - Life is... / 2022</h3>
-                <p class="card__author">Bruno Lopes</p>
+                <p class="card__author">Bruno Lopez</p>
                 <p class="card__info card__info--time">33 minutos</p>
                 <p class="card__info card__info--views">53 vizualizações</p>
                 <button class="card__button card__button--play card__button--featured">Assistir agora</button>
             </div>
         </article>
-        <section class="card__container">
-            <h3 class="card__container__title">Vídeos mais vistos</h3>
+        <article class="card card--recents recent-videos">
+            <h3 class="card__title">Vídeos recentes</h3>
+            <a href="#" class="card__link">Ver todos</a>
+            <ul class="card__list">
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_1.png" alt="miniatura video"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">HZC - Love Machine</h4>
+                    <p class="card__item--profile">Bruno Lopez</p>
+                </li>
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_1.png" alt="miniatura video"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">HZC - Love Machine</h4>
+                    <p class="card__item--profile">Bruno Lopez</p>
+                </li>
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_1.png" alt="miniatura video"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">HZC - Love Machine</h4>
+                    <p class="card__item--profile">Bruno Lopez</p>
+                </li>
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_1.png" alt="miniatura video"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">HZC - Love Machine</h4>
+                    <p class="card__item--profile">Bruno Lopez</p>
+                </li>
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_1.png" alt="miniatura video"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">HZC - Love Machine</h4>
+                    <p class="card__item--profile">Bruno Lopez</p>
+                </li>
+            </ul>
+        </article>
+        <section class="card__container videos-section">
+            <h3 class="card__container__title videos-section--title">Vídeos mais vistos</h3>
             <article class="card">
                 <img src="./flex-e-grid-main/assets/img/video_1.png" alt="video" class="card__image">
                 <div class="card__content">
@@ -59,7 +98,7 @@
             <article class="card">
                 <img src="./flex-e-grid-main/assets/img/video_2.png" alt="video" class="card__image">
                 <div class="card__content">
-                    <p class="card__author">Bruno Lopes</p>
+                    <p class="card__author">Bruno Lopez</p>
                     <h3 class="card__title">HZC - Enter the Hu-flez</h3>
                     <p class="card__info card__info--time">58 minutos</p>
                     <button class="card__button card__button--play" aria-label="Assistir agora"></button>
@@ -77,15 +116,124 @@
             <article class="card">
                 <img src="./flex-e-grid-main/assets/img/video_4.png" alt="video" class="card__image">
                 <div class="card__content">
-                    <p class="card__author">Bruno Lopes</p>
+                    <p class="card__author">Bruno Lopez</p>
                     <h3 class="card__title">HZC - Love Machine</h3>
                     <p class="card__info card__info--time">2 horas</p>
                     <button class="card__button card__button--play" aria-label="Assistir agora"></button>
                 </div>
             </article>
         </section>
+        <article class="card card--recents recents-products">
+            <h3 class="cartao__title">Novas Artes</h3>
+            <a href="#" class="card__link">Ver todos</a>
+            <ul class="card__list">
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_1.png" alt="thumbnail"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">Sem título 01</h4>
+                    <p class="card__item--profile">Antonio Tebyriçá</p>
+                </li>
 
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_2.png" alt="thumbnail"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">Sem título 02</h4>
+                    <p class="card__item--profile">Antonio Tebyriçá</p>
+                </li>
 
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_3.png" alt="thumbnail"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">Segurança</h4>
+                    <p class="card__item--profile">Raphael Gibson</p>
+                </li>
+
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_4.png" alt="thumbnail"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">Malunguisse</h4>
+                    <p class="card__item--profile">Carolina Canavarro</p>
+                </li>
+
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_5.png" alt="thumbnail"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">Coroa da converse/h4&gt;
+                        <p class="card__item--profile">Nikolas de Murtas</p>
+                    </h4>
+                </li>
+
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_3.png" alt="thumbnail"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">Segurança</h4>
+                    <p class="card__item--profile">Raphael Gibson</p>
+                </li>
+
+                <li class="card__item">
+                    <img src="./flex-e-grid-main/assets/img/miniatura_1.png" alt="thumbnail"
+                        class="card__item--thumbnail">
+                    <h4 class="card__item--title">Sem título 03</h4>
+                    <p class="card__item--profile">Antonio Tebyriçá</p>
+                </li>
+            </ul>
+        </article>
+        <article class="card card--featured featured-products">
+            <img src="./flex-e-grid-main/assets/img/banner-mobile_2.png" alt="Banner do cartão"
+                class="card__image card__imagem--featured card__image--mobile">
+            <img src="./flex-e-grid-main/assets/img/banner_2.png" alt="Banner do cartão"
+                class="card__image card__imagem--featured card__image--desktop">
+            <div class="card__content">
+                <p class="card__featured">Nova arte</p>
+                <h3 class="card__title">Only Zikas - Lagoa Dompa Club</h3>
+                <p class="card__profile">Bruno Lopes</p>
+                <p class="card__info card__info--time">33,33</p>
+                <p class="card__info card__info--views">53 visualizações</p>
+                <a class="card__button card__button--buy card__button--featured">Comprar Agora</a>
+            </div>
+        </article>
+        <section class="card__container products-section">
+            <h3 class="card__container__title products-section--title">Camisas mais recentes</h3>
+            <article class="card">
+                <img src="flex-e-grid-main/assets/img/produto_1.png" alt="Video" class="card-image">
+                <div class="card__content">
+                    <p class="card__profile">André Soares</p>
+                    <h3 class="card__title">IBM</h3>
+                    <p class="card__info card__info--views">33,33</p>
+                    <a class="card__button card__button--buy" aria-label="Comprar"></a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="flex-e-grid-main/assets/img/produto_2.png" alt="Video" class="card-image">
+                <div class="card__content">
+                    <p class="card__profile">bruno Lopes</p>
+                    <h3 class="card__title">Huflez Crew Philosophy Club</h3>
+                    <p class="card__info card__info--views">33,33</p>
+                    <a class="card__button card__button--buy" aria-label="Comprar"></a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="flex-e-grid-main/assets/img/produto_3.png" alt="Video" class="card-image">
+                <div class="card__content">
+                    <p class="card__profile">Luiza Sampaio</p>
+                    <h3 class="card__title">Corujita noturna</h3>
+                    <p class="card__info card__info--views">33,33</p>
+                    <a class="card__button card__button--buy" aria-label="Comprar"></a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="flex-e-grid-main/assets/img/produto_4.png" alt="Video" class="card-image">
+                <div class="card__content">
+                    <p class="card__profile">bruno Lopes</p>
+                    <h3 class="card__title">GGG - Gatin G Gorro</h3>
+                    <p class="card__info card__info--views">33,33</p>
+                    <a class="card__button card__button--buy" aria-label="Comprar"></a>
+                </div>
+            </article>
+        </section>
     </main>
 
 
