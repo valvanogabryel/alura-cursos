@@ -9,7 +9,7 @@ body {
     font-family: "Open Sans", "icones", sans-serif;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
     body {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -77,7 +77,7 @@ body {
     font-size: 1.5rem;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
     .header {
         display: grid;
         grid-template-columns: 1fr auto;
@@ -206,7 +206,7 @@ body {
     content: "\e90a";
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
     .side-menu,
     .hidden {
         position: static;
@@ -235,7 +235,7 @@ body {
     font-weight: 700;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
     .main {
         display: grid;
         grid-template-columns: auto 1fr auto;
@@ -278,7 +278,7 @@ body {
     }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
     .videos-section {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -383,6 +383,11 @@ body {
     padding-left: 6px;
     justify-self: flex-end;
     cursor: pointer;
+    transition: 0.1s;
+}
+
+.card__button:hover {
+    background: #045fa5;
 }
 
 .card__button--featured {
@@ -417,7 +422,7 @@ body {
     margin-right: 8px;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1024px) {
     .card--recents {
         display: grid !important;
         grid-template-columns: repeat(2, auto);
@@ -426,6 +431,7 @@ body {
         width: 256px;
         padding: 16px;
         align-self: flex-start;
+        max-height: 480px;
     }
 
     .card--recents .card__title {
