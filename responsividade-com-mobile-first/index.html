@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AluraBooks</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -56,7 +57,34 @@
 
     <section class="carrossel">
         <h2 class="carrossel__title">Últimos lançamentos</h2>
+        <div class="swiper">
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="assets/img/books/ApacheKafka.svg" alt="Livro sobre ApacheKafka">
+                </div>
+                <div class="swiper-slide"><img src="assets/img/books/Javascript.svg" alt="Livro sobre Javascript">
+                </div>
+                <div class="swiper-slide"><img src="assets/img/books/Liderança.svg" alt="Livro sobre Liderança">
+                </div>
+                <div class="swiper-slide"><img src="assets/img/books/Portugol.svg" alt="Livro sobre Portugol">
+                </div>
+                <div class="swiper-slide"><img src="assets/img/books/ReactNative.svg" alt="Livro sobre ReactNative">
+                </div>
+            </div>
+        </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            spaceBetween: 10,
+            slidesPerView: 3,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+            },
+        });
+    </script>
 </body>
 
 </html>
