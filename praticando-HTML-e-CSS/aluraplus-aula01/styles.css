@@ -1,8 +1,8 @@
 :root {
-    --branco-principal: #FFFFFF;
-    --cinza-secundario: #C0C0C0;
-    --botao-azul: #167BF7;
-    --cor-de-fundo: #00030C;
+    --branco-principal: #ffffff;
+    --cinza-secundario: #c0c0c0;
+    --botao-azul: #167bf7;
+    --cor-de-fundo: #00030c;
 }
 
 body {
@@ -22,5 +22,22 @@ body {
 }
 
 .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
     height: 100vh;
+}
+
+.container__button {
+    display: block;
+    background: var(--botao-azul);
+    border-radius: 5px;
+    padding: 1em;
+    color: var(--branco-principal);
+    cursor: pointer;
+}
+
+.container__button--secondary {
+    background: transparent;
+    border: 2px solid var(--branco-principal);
 }
