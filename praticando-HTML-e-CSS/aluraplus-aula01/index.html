@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
     <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
@@ -106,10 +107,12 @@
                 04101-300, Brasil e CNPJ 05.555.382/0001-33</p>
         </div>
     </footer>
-
-
     <script>
-
+        window.sr = ScrollReveal({ reset: true })
+        sr.reveal('.secondary', {
+            rotate: { x: 80, y: 0, z: 0 },
+            duration: 2500
+        });
     </script>
 </body>
 
