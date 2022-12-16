@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -41,9 +44,39 @@
                 </li>
             </ul>
             <img src="assets/img/icons/Logo.svg" alt="Logo da AluraBooks" class="container__image">
+            <h1 class="container__title"><strong class="container__title--bolder">Alura</strong>Books</h1>
         </div>
-        <div class="container">
-            <a href="#"><img src="assets/img/icons/Favoritos.svg" alt="Favoritos" class="container__image"></a>
+        <ul class="options__list">
+            <input type="checkbox" name="options-menu" id="options-menu" class="options__button">
+            <label for="options-menu">
+                <li class="options__item">Categorias</li>
+            </label>
+            <ul class="menu-list">
+                <li class="menu-list__item">
+                    <a href="#" class="menu-list__link">Programação</a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="#" class="menu-list__link">Front-end</a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="#" class="menu-list__link">Infraestrutura</a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="#" class="menu-list__link">Business</a>
+                </li>
+                <li class="menu-list__item">
+                    <a href="#" class="menu-list__link">Design & UX</a>
+                </li>
+            </ul>
+            <li class="options__item"><a href="#">Favoritos</a></li>
+            <li class="options__item"><a href="#">Minha Estante</a></li>
+        </ul>
+
+
+
+        <div class="container container__icons">
+            <a href="#"><img src="assets/img/icons/Favoritos.svg" alt="Favoritos"
+                    class="container__image container__image--favorite"></a>
             <a href="#"><img src="assets/img/icons/Compras.svg" alt="Carrinho" class="container__image"></a>
             <a href="#"><img src="assets/img/icons/Usuário.svg" alt="Usuário" class="container__image"></a>
         </div>
@@ -76,6 +109,8 @@
                     <img src="assets/img/books/ReactNative.svg" alt="Livro sobre ReactNative">
                 </div>
             </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
 
         <div class="card">
@@ -129,6 +164,8 @@
                     <img src="assets/img/books/Nodejs.svg" alt="Livro sobre Liderança">
                 </div>
             </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
 
         <div class="card card__writer">
@@ -185,8 +222,10 @@
     </section>
 
     <section class="contact">
-        <h2 class="contact__title">Fique por dentro das novidades!</h2>
-        <p class="contact__text">Atualizações de e-books, novos livros, promoções e outros.</p>
+        <div class="contact__informations">
+            <h2 class="contact__title">Fique por dentro das novidades!</h2>
+            <p class="contact__text">Atualizações de e-books, novos livros, promoções e outros.</p>
+        </div>
         <input type="email" name="email" id="iemail" placeholder="Cadastre seu email" class="contact__email">
     </section>
     <footer class="footer">

@@ -12,6 +12,7 @@
     --white: #fff;
     --orange: #eb9b00;
     --poppins: "Poppins", sans-serif;
+    --josefin: "Josefin Sans", sans-serif;
     --gradient: linear-gradient(97.54deg, #002f52 35.49%, #326589 165.37%);
     --blue: #002f52;
 }
@@ -27,4 +28,10 @@ canvas {
     width: 100%;
     position: absolute;
     top: 95.5rem;
+}
+
+@media screen and (min-width: 1024px) {
+    canvas {
+        top: 136.5rem;
+    }
 }

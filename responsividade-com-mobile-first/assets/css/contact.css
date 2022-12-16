@@ -26,7 +26,7 @@
 
 .contact__text {
     font-weight: 300;
-    margin-bottom: 8px;
+    margin: 16px 0 8px 0;
 }
 
 .contact__email {
@@ -40,4 +40,36 @@
     background-repeat: no-repeat;
     background-position: 1rem;
     color: var(--gradient);
+}
+
+@media screen and (min-width: 1024px) {
+    .contact {
+        flex-direction: row;
+        padding: 2.5rem;
+        align-items: center;
+    }
+
+    .contact__informations {
+        width: 40%;
+        padding: 0 0 0 5rem;
+    }
+
+    .contact__title {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+    .contact__text {
+        line-height: 24px;
+    }
+
+    .contact__email {
+        padding: 0px 0px;
+        height: 44px;
+        width: 35%;
+    }
+
+    .contact__email::placeholder {
+        padding-left: 3rem;
+    }
 }

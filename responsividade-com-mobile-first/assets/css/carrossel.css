@@ -122,3 +122,61 @@
     width: 91px;
     height: 15px;
 }
+
+@media screen and (min-width: 1024px) {
+    .carrossel__title {
+        font-size: 26px;
+        padding: 48px 0 24px 0;
+    }
+
+    .swiper-pagination {
+        transform: scale(1.5);
+        margin: 2rem 0 3rem 0;
+    }
+
+    .swiper {
+        width: 60%;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: block;
+        top: 60%;
+    }
+
+    .card {
+        margin: 3.5rem auto;
+        width: 50%;
+    }
+
+    .card__writer {
+        height: auto;
+    }
+
+    .description {
+        width: 22rem;
+    }
+
+    .card__description {
+        row-gap: 10px;
+    }
+
+    .card__image {
+        margin-left: 0rem;
+        height: auto;
+        width: auto;
+    }
+
+    .card__button {
+        margin-left: 16rem;
+        margin-right: 5px;
+    }
+
+    .stars {
+        margin-bottom: 0.5rem;
+    }
+
+    .card__writer .card__functions {
+        margin-top: 0rem;
+    }
+}
