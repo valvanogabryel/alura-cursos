@@ -24,3 +24,101 @@
     position: initial;
     margin: 0.5rem 0;
 }
+
+.card {
+    background: var(--white);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 80%;
+    margin: 1.5rem auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-height: 295px;
+}
+
+.card__writer {
+    height: 16rem;
+}
+
+.card__writer .card__functions {
+    margin-top: 2rem;
+}
+
+.description {
+    width: 11rem;
+}
+
+.card__description {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    row-gap: 8px;
+}
+
+.description__title {
+    color: var(--orange);
+    font-weight: 700;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.description__title--book,
+.description__title--writer {
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    margin-bottom: 8px;
+}
+
+.description__text {
+    font-size: 14px;
+    line-height: 21px;
+    width: 85%;
+    height: 5rem;
+}
+
+.card__image {
+    height: auto;
+    width: 100%;
+    margin: 6px auto;
+}
+
+.card__functions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: self-end;
+}
+
+.card__functions a {
+    max-width: 2rem;
+}
+
+.card__container--icon {
+    height: 2.4rem;
+    width: 2.4rem;
+}
+
+.button__favorite {
+    justify-self: start;
+}
+
+#buy--book {
+    height: 2.8rem;
+    width: 2.8rem;
+}
+
+.card__button {
+    background-color: var(--orange);
+    color: var(--white);
+    padding: 8px 16px;
+    gap: 10px;
+    width: 152px;
+    height: 48px;
+    margin-left: 5rem;
+}
+
+.stars {
+    width: 91px;
+    height: 15px;
+}
