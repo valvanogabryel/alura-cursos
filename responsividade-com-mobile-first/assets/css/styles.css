@@ -35,3 +35,6 @@ canvas {
         top: 136.5rem;
     }
 }
+
+@media screen and (min-width: 1728px) {
+}
