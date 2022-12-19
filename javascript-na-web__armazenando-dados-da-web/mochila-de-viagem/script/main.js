@@ -13,6 +13,5 @@ function registerItem(name, quantity) {
     const listElement = document.createElement('li');
     listElement.className = 'item';
     listElement.innerHTML = `<strong>${quantity}</strong>${name}`
-
     list.appendChild(listElement);
 }
