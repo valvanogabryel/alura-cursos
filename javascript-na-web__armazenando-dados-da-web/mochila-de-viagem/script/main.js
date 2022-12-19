@@ -1,7 +1,10 @@
 const form = document.querySelector('#novoItem');
 const list = document.querySelector('ul.lista');
-const items = [];
-localStorage.getItem(items);
+const items = JSON.parse(localStorage.getItem('items')) || [];
+
+items.forEach(element => {
+    console.log(element);
+})
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
