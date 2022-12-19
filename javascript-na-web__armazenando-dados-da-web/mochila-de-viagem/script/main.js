@@ -1,5 +1,7 @@
 const form = document.querySelector('#novoItem');
 const list = document.querySelector('ul.lista');
+const items = [];
+localStorage.getItem(items);
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -21,9 +23,15 @@ function registerItem(name, quantity) {
     storageItem(name, quantity);
 }
 
-async function storageItem(name, quantity) {
-    localStorage.setItem('itemName', name);
-    localStorage.setItem('itemName', quantity);
+function storageItem(name, quantity) {
+    const currentItem = {
+        "nome": name,
+        "quantity": quantity
+    };
+
+    items.push(currentItem);
+
+    localStorage.setItem('item', JSON.stringify(items));
 }
 
 
