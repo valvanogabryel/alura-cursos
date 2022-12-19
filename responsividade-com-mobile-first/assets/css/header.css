@@ -10,7 +10,7 @@
     content: url(../img/icons/Menu.svg);
     height: 36px;
     width: 24px;
-    display: inline-block;
+    display: block;
     padding: 0 2.5rem 0 0;
 }
 

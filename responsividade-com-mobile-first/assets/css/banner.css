@@ -36,7 +36,6 @@
     color: var(--white);
     background-image: url(../img/icons/Pesquisa.svg);
     background-repeat: no-repeat;
-    background-position: 1rem;
 }
 
 @media screen and (min-width: 1024px) {
