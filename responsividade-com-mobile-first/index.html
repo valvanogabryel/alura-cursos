@@ -23,6 +23,7 @@
             <label for="menu">
                 <span class="header__menu" aria-label="menu hambúrguer "></span>
             </label>
+            <!-- Menu Mobile -->
             <ul class="menu-list">
                 <li class="menu-list__title">
                     Categorias
@@ -51,6 +52,7 @@
             <label for="options-menu">
                 <li class="options__item">Categorias</li>
             </label>
+            <!-- Menu desktop -->
             <ul class="menu-list">
                 <li class="menu-list__item">
                     <a href="#" class="menu-list__link">Programação</a>
@@ -72,13 +74,19 @@
             <li class="options__item"><a href="#">Minha Estante</a></li>
         </ul>
 
-
-
         <div class="container container__icons">
-            <a href="#"><img src="assets/img/icons/Favoritos.svg" alt="Favoritos"
-                    class="container__image container__image--favorite"></a>
-            <a href="#"><img src="assets/img/icons/Compras.svg" alt="Carrinho" class="container__image"></a>
-            <a href="#"><img src="assets/img/icons/Usuário.svg" alt="Usuário" class="container__image"></a>
+            <a href="#" class="container__icons--link">
+                <img src="assets/img/icons/Favoritos.svg" alt="Favoritos"
+                    class="container__image container__image--favorite">
+            </a>
+            <a href="#" class="container__icons--link">
+                <img src="assets/img/icons/Compras.svg" alt="Carrinho" class="container__image">
+                <p class="container__image--description">Minha Sacola</p>
+            </a>
+            <a href="#" class="container__icons--link">
+                <img src="assets/img/icons/Usuário.svg" alt="Usuário" class="container__image">
+                <p class="container__image--description">Meu Perfil</p>
+            </a>
         </div>
     </header>
 
@@ -90,103 +98,108 @@
     <!-- Últimos lançamentos -->
     <section class="carrossel">
         <h2 class="carrossel__title">Últimos lançamentos</h2>
-        <div class="swiper">
-            <div class="swiper-pagination"></div>
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="assets/img/books/ApacheKafka.svg" alt="Livro sobre ApacheKafka">
+        <div class="carrossel__container">
+            <div class="swiper">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/ApacheKafka.svg" alt="Livro sobre ApacheKafka">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Javascript.svg" alt="Livro sobre Javascript">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Liderança.svg" alt="Livro sobre Liderança">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Portugol.svg" alt="Livro sobre Portugol">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/ReactNative.svg" alt="Livro sobre ReactNative">
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Javascript.svg" alt="Livro sobre Javascript">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Liderança.svg" alt="Livro sobre Liderança">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Portugol.svg" alt="Livro sobre Portugol">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/ReactNative.svg" alt="Livro sobre ReactNative">
-                </div>
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-
-        <div class="card">
-            <div class="card__description">
-                <div class="description">
-                    <h3 class="description__title">Talvez você também se interesse por...</h3>
-                    <h2 class="description__title--book">Angular 11 e Firebase</h2>
-                    <p class="description__text">Construindo uma aplicação integrada com a plataforma do Google.</p>
-                </div>
-                <img src="assets/img/Angular-1.png" alt="" class="card__image">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
 
-            <div class="card__functions">
-                <button type="button" class="button__favorite" <!--onclick="favorite()" --><img
-                        src="assets/img/icons/Favoritos.svg" alt="Favoritar livro"
-                        class="container__image card__container--icon"></button>
-                <a href="#"><img src="assets/img/icons/Compras.svg" alt="Comprar livro"
-                        class="container__image card__container--icon" id="buy--book"></a>
-                <button type="submit" class="card__button">Saiba mais</button>
+            <div class="card">
+                <div class="card__description">
+                    <div class="description">
+                        <h3 class="description__title">Talvez você também se interesse por...</h3>
+                        <h2 class="description__title--book">Angular 11 e Firebase</h2>
+                        <p class="description__text">Construindo uma aplicação integrada com a plataforma do Google.</p>
+                    </div>
+                    <img src="assets/img/Angular-1.png" alt="" class="card__image">
+                </div>
+
+                <div class="card__functions">
+                    <button type="button" class="button__favorite" <!--onclick="favorite()" --><img
+                            src="assets/img/icons/Favoritos.svg" alt="Favoritar livro"
+                            class="container__image card__container--icon"></button>
+                    <a href="#"><img src="assets/img/icons/Compras.svg" alt="Comprar livro"
+                            class="container__image card__container--icon" id="buy--book"></a>
+                    <button type="submit" class="card__button">Saiba mais</button>
+                </div>
             </div>
         </div>
     </section>
     <!-- Mais vendidos -->
     <section class="carrossel">
         <h2 class="carrossel__title">Mais vendidos</h2>
-        <div class="swiper">
-            <div class="swiper-pagination"></div>
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Guia Front-end.png" alt="Livro sobre ApacheKafka">
+        <div class="carrossel__container">
+            <div class="swiper">
+                <div class="swiper-pagination"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Guia Front-end.png" alt="Livro sobre ApacheKafka">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Javascript.svg" alt="Livro sobre Javascript">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/ReactNative.svg" alt="Livro sobre ReactNative">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Portugol.svg" alt="Livro sobre Portugol">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Liderança.svg" alt="Livro sobre Liderança">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Gestão2.svg" alt="Livro sobre ReactNative">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Construct2.svg" alt="Livro sobre Portugol">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="assets/img/books/Nodejs.svg" alt="Livro sobre Liderança">
+                    </div>
                 </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Javascript.svg" alt="Livro sobre Javascript">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/ReactNative.svg" alt="Livro sobre ReactNative">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Portugol.svg" alt="Livro sobre Portugol">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Liderança.svg" alt="Livro sobre Liderança">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Gestão2.svg" alt="Livro sobre ReactNative">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Construct2.svg" alt="Livro sobre Portugol">
-                </div>
-                <div class="swiper-slide">
-                    <img src="assets/img/books/Nodejs.svg" alt="Livro sobre Liderança">
-                </div>
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-        </div>
-
-        <div class="card card__writer">
-            <div class="card__description">
-                <div class="description">
-                    <img src="assets/img/Estrelinhas.png" alt="Escritora Cinco estrelas" class="stars">
-                    <h3 class="description__title">Autora do Mês</h3>
-                    <h2 class="description__title--writer">Juliana Agarikov</h2>
-                    <p class="description__text">Analista de sistemas e escritora, Juliana é especialista em Front-End.
-                    </p>
-                </div>
-                <img src="assets/img/Perfil-escritora 1-1.png" alt="" class="card__image">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
 
-            <div class="card__functions">
-                <button type="button" class="button__favorite" <!--onclick="favorite()" --><img
-                        src="assets/img/icons/Favoritos.svg" alt="Favoritar livro"
-                        class="container__image card__container--icon"></button>
-                <a href="#"><img src="assets/img/icons/Compras.svg" alt="Comprar livro"
-                        class="container__image card__container--icon" id="buy--book"></a>
-                <button type="submit" class="card__button">Saiba mais</button>
+            <div class="card card__writer">
+                <div class="card__description">
+                    <div class="description">
+                        <img src="assets/img/Estrelinhas.png" alt="Escritora Cinco estrelas" class="stars">
+                        <h3 class="description__title">Autora do Mês</h3>
+                        <h2 class="description__title--writer">Juliana Agarikov</h2>
+                        <p class="description__text">Analista de sistemas e escritora, Juliana é especialista em
+                            Front-End.
+                        </p>
+                    </div>
+                    <img src="assets/img/Perfil-escritora 1-1.png" alt="" class="card__image">
+                </div>
+
+                <div class="card__functions">
+                    <button type="button" class="button__favorite" <!--onclick="favorite()" --><img
+                            src="assets/img/icons/Favoritos.svg" alt="Favoritar livro"
+                            class="container__image card__container--icon"></button>
+                    <a href="#"><img src="assets/img/icons/Compras.svg" alt="Comprar livro"
+                            class="container__image card__container--icon" id="buy--book"></a>
+                    <button type="submit" class="card__button">Saiba mais</button>
+                </div>
             </div>
         </div>
     </section>

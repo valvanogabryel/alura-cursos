@@ -69,6 +69,10 @@
     background-clip: text;
 }
 
+.container__image--description {
+    display: none;
+}
+
 @media screen and (min-width: 1024px) {
     .header {
         align-items: center;
@@ -121,6 +125,21 @@
     }
 
     .options__button:checked ~ .menu-list {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .container__icons--link {
+        display: flex;
+        align-items: center;
+    }
+
+    .options__list {
+        margin-right: auto;
+    }
+
+    .container__image--description {
         display: block;
     }
 }

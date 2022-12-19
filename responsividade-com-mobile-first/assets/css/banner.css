@@ -57,3 +57,13 @@
         background-position: 2.5rem;
     }
 }
+
+@media screen and (min-width: 1728px) {
+    .banner__search-bar {
+        width: 30%;
+    }
+
+    .banner__search-bar::placeholder {
+        background-position: 6rem;
+    }
+}
