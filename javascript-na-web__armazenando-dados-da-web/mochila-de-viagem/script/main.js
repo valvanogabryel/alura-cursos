@@ -3,7 +3,7 @@ const list = document.querySelector('ul.lista');
 const items = JSON.parse(localStorage.getItem('items')) || [];
 
 items.forEach((element) => {
-    registerItem(element.name, element.quantity);
+    registerItem(element);
 });
 
 form.addEventListener('submit', (event) => {
@@ -11,54 +11,72 @@ form.addEventListener('submit', (event) => {
     const elementName = event.target.elements['nome'];
     const elementQuantity = event.target.elements['quantidade'];
 
-    const isInList = items.find(element => {
-        return element.name === elementName.value;
-    })
+    const isInList = items.find(element => element.name === elementName.value);
 
+    const currentItem = {
+        "name": elementName.value,
+        "quantity": elementQuantity.value
+    };
 
     if (isInList) {
-        updateElement(elementQuantity);
+        currentItem.id = isInList.id;
+
+        updateElement(currentItem);
+
+        items[items.findIndex(element => element.id === isInList.id)] = currentItem;
     } else {
-        registerItem(elementName.value, elementQuantity.value);
+        currentItem.id = items[items.length - 1] ? (items[items.length - 1]).id + 1 : 0;
+        registerItem(currentItem);
+        items.push(currentItem);
     }
 
-    storageItem(elementName.value, elementQuantity.value);
+    storageItem();
 
-
-    // clean form value
     elementName.value = '';
     elementQuantity.value = '';
 });
 
-function updateElement(quantity) {
-    quantity += quantity.value;
+function updateElement(item) {
+    document.querySelector(`[data-id='${item.id}']`).innerHTML = item.quantity;
+    storageItem();
 }
 
-function registerItem(name, quantity) {
+
+function registerItem(item) {
     const listElement = document.createElement('li');
     listElement.className = 'item';
-    listElement.innerHTML = `<strong>${quantity}</strong>${name}`;
 
+    const listNumber = document.createElement('strong');
+    listNumber.innerHTML = item['quantity'];
+    listNumber.dataset.id = item.id;
+    listElement.appendChild(listNumber)
 
+    listElement.innerHTML += item['name'];
 
-    console.log(listElement)
+    listElement.appendChild(createDeleteButton(item.id));
+
     list.appendChild(listElement);
 }
 
-function storageItem(name, quantity) {
-    const currentItem = {
-        "name": name,
-        "quantity": quantity,
-        "id": 0
-    };
-
-    items.push(currentItem);
-
-
+function storageItem() {
     localStorage.setItem('items', JSON.stringify(items));
-
 }
 
+function createDeleteButton(id) {
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerHTML = 'X';
+    deleteBtn.addEventListener('click', function () {
+        removeItem(this.parentNode, id);
+    })
+
+    return deleteBtn;
+}
+
+function removeItem(element, id) {
+    element.remove();
+    items.splice(element => element.id === id, 1);
+    localStorage.setItem('items', JSON.stringify(items));
+}
 
 
 
