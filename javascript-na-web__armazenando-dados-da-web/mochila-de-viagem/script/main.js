@@ -17,12 +17,11 @@ form.addEventListener('submit', (event) => {
 
 
     if (isInList) {
-
+        updateElement(elementQuantity);
     } else {
-
+        registerItem(elementName.value, elementQuantity.value);
     }
 
-    registerItem(elementName.value, elementQuantity.value);
     storageItem(elementName.value, elementQuantity.value);
 
 
@@ -31,11 +30,17 @@ form.addEventListener('submit', (event) => {
     elementQuantity.value = '';
 });
 
+function updateElement(quantity) {
+    quantity += quantity.value;
+}
+
 function registerItem(name, quantity) {
     const listElement = document.createElement('li');
     listElement.className = 'item';
     listElement.innerHTML = `<strong>${quantity}</strong>${name}`;
-    listElement.dataset.id = 0;
+
+
+
     console.log(listElement)
     list.appendChild(listElement);
 }
@@ -43,7 +48,8 @@ function registerItem(name, quantity) {
 function storageItem(name, quantity) {
     const currentItem = {
         "name": name,
-        "quantity": quantity
+        "quantity": quantity,
+        "id": 0
     };
 
     items.push(currentItem);
