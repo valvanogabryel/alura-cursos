@@ -120,6 +120,20 @@
         width: 17%;
     }
 
+    .menu-list__item {
+        transition: 0.1s;
+    }
+
+    .menu-list__item:hover > .menu-list__link {
+        -webkit-text-fill-color: var(--white);
+        width: 100%;
+    }
+
+    .menu-list__item:hover {
+        background: var(--gradient);
+        cursor: pointer;
+    }
+
     .options__button {
         display: none;
     }
