@@ -41,7 +41,8 @@ h2 {
     text-shadow: var(--text_shadow);
 }
 
-.victory__message {
+.victory__message,
+.gameover__message {
     display: flex;
     flex-direction: column;
     margin: auto;

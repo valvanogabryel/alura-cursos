@@ -10,6 +10,7 @@ function onSpeak(event) {
     const attempt = event.results[0][0].transcript;
     printAttempt(attempt);
     verifyAttempt(attempt);
+    handleGameover(attempt);
 }
 
 function printAttempt(attempt) {
