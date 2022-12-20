@@ -1,6 +1,6 @@
 const higherValue = 1000;
 const lowerValue = 1;
-const randomValue = generateRandomNumber();
+let secretNumber = generateRandomNumber();
 
 
 function generateRandomNumber() {
@@ -13,4 +13,4 @@ const higherValueElement = document.querySelector('span#higher-value');
 lowerValueElement.innerHTML = lowerValue;
 higherValueElement.innerHTML = higherValue;
 
-console.log(randomValue)
+console.log(secretNumber)

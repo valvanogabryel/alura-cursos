@@ -36,6 +36,20 @@ h1 {
     text-shadow: var(--text_shadow);
 }
 
+h2 {
+    font-size: 5rem;
+    text-shadow: var(--text_shadow);
+}
+
+.victory__message {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary_color);
+}
+
 h3 {
     font-size: 3rem;
     font-weight: 100;
@@ -52,4 +66,23 @@ h3 {
 .box {
     font-size: 4rem;
     padding: 1rem;
+}
+
+.restart__button {
+    background: var(--primary_color);
+    color: var(--font_color);
+    padding: 15px;
+    border-radius: 5px;
+    margin: 5rem;
+    font-size: 3rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #85586f;
+}
+
+.restart__button:hover {
+    outline: none;
+    border: 1px solid var(--primary_color);
+    background: #85586f;
+    color: var(--primary_color);
 }
