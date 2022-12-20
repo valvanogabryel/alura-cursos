@@ -1,0 +1,55 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@100;400&display=swap");
+@import url(reset.css);
+
+:root {
+    --white: #fff;
+    --primary_color: #dfd3c3;
+    --background_color: #85586f;
+    --font_family: "Chivo Mono", monospace;
+    --font_color: #000;
+    --text_shadow: 2px 2px 1px black;
+}
+
+body {
+    display: flex;
+    font-family: var(--font_family);
+    background-color: var(--background_color);
+    color: var(--font_color);
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--primary_color);
+    height: 30vh;
+    width: 90vw;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+    text-shadow: var(--text_shadow);
+}
+
+h3 {
+    font-size: 3rem;
+    font-weight: 100;
+    text-shadow: var(--text_shadow);
+}
+
+.message {
+    font-size: 1.5rem;
+    font-weight: 100;
+    margin: 4rem 0 0 0;
+    text-shadow: var(--text_shadow);
+}
+
+.box {
+    font-size: 4rem;
+    padding: 1rem;
+}
