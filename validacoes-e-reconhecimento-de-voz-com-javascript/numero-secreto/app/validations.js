@@ -17,18 +17,13 @@ function verifyAttempt(attempt) {
     <button id="restart-btn" class="restart__button" onclick="restartGame()">Jogar Novamente</button>
     </div>
     `: attemptElement.innerHTML += ` <div>Você errou... O número é ${checkAnswer(number)} ${checkArrow(number)} que ${number}</div>`;
-
-
 }
 
 const isNumber = (number) => !Number.isNaN(number);
 
 const isHigherOrLower = (number) => number > higherValue || number < lowerValue;
 
-const checkAnswer = (number) => {
-    return number < secretNumber ? 'maior' : 'menor';
-}
+const checkAnswer = (number) => number < secretNumber ? 'maior' : 'menor';
 
-const checkArrow = (number) => {
-    return number < secretNumber ? '<i class="fa-solid fa-arrow-up-long"></i>' : '<i class="fa-solid fa-arrow-down-long"></i>';
-}
+const checkArrow = (number) => number < secretNumber ? '<i class="fa-solid fa-arrow-up-long"></i>' : '<i class="fa-solid fa-arrow-down-long"></i>';
+
