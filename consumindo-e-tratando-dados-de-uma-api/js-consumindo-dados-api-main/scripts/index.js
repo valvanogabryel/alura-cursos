@@ -1,6 +1,6 @@
 async function searchCEP() {
     let response = await fetch('https://viacep.com.br/ws/21073430/json/');
-    let cep = response.json();
+    let cep = await response.json();
     return cep;
 }
 
@@ -16,5 +16,9 @@ async function searchCEP() {
 //     .catch(error => console.log(error))
 //     .finally(message => console.log('Processamento concluído'));
 
+searchCEP()
 console.log(cep);
+
+
+
 
