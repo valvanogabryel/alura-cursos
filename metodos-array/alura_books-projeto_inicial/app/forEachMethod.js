@@ -1,7 +1,9 @@
+const booksSection = document.getElementById('livros');
+
 function createBook(books) {
-    const booksSection = document.getElementById('livros');
-    books.forEach(book => {
-        booksSection.innerHTML += `
+  booksSection.innerHTML = '';
+  books.forEach(book => {
+    booksSection.innerHTML += `
     <div class="livro">
       <img class="livro__imagens" src="${book.imagem}" alt="${book.alt}" />
       <h2 class="livro__titulo">
@@ -13,5 +15,5 @@ function createBook(books) {
         <span class="tag">${book.categoria}</span>
       </div>
     </div>`
-    });
+  });
 }

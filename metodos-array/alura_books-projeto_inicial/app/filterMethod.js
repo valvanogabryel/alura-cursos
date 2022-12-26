@@ -4,10 +4,7 @@ elementsToFilter.forEach(element => {
 });
 
 function filterBooks(category) {
-    let filteredBooks = books.filter(book => {
-        return book.categoria == category.target.value;
-    });
+    let filteredBooks = books.filter(book => book.categoria == category.target.value);
 
-    console.table(filteredBooks)
-    return filteredBooks;
+    createBook(filteredBooks);
 }
