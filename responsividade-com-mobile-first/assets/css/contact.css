@@ -36,10 +36,15 @@
     border-radius: 24px;
     padding: 8px 5px 8px 48px;
     outline: none;
-    background-image: url(../img/icons/Email.svg);
+    color: var(--gradient);
+    background-image: url("../img/icons/Email.svg");
     background-repeat: no-repeat;
     background-position: 1rem;
-    color: var(--gradient);
+    transition: 0.1s;
+}
+
+.contact__email:focus {
+    padding-left: 3rem;
 }
 
 @media screen and (min-width: 1024px) {
