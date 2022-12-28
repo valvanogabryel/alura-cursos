@@ -71,25 +71,11 @@
       "imagem": "https://github.com/MonicaHillman/aluraplay-requisicoes/blob/main/img/logo.png?raw=true"
     },
     {
-      "titulo": {},
-      "url": {},
-      "imagem": {},
-      "descricao": "2 mil vizualizações",
-      "id": 11
-    },
-    {
-      "titulo": "O que faz uma desenvolvedora front-end? #HipstersPontoTube",
-      "url": "https://www.youtube.com/watch?v=ZY3-MFxVdEw",
-      "imagem": "https://github.com/MonicaHillman/aluraplay-requisicoes/blob/main/img/logo.png?raw=true",
-      "descricao": "1 mil vizualizações",
-      "id": 12
-    },
-    {
       "titulo": "O que faz uma desenvolvedora front-end? #HipstersPontoTube",
       "url": "https://www.youtube.com/embed/ZY3-MFxVdEw",
       "imagem": "https://github.com/MonicaHillman/aluraplay-requisicoes/blob/main/img/logo.png?raw=true",
       "descricao": "2 mil vizualizações",
-      "id": 13
+      "id": 11
     }
   ]
 }

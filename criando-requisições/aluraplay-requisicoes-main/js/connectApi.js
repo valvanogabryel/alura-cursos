@@ -4,7 +4,7 @@ async function getVideos() {
     return videos;
 }
 
-async function createVideos(title, url, image, description) {
+export default async function createVideos(title, url, image, description) {
     const response = await fetch('http://localhost:3000/videos', {
         method: 'POST',
         headers: {
@@ -28,8 +28,6 @@ async function searchVideos(searchTerm) {
 
     return convertedResponse;
 }
-
-
 
 export const connectApi = {
     getVideos,
