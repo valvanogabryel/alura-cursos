@@ -4,17 +4,17 @@ async function getVideos() {
     return videos;
 }
 
-async function createVideos(element) {
+async function createVideos(title, url, image, description) {
     const response = await fetch('http://localhost:3000/videos', {
         method: 'POST',
         headers: {
-            'Content-type': "application/json"
+            'Content-Type': "application/json"
         },
         body: JSON.stringify({
-            titulo: element.titulo,
-            descricao: `${element.descricao} mil vizualizações`,
-            url: element.url,
-            imagem: element.imagem
+            titulo: title,
+            url: url,
+            imagem: image,
+            descricao: `${description} mil vizualizações`
         })
     });
 
@@ -22,7 +22,17 @@ async function createVideos(element) {
     return convertedResponse;
 }
 
+async function searchVideos(searchTerm) {
+    const response = await fetch(`http://localhost:3000/videos?q=${searchTerm}`);
+    const convertedResponse = await response.json();
+
+    return convertedResponse;
+}
+
+
+
 export const connectApi = {
     getVideos,
-    createVideos
+    createVideos,
+    searchVideos
 }
