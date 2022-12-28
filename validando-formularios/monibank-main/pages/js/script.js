@@ -1,3 +1,5 @@
+import isCPF from "./cpf-validation.js";
+
 const formElements = document.querySelectorAll('[required]');
 formElements.forEach(element => {
     element.addEventListener('blur', () => {
@@ -6,5 +8,5 @@ formElements.forEach(element => {
 })
 
 function verifyfield(field) {
-    console.log(field)
+    field.name == 'cpf' && field.value.length > 11 ? isCPF(field) : '';
 } 
