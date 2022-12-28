@@ -4,7 +4,7 @@ async function getVideos() {
     return videos;
 }
 
-export default async function createVideos(title, url, image, description) {
+async function createVideos(title, url, image, description) {
     const response = await fetch('http://localhost:3000/videos', {
         method: 'POST',
         headers: {

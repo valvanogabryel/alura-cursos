@@ -1,5 +1,5 @@
 import { connectApi } from "./connectAPI.js";
-import createVideos from "./connectAPI.js";
+import createListElement from "./showVideos.js";
 
 const searchBtn = document.querySelector('[data-botao-pesquisa]');
 searchBtn.addEventListener('click', event => searchVideo(event));
@@ -12,12 +12,12 @@ async function searchVideo(event) {
 
     const list = document.querySelector('[data-lista]');
 
-    while (list.firstChild == true) {
+    while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
 
     search.forEach(element => list.appendChild(
-        createVideos(element.titulo, element.url, element.imagem, element.descricao)));
+        createListElement(element)));
 }
 
 
