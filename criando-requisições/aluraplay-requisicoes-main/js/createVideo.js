@@ -11,7 +11,11 @@ async function createVideo(event) {
     const image = document.querySelector('[data-imagem]').value;
     const description = Math.floor(Math.random() * 10).toString();
 
-    await connectApi.createVideos(title, url, image, description);
 
-    window.location.href = '../pages/envio-concluido.html';
+    try {
+        await connectApi.createVideos(title, url, image, description);
+        window.location.href = '../pages/envio-concluido.html';
+    } catch (error) {
+        alert(error);
+    }
 }

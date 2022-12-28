@@ -18,6 +18,8 @@ async function createVideos(title, url, image, description) {
         })
     });
 
+    if (!response.ok) throw new Error('Não foi possível enviar o vídeo');
+
     const convertedResponse = await response.json();
     return convertedResponse;
 }

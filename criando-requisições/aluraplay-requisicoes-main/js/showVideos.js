@@ -19,9 +19,13 @@ export default function createListElement(listElement) {
     return video;
 }
 
-async function videoList() {
-    const apiList = await connectApi.getVideos();
-    apiList.forEach(element => list.appendChild(createListElement(element)));
+async function listVideos() {
+    try {
+        const apiList = await connectApi.getVideos();
+        apiList.forEach(element => list.appendChild(createListElement(element)));
+    } catch (error) {
+        list.innerHTML = `<h2 class="mensagem__titulo">Não foi possível carregar os vídeos</h2>`
+    }
 }
 
-videoList();
+listVideos();
