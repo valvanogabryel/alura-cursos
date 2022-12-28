@@ -27,7 +27,6 @@ async function createVideos(title, url, image, description) {
 async function searchVideos(searchTerm) {
     const response = await fetch(`http://localhost:3000/videos?q=${searchTerm}`);
     const convertedResponse = await response.json();
-
     return convertedResponse;
 }
 

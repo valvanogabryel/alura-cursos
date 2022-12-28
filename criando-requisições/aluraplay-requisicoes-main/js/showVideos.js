@@ -23,7 +23,7 @@ async function listVideos() {
     try {
         const apiList = await connectApi.getVideos();
         apiList.forEach(element => list.appendChild(createListElement(element)));
-    } catch (error) {
+    } catch {
         list.innerHTML = `<h2 class="mensagem__titulo">Não foi possível carregar os vídeos</h2>`
     }
 }

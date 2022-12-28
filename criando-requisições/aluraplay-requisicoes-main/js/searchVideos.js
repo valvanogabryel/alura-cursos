@@ -18,6 +18,12 @@ async function searchVideo(event) {
 
     search.forEach(element => list.appendChild(
         createListElement(element)));
+
+    if (search.length == 0) {
+        list.innerHTML = '<h2 class="mensagem__titulo">Nenhum vídeo encontrado</h2>';
+    }
 }
+
+
 
 
