@@ -1,4 +1,9 @@
 import { connectApi } from "./connectAPI";
 
-const search = document.querySelector('[data-pesquisar]');
+async function searchVideo() {
+    const searchValue = document.querySelector('[data-pesquisa]').value;
+    const search = await connectApi.searchVideos(searchValue);
+    return search;
+}
+
 
