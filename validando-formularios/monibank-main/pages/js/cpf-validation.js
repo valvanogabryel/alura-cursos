@@ -1,8 +1,13 @@
 export default function isCPF(field) {
     // pega o valor do campo de cpf e retira os caractéres especiais, deixando apenas o número.
     const cpf = field.value.replace(/\.|-/g, "");
-    verifyRepeatedNumbers(cpf);
-    validadeFirstDigit(cpf);
+    if (verifyRepeatedNumbers(cpf) ||
+        validadeFirstDigit(cpf) ||
+        validadeSecondDigit(cpf)) {
+        console.log('Esse cpf não existe');
+    } else {
+        console.log('Cpf válido');
+    }
 }
 
 function verifyRepeatedNumbers(cpf) {
@@ -37,5 +42,28 @@ function validadeFirstDigit(cpf) {
         sum = 0;
     }
 
+    console.log(sum)
+
     return sum != cpf[9];
+}
+
+
+function validadeSecondDigit(cpf) {
+    let sum = 0;
+    let multiplicator = 11;
+
+    for (let size = 0; size < 10; size++) {
+        sum += cpf[size] * multiplicator;
+        multiplicator--;
+    }
+
+    sum = (sum * 10) % 11;
+
+    if (sum == 11 || sum == 10) {
+        sum = 0;
+    }
+
+    console.log(sum)
+
+    return sum != cpf[10];
 }
