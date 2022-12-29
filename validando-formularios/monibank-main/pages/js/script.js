@@ -63,6 +63,12 @@ function verifyfield(field) {
         }
     })
 
-    const errorMessage = document.querySelectorAll('span.mensagem-erro');
+    const errorMessage = field.parentNode.querySelector('span.mensagem-erro');
+    const isInputValid = field.checkValidity();
 
+    if (!isInputValid) {
+        errorMessage.innerHTML = message;
+    } else {
+        errorMessage.innerHTML = '';
+    }
 }
