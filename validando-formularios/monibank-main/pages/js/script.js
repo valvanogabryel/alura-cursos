@@ -62,4 +62,7 @@ function verifyfield(field) {
             console.log(message);
         }
     })
+
+    const errorMessage = document.querySelectorAll('span.mensagem-erro');
+
 }
