@@ -16,7 +16,7 @@ function verifyRepeatedNumbers(cpf) {
         '77777777777',
         '88888888888',
         '99999999999'
-    ]
+    ];
 
     return repeatedNumbers.includes(cpf);
 }
