@@ -4,9 +4,7 @@ export default function isCPF(field) {
     if (verifyRepeatedNumbers(cpf) ||
         validadeFirstDigit(cpf) ||
         validadeSecondDigit(cpf)) {
-        console.log('Esse cpf não existe');
-    } else {
-        console.log('Cpf válido');
+        field.setCustomValidity('Esse CPF não é válido');
     }
 }
 

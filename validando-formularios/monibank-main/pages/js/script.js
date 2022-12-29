@@ -12,6 +12,23 @@ formElements.forEach(element => {
     })
 })
 
+const form = document.querySelector('[data-formulario]')
+form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const answerList = {
+        "nome": event.target.elements["nome"].value,
+        "email": event.target.elements["email"].value,
+        "rg": event.target.elements["rg"].value,
+        "cpf": event.target.elements["cpf"].value,
+        "aniversario": event.target.elements["aniversario"].value
+    }
+
+    localStorage.setItem('cadastro', JSON.stringify(answerList));
+
+    window.location.href = '../pages/abrir-conta-form-2.html';
+})
+
 const typeOfErrors = [
     'valueMissing',
     'typeMismatch',
@@ -53,6 +70,7 @@ const messages = {
 
 function verifyfield(field) {
     let message = '';
+    field.setCustomValidity('');
     field.name == 'cpf' && field.value.length > 11 ? isCPF(field) : '';
     field.name == 'aniversario' && field.value != '' ? isOfAge(field) : '';
 

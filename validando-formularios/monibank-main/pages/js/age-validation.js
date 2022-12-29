@@ -1,6 +1,8 @@
 export default function isOfAge(field) {
     const birthDate = new Date(field.value);
-    return validadeAge(birthDate);
+    if (!validadeAge(birthDate)) {
+        field.setCustomValidity('O usuário não é maior de idade');
+    };
 }
 
 function validadeAge(date) {
