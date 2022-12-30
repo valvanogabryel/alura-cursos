@@ -9,7 +9,6 @@ export class Negociation {
         this.#value = value;
     }
 
-
     get volume() {
         return this.#quantity * this.#value;
     }
