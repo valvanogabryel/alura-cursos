@@ -8,4 +8,9 @@ export class Negociation {
         this.#quantity = quantity;
         this.#value = value;
     }
+
+
+    get volume() {
+        return this.#quantity * this.#value;
+    }
 }
