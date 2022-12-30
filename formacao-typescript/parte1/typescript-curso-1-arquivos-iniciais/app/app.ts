@@ -5,5 +5,6 @@ console.log(negociation1);
 
 console.log(negociation1.volume);
 
+alert('oi')
 
 
