@@ -1,3 +1,4 @@
+import { Negotiation } from "../models/negotiation.js";
 export class NegotiationController {
     constructor() {
         this.inputDate = document.querySelector('#data');
@@ -5,8 +6,8 @@ export class NegotiationController {
         this.inputValue = document.querySelector('#valor');
     }
     add() {
-        console.log(this.inputDate);
-        console.log(this.inputQuantity);
-        console.log(this.inputValue);
+        const negotiation = new Negotiation(this.inputDate.value, this.inputQuantity.value, this.inputValue.value);
+        console.log(negotiation);
+        return negotiation;
     }
 }
