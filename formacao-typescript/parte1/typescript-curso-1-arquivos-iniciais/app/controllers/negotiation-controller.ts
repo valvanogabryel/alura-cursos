@@ -12,12 +12,12 @@ export class NegotiationController {
     }
 
     add(): void {
-        const negotiation = this.createNegotitation();
+        const negotiation = this.createNegotiation();
         console.log(negotiation);
         this.clearForm();
     }
 
-    createNegotitation(): Negotiation {
+    createNegotiation(): Negotiation {
         const exp = /-/g;
         const date = new Date(this.inputDate.value.replace(exp, ','));
         const quantity = parseInt(this.inputQuantity.value);
