@@ -11,20 +11,22 @@ export class NegotiationController {
         this.inputValue = document.querySelector('#valor');
     }
 
-    add() {
+    add(): void {
+        const negotiation = this.createNegotitation();
+        console.log(negotiation);
+    }
+
+    createNegotitation(): Negotiation {
         const exp = /-/g;
         const date = new Date(this.inputDate.value.replace(exp, ','));
         const quantity = parseInt(this.inputQuantity.value);
         const value = parseFloat(this.inputValue.value);
 
-        const negotiation = new Negotiation(
+        return new Negotiation(
             date,
             quantity,
             value
         );
-
-        console.log(negotiation);
-        return negotiation;
     }
 
 }
