@@ -13,4 +13,4 @@ export class Negotiations {
 }
 
 const negotiations = new Negotiations();
-negotiations.list().forEach(n => n.volume);
+negotiations.list().forEach(n => n.value);
