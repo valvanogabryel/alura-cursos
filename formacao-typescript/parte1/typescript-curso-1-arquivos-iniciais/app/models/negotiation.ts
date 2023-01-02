@@ -1,11 +1,16 @@
 export class Negotiation {
     constructor(
-        private readonly date: Date,
-        private readonly quantity: number,
-        private readonly value: number
+        private _date: Date,
+        public readonly quantity: number,
+        public readonly value: number
     ) { }
 
     get volume(): number {
         return this.quantity * this.value;
+    }
+
+    get date() {
+        const date = new Date(this._date.getTime());
+        return date;
     }
 }
