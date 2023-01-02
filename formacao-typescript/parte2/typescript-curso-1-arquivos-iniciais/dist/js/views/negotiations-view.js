@@ -1,5 +1,6 @@
-export class NegotiationsView {
-    constructor(selector) {
+import { View } from "./view.js";
+export class NegotiationsView extends View {
+    super(selector) {
         this.element = document.querySelector(selector);
     }
     template(model) {
