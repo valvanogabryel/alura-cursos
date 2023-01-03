@@ -4,7 +4,9 @@ import { NegotiationsView } from "../views/negotiations-view.js";
 import { Negotiations } from './../models/negotiations.js';
 export class NegotiationController {
     constructor() {
+        //Negotiations
         this.negotiations = new Negotiations();
+        //Views
         this.negotiationsView = new NegotiationsView('#negociacoesView');
         this.messageView = new MessageView('#mensagemView');
         this.inputDate = document.querySelector('#data');
@@ -14,10 +16,15 @@ export class NegotiationController {
     }
     add() {
         const negotiation = this.createNegotiation();
-        this.negotiations.addNegotiation(negotiation);
-        this.negotiationsView.update(this.negotiations);
-        this.messageView.update('Negociação adicionada com sucesso');
-        this.clearForm();
+        if (!this.isNotWeekend(negotiation.date)) {
+            this.messageView.update('Apenas negociações em dias úteis são aceitas');
+            return;
+        }
+        else {
+            this.negotiations.addNegotiation(negotiation);
+            this.clearForm();
+            this.updateView();
+        }
     }
     createNegotiation() {
         const exp = /-/g;
@@ -31,5 +38,16 @@ export class NegotiationController {
         this.inputQuantity.value = '';
         this.inputValue.value = '';
         this.inputDate.focus();
+    }
+    updateView() {
+        this.negotiationsView.update(this.negotiations);
+        this.messageView.update('Negociação adicionada com sucesso');
+    }
+    isNotWeekend(date) {
+        const weekend = [
+            0,
+            6 // Saturday
+        ];
+        return date.getDay() > weekend[0] && date.getDay() < weekend[1];
     }
 }

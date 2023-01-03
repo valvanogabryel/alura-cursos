@@ -5,11 +5,11 @@ export class Negotiations {
         Array<Negotiation> = [];
     //- Negotiation[] = [];
 
-    addNegotiation(negotiation: Negotiation): void {
+    public addNegotiation(negotiation: Negotiation): void {
         this.negotiations.push(negotiation);
     }
 
-    list(): ReadonlyArray<Negotiation> {
+    public list(): ReadonlyArray<Negotiation> {
         return [...this.negotiations];
     }
 }
