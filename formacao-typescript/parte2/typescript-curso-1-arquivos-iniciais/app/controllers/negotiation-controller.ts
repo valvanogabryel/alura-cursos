@@ -2,6 +2,7 @@ import { Negotiation } from "../models/negotiation.js";
 import { MessageView } from "../views/message-view.js";
 import { NegotiationsView } from "../views/negotiations-view.js";
 import { Negotiations } from './../models/negotiations.js';
+import { DaysOfTheWeek } from "../enums/days-of-the-week.js";
 
 export class NegotiationController {
     //Inputs
@@ -22,29 +23,21 @@ export class NegotiationController {
     }
 
     public add(): void {
-        const negotiation = this.createNegotiation();
+        const negotiation = Negotiation.createOf
+            (
+                this.inputDate.value,
+                this.inputQuantity.value,
+                this.inputValue.value
+            );
 
         if (!this.isNotWeekend(negotiation.date)) {
             this.messageView.update('Apenas negociações em dias úteis são aceitas');
             return;
-        } else {
-            this.negotiations.addNegotiation(negotiation);
-            this.clearForm();
-            this.updateView();
         }
-    }
 
-    private createNegotiation(): Negotiation {
-        const exp = /-/g;
-        const date = new Date(this.inputDate.value.replace(exp, ','));
-        const quantity = parseInt(this.inputQuantity.value);
-        const value = parseFloat(this.inputValue.value);
-
-        return new Negotiation(
-            date,
-            quantity,
-            value
-        );
+        this.negotiations.addNegotiation(negotiation);
+        this.clearForm();
+        this.updateView();
     }
 
     private clearForm(): void {
@@ -60,10 +53,7 @@ export class NegotiationController {
     }
 
     private isNotWeekend(date: Date): boolean {
-        const weekend = [
-            0, // Sunday
-            6 // Saturday
-        ]
-        return date.getDay() > weekend[0] && date.getDay() < weekend[1];
+        return date.getDay() > DaysOfTheWeek.SUNDAY
+            && date.getDay() < DaysOfTheWeek.SATURDAY;
     }
 }
