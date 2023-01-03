@@ -27,12 +27,4 @@ export class NegotiationsView extends View<Negotiations> {
         </table>
         `
     }
-
-    update(model: Negotiations): void {
-        const template = this.template(model);
-        console.log(template);
-
-        this.element.innerHTML = template;
-    }
-
 }
