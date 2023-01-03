@@ -1,10 +1,7 @@
 import { Negotiations } from "../models/negotiations.js";
 import { View } from "./view.js";
 
-export class NegotiationsView extends View {
-    super(selector: string) {
-        this.element = document.querySelector(selector);
-    }
+export class NegotiationsView extends View<Negotiations> {
 
     template(model: Negotiations): string {
         return `

@@ -1,8 +1,5 @@
 import { View } from "./view.js";
 export class NegotiationsView extends View {
-    super(selector) {
-        this.element = document.querySelector(selector);
-    }
     template(model) {
         return `
         <table class="table table-hover table-bordered">
