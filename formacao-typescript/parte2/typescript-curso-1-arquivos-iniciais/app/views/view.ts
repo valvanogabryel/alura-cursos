@@ -1,4 +1,5 @@
 export abstract class View<T> {
+    //abstract impede a instância da classe View.
     protected element: HTMLElement;
 
     constructor(selector: string) {
@@ -10,5 +11,6 @@ export abstract class View<T> {
         this.element.innerHTML = template;
     }
 
-    abstract template(model: T): string;
+    protected abstract template(model: T): string;
+    //Força as filhas a implementarem um método desconhecido pela Classe mãe.
 }
