@@ -8,8 +8,8 @@ export class NegotiationController {
         //Negotiations
         this.negotiations = new Negotiations();
         //Views
-        this.negotiationsView = new NegotiationsView('#negociacoesView');
-        this.messageView = new MessageView('#mensagemView');
+        this.negotiationsView = new NegotiationsView('#negociacoesView', true);
+        this.messageView = new MessageView('#mensagemView', false);
         this.inputDate = document.querySelector('#data');
         this.inputQuantity = document.querySelector('#quantidade');
         this.inputValue = document.querySelector('#valor');

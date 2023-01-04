@@ -12,8 +12,8 @@ export class NegotiationController {
     //Negotiations
     private negotiations = new Negotiations();
     //Views
-    private negotiationsView = new NegotiationsView('#negociacoesView');
-    private messageView = new MessageView('#mensagemView');
+    private negotiationsView = new NegotiationsView('#negociacoesView', true);
+    private messageView = new MessageView('#mensagemView', false);
 
     constructor() {
         this.inputDate = document.querySelector('#data');
