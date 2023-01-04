@@ -3,9 +3,11 @@ export abstract class View<T> {
     protected element: HTMLElement;
     private scape = false;
 
-    //                            o "?" faz com que o parâmetro seja opicional. 
+    //o "?" faz com que o parâmetro seja opicional. Os parâmetros opicionais devem sempre ficar por último. 
+    //4 parâmetros obrigatórios e 5 opicionais em sequência (funciona);
+    //2 parâmetros obrigatórios, 1 parâmetro opicional e outro parâmetro obrigatório (não funciona);
     constructor(selector: string, scape?/*<------*/: boolean) {
-        this.element = document.querySelector(selector);
+        this.element = document.querySelector(selector) as HTMLInputElement;
         if (scape) { this.scape = scape }; //Caso nenhum parâmetro seja passado, o valor de "scape" será undefined. Ou seja, false, e não entrará no bloco de código. Caso seja true, o valor booleano será atribuído ao scape.
     }
 

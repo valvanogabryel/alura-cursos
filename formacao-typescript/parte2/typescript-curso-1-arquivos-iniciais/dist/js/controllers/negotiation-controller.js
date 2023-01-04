@@ -5,9 +5,7 @@ import { Negotiations } from './../models/negotiations.js';
 import { DaysOfTheWeek } from "../enums/days-of-the-week.js";
 export class NegotiationController {
     constructor() {
-        //Negotiations
         this.negotiations = new Negotiations();
-        //Views
         this.negotiationsView = new NegotiationsView('#negociacoesView', true);
         this.messageView = new MessageView('#mensagemView', false);
         this.inputDate = document.querySelector('#data');
