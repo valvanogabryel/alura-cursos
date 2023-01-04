@@ -18,7 +18,6 @@ export abstract class View<T> {
         if (scape) { this.scape = scape }; //Caso nenhum parâmetro seja passado, o valor de "scape" será undefined. Ou seja, false, e não entrará no bloco de código. Caso seja true, o valor booleano será atribuído ao scape.
     }
 
-    @logExecutionTime()
     update(model: T): void {
         let template = this.template(model);
         // removes script tags
