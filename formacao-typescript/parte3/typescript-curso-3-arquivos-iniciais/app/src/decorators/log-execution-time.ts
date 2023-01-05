@@ -3,5 +3,5 @@ export function logExecutionTime() {
         target: any,
         propertyKey: string,
         descriptor: PropertyDescriptor
-    ) { }
+    ) { console.log(descriptor) }
 }
