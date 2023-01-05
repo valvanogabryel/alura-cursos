@@ -3,5 +3,15 @@ export function logExecutionTime() {
         target: any,
         propertyKey: string,
         descriptor: PropertyDescriptor
-    ) { console.log(descriptor) }
+    ) {
+        const originalMethod = descriptor.value;
+        descriptor.value = function (...args: Array<any>) {
+            const t1 = performance.now();
+            const returnedMethod = originalMethod.apply(this, args);
+            const t2 = performance.now();
+            console.log(`${propertyKey}, tempo de execução: ${(t2 - t1) / 1000}`);
+            returnedMethod;
+        }
+        return descriptor;
+    }
 }
