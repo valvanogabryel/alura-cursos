@@ -1,7 +1,7 @@
 import { Negotiation } from "../models/negotiation.js";
+import { Negotiations } from '../models/negotiations.js';
 import { MessageView } from "../views/message-view.js";
 import { NegotiationsView } from "../views/negotiations-view.js";
-import { Negotiations } from './../models/negotiations.js';
 import { DaysOfTheWeek } from "../enums/days-of-the-week.js";
 export class NegotiationController {
     constructor() {
