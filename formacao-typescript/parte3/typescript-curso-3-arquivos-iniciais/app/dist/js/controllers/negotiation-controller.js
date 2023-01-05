@@ -10,11 +10,12 @@ import { Negotiations } from '../models/negotiations.js';
 import { NegotiationsView } from "../views/negotiations-view.js";
 import { DaysOfTheWeek } from "../enums/days-of-the-week.js";
 import { logExecutionTime } from "../decorators/log-execution-time.js";
+import { inspect } from "../decorators/inspect.js";
 export class NegotiationController {
     constructor() {
         this.negotiations = new Negotiations();
-        this.negotiationsView = new NegotiationsView('#negociacoesView', true);
-        this.messageView = new MessageView('#mensagemView', false);
+        this.negotiationsView = new NegotiationsView('#negociacoesView');
+        this.messageView = new MessageView('#mensagemView');
         this.inputDate = document.querySelector('#data');
         this.inputQuantity = document.querySelector('#quantidade');
         this.inputValue = document.querySelector('#valor');
@@ -46,5 +47,6 @@ export class NegotiationController {
     }
 }
 __decorate([
-    logExecutionTime()
+    logExecutionTime(),
+    inspect
 ], NegotiationController.prototype, "add", null);

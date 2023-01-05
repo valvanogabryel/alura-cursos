@@ -15,3 +15,16 @@ export function inspect(
 
     return descriptor;
 }
+
+// Quando a função não receber parâmetros, o retorno da segunda função pode ser omitido do código. Porém, para evitar futuros problemas, é sempre indicado que faça: 
+
+/* 
+export function inspect() {
+    return function(
+        target: any,
+        propertyKey: string,
+        descriptor: PropertyDescriptor
+        ) { ... }
+        
+    }
+*/

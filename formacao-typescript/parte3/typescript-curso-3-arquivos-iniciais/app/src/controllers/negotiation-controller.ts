@@ -4,6 +4,7 @@ import { Negotiations } from '../models/negotiations.js';
 import { NegotiationsView } from "../views/negotiations-view.js";
 import { DaysOfTheWeek } from "../enums/days-of-the-week.js";
 import { logExecutionTime } from "../decorators/log-execution-time.js";
+import { inspect } from "../decorators/inspect.js";
 
 export class NegotiationController {
     //Inputs
@@ -13,8 +14,8 @@ export class NegotiationController {
     //Negotiations
     private negotiations = new Negotiations();
     //Views
-    private negotiationsView = new NegotiationsView('#negociacoesView', true);
-    private messageView = new MessageView('#mensagemView', false);
+    private negotiationsView = new NegotiationsView('#negociacoesView');
+    private messageView = new MessageView('#mensagemView');
 
     constructor() {
         this.inputDate = document.querySelector('#data') as HTMLInputElement;
@@ -24,6 +25,7 @@ export class NegotiationController {
     }
 
     @logExecutionTime()
+    @inspect
     public add(): void {
         const negotiation = Negotiation.createOf
             (
