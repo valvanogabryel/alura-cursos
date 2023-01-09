@@ -3,8 +3,13 @@ export function domInjector(selector: string) {
         target: any,
         propertyKey: string
     ) {
+        let element: HTMLElement;
         const getter = function () {
-            const element = document.querySelector(selector);
+            if (!element) {
+                element = document.querySelector(selector) as HTMLElement;
+                console.log(selector, propertyKey);
+            }
+
             return element;
         }
 
