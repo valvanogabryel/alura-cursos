@@ -46,7 +46,6 @@ export class NegotiationController {
 
         this.negotiations.addNegotiation(negotiation);
 
-
         print(negotiation, this.negotiations);
 
         this.clearForm();
