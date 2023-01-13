@@ -12,6 +12,10 @@ export class Negotiations {
     public list(): ReadonlyArray<Negotiation> {
         return [...this.negotiations];
     }
+
+    public toText(): string {
+        return JSON.stringify(this.negotiations, null, 2);
+    }
 }
 
 const negotiations = new Negotiations();

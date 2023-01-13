@@ -5,15 +5,6 @@ export class Negotiation {
         public readonly value: number
     ) { }
 
-    get volume(): number {
-        return this.quantity * this.value;
-    }
-
-    get date() {
-        const date = new Date(this._date.getTime());
-        return date;
-    }
-
     public static createOf(dateString: string, quantityString: string, valueString: string): Negotiation {
         const exp = /-/g;
         const date = new Date(dateString.replace(exp, ','));
@@ -24,5 +15,23 @@ export class Negotiation {
             quantity,
             value
         );
+    }
+
+    public toText(): string {
+        return `
+            Data: ${this.date},
+            Quantidade: ${this.quantity},
+            Valor: ${this.value}
+            `
+    }
+
+
+    get volume(): number {
+        return this.quantity * this.value;
+    }
+
+    get date() {
+        const date = new Date(this._date.getTime());
+        return date;
     }
 }

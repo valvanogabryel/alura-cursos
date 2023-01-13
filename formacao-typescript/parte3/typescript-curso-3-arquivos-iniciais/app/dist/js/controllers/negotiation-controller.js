@@ -13,6 +13,7 @@ import { logExecutionTime } from "../decorators/log-execution-time.js";
 import { inspect } from "../decorators/inspect.js";
 import { domInjector } from "../decorators/dom-injector.js";
 import { NegotiationsServices } from '../services/negotiations-service.js';
+import { print } from "../utils/print.js";
 export class NegotiationController {
     constructor() {
         this.negotiations = new Negotiations();
@@ -28,6 +29,7 @@ export class NegotiationController {
             return;
         }
         this.negotiations.addNegotiation(negotiation);
+        print(negotiation, this.negotiations);
         this.clearForm();
         this.updateView();
     }

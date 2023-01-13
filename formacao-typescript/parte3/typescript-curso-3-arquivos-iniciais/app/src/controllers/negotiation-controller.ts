@@ -7,6 +7,7 @@ import { logExecutionTime } from "../decorators/log-execution-time.js";
 import { inspect } from "../decorators/inspect.js";
 import { domInjector } from "../decorators/dom-injector.js";
 import { NegotiationsServices } from '../services/negotiations-service.js';
+import { print } from "../utils/print.js";
 
 export class NegotiationController {
     //Inputs
@@ -44,6 +45,10 @@ export class NegotiationController {
         }
 
         this.negotiations.addNegotiation(negotiation);
+
+
+        print(negotiation, this.negotiations);
+
         this.clearForm();
         this.updateView();
     }
