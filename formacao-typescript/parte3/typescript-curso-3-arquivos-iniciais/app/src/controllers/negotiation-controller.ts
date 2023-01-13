@@ -6,6 +6,7 @@ import { DaysOfTheWeek } from "../enums/days-of-the-week.js";
 import { logExecutionTime } from "../decorators/log-execution-time.js";
 import { inspect } from "../decorators/inspect.js";
 import { domInjector } from "../decorators/dom-injector.js";
+import { NegotiationsServices } from '../services/negotiations-service.js';
 
 export class NegotiationController {
     //Inputs
@@ -20,6 +21,8 @@ export class NegotiationController {
     //Views
     private negotiationsView = new NegotiationsView('#negociacoesView');
     private messageView = new MessageView('#mensagemView');
+    // Services
+    private negotiationsServices = new NegotiationsServices();
 
     constructor() {
         this.negotiationsView.update(this.negotiations);
@@ -57,19 +60,29 @@ export class NegotiationController {
         this.messageView.update('Negociação adicionada com sucesso');
     }
 
-    public async importData(): Promise<any> {
-        const response = await fetch('http://localhost:8080/dados');
-        let convertedResponse = await response.json();
-        console.log(convertedResponse)
-        return convertedResponse;
-        // OU 
-        /*
-        fetch('http://localhost:8080/dados')
-            .then(response => {
-                response.json();
+    public importData(): void {
+        this.negotiationsServices
+            .obtainDaysNegotiations()
+            .then(todaysNegotiation => {
+                for (let negotiation of todaysNegotiation) {
+                    this.negotiations.addNegotiation(negotiation);
+                }
+                this.negotiationsView.update(this.negotiations);
             })
-            .then(convertedResponse => convertedResponse);
-        */
+
+        // const response = await fetch('http://localhost:8080/dados');
+        // const convertedResponse = await response.json();
+
+        // const negotiationsApi = convertedResponse.map((data: daysNegotiation) => {
+        //     return new Negotiation(new Date(), data.vezes, data.montante);
+        // });
+
+        // for (let negotiationApi of negotiationsApi) {
+        //     this.negotiations.addNegotiation(negotiationApi);
+        // }
+
+        // this.negotiationsView.update(this.negotiations);
+
     }
 
     private isNotWeekend(date: Date): boolean {
