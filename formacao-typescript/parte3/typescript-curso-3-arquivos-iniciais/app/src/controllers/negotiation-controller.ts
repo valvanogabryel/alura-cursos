@@ -57,6 +57,21 @@ export class NegotiationController {
         this.messageView.update('Negociação adicionada com sucesso');
     }
 
+    public async importData(): Promise<any> {
+        const response = await fetch('http://localhost:8080/dados');
+        let convertedResponse = await response.json();
+        console.log(convertedResponse)
+        return convertedResponse;
+        // OU 
+        /*
+        fetch('http://localhost:8080/dados')
+            .then(response => {
+                response.json();
+            })
+            .then(convertedResponse => convertedResponse);
+        */
+    }
+
     private isNotWeekend(date: Date): boolean {
         return date.getDay() > DaysOfTheWeek.SUNDAY
             && date.getDay() < DaysOfTheWeek.SATURDAY;
