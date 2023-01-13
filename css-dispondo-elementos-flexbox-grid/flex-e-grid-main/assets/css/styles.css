@@ -426,6 +426,13 @@ body {
     margin-right: 8px;
 }
 
+.card__button--place::before {
+    content: "\e908";
+    font-size: 24px;
+    font-weight: 100;
+    margin-right: 8px;
+}
+
 @media screen and (min-width: 1124px) {
     .card--recents {
         display: grid !important;
