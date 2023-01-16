@@ -13,7 +13,7 @@
     --light-blue: #dfe3e5;
     --red: #b72e2e;
     --dark-gray: #4f4c4c;
-    --strong-gray: #666;
+    --strong-gray: #666666;
     --mid-gray: #d9d9d9;
     --light-gray: #f7f4f4;
     --link-color: #0084ff;
@@ -31,4 +31,20 @@
 
 body {
     font-family: var(--font-primary);
+}
+
+.container {
+    padding-right: 6%;
+    padding-left: 6%;
+}
+
+.button {
+    display: block;
+    padding: 1rem 2rem;
+    border: 1px solid var(--white);
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    box-sizing: border-box;
 }
