@@ -1,7 +1,8 @@
+import { Comparable } from "../interfaces/comparable.js";
 import { Printable } from "../utils/printable.js";
 import { Negotiation } from "./negotiation.js";
 //                        "implements" herda de uma interface. Diferentemente do "extends", que herda somente de uma classe. 
-export class Negotiations implements Printable {
+export class Negotiations implements Printable, Comparable<Negotiations> {
     private negotiations:
         Array<Negotiation> = [];
     //- Negotiation[] = [];
@@ -16,6 +17,10 @@ export class Negotiations implements Printable {
 
     public toText(): string {
         return JSON.stringify(this.negotiations, null, 2);
+    }
+
+    public isEqual(negotiations: Negotiations): boolean {
+        return JSON.stringify(negotiations.list()) === JSON.stringify(negotiations);
     }
 }
 

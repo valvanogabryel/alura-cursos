@@ -1,6 +1,7 @@
+import { Comparable } from "../interfaces/comparable.js";
 import { Printable } from "../utils/printable.js";
 //                       passar multiplas superclasses é impossível. Mas, o número de interfaces que se pode "implementar" é infinito. 
-export class Negotiation implements Printable {
+export class Negotiation implements Printable, Comparable<Negotiation> {
     constructor(
         private _date: Date,
         public readonly quantity: number,
