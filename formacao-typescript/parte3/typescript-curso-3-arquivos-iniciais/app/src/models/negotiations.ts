@@ -1,7 +1,7 @@
 import { Printable } from "../utils/printable.js";
 import { Negotiation } from "./negotiation.js";
-
-export class Negotiations extends Printable {
+//                        "implements" herda de uma interface. Diferentemente do "extends", que herda somente de uma classe. 
+export class Negotiations implements Printable {
     private negotiations:
         Array<Negotiation> = [];
     //- Negotiation[] = [];

@@ -1,7 +1,5 @@
-import { Printable } from "../utils/printable.js";
-export class Negotiation extends Printable {
+export class Negotiation {
     constructor(_date, quantity, value) {
-        super();
         this._date = _date;
         this.quantity = quantity;
         this.value = value;
@@ -19,6 +17,11 @@ export class Negotiation extends Printable {
             Quantidade: ${this.quantity},
             Valor: ${this.value}
             `;
+    }
+    isEqual(negotiation) {
+        return this.date.getDate() === negotiation.date.getDate()
+            && this.date.getMonth() === negotiation.date.getMonth()
+            && this.date.getFullYear() === negotiation.date.getFullYear();
     }
     get volume() {
         return this.quantity * this.value;

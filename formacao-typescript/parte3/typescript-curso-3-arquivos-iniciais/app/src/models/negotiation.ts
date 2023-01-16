@@ -1,11 +1,11 @@
 import { Printable } from "../utils/printable.js";
-
-export class Negotiation extends Printable {
+//                       passar multiplas superclasses é impossível. Mas, o número de interfaces que se pode "implementar" é infinito. 
+export class Negotiation implements Printable {
     constructor(
         private _date: Date,
         public readonly quantity: number,
         public readonly value: number
-    ) { super() }
+    ) { }
 
     public static createOf(dateString: string, quantityString: string, valueString: string): Negotiation {
         const exp = /-/g;
@@ -27,6 +27,11 @@ export class Negotiation extends Printable {
             `
     }
 
+    public isEqual(negotiation: Negotiation): boolean {
+        return this.date.getDate() === negotiation.date.getDate()
+            && this.date.getMonth() === negotiation.date.getMonth()
+            && this.date.getFullYear() === negotiation.date.getFullYear()
+    }
 
     get volume(): number {
         return this.quantity * this.value;
