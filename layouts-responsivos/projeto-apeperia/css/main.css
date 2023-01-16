@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/* Styles */
+@import url(reset.css);
+@import url(cabecalho.css);
+@import url(chamada.css);
+@import url(planos.css);
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Open+Sans:wght@300;400;700&display=swap");
+
+:root {
+    /* Colors */
+    --white: #fff;
+    --light-blue: #dfe3e5;
+    --red: #b72e2e;
+    --dark-gray: #4f4c4c;
+    --strong-gray: #666;
+    --mid-gray: #d9d9d9;
+    --light-gray: #f7f4f4;
+    --link-color: #0084ff;
+    --header-border-mobile: #103d4a;
+    --footer-bg: #333;
+    --mobile-call-bg: #00161c;
+    --plans-card-start: #56ccf2;
+    --plans-card-ultra: #b04cd9;
+    --plans-card-mega: #e33b3b;
+
+    /* Fonts */
+    --font-primary: "Open Sans", sans-serif;
+    --font-secondary: "Montserrat", sans-serif;
+}
+
+body {
+    font-family: var(--font-primary);
+}
