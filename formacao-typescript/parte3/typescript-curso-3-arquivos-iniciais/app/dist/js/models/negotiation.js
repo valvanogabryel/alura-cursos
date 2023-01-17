@@ -31,3 +31,4 @@ export class Negotiation {
         return date;
     }
 }
+//# sourceMappingURL=negotiation.js.map
