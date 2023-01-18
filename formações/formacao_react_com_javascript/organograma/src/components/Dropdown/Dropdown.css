@@ -1,15 +1,11 @@
-.field__container {
-    margin: 24px 0;
-}
-
-.field__title {
+.dropdown__label {
     display: block;
     margin-bottom: 8px;
     font-size: 18px;
     font-weight: 600;
 }
 
-.field__input {
+.dropdown__select {
     background: #fff;
     box-shadow: 10px 10px 30px 0px #0000000f;
     mix-blend-mode: normal;
@@ -19,8 +15,4 @@
     font-size: 18px;
     box-sizing: border-box;
     border: none;
-}
-
-.field__input::placeholder {
-    opacity: 0.5;
 }

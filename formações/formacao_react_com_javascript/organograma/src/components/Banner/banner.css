@@ -1,8 +1,8 @@
-.banner {
+.banner__container {
     text-align: center;
     background: #6278f7;
 }
 
-.banner img {
+.banner__image {
     max-width: 100%;
 }

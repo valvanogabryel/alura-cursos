@@ -1,10 +1,16 @@
 import './TextField.css';
 
-const TextField = (props) => (
-    <div className="input__container">
-        <label htmlFor={props.label} className="text__field--title">{props.label}</label>
-        <input type="text" name={props.label.toLowerCase()} className="text__field--field" placeholder={props.placeholder} />
-    </div>
-)
+const TextField = (props) => {
+    const handleDigit = event => {
+        props.changed(event.target.value);
+    }
+
+    return (
+        <div className="field__container">
+            <label htmlFor={props.label} className="field__title">{props.label}</label>
+            <input value={props.value} onInput={handleDigit} required={props.required} type="text" name={props.label.toLowerCase()} className="field__input" placeholder={props.placeholder} />
+        </div>
+    )
+}
 
 export default TextField;
