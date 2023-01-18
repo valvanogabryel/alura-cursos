@@ -8,7 +8,7 @@ const TextField = (props) => {
     return (
         <div className="field__container">
             <label htmlFor={props.label} className="field__title">{props.label}</label>
-            <input value={props.value} onInput={handleDigit} required={props.required} type="text" name={props.label.toLowerCase()} className="field__input" placeholder={props.placeholder} />
+            <input value={props.value} onChange={handleDigit} required={props.required} type="text" name={props.label.toLowerCase()} className="field__input" placeholder={props.placeholder} />
         </div>
     )
 }

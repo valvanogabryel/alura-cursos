@@ -5,7 +5,7 @@
 .field__title {
     display: block;
     margin-bottom: 8px;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
 }
 
@@ -14,7 +14,7 @@
     box-shadow: 10px 10px 30px 0px #0000000f;
     mix-blend-mode: normal;
     border-radius: 8px;
-    padding: 18px;
+    padding: 2rem 1.5rem;
     width: 100%;
     font-size: 18px;
     box-sizing: border-box;
@@ -22,5 +22,6 @@
 }
 
 .field__input::placeholder {
-    opacity: 0.5;
+    color: #a4a4a4;
+    font-size: 1rem;
 }
