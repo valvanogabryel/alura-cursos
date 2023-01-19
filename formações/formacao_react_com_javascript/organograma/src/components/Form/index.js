@@ -14,6 +14,10 @@ const Form = (props) => {
             team
         })
 
+        clearForm()
+    }
+
+    const clearForm = () => {
         setName('');
         setRole('');
         setImage('');
