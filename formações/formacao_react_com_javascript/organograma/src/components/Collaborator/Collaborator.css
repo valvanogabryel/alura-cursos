@@ -1,5 +1,6 @@
 .card__container {
     width: 280px;
+    margin: 2rem;
 }
 
 .card__container .card__picture {
@@ -35,4 +36,11 @@
     line-height: 22px;
     color: #212121;
     padding: 0 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .card__container {
+        width: 280px;
+        margin: 2rem auto;
+    }
 }

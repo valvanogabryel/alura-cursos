@@ -12,6 +12,7 @@
 
 .footer__text {
     color: #fff;
+    width: 100%;
 }
 
 .footer__link {
@@ -31,4 +32,11 @@
 
 .footer__link:hover::after {
     width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .footer__container {
+        justify-content: center;
+        gap: 3rem;
+    }
 }

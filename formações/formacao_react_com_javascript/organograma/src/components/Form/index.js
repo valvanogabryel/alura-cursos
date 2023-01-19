@@ -21,13 +21,13 @@ const Form = (props) => {
         setName('');
         setRole('');
         setImage('');
-        setTeam('');
+        setTeam('Programação');
     }
 
     const [name, setName] = useState('');
     const [role, setRole] = useState('');
     const [image, setImage] = useState('');
-    const [team, setTeam] = useState('');
+    const [team, setTeam] = useState('Programação');
 
     return (
         <section className="form__container">
