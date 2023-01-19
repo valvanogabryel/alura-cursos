@@ -10,10 +10,9 @@
     border-bottom: 4px solid;
 }
 
-/* .team__title::after {
-    content: "";
-    display: block;
-    padding-top: 0.6rem;
-    width: 2rem;
-    margin: auto;
-} */
+.team__collaborators {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 2rem;
+}

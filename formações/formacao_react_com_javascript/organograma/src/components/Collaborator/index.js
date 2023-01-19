@@ -1,14 +1,14 @@
 import './Collaborator.css';
-
-const Collaborator = (props) => {
+//                     desestruturação da prop
+const Collaborator = ({ name, role, image }) => {
     return (
-        <div>
-            <div>
-                <img src="#" alt="Foto de perfil do colaborador" />
+        <div className="card__container">
+            <div className="card__picture">
+                <img src={image} alt="Foto de perfil do colaborador" />
             </div>
-            <div>
-                <h4>Gabryel Valvano</h4>
-                <h5>Desenvolvedor Front-End</h5>
+            <div className="card__informations">
+                <h4>{name}</h4>
+                <h5>{role}</h5>
             </div>
         </div>
     )
