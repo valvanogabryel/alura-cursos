@@ -52,7 +52,7 @@ function App() {
     <div className="App">
       <Banner src="/imagens/banner.png" alt="Banner principal da Organo" />
       <Form onRegisterCollaborator={collaborator => registerNewCollaborator(collaborator)} />
-      {teams.map((team, index) => <Team name={team.name} key={index} />)}
+      {teams.map((team, index) => <Team name={team.name} key={index} primary_color={team.primaryColor} secondary_color={team.secondaryColor} />)}
     </div>
   );
 }
