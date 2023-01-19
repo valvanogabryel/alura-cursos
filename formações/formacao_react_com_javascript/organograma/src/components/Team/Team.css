@@ -1,0 +1,20 @@
+.team__container {
+    text-align: center;
+    padding: 2rem;
+    background: #d9f7e9;
+}
+
+.team__title {
+    display: inline-block;
+    font-family: "Prata", serif;
+    font-size: 2rem;
+}
+
+.team__title::after {
+    content: "";
+    display: block;
+    padding-top: 0.6rem;
+    border-bottom: 4px solid #57c278;
+    width: 2rem;
+    margin: auto;
+}

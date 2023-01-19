@@ -30,7 +30,6 @@ const Form = (props) => {
     const [image, setImage] = useState('');
     const [team, setTeam] = useState('');
 
-
     return (
         <section className="form__container">
             <form onSubmit={onSave} className="form">
