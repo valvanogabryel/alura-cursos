@@ -42,6 +42,8 @@ function App() {
     },
   ];
 
+  const teamsNames = teams.map(team => team.name);
+
   const [collaborators, setCollaborators] = useState([]);
 
   const registerNewCollaborator = (collaborator) => {
@@ -51,7 +53,7 @@ function App() {
   return (
     <div className="App">
       <Banner src="/imagens/banner.png" alt="Banner principal da Organo" />
-      <Form onRegisterCollaborator={collaborator => registerNewCollaborator(collaborator)} />
+      <Form onRegisterCollaborator={collaborator => registerNewCollaborator(collaborator)} teams={teamsNames} />
       {teams.map((team, index) => <Team name={team.name} key={index} primary_color={team.primaryColor} secondary_color={team.secondaryColor} />)}
     </div>
   );

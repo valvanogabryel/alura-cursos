@@ -5,16 +5,6 @@ import Button from '../Button';
 import { useState } from 'react';
 
 const Form = (props) => {
-    const teams = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'DevOps',
-        'UX & Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ];
-
     const onSave = (event) => {
         event.preventDefault();
         props.onRegisterCollaborator({
@@ -57,7 +47,7 @@ const Form = (props) => {
                 />
                 <Dropdown
                     label="Time"
-                    items={teams}
+                    items={props.teams}
                     value={team}
                     changed={value => setTeam(value)}
                 />
