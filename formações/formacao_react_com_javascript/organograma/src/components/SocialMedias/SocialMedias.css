@@ -3,7 +3,6 @@
     gap: 4rem;
     transform: scale(0.7);
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .medias__container a:hover {

@@ -1,4 +1,3 @@
-
 import Collaborator from '../Collaborator';
 import './Team.css';
 
