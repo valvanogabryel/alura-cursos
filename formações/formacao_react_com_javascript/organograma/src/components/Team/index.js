@@ -19,6 +19,7 @@ const Team = (props) => {
                             image={collaborator.image}
                             primary_color={props.primary_color}
                             key={index}
+                            onDelete={props.onDelete}
                         />
                     })}
                 </div>

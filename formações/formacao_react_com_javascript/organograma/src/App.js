@@ -47,6 +47,10 @@ function App() {
 
   const [collaborators, setCollaborators] = useState([]);
 
+  function deleteCollaborator() {
+    console.log('deletando colaborador');
+  }
+
   const registerNewCollaborator = (collaborator) => {
     setCollaborators([...collaborators, collaborator]);
   }
@@ -62,7 +66,9 @@ function App() {
           primary_color={team.primaryColor}
           secondary_color={team.secondaryColor}
           collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
-        />)}
+          onDelete={deleteCollaborator}
+        />
+      )}
       <Footer />
     </div>
   );
