@@ -1,3 +1,23 @@
+.organization__title {
+    color: #6278f7;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.organization__line {
+    background: #6278f7;
+    color: #6278f7;
+    width: 4% !important;
+}
+
+.line {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 1rem auto;
+    width: 2%;
+    line-height: 30%;
+}
+
 .team__container {
     text-align: center;
     padding: 2rem;
@@ -7,7 +27,7 @@
     display: inline-block;
     font-family: "Prata", serif;
     font-size: 2rem;
-    border-bottom: 4px solid;
+    margin-bottom: 0.7rem;
 }
 
 .team__collaborators {

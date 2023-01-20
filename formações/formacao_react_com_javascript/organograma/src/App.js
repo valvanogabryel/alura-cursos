@@ -59,6 +59,10 @@ function App() {
     <div className="App">
       <Banner src="/imagens/banner.png" alt="Banner principal da Organo" />
       <Form onRegisterCollaborator={collaborator => registerNewCollaborator(collaborator)} teams={teamsNames} />
+
+      <h1 className='organization__title'>Minha Organização:</h1>
+      <span className='organization__line line'>-</span>
+
       {teams.map((team, index) =>
         <Team
           name={team.name}

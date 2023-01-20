@@ -5,7 +5,7 @@ const Collaborator = ({ name, role, image, primary_color, onDelete }) => {
 
     return (
         <div className="card__container">
-            <div className='delete' onClick={onDelete}>X</div>
+            <span className='delete' onClick={onDelete}>X</span>
             <div className="card__picture" style={{ backgroundColor: cardColor }}>
                 <img src={image} alt="Foto de perfil do colaborador" />
             </div>

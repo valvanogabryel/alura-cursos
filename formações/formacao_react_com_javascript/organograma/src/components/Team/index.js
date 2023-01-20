@@ -1,3 +1,4 @@
+
 import Collaborator from '../Collaborator';
 import './Team.css';
 
@@ -8,9 +9,11 @@ const Team = (props) => {
         // RENDERIZAÇÃO CONDICIONAL EM REACT
         //  (props.collaborators.length > 0) && 
         //              OU
+
         (props.collaborators.length > 0) ?
             <section className='team__container' style={sectionBackground}>
                 <h3 className='team__title' style={{ borderColor: props.primary_color }}>{props.name}</h3>
+                <span className='line' style={{ backgroundColor: props.primary_color, color: props.primary_color }}>-</span>
                 <div className="team__collaborators">
                     {props.collaborators.map((collaborator, index) => {
                         return <Collaborator
@@ -24,6 +27,7 @@ const Team = (props) => {
                     })}
                 </div>
             </section>
+
             : ''
     )
 }
