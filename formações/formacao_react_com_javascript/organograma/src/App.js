@@ -5,50 +5,52 @@ import Team from './components/Team';
 import Footer from './components/Footer';
 
 function App() {
-  const teams = [
+  const [teams, setTeams] = useState([
     {
       name: 'Programação',
-      primaryColor: '#57C278',
-      secondaryColor: '#D9F7E9'
+      color: '#57C278',
     },
     {
       name: 'Front-End',
-      primaryColor: '#82CFFA',
-      secondaryColor: '#E8F8FF'
+      color: '#82CFFA',
     },
     {
       name: 'Data Science',
-      primaryColor: '#A6D157',
-      secondaryColor: '#F0F8E2'
+      color: '#A6D157',
     },
     {
       name: 'DevOps',
-      primaryColor: '#E06B69',
-      secondaryColor: '#FDE7E8'
+      color: '#E06B69',
     },
     {
       name: 'UX & Design',
-      primaryColor: '#DB6EBF',
-      secondaryColor: '#FAE9F5'
+      color: '#DB6EBF',
     },
     {
       name: 'Mobile',
-      primaryColor: '#FFBA05',
-      secondaryColor: '#FFF5D9'
+      color: '#FFBA05',
     },
     {
       name: 'Inovação e Gestão',
-      primaryColor: '#FF8A29',
-      secondaryColor: '#FFEEDF'
+      color: '#FF8A29',
     },
-  ];
-
-  const teamsNames = teams.map(team => team.name);
+  ]);
 
   const [collaborators, setCollaborators] = useState([]);
 
+  const teamsNames = teams.map(team => team.name);
+
   function deleteCollaborator() {
     console.log('deletando colaborador');
+  }
+
+  function changeTeamColor(color, name) {
+    setTeams(teams.map(team => {
+      if (team.name === name) {
+        team.color = color;
+      }
+      return team;
+    }));
   }
 
   const registerNewCollaborator = (collaborator) => {
@@ -59,18 +61,17 @@ function App() {
     <div className="App">
       <Banner src="/imagens/banner.png" alt="Banner principal da Organo" />
       <Form onRegisterCollaborator={collaborator => registerNewCollaborator(collaborator)} teams={teamsNames} />
-
       <h1 className='organization__title'>Minha Organização:</h1>
       <span className='organization__line line'>-</span>
-
       {teams.map((team, index) =>
         <Team
           name={team.name}
           key={index}
-          primary_color={team.primaryColor}
-          secondary_color={team.secondaryColor}
+          primary_color={team.color}
+          secondary_color={team.color}
           collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
           onDelete={deleteCollaborator}
+          changeColor={changeTeamColor}
         />
       )}
       <Footer />

@@ -19,8 +19,12 @@
 }
 
 .team__container {
+    position: relative;
     text-align: center;
     padding: 2rem;
+    background-image: url(../../../public/imagens/fundo.png);
+    background-position: center center;
+    background-size: cover;
 }
 
 .team__title {
@@ -35,4 +39,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 2rem;
+}
+
+.color__input {
+    position: absolute;
+    top: 20px;
+    right: 50px;
 }
