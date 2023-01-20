@@ -54,6 +54,8 @@
 
 .delete:hover {
     background-color: black;
+    box-shadow: 2px 2px 0px black;
+    transform: translate(-2px, -2px);
 }
 
 @media screen and (max-width: 768px) {
