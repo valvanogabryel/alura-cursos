@@ -1,3 +1,21 @@
+.organization__title {
+    color: #6278f7;
+    font-family: "Prata", serif;
+    text-align: center;
+    margin: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.organization__line {
+    display: flex;
+    justify-content: center;
+    background: #6278f7;
+    width: 4%;
+    margin: auto;
+    color: #6278f7;
+    line-height: 34%;
+}
+
 .team__container {
     text-align: center;
     padding: 2rem;
