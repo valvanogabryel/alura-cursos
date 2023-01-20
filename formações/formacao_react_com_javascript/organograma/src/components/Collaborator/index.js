@@ -10,7 +10,7 @@ const Collaborator = ({ name, role, image, primary_color, onDelete }) => {
                 <img src={image} alt="Foto de perfil do colaborador" />
             </div>
             <div className="card__informations">
-                <h4>{name.toUpperCase()}</h4>
+                <h4>{name}</h4>
                 <h5>{role}</h5>
             </div>
         </div>
