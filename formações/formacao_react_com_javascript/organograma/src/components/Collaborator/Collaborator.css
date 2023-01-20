@@ -1,6 +1,7 @@
 .card__container {
     width: 280px;
     margin: 2rem;
+    position: relative;
 }
 
 .card__container .card__picture {
@@ -36,6 +37,23 @@
     line-height: 22px;
     color: #212121;
     padding: 0 16px;
+}
+
+.delete {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background: #212121;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bolder;
+    transition: 0.3s;
+}
+
+.delete:hover {
+    background: black;
 }
 
 @media screen and (max-width: 768px) {
