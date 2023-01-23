@@ -218,8 +218,8 @@ function App() {
 
   const teamsNames = teams.map(team => team.name);
 
-  function deleteCollaborator() {
-    console.log('deletando colaborador');
+  function deleteCollaborator(id) {
+    setCollaborators(collaborators.filter(collaborator => collaborator.id !== id));
   }
 
   function changeTeamColor(color, id) {
@@ -231,6 +231,10 @@ function App() {
     }));
   }
 
+  function registerNewTeam(newTeam) {
+    setTeams([...teams, { ...newTeam, id: uuidv4() }]);
+  }
+
   const registerNewCollaborator = (collaborator) => {
     setCollaborators([...collaborators, collaborator]);
   }
@@ -238,7 +242,7 @@ function App() {
   return (
     <div className="App">
       <Banner src="/imagens/banner.png" alt="Banner principal da Organo" />
-      <Form onRegisterCollaborator={collaborator => registerNewCollaborator(collaborator)} teams={teamsNames} />
+      <Form onRegisterCollaborator={collaborator => registerNewCollaborator(collaborator)} teams={teamsNames} createTeam={registerNewTeam} />
       <h1 className='organization__title'>Minha Organização:</h1>
       <span className='organization__line line'>-</span>
       {teams.map((team, index) =>

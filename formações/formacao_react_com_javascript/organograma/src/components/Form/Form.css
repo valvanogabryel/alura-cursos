@@ -1,17 +1,17 @@
 .form__container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    flex-wrap: wrap;
     margin: 5em auto;
     box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.1);
     background: #f2f2f2;
-    max-width: 80%;
 }
 
 .form {
     padding: 2em 4em;
     max-width: 90%;
     border-radius: 20px;
+    flex: 1;
 }
 
 .form__title {

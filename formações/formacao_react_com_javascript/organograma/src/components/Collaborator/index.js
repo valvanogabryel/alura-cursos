@@ -1,11 +1,11 @@
 import './Collaborator.css';
 //                     desestruturação da prop
-const Collaborator = ({ name, role, image, primary_color, onDelete }) => {
+const Collaborator = ({ name, role, image, primary_color, onDelete, id }) => {
     const cardColor = primary_color;
 
     return (
         <div className="card__container">
-            <span className='delete' onClick={onDelete}>X</span>
+            <span className='delete' onClick={() => onDelete(id)}>X</span>
             <div className="card__picture" style={{ backgroundColor: cardColor }}>
                 <img src={image} alt="Foto de perfil do colaborador" />
             </div>

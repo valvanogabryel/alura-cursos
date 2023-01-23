@@ -24,11 +24,11 @@ const Team = ({ name, primary_color, collaborators, onDelete, changeColor, id })
                             primary_color={primary_color}
                             key={index}
                             onDelete={onDelete}
+                            id={collaborator.id}
                         />
                     })}
                 </div>
             </section>
-
             : ''
     )
 }
