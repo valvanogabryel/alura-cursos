@@ -82,6 +82,7 @@ const Form = (props) => {
                     placeholder="Digite a cor do time"
                     value={teamColor}
                     changed={value => setTeamColor(value)}
+                    type='color'
                 />
                 <Button>
                     Criar um novo time
