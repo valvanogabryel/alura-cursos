@@ -1,6 +1,7 @@
 import './TextField.css';
 
-const TextField = (props) => {
+const Field = (props) => {
+
     const handleDigit = event => {
         props.changed(event.target.value);
     }
