@@ -18,3 +18,19 @@ body {
     background-color: #154580;
     border-radius: 20px;
   }
+
+  @font-face {
+    font-family: "GandhiSansRegular";
+    src: local("GandhiSansRegular"),
+    url(../../public/assets/fontes/GandhiSans-Regular.otf) format("truetype");
+    font-weight: 500;
+    display: swap;
+  }
+
+  @font-face {
+    font-family: "GandhiSansBold";
+    src: local("GandhiSansBold"), 
+    url(../../public/assets/fontes/GandhiSans-Bold.otf) format("truetype");
+    font-weight: 700;
+    display: swap;
+}
