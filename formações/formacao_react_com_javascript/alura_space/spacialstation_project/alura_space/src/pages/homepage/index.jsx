@@ -1,11 +1,13 @@
 import { Fragment } from "react";
+// components
 import Header from "../../components/Header";
 import { Menu } from "../../components/Menu";
 import Banner from "../../components/Banner";
-
-import styles from './homepage.module.scss';
 import Footer from "../../components/Footer";
 import Gallery from "../../components/Gallery";
+// end of components
+
+import styles from './homepage.module.scss';
 
 export default function Homepage() {
     return (
@@ -16,7 +18,9 @@ export default function Homepage() {
                     <Menu />
                     <Banner />
                 </section>
-                <Gallery />
+                <div className={styles.gallery}>
+                    <Gallery />
+                </div>
             </main>
             <Footer />
         </Fragment>
