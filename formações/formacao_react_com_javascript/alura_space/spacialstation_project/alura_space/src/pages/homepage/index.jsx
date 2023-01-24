@@ -8,6 +8,7 @@ import Gallery from "../../components/Gallery";
 // end of components
 
 import styles from './homepage.module.scss';
+import Populars from "../../components/Populars";
 
 export default function Homepage() {
     return (
@@ -20,6 +21,7 @@ export default function Homepage() {
                 </section>
                 <div className={styles.gallery}>
                     <Gallery />
+                    <Populars />
                 </div>
             </main>
             <Footer />

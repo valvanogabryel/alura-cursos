@@ -1,25 +1,26 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-import PopularCard from './PopularCard';
+import PopularCards from './PopularCards';
 
-import popularPhotos from '../popular_photos.json'
+import popularPhotos from './popular_photos.json'
 
-import styles from '../popular.module.scss';
+import styles from './popular.module.scss';
 
-const PopularCards = () => {
+const Populars = () => {
     return (
-        <Fragment>
-            <div className={styles.populars}>
-                <h2>Populares</h2>
+        <div className={styles.populars}>
+            <h2>Populares</h2>
+            <ul className={styles.populars__images}>
                 {
                     popularPhotos.map(
-                        photo => <PopularCard item={photo} styles={styles} key={photo.id} />
-                    )
+                        photo => (
+                            <PopularCards item={photo} key={photo.id} />
+                        ))
                 }
-            </div>
-            <button className={styles.button}>Ver mais</button>
-        </Fragment>
+            </ul>
+            <button>Ver mais</button>
+        </div>
     );
 }
 
-export default PopularCards;
+export default Populars;

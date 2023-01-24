@@ -1,5 +1,4 @@
 import React from 'react';
-import PopularCards from '../Popular/PopularCards';
 import Tags from '../Tags';
 import Cards from './Cards';
 import styles from './gallery.module.scss';
@@ -12,7 +11,6 @@ const Gallery = () => {
             <h2>Navegue pela galeria</h2>
             <Tags />
             <Cards items={photos} styles={styles} />
-            <PopularCards />
         </section>
     );
 }

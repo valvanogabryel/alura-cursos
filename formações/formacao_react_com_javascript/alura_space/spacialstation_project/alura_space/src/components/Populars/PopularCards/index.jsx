@@ -1,13 +1,13 @@
 import React from 'react';
 
-const PopularCard = ({ item, styles }) => {
+const PopularCards = ({ item }) => {
     return (
         <img
             key={item.id}
             src={item.path}
             alt={item.alt}
-            className={styles.populars__images} />
+        />
     );
 }
 
-export default PopularCard;
+export default PopularCards;
