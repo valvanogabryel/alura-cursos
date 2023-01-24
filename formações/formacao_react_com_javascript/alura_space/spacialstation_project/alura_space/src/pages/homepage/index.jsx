@@ -1,19 +1,18 @@
 import { Fragment } from "react";
 import Header from "../../components/Header";
 import { Menu } from "../../components/Menu";
-import banner from './images/banner.png';
+import Banner from "../../components/Banner";
+
+import styles from './homepage.module.scss';
 
 export default function Homepage() {
     return (
         <Fragment>
             <Header />
             <main>
-                <section>
+                <section className={styles.main}>
                     <Menu />
-                    <div>
-                        <h1>A galeria mais completa do espaço!</h1>
-                        <img src={banner} alt="Imagem da terra vista do espaço." />
-                    </div>
+                    <Banner />
                 </section>
             </main>
         </Fragment>
