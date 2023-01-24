@@ -8,6 +8,7 @@ const Cards = ({ items, styles }) => {
                 items.map(item => (
                     <Card item={item}
                         styles={styles}
+                        key={item.id}
                     />
                 ))
             }

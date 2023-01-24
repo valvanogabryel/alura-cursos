@@ -14,7 +14,6 @@ const Card = ({ item, styles }) => {
             <p
                 className={styles.gallery__description}>
                 {item.title}</p>
-
             <div>
                 <p>{item.credits}</p>
                 <span>
