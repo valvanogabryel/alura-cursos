@@ -5,6 +5,7 @@ import Banner from "../../components/Banner";
 
 import styles from './homepage.module.scss';
 import Footer from "../../components/Footer";
+import Gallery from "../../components/Gallery";
 
 export default function Homepage() {
     return (
@@ -15,6 +16,7 @@ export default function Homepage() {
                     <Menu />
                     <Banner />
                 </section>
+                <Gallery />
             </main>
             <Footer />
         </Fragment>
