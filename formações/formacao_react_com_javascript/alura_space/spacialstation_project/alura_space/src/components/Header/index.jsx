@@ -2,10 +2,10 @@
 const Header = () => {
     return (
         <header>
-            <img src="" alt="Logo da Alura Space" />
+            <img src="/assets/logo.png" alt="Logo da Alura Space" />
             <div>
                 <input type="search" />
-                <img src="" alt="" />
+                <img src="/assets/search.png" alt="" />
             </div>
 
 
