@@ -4,6 +4,7 @@ import { Menu } from "../../components/Menu";
 import Banner from "../../components/Banner";
 
 import styles from './homepage.module.scss';
+import Footer from "../../components/Footer";
 
 export default function Homepage() {
     return (
@@ -15,6 +16,7 @@ export default function Homepage() {
                     <Banner />
                 </section>
             </main>
+            <Footer />
         </Fragment>
     )
 }
