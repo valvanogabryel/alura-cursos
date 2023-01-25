@@ -3,9 +3,7 @@ import Home from './pages/Home';
 import AboutMe from './pages/AboutMe';
 import Menu from "./components/Menu";
 
-
-
-export default function App() {
+export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Menu />
