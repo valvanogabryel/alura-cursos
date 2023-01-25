@@ -1,26 +1,22 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 // O componente "Link" do react-router-dom funciona de maneira semelhante a tag âncora do HTML. Porém, sua particularidade é que, ao contrário da tag "a", o componente "Link" não recarrega a página.
 
 // <a href="/pathname"></a>
 // <Link to="/pathanme"></Link>
 
-const MenuLink = ({ path, styles, innerContent }) => {
-    const location = useLocation();
+// O componente "NavLink" é um tipo especial de <Link> que sabe qual está "ativo". Útil para menus de navegação.
 
-    console.log(location)
-    console.log(path)
-
+const MenuLink = ({ path, styles, children }) => {
     return (
-        <Link
+        <NavLink className={
+            ({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`
+        }
             to={path}
-            className={
-                `${styles.link} 
-            ${location.pathname === path ? styles.active : ''}`
-            }>
-            {innerContent}
-        </Link>
+        >
+            {children}
+        </NavLink>
     );
 }
 
