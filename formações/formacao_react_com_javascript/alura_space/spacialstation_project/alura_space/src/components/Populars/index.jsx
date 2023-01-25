@@ -2,7 +2,7 @@ import React from 'react';
 
 import PopularCards from './PopularCards';
 
-import popularPhotos from './popular_photos.json'
+import popularPhotos from './popular_photos.json';
 
 import styles from './popular.module.scss';
 
@@ -14,7 +14,10 @@ const Populars = () => {
                 {
                     popularPhotos.map(
                         photo => (
-                            <PopularCards item={photo} key={photo.id} />
+                            <PopularCards
+                                item={photo}
+                                key={photo.id}
+                            />
                         ))
                 }
             </ul>

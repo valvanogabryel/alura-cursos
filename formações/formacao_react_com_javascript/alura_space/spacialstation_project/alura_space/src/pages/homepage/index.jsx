@@ -1,14 +1,14 @@
 import { Fragment } from "react";
 // components
-import Header from "../../components/Header";
-import { Menu } from "../../components/Menu";
-import Banner from "../../components/Banner";
-import Footer from "../../components/Footer";
-import Gallery from "../../components/Gallery";
+import Header from "components/Header";
+import { Menu } from "components/Menu";
+import Banner from "components/Banner";
+import Gallery from "components/Gallery";
+import Populars from "components/Populars";
+import Footer from "components/Footer";
 // end of components
 
 import styles from './homepage.module.scss';
-import Populars from "../../components/Populars";
 
 export default function Homepage() {
     return (

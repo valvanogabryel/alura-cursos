@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './assets/fontes/GandhiSans-Regular.otf';
 import './assets/fontes/GandhiSans-Bold.otf'
 
