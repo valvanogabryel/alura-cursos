@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PopularCards = ({ item, key }) => {
+const PopularCards = ({ item }) => {
     return (
         <img
-            key={key}
+            key={item.id}
             src={item.path}
             alt={item.alt}
         />

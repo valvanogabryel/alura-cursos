@@ -1,6 +1,7 @@
 import React from 'react';
 
 import PopularCards from './PopularCards';
+import Button from 'components/Button';
 
 import popularPhotos from './popular_photos.json';
 
@@ -21,7 +22,7 @@ const Populars = () => {
                         ))
                 }
             </ul>
-            <button>Ver mais</button>
+            <Button innerContent='Ver mais' />
         </div>
     );
 }
