@@ -6,6 +6,7 @@ const DefaultPage = () => {
         <main>
             <Banner />
             {/* render route here */}
+
         </main>
     );
 }
