@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Post from 'components/Post';
+import PostCard from 'components/PostCard';
 
 import styles from './Home.module.css';
 import 'animate.css';
@@ -13,7 +13,11 @@ const Home = () => {
         <ul className={styles.posts}>
             {
                 posts.map(post =>
-                    <Post key={post.id} id={post.id} postElement={post} />
+                    <PostCard
+                        key={post.id}
+                        id={post.id}
+                        postElement={post}
+                    />
                 )
             }
         </ul>

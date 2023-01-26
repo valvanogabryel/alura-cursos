@@ -4,6 +4,7 @@ import AboutMe from './pages/AboutMe';
 import Menu from "./components/Menu";
 import Footer from "components/Footer";
 import DefaultPage from "components/DefaultPage";
+import Post from "pages/Post";
 
 export default function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function AppRoutes() {
         <Route path="/" element={<DefaultPage />}>
           <Route index element={<Home />} /> {/* Rota index é a mesma coisa que path="/". Ou seja, é o mesmo caminho da rota pai */}
           <Route path="aboutme" element={<AboutMe />} />
+          <Route path="posts/:id" element={<Post />} />
         </Route>
         {
           /* 
