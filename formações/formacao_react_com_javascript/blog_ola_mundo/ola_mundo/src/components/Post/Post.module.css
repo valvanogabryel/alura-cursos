@@ -5,6 +5,7 @@
     border-radius: 0px 0px 10px 10px;
     padding-bottom: 1.5rem;
     transition: transform 0.2s;
+    z-index: 999;
 }
 
 .post:hover {

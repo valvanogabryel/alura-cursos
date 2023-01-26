@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 :root {
   --azul-escuro: #041833;
   --azul-medio: #1875e8;
