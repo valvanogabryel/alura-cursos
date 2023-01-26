@@ -1,6 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+
+import PostModel from 'components/PostModel';
+
 import posts from 'json/posts.json';
+
+import './post.css';
 
 const Post = () => {
     const params = useParams();
@@ -11,10 +17,16 @@ const Post = () => {
     console.log(post);
 
     return (
-        <article>
-            <h1>{post.title}</h1>
-            <p>{post.text}</p>
-        </article>
+        <PostModel
+            coverPhoto={`/assets/posts/${post.id}/capa.png`}
+            title={post.title}
+        >
+            <div className='post-markdown-container'>
+                <ReactMarkdown>
+                    {post.text}
+                </ReactMarkdown>
+            </div>
+        </PostModel>
     );
 }
 

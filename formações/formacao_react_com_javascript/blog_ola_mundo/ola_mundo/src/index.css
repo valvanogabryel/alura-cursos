@@ -9,13 +9,13 @@
 }
 
 :root {
-  --azul-escuro: #2a4359;
+  --azul-escuro: #042a33;
   --azul-medio: #03738c;
   --cor-fonte-principal: #041833;
-  --cor-fonte-post: #04b2d9;
+  --cor-fonte-post: #2a4359;
   --branco: #fff;
-  --fonte-principal: "Raleway", sans-serif;
-  --fonte-secundaria: "Playfair Display", sans-serif;
+  --fonte-principal: "Montserrat", sans-serif;
+  --fonte-secundaria: "Abel", sans-serif;
 
   font-family: var(--fonte-principal);
 }
