@@ -10,6 +10,10 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Menu />
       <Routes>
+        {/* Rotas aninhadas: */}
+        {/* As rotas <Home/> e <AboutMe/> tornaram-se rotas filhas de <DefaultPage/> */}
+        {/* Indica-se, na rota pai, onde vai ser colocada alguma das rotas que forem renderizadas. */}
+        {/* A rota pai funcionará como um "roteador" também, escolhendo uma das rotas filhas a serem renderizadas. */}
         <Route path="/" element={<DefaultPage />}>
           <Route path="/" element={<Home />} />
           <Route path="/aboutme" element={<AboutMe />} />
