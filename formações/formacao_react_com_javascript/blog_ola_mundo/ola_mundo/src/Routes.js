@@ -15,7 +15,7 @@ export default function AppRoutes() {
         {/* Indica-se, na rota pai, onde vai ser colocada alguma das rotas que forem renderizadas. */}
         {/* A rota pai funcionará como um "roteador" também, escolhendo uma das rotas filhas a serem renderizadas de acordo com o caminho da url. */}
         <Route path="/" element={<DefaultPage />}>
-          <Route path="/" element={<Home />} />
+          <Route index element={<Home />} /> {/* Rota index é a mesma coisa que path="/". Ou seja, é o mesmo caminho da rota pai */}
           <Route path="/aboutme" element={<AboutMe />} />
         </Route>
         {
