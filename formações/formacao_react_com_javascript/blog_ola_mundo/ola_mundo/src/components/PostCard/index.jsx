@@ -1,3 +1,4 @@
+import MainButton from 'components/MainButton';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styles from './Post.module.css';
@@ -14,7 +15,7 @@ const PostCard = ({ postElement }) => {
                     className={styles.cover}
                 />
                 <h2 className={styles.title}>{postElement.title}</h2>
-                <button className={styles.readButton}>Ler</button>
+                <MainButton>Ler</MainButton>
             </li>
         </Link>
     );

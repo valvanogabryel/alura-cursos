@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Home from './pages/Home';
 import AboutMe from './pages/AboutMe';
 import Menu from "./components/Menu";
 import Footer from "components/Footer";
 import DefaultPage from "components/DefaultPage";
 import Post from "pages/Post";
+import NotFound from "pages/NotFound";
 
 export default function AppRoutes() {
   return (
@@ -22,23 +24,23 @@ export default function AppRoutes() {
         </Route>
         {
           /* 
-          Na Rota "/", a estrutura a ser renderizada é:
-          {
-            <DefaultPage>
-            <Home/>
-            </DefaultPage>
-          }
-  
-           Na Rota "/aboutme", a estrutura a ser renderizada é:
-          {
-            <DefaultPage>
-            <AboutMe/>
-            </DefaultPage>
-          }
-           */
+            Na Rota "/", a estrutura a ser renderizada é:
+            {
+              <DefaultPage>
+              <Home/>
+              </DefaultPage>
+            }
+    
+             Na Rota "/aboutme", a estrutura a ser renderizada é:
+            {
+              <DefaultPage>
+              <AboutMe/>
+              </DefaultPage>
+            }
+             */
         }
+        <Route path="*" element={<NotFound />} />
 
-        {/* <Route path="*" element={<Page404 />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

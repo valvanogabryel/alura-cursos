@@ -18,7 +18,7 @@
 .developer:hover {
     font-size: 1.1rem;
     text-decoration: underline;
-    background: -webkit-linear-gradient(var(--cor-fonte-post), var(--azul-medio));
+    background: -webkit-linear-gradient(var(--azul-medio), var(--cor-fonte-post));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

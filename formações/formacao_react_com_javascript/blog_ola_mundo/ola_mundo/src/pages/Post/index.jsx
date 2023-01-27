@@ -14,7 +14,7 @@ const Post = () => {
 
     let post = posts.find(post => post.id === paramsID);
 
-    console.log(post);
+    if (!post) return (<h1>Não</h1>);
 
     return (
         <PostModel
