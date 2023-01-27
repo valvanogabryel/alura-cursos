@@ -36,9 +36,9 @@ const Post = () => {
                     </ReactMarkdown>
                 </div>
             </PostModel>
-            <h2 className='otherPostsTitle'>Outros posts que você pode gostar:</h2>
+
             <RecommendedPosts posts={recommendedPosts} />
-        </DefaultPage>
+        </DefaultPage >
     );
 }
 

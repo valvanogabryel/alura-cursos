@@ -4,17 +4,20 @@ import styles from './RecommendedPosts.module.css';
 
 const RecommendedPosts = ({ posts }) => {
     return (
-        <ul className={styles.recommendedPosts}>
-            {
-                posts.map(post =>
-                (
-                    <PostCard
-                        postElement={post}
-                        key={post.id}
-                    />
-                ))
-            }
-        </ul>
+        <>
+            <h2 className={styles.otherPostsTitle}>Outros posts que você pode gostar:</h2>
+            <ul className={styles.recommendedPosts}>
+                {
+                    posts.map(post =>
+                    (
+                        <PostCard
+                            postElement={post}
+                            key={post.id}
+                        />
+                    ))
+                }
+            </ul>
+        </>
     );
 }
 
