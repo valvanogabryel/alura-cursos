@@ -20,25 +20,25 @@ export default function AppRoutes() {
         <Route path="/" element={<DefaultPage />}>
           <Route index element={<Home />} /> {/* Rota index é a mesma coisa que path="/". Ou seja, é o mesmo caminho da rota pai */}
           <Route path="aboutme" element={<AboutMe />} />
-          <Route path="posts/:id" element={<Post />} />
         </Route>
         {
           /* 
-            Na Rota "/", a estrutura a ser renderizada é:
-            {
-              <DefaultPage>
-              <Home/>
+          Na Rota "/", a estrutura a ser renderizada é:
+          {
+            <DefaultPage>
+            <Home/>
               </DefaultPage>
             }
-    
-             Na Rota "/aboutme", a estrutura a ser renderizada é:
+            
+            Na Rota "/aboutme", a estrutura a ser renderizada é:
             {
               <DefaultPage>
               <AboutMe/>
               </DefaultPage>
             }
-             */
+            */
         }
+        <Route path="posts/:id" element={<Post />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>

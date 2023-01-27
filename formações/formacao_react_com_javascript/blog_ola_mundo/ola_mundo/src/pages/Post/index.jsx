@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 import PostModel from 'components/PostModel';
+import NotFound from 'pages/NotFound';
 
 import posts from 'json/posts.json';
 
@@ -14,7 +15,7 @@ const Post = () => {
 
     let post = posts.find(post => post.id === paramsID);
 
-    if (!post) return (<h1>Não</h1>);
+    if (!post) return (<NotFound />);
 
     return (
         <PostModel
