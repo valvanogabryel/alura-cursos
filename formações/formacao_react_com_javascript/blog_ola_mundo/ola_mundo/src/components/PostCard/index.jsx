@@ -10,7 +10,7 @@ const PostCard = ({ postElement }) => {
                 key={postElement.id}
                 className={styles.post}>
                 <img
-                    src={`assets/posts/${postElement.id}/capa.png`}
+                    src={`/assets/posts/${postElement.id}/capa.png`}
                     alt={`Post: ${postElement.title}`}
                     className={styles.cover}
                 />

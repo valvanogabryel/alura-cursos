@@ -38,7 +38,7 @@ export default function AppRoutes() {
             }
             */
         }
-        <Route path="posts/:id" element={<Post />} />
+        <Route path="posts/:id/*" element={<Post />} />
         <Route path="*" element={<NotFound />} />
 
       </Routes>
