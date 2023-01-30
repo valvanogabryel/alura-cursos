@@ -16,7 +16,7 @@ export const extratoLista = {
     },
     {
       id: "65445",
-      type: "Saude",
+      type: "Saúde",
       value: "15,00",
       date: "8 JUN",
       from: "Farma Ponte",

@@ -19,7 +19,7 @@ export default (props) => {
       <Item
         {...props}
       />
-      {props.date}
+      <span>{props.date}</span>
     </Items>
   )
 };
