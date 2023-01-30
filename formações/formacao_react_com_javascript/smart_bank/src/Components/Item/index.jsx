@@ -15,7 +15,7 @@ export default ({ type, from, value }) => {
     <Item>
       <span className='text'>{type}</span>
       <span>{from}</span>
-      <span>{value}</span>
+      <span>R$ {value}</span>
     </Item>
   )
 }

@@ -7,7 +7,7 @@ import utilitiesImage from 'assets/images/utilidades.svg';
 import healthImage from 'assets/images/saude.svg';
 import { Icon } from './UI';
 
-const Images = {
+const images = {
   Restaurante: <Icon src={foodImage} alt='Restaurante' />,
   Utilidades: <Icon src={utilitiesImage} alt='Utilidades' />,
   Transporte: <Icon src={transportImage} alt='Transporte' />,
@@ -16,5 +16,5 @@ const Images = {
 }
 
 export default (type) => {
-  return Images[type] || Images.default;
+  return images[type] || images.default;
 }

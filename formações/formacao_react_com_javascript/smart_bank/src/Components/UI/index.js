@@ -9,11 +9,12 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: white;
+  background-color: ${({ theme }) => theme.inner};
   border-radius: 5px;
   box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.04);
   padding: 20px;
   width: 48%;
+  user-select: none;
 
   @media (max-width: 800px) {
       width: 95%;
@@ -43,6 +44,15 @@ font-size: 32px;
 export const Detail = styled.span`
 color: #41d3be;
   font-size: 24px;
+`
+
+export const ThemeButton = styled.button`
+  position: absolute;
+  top: 4vh;
+  right: 20px;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
 `
 
 

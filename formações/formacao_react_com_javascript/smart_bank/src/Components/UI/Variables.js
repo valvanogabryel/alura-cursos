@@ -6,4 +6,4 @@ export const whiteBackgroundText = 'grey';
 
 export const darkBackground = '#363537';
 export const darkContent = '#5c5b5e';
-export const darkBackgroundText = '#FAFAFA';
+export const darkBackgroundText = '#fafafa';
