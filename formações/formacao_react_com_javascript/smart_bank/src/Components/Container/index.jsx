@@ -5,6 +5,7 @@ import Conta from "../Conta";
 
 import styled from "styled-components";
 import { whiteBackground } from '../UI/Variables';
+import Extract from "Components/Extract";
 
 const Container = styled.div`
   background-color: ${whiteBackground};
@@ -16,15 +17,25 @@ const Content = styled.section`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `
 
-
 const ContainerWrapper = () => {
+  // const username = prompt('Digite seu nome de usuário: ');
+
+
   return (
     <Container>
-      <Titulo>Olá Fulano!</Titulo>
+      <Titulo>
+        {/*{`Olá, ${username}!`}*/}
+        Olá, fulano
+      </Titulo>
       <Content>
         <Conta />
+        <Extract />
       </Content>
     </Container>
   );

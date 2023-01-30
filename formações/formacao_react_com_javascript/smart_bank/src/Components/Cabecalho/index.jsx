@@ -18,6 +18,29 @@ const Logo = styled.img`
   width: 50px;
   user-select: none;
 `
+const PrimaryButton = styled.button`
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px 20px;
+  margin: 0 10px;
+  font-weight: 600;
+  border: 2px solid white;
+
+  color: white;
+  background: transparent;
+`
+
+const SecondaryButton = styled.button`
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px 20px;
+  margin: 0 10px;
+  font-weight: 600;
+  border: 2px solid white;
+
+  background: white;
+  color: #41d3be;
+`
 
 const Cabecalho = () => {
   return (
@@ -27,12 +50,12 @@ const Cabecalho = () => {
         alt="Logo Smart Bank"
       />
       <div>
-        <a className="btn-secundario" href="https://google.com">
+        <PrimaryButton href="https://google.com">
           Ajuda
-        </a>
-        <a className="btn-primario" href="https://google.com">
+        </PrimaryButton>
+        <SecondaryButton href="https://google.com">
           Sair
-        </a>
+        </SecondaryButton>
       </div>
     </StyledHeader>
   );
