@@ -24,14 +24,10 @@ const Content = styled.section`
 `
 
 const ContainerWrapper = () => {
-  // const username = prompt('Digite seu nome de usuário: ');
-
-
   return (
     <Container>
       <Titulo>
-        {/*{`Olá, ${username}!`}*/}
-        Olá, fulano
+        Olá, Fulano!
       </Titulo>
       <Content>
         <Conta />

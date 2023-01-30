@@ -5,7 +5,14 @@ import privado from "assets/images/privado.svg";
 import olho_icone from "assets/images/olho.svg";
 import dinheiro from "assets/images/dinheiro.svg";
 
-import { Icon, Box, Button, Balance, Detail } from "Components/UI";
+import {
+  Icon,
+  Box,
+  Button,
+  Balance,
+  Detail,
+  ThemeIcon
+} from "Components/UI";
 
 const MarginIcon = styled(Icon)`
   margin-top: 2px;
@@ -24,7 +31,7 @@ const Conta = () => {
       <div style={{ fontSize: "26px", padding: "20px 0" }}>
         Saldo disponível{" "}
         <span>
-          <Icon
+          <ThemeIcon
             src={dinheiro}
             alt="Ícone Saldo"
           />

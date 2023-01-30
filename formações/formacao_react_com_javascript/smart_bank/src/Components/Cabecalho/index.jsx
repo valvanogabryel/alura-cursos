@@ -4,6 +4,19 @@ import bank_logo from "assets/images/bank_logo.svg";
 import styled from "styled-components";
 import { primaryColor } from '../UI/Variables';
 
+const ButtonHeader = styled.a`
+text-align: center;
+  border-radius: 3px;
+  padding: 5px 20px;
+  margin: 0 10px;
+  font-weight: 600;
+  border: 2px solid white;
+
+  background: ${props => props.primary ? 'white' : primaryColor};
+  color: ${props => props.primary ? primaryColor : 'white'};
+`
+
+
 const StyledHeader = styled.nav`
   background-color: ${primaryColor};
   display: flex;
@@ -18,29 +31,6 @@ const Logo = styled.img`
   width: 50px;
   user-select: none;
 `
-const PrimaryButton = styled.button`
-  text-align: center;
-  border-radius: 3px;
-  padding: 5px 20px;
-  margin: 0 10px;
-  font-weight: 600;
-  border: 2px solid white;
-
-  color: white;
-  background: transparent;
-`
-
-const SecondaryButton = styled.button`
-  text-align: center;
-  border-radius: 3px;
-  padding: 5px 20px;
-  margin: 0 10px;
-  font-weight: 600;
-  border: 2px solid white;
-
-  background: white;
-  color: #41d3be;
-`
 
 const Cabecalho = () => {
   return (
@@ -50,12 +40,12 @@ const Cabecalho = () => {
         alt="Logo Smart Bank"
       />
       <div>
-        <PrimaryButton href="https://google.com">
+        <ButtonHeader primary href="https://google.com">
           Ajuda
-        </PrimaryButton>
-        <SecondaryButton href="https://google.com">
+        </ButtonHeader>
+        <ButtonHeader href="https://google.com">
           Sair
-        </SecondaryButton>
+        </ButtonHeader>
       </div>
     </StyledHeader>
   );

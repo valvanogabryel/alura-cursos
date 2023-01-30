@@ -5,14 +5,14 @@ import othersImage from 'assets/images/outros.svg';
 import transportImage from 'assets/images/transporte.svg';
 import utilitiesImage from 'assets/images/utilidades.svg';
 import healthImage from 'assets/images/saude.svg';
-import { Icon } from './UI';
+import { ThemeIcon } from './UI';
 
 const images = {
-  Restaurante: <Icon src={foodImage} alt='Restaurante' />,
-  Utilidades: <Icon src={utilitiesImage} alt='Utilidades' />,
-  Transporte: <Icon src={transportImage} alt='Transporte' />,
-  Saúde: <Icon src={healthImage} alt='Saúde' />,
-  default: <Icon src={othersImage} alt='Outros' />
+  Restaurante: <ThemeIcon src={foodImage} alt='Restaurante' />,
+  Utilidades: <ThemeIcon src={utilitiesImage} alt='Utilidades' />,
+  Transporte: <ThemeIcon src={transportImage} alt='Transporte' />,
+  Saúde: <ThemeIcon src={healthImage} alt='Saúde' />,
+  default: <ThemeIcon src={othersImage} alt='Outros' />
 }
 
 export default (type) => {
