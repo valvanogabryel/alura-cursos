@@ -1,5 +1,5 @@
 import React from "react";
-import bank_logo from "../../assets/images/bank_logo.svg";
+import bank_logo from "assets/images/bank_logo.svg";
 
 import styled from "styled-components";
 import { primaryColor } from '../UI/Variables';
