@@ -3,15 +3,31 @@ import React from "react";
 import Titulo from "../Titulo";
 import Conta from "../Conta";
 
-const Container = () => {
+import styled from "styled-components";
+import { whiteBackground } from '../UI/Variables';
+
+const Container = styled.div`
+  background-color: ${whiteBackground};
+  min-height: 90vh;
+  padding: 0px 15vw;
+`
+
+const Content = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+
+const ContainerWrapper = () => {
   return (
-    <div className="container">
+    <Container>
       <Titulo>Olá Fulano!</Titulo>
-      <section className="conteudo">
+      <Content>
         <Conta />
-      </section>
-    </div>
+      </Content>
+    </Container>
   );
 };
 
-export default Container;
+export default ContainerWrapper;
