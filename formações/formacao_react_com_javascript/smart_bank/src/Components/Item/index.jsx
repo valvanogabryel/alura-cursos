@@ -10,7 +10,6 @@ const Item = styled.div`
   }
 `
 
-
 export default ({ type, from, value }) => {
   return (
     <Item>

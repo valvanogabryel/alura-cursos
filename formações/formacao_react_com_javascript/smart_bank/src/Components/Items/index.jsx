@@ -1,6 +1,8 @@
-import Item from 'Components/Item';
 import React from 'react';
 import styled from 'styled-components';
+
+import Item from 'Components/Item';
+import ImageFilter from 'Components/ImageFilter';
 
 const Items = styled.div`
   display: flex;
@@ -16,6 +18,7 @@ const Items = styled.div`
 export default (props) => {
   return (
     <Items>
+      {ImageFilter(props.type)}
       <Item
         {...props}
       />

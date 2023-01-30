@@ -13,11 +13,16 @@ const Extract = () => {
       {
         extracts.map(({ id, type, value, date, from, }) => {
           return (
-            <Items key={id} type={type} from={from} date={date} value={value} />
+            <Items
+              key={id}
+              type={type}
+              from={from}
+              date={date}
+              value={value}
+            />
           )
         })
       }
-
       <Button>
         Ver mais
       </Button>
