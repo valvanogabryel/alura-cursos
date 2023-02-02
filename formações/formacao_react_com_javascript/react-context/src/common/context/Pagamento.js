@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { createContext, useState } from "react";
 
 export const paymentContext = createContext();
@@ -39,4 +40,24 @@ export const PaymentProvider = ({ children }) => {
         </paymentContext.Provider>
     )
 }
+
+export const usePaymentContext = () => {
+    const {
+        paymentTypes,
+        payment,
+        setPayment
+    } = useContext(paymentContext);
+
+    function changePayment(id) {
+        const currentPayment = paymentTypes.find(paymentForm => paymentForm.id === id);
+        setPayment(currentPayment);
+    }
+
+    return {
+        paymentTypes,
+        payment,
+        changePayment
+    }
+}
+
 
