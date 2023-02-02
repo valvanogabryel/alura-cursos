@@ -8,7 +8,13 @@ export const UsuarioProvider = ({ children }) => {
   const [saldo, setSaldo] = useState(0);
 
   return (
-    <UsuarioContext.Provider value={{ nome, setNome, saldo, setSaldo }}>
+    <UsuarioContext.Provider value={
+      {
+        nome,
+        setNome,
+        saldo,
+        setSaldo
+      }}>
       {children}
     </UsuarioContext.Provider>
   )
