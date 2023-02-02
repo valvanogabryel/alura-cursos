@@ -42,4 +42,13 @@ export const Lista = styled.section`
     font-size: 32px;
     margin-top: 20px;
   }
+  @media(max-width: 320px) {
+    >h2 {
+      font-size: 24px;
+    }
+
+    >div {
+      min-height: 15rem;
+    }
+  }
 `;

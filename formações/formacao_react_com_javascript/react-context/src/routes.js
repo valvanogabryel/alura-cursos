@@ -14,19 +14,19 @@ function Router() {
           <Route exact path="/">
             <Login />
           </Route>
-          <CarrinhoProvider>
-            <Route path="/feira">
-              <Feira />
-            </Route>
-            <PaymentProvider>
+          <PaymentProvider>
+            <CarrinhoProvider>
+              <Route path="/feira">
+                <Feira />
+              </Route>
               <Route path="/carrinho">
                 <Carrinho />
               </Route>
-            </PaymentProvider>
-          </CarrinhoProvider>
+            </CarrinhoProvider>
+          </PaymentProvider>
         </UsuarioProvider>
       </Switch>
-    </BrowserRouter>
+    </BrowserRouter >
   )
 }
 

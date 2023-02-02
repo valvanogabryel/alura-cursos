@@ -4,17 +4,18 @@ import { useCarrinhoContext } from 'common/context/Carrinho';
 import { usePaymentContext } from 'common/context/Pagamento';
 import { UsuarioContext } from 'common/context/Usuario';
 import Produto from 'components/Produto';
+import { useMemo } from 'react';
 import { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Container, Voltar, TotalContainer, PagamentoContainer } from './styles';
 
 function Carrinho() {
   const [openSnackbar, setOpenSnackbar] = useState(false);
-  const { carrinho, cartTotalValue } = useCarrinhoContext();
+  const { carrinho, cartTotalValue, buy } = useCarrinhoContext();
   const { paymentTypes, payment, changePayment } = usePaymentContext();
   const { saldo = 0 } = useContext(UsuarioContext);
   const history = useHistory();
-  const total = (saldo - cartTotalValue).toFixed(2);
+  const total = useMemo(() => (saldo - cartTotalValue).toFixed(2), [saldo, cartTotalValue]); //Só irá calcular o valor caso o saldo ou o valor total do carrinho mude.
 
   return (
     <Container>
@@ -60,10 +61,11 @@ function Carrinho() {
       <Button
         onClick={() => {
           setOpenSnackbar(true);
+          return buy();
         }}
         color="primary"
         variant="contained"
-        disabled={total < 0}
+        disabled={total < 0 || carrinho.length === 0}
       >
         Comprar
       </Button>

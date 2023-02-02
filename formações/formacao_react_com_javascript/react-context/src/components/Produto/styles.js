@@ -20,4 +20,12 @@ export const Container = styled(Card)`
       font-size: 16px;
     }
   }
+  @media(max-width: 320px) {
+    padding: 0;
+    div {
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
 `;
