@@ -3,7 +3,7 @@
     justify-content: space-around;
     align-items: center;
     background: var(--black);
-    padding: 1rem;
+    padding: 1.1rem;
 }
 
 .header__navbar {
