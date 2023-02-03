@@ -5,3 +5,8 @@
     background: var(--black);
     padding: 1rem;
 }
+
+.header__navbar {
+    display: flex;
+    gap: 5rem;
+}

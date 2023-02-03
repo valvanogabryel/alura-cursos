@@ -3,15 +3,15 @@ import { NavLink } from 'react-router-dom';
 
 import styles from './HeaderLink.module.css';
 
-const HeaderLink = () => {
+const HeaderLink = ({ path, children }) => {
     return (
         <>
-            <NavLink to='./' className={styles.header__link}>
-                Home
-            </NavLink>
-
-            <NavLink to='/favoritos' className={styles.header__link}>
-                Favoritos
+            <NavLink to={path} className=
+                {
+                    ({ isActive }) => `${styles.header__link} ${isActive ? styles.active : ''}`
+                }
+            >
+                {children}
             </NavLink>
         </>
     );

@@ -10,8 +10,9 @@ const Header = () => {
             <Link to='./'>
                 <img src={logo} alt="Logo da cine tag" />
             </Link>
-            <nav>
-                <HeaderLink />
+            <nav className={styles.header__navbar}>
+                <HeaderLink path='/'>Home</HeaderLink>
+                <HeaderLink path='/favoritos'>Favoritos</HeaderLink>
             </nav>
         </header>
     );

@@ -1,5 +1,14 @@
 .header__link {
     color: var(--white);
     text-decoration: none;
-    margin: 0.5rem;
+    transition: 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.header__link:hover {
+    opacity: 0.8;
+}
+
+.header__link.active {
+    font-weight: 700;
+    text-decoration: underline;
 }
