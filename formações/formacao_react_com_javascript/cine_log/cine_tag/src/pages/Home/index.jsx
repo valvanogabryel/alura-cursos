@@ -23,7 +23,10 @@ const Home = () => {
                         videos.map(item =>
                             <Card
                                 key={item.id}
-                                {...item}
+                                id={item.id}
+                                title={item.title}
+                                cover={item.cover}
+                                isFavorite={false}
                             />)
                     }
                 </section>
