@@ -2,6 +2,7 @@
     color: var(--white);
     text-decoration: none;
     transition: 0.3s cubic-bezier(0.4, 0, 1, 1);
+    font-size: 1.125rem;
 }
 
 .header__link:hover {
@@ -9,6 +10,6 @@
 }
 
 .header__link.active {
-    font-weight: 700;
+    font-weight: 500;
     text-decoration: underline;
 }

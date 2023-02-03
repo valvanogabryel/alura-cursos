@@ -1,0 +1,11 @@
+.footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 1.1rem;
+    text-align: center;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 1.125rem;
+}
