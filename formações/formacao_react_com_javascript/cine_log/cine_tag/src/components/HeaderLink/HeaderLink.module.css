@@ -1,0 +1,5 @@
+.header__link {
+    color: var(--white);
+    text-decoration: none;
+    margin: 0.5rem;
+}
