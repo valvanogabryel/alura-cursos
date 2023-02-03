@@ -4,6 +4,7 @@ import Banner from 'components/Banner';
 
 import favoritesBanner from 'assets/banner-favoritos.png';
 import Title from 'components/Title';
+import Card from 'components/Card';
 
 const Favorites = () => {
     return (
@@ -12,6 +13,7 @@ const Favorites = () => {
             <Title>
                 <h1>Meus Favoritos</h1>
             </Title>
+            <Card id={3} title='Teste' cover='nenhum' />
         </>
     );
 }

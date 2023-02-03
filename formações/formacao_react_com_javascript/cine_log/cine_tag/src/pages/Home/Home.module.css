@@ -1,9 +1,3 @@
-main {
-    width: 70%;
-    margin: auto;
-    padding: 3rem;
-}
-
 .card__container {
     display: flex;
     justify-content: space-evenly;

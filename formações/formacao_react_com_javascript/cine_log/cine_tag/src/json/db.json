@@ -1,26 +1,26 @@
 [
     {
         "id": 1,
-        "title": "O labirinto do Logcat",
-        "cover": "https://caelum-online-public.s3.amazonaws.com/2802-react-praticando/img2.png",
+        "title": "O Gato das Botas: O Último Desejo",
+        "cover": "https://image.tmdb.org/t/p/w500/pSr0JjkI9iM1Yxe9cqrS6YBonAA.jpg",
         "link": "https://www.youtube.com/embed/ypvGqZGJBls"
     },
     {
         "id": 2,
-        "title": "Um componente no espaço",
-        "cover": "https://caelum-online-public.s3.amazonaws.com/2802-react-praticando/img1.png",
+        "title": "Avatar: O Caminho da Água ",
+        "cover": "https://image.tmdb.org/t/p/w500/mbYQLLluS651W89jO7MOZcLSCUw.jpg",
         "link": "https://www.youtube.com/embed/jK0uiQ1ZQQQ"
     },
     {
         "id": 3,
-        "title": "O poderoso JavaScript",
-        "cover": "https://caelum-online-public.s3.amazonaws.com/2802-react-praticando/img4.png",
+        "title": "Vingadores: Guerra Infinita",
+        "cover": "https://image.tmdb.org/t/p/w500/rkHe0BfOo1f5N2q6rxgdYac7Zf6.jpg",
         "link": "https://www.youtube.com/embed/N1BSG02z-Mw"
     },
     {
         "id": 4,
-        "title": "Dart, o Caçador de Andróides",
-        "cover": "https://caelum-online-public.s3.amazonaws.com/2802-react-praticando/img3.png",
+        "title": "Star Wars: O Despertar da Força",
+        "cover": "https://image.tmdb.org/t/p/w500/lqMDbo4rXnakFgc4C6LzPv6pG7F.jpg",
         "link": "https://www.youtube.com/embed/LLmBWjF6F8M"
     }
 ]
