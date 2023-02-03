@@ -1,8 +1,18 @@
 import React from 'react';
 
+import Banner from 'components/Banner';
+
+import favoritesBanner from 'assets/banner-favoritos.png';
+import Title from 'components/Title';
+
 const Favorites = () => {
     return (
-        <h1>Favoritos</h1>
+        <>
+            <Banner banner={favoritesBanner} />
+            <Title>
+                <h1>Meus Favoritos</h1>
+            </Title>
+        </>
     );
 }
 
