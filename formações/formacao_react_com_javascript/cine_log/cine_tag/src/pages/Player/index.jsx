@@ -2,17 +2,21 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import Banner from 'components/Banner';
-import Container from 'components/Container';
 
 import playerBanner from 'assets/banner-player.png';
 
 import styles from './Player.module.css';
 
 import videos from 'json/db.json';
+import NotFound from 'pages/NotFound';
 
 const Player = () => {
     const params = useParams();
     const video = videos.find(video => video.id === Number(params.id));
+
+    if (!video) {
+        return < NotFound />
+    }
 
     return (
         <>

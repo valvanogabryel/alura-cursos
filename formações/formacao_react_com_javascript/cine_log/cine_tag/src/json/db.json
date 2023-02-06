@@ -1,26 +1,28 @@
-[
-    {
-        "id": 1,
-        "title": "O Gato das Botas: O Último Desejo",
-        "cover": "https://image.tmdb.org/t/p/w500/pSr0JjkI9iM1Yxe9cqrS6YBonAA.jpg",
-        "link": "https://www.youtube.com/embed/sLk94T-hS78"
-    },
-    {
-        "id": 2,
-        "title": "Avatar: O Caminho da Água ",
-        "cover": "https://image.tmdb.org/t/p/w500/mbYQLLluS651W89jO7MOZcLSCUw.jpg",
-        "link": "https://www.youtube.com/embed/x5pZI-DmtrE"
-    },
-    {
-        "id": 3,
-        "title": "Vingadores: Guerra Infinita",
-        "cover": "https://image.tmdb.org/t/p/w500/rkHe0BfOo1f5N2q6rxgdYac7Zf6.jpg",
-        "link": "https://www.youtube.com/embed/DPOw2hfgCHI"
-    },
-    {
-        "id": 4,
-        "title": "Star Wars: O Despertar da Força",
-        "cover": "https://image.tmdb.org/t/p/w500/lqMDbo4rXnakFgc4C6LzPv6pG7F.jpg",
-        "link": "https://www.youtube.com/embed/DM_DSnkHza4"
-    }
-]
+{
+    "videos": [
+        {
+            "id": 1,
+            "title": "O Gato das Botas: O Último Desejo",
+            "cover": "https://image.tmdb.org/t/p/w500/pSr0JjkI9iM1Yxe9cqrS6YBonAA.jpg",
+            "link": "https://www.youtube.com/embed/sLk94T-hS78"
+        },
+        {
+            "id": 2,
+            "title": "Avatar: O Caminho da Água ",
+            "cover": "https://image.tmdb.org/t/p/w500/mbYQLLluS651W89jO7MOZcLSCUw.jpg",
+            "link": "https://www.youtube.com/embed/x5pZI-DmtrE"
+        },
+        {
+            "id": 3,
+            "title": "Vingadores: Guerra Infinita",
+            "cover": "https://image.tmdb.org/t/p/w500/rkHe0BfOo1f5N2q6rxgdYac7Zf6.jpg",
+            "link": "https://www.youtube.com/embed/DPOw2hfgCHI"
+        },
+        {
+            "id": 4,
+            "title": "Star Wars: O Despertar da Força",
+            "cover": "https://image.tmdb.org/t/p/w500/lqMDbo4rXnakFgc4C6LzPv6pG7F.jpg",
+            "link": "https://www.youtube.com/embed/DM_DSnkHza4"
+        }
+    ]
+}

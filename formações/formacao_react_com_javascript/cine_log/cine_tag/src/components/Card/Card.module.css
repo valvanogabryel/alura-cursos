@@ -5,10 +5,29 @@
     padding: 0 0 1rem 0;
     background-color: var(--gray);
     width: 282px;
+    transition: 0.3s;
 }
 
 .cover {
     width: 100%;
+    transition: 0.3s ease;
+}
+
+.container:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.container:nth-child(even):hover .cover {
+    -webkit-transform: rotateZ(10deg);
+    transform: rotateZ(10deg);
+    transition: 0.3s ease;
+}
+
+.container:nth-child(odd):hover .cover {
+    -webkit-transform: rotateZ(-10deg);
+    transform: rotateZ(-10deg);
+    transition: 0.3s ease;
 }
 
 .container h2 {
@@ -19,4 +38,10 @@
     width: 25px;
     cursor: pointer;
     padding: 1rem 2rem;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--black);
+    text-align: left;
 }
