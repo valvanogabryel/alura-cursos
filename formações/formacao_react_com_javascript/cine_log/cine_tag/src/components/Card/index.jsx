@@ -5,7 +5,7 @@ import unfavoriteIcon from './desfavoritar.png';
 import { useFavoriteContext } from 'common/context/Favorites';
 
 const Card = (item) => {
-    const { addFavorite } = useFavoriteContext();
+    const { favorite, addFavorite } = useFavoriteContext();
 
     return (
         <div
@@ -16,7 +16,7 @@ const Card = (item) => {
                 src={item.cover}
                 alt={`capa do vídeo ${item.title}`}
                 className={styles.cover}
-            />''
+            />
             <h2>{item.title}</h2>
             <img
                 src={
