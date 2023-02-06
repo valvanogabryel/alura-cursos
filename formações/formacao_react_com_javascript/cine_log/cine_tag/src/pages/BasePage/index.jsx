@@ -14,7 +14,6 @@ const BasePage = () => {
             <FavoritesProvider>
                 <Container>
                     <Outlet />
-
                 </Container>
             </FavoritesProvider>
             <Footer />

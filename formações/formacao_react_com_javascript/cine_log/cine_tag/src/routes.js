@@ -11,8 +11,8 @@ const AppRoutes = () => {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<BasePage />}>
-                    <Route index element={<Home />} />
-                    <Route path='favoritos' element={<Favorites />} />
+                    <Route index element={<Home title='Início' />} />
+                    <Route path='favoritos' element={<Favorites title='Favoritos' />} />
                     <Route path=':id' element={<Player />} />
                     <Route path='*' element={<NotFound />} />
                 </Route>
