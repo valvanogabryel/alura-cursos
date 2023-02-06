@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import styles from './Card.module.css';
 import favoriteIcon from './favoritar.png';
 import unfavoriteIcon from './desfavoritar.png';
@@ -8,6 +10,7 @@ const Card = (item) => {
     const { favorites, addFavorite } = useFavoriteContext();
     const isFavorite = favorites.some(fav => fav.id === item.id);
     const icon = isFavorite ? unfavoriteIcon : favoriteIcon;
+    const navigate = useNavigate();
 
     return (
         <div
