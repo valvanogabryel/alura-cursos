@@ -1,0 +1,12 @@
+.container {
+    height: 100vh;
+}
+
+.container p {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.container p span {
+    font-weight: 800;
+}
