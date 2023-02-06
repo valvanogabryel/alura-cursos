@@ -5,7 +5,9 @@ import unfavoriteIcon from './desfavoritar.png';
 import { useFavoriteContext } from 'common/context/Favorites';
 
 const Card = (item) => {
-    const { favorite, addFavorite } = useFavoriteContext();
+    const { favorites, addFavorite } = useFavoriteContext();
+    const isFavorite = favorites.some(fav => fav.id === item.id);
+    const icon = isFavorite ? unfavoriteIcon : favoriteIcon;
 
     return (
         <div
@@ -19,9 +21,7 @@ const Card = (item) => {
             />
             <h2>{item.title}</h2>
             <img
-                src={
-                    item.isFavorite ? unfavoriteIcon : favoriteIcon
-                }
+                src={icon}
                 alt="Favoritar filme"
                 className={styles.favorite}
                 onClick={() => addFavorite(item)}

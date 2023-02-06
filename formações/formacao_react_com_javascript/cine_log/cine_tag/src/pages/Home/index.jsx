@@ -3,11 +3,11 @@ import React from 'react';
 import Banner from 'components/Banner';
 import Card from 'components/Card';
 import Title from 'components/Title';
+import CardContainer from 'components/CardContainer';
 
 import homeBanner from 'assets/banner-home.png';
 
 import videos from 'json/db.json';
-import styles from './Home.module.css';
 
 
 const Home = () => {
@@ -18,18 +18,17 @@ const Home = () => {
                 <Title>
                     <h1>Um lugar para guardar seus vídeos e filmes!</h1>
                 </Title>
-                <section className={styles.card__container}>
+                <CardContainer>
                     {
-                        videos.map(item =>
+                        videos.map(video =>
                             <Card
-                                key={item.id}
-                                id={item.id}
-                                title={item.title}
-                                cover={item.cover}
-                                isFavorite={false}
+                                key={video.id}
+                                id={video.id}
+                                title={video.title}
+                                cover={video.cover}
                             />)
                     }
-                </section>
+                </CardContainer>
             </main>
         </>
     );

@@ -13,7 +13,8 @@ export const FavoritesProvider = ({ children }) => {
                 favorites,
                 setFavorites
             }
-            }>
+            }
+        >
             {children}
         </FavoritesContext.Provider>
     )
