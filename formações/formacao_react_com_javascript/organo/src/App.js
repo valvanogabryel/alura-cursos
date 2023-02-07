@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      <Banner />
+      <Banner imagePath='/imagens/banner.png' alternativeText='Banner principal da página organo' />
       <Form
         teams={
           teams.map(team => team.name)
