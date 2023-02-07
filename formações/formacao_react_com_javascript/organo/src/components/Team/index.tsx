@@ -29,7 +29,7 @@ const Team = (props: TeamProps) => {
                 }
             </div>
         </section>
-            : ''
+            : <></>
     )
 }
 
