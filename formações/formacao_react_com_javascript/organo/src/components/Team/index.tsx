@@ -1,4 +1,3 @@
-
 import CollaboratorInterface from '../../shared/interfaces/CollaboratorInterface';
 import Collaborator from '../Collaborator';
 import './Team.css';
@@ -25,6 +24,7 @@ const Team = (props: TeamProps) => {
                             name={collaborator.name}
                             role={collaborator.role}
                             image={collaborator.image}
+                            date={collaborator.date}
                         />)
                 }
             </div>

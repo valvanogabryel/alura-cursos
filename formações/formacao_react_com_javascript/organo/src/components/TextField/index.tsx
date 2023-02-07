@@ -1,10 +1,10 @@
-import React from 'react';
 import './TextField.css';
 
 interface TextFieldProps {
     placeholder: string
     label: string
     value: string
+    type?: 'text' | 'password' | 'email' | 'number' | 'date'
     required?: boolean
     onChange: (value: string) => void
 }
@@ -14,6 +14,7 @@ const TextField = ({
     label,
     onChange,
     value,
+    type = 'text',
     required = false }: TextFieldProps) => {
 
     const changedPlaceholder = `${placeholder}...`
@@ -28,6 +29,7 @@ const TextField = ({
                 {label}
             </label>
             <input
+                type={type}
                 value={value}
                 onChange={onDigit}
                 required={required}

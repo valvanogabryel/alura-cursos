@@ -12,10 +12,11 @@ interface FormularyProps {
 
 const Form = (props: FormularyProps) => {
 
-    const [name, setName] = useState('')
-    const [role, setRole] = useState('')
-    const [image, setImage] = useState('')
-    const [team, setTeam] = useState('')
+    const [name, setName] = useState('');
+    const [role, setRole] = useState('');
+    const [image, setImage] = useState('');
+    const [team, setTeam] = useState('');
+    const [date, setDate] = useState('');
 
     const onSave = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -23,12 +24,14 @@ const Form = (props: FormularyProps) => {
             name,
             role,
             image,
-            team
+            team,
+            date
         })
         setName('')
         setRole('')
         setImage('')
         setTeam('')
+        setDate('')
     }
 
     return (
@@ -55,6 +58,14 @@ const Form = (props: FormularyProps) => {
                     value={image}
                     onChange={value => setImage(value)}
                 />
+                <TextField
+                    label="Data de entrada no time"
+                    placeholder=""
+                    value={date}
+                    onChange={value => setDate(value)}
+                    type='date'
+                />
+
                 <DropBox
                     required={true}
                     label="Time"
