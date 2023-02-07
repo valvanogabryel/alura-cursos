@@ -5,7 +5,7 @@ interface TextFieldProps {
     placeholder: string
     label: string
     value: string
-    required: boolean
+    required?: boolean
     onChange: (value: string) => void
 }
 
@@ -13,8 +13,8 @@ const TextField = ({
     placeholder,
     label,
     onChange,
-    required,
-    value }: TextFieldProps) => {
+    value,
+    required = false }: TextFieldProps) => {
 
     const changedPlaceholder = `${placeholder}...`
 

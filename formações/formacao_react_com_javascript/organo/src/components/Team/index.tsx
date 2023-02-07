@@ -1,7 +1,16 @@
+
+import CollaboratorInterface from '../../shared/interfaces/CollaboratorInterface';
 import Collaborator from '../Collaborator';
 import './Team.css';
 
-const Team = (props) => {
+interface TeamProps {
+    name: string
+    primaryColor: string
+    secondaryColor: string
+    collaborators: Array<CollaboratorInterface>
+}
+
+const Team = (props: TeamProps) => {
     const css = { backgroundColor: props.secondaryColor }
 
     return (

@@ -1,17 +1,23 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import Button from '../Button'
 import TextField from '../TextField'
 import DropBox from '../DropBox'
 import './Form.css'
+import CollaboratorInterface from '../../shared/interfaces/CollaboratorInterface'
 
-const Form = (props) => {
+interface FormularyProps {
+    onCollaboratorRegister: (collaborator: CollaboratorInterface) => void
+    teams: string[]
+}
+
+const Form = (props: FormularyProps) => {
 
     const [name, setName] = useState('')
     const [role, setRole] = useState('')
     const [image, setImage] = useState('')
     const [team, setTeam] = useState('')
 
-    const onSave = (event) => {
+    const onSave = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         props.onCollaboratorRegister({
             name,
@@ -27,7 +33,7 @@ const Form = (props) => {
 
     return (
         <section className="formulario">
-            <form onSubmit={onSave}>
+            <form onSubmit={event => onSave(event)}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
                 <TextField
                     required={true}
