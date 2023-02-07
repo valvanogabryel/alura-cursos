@@ -20,7 +20,7 @@ const Team = (props: TeamProps) => {
                 {
                     props.collaborators.map(collaborator =>
                         <Collaborator
-                            background={props.secondaryColor}
+                            background={props.primaryColor}
                             key={collaborator.name}
                             name={collaborator.name}
                             role={collaborator.role}
