@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/Banner';
 import Form from './components/Form';
 import Team from './components/Team';
+import CollaboratorInterface from './shared/interfaces/CollaboratorInterface';
 
 function App() {
 
@@ -45,8 +46,7 @@ function App() {
 
   const [collaborators, setCollaborators] = useState([])
 
-  const onCollaboratorAdded = (collaborator) => {
-    debugger
+  const onCollaboratorAdded = (collaborator: CollaboratorInterface) => {
     setCollaborators([...collaborators, collaborator])
   }
 
