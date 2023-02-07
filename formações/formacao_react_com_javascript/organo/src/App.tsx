@@ -44,7 +44,7 @@ function App() {
     }
   ]
 
-  const [collaborators, setCollaborators] = useState([])
+  const [collaborators, setCollaborators] = useState<CollaboratorInterface[]>([])
 
   const onCollaboratorAdded = (collaborator: CollaboratorInterface) => {
     setCollaborators([...collaborators, collaborator])
@@ -61,13 +61,16 @@ function App() {
           onCollaboratorAdded(collaborator)}
       />
 
-      {teams.map(team => <Team
-        key={team.name}
-        name={team.name}
-        primaryColor={team.primaryColor}
-        secondaryColor={team.secondaryColor}
-        collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
-      />)}
+      {
+        teams.map(team =>
+          <Team
+            key={team.name}
+            name={team.name}
+            primaryColor={team.primaryColor}
+            secondaryColor={team.secondaryColor}
+            collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
+          />)
+      }
     </div>
   );
 }
