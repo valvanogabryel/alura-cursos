@@ -1,0 +1,15 @@
+.cabecalho__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecalho__pesquisar__item {
+    display: none;
+}
+
+@media screen and (min-width: 834px) {
+    .cabecalho__pesquisar__item {
+        display: block;
+    }
+}
