@@ -1,4 +1,5 @@
 import ListItem from "./ListItem";
+import styles from './List.module.scss';
 
 const List = () => {
     const tasks = [
@@ -17,7 +18,8 @@ const List = () => {
     ];
 
     return (
-        <section>
+        <section className={styles.taskList}>
+            <h2>Estudos do dia</h2>
             <ul>
                 {
                     tasks.map((task, index) =>

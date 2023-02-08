@@ -1,0 +1,41 @@
+.newTask {
+    display: flex;
+    flex-direction: column;
+    grid-area: new-task;
+    background: #7687A1;
+    border-radius: 10px;
+    box-shadow: 2px 4px 4px #0000009F;
+    padding: .75rem;
+
+    .inputContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 1rem;
+
+        label {
+            margin-bottom: .5rem;
+            font-size: 1.25rem;
+        }
+
+        input {
+            background: #5D677C;    
+            width: 100%;
+            padding: 8px 12px 4px;
+            border: unset;
+            border-radius: 5px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 4px #2D2B2B9F inset;
+
+            &::placeholder {
+                color: #BFBFBF;
+            }
+        }
+
+            ::-webkit-calendar-picker-indicator {
+                opacity: 1;
+            }
+    
+    }
+
+}

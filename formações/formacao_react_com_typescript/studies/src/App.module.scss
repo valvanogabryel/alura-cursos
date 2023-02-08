@@ -1,0 +1,28 @@
+.AppStyle {
+    display: grid;
+    grid-template-rows: min-content min-content auto;
+    grid-template-areas: 
+    'new-task'
+    'stopwatch'
+    'tasks';
+    row-gap: 1.5rem;
+    min-width: 320px;
+    min-height: calc(100% - 2rem);
+    width: 100%;
+    padding: 2rem;
+    background: #171717;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    @media screen and (min-width: 1280px) {
+        grid-template-areas: 
+        'new-task tasks'
+        'stopwatch tasks';
+        grid-template-rows: min-content min-content;
+        grid-template-columns: 750px 300px;
+        justify-content: center;
+        align-content: center;
+        column-gap: 4rem;
+        padding: 4rem;
+    }
+}

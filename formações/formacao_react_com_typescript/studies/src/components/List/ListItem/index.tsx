@@ -1,6 +1,8 @@
+import styles from './ListItem.module.scss';
+
 const ListItem = ({ taskName, studyTime }: any) => {
     return (
-        <li>
+        <li className={styles.item}>
             <h3>
                 {taskName}
             </h3>
