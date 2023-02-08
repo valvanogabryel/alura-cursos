@@ -123,6 +123,19 @@
     height: 15px;
 }
 
+@media screen and (min-width: 600px) and (max-width: 1020px) {
+    .card__image {
+        width: auto;
+        height: 100%;
+    }
+
+    .card__button {
+        position: relative;
+        right: 75%;
+        width: 100%;
+    }
+}
+
 @media screen and (min-width: 1024px) {
     .carrossel__title {
         font-size: 26px;
