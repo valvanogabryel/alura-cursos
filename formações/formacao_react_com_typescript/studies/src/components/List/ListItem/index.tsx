@@ -1,6 +1,6 @@
 import styles from './ListItem.module.scss';
 
-const ListItem = ({ taskName, studyTime }: any) => {
+const ListItem = ({ taskName, studyTime }: string) => {
     return (
         <li className={styles.item}>
             <h3>

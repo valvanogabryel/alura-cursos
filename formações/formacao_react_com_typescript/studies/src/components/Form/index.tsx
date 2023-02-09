@@ -29,7 +29,7 @@ const Form = () => {
                     />
                 </div>
                 <Button>
-                    Adicionar tarefa
+                    Adicionar
                 </Button>
             </form>
         </section>
