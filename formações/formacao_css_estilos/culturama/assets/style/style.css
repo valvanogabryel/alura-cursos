@@ -287,7 +287,7 @@ img:hover {
     width: 100%;
 }
 
-.schedule__item .schedule__informacoes {
+.schedule__item .schedule__info {
     text-align: center;
     background-color: var(--dark-gray);
     color: white;
@@ -295,12 +295,12 @@ img:hover {
     padding-top: 1rem;
 }
 
-.schedule__informacoes h3 {
+.schedule__info h3 {
     font-size: 2rem;
 }
 
-.schedule__informacoes h4,
-.schedule__informacoes h5 {
+.schedule__info h4,
+.schedule__info h5 {
     font-size: 1.5rem;
 }
 
