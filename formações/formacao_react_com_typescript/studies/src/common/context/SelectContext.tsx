@@ -16,30 +16,28 @@ export const SelectProvider = ({ children }: any) => {
             }
         }>
             {children}
-
         </SelectContext.Provider>
     )
 }
 
 export const useSelectContext = () => {
     const {
-        selected,
+        selected = {
+
+        },
         setSelected
     } = useContext(SelectContext);
 
     const {
-        taskList,
         setTasks
     } = useTaskListContext();
 
     function selectTask(selectedTask: ITask) {
-        console.log(selectedTask)
         setSelected(selectedTask);
         setTasks((previousTasks: ITask[]) => previousTasks.map((task: ITask) => ({
-            ...taskList,
+            ...task,
             isSelected: task.id === selectedTask.id ? true : false
         })));
-        console.log(selectedTask)
     }
 
     return {

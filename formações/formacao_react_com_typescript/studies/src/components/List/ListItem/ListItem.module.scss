@@ -6,6 +6,7 @@
     box-shadow: 2px 4px 4px #0000009F;
     position: relative;
     margin-bottom: 8px;
+    transition: .3s;
 
     h3 {
         margin-bottom: 8px;
@@ -14,6 +15,10 @@
 
     span {
         color: #d0d0d0;
+    }
+
+    &:hover {
+        transform: scale(1.01);
     }
 
     @media screen and (min-width: 1280px) {

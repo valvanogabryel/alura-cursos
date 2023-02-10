@@ -1,7 +1,7 @@
 .taskList {
     grid-area: tasks;
     height: 100%;
-
+    
     
     h2 {
         font-size: 1.25rem;
@@ -10,6 +10,7 @@
     
     ul {
         max-height: 350px;
+        overflow-x: hidden;
         overflow-y: scroll;
         scrollbar-width: thin;
     }
