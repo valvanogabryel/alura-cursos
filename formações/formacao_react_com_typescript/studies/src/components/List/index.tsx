@@ -17,12 +17,15 @@ const List = ({ tasks }: IListProps) => {
             <ul>
                 {
                     tasks.length ?
-                        tasks.map((task, index) =>
+                        tasks.map((task) =>
                         (
                             <ListItem
-                                key={index}
+                                key={task.id}
                                 taskName={task.taskName}
                                 studyTime={task.studyTime}
+                                id={task.id}
+                                isSelected={task.isSelected}
+                                isCompleted={task.isCompleted}
                             />
                         )) :
                         <div>
