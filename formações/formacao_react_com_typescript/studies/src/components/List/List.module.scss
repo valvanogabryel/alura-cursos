@@ -2,15 +2,22 @@
     grid-area: tasks;
     height: 100%;
 
+    
     h2 {
         font-size: 1.25rem;
         margin-bottom: 12px;
     }
-
+    
     ul {
         max-height: 350px;
         overflow-y: scroll;
         scrollbar-width: thin;
+    }
+        
+    .text {
+        font-size: .8rem;
+        text-align: center;
+
     }
 
     @media screen and (min-width: 1280px) {

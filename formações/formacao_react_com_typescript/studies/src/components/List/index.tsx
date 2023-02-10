@@ -1,37 +1,33 @@
 import ListItem from "./ListItem";
 import styles from './List.module.scss';
-import { useState } from "react";
+import ITask from "../../types/tasks";
 
-const List = () => {
-    const [tasks, setTasks] = useState([{
-        taskName: 'React',
-        studyTime: '01:30:00'
-    },
-    {
-        taskName: 'TypeScript',
-        studyTime: '02:12:00'
-    },
-    {
-        taskName: 'SASS',
-        studyTime: '00:30:00'
-    },
-    ])
+interface IListProps {
+    tasks: Array<
+        ITask
+    >
+}
+
+const List = ({ tasks }: IListProps) => {
+
 
     return (
         <section className={styles.taskList}>
-            <h2 onClick={() => {
-                setTasks([...tasks, { taskName: 'Bootstrap', studyTime: '00:45:00' }])
-            }}>Estudos do dia</h2>
+            <h2>Estudos do dia</h2>
             <ul>
                 {
-                    tasks.map((task, index) =>
-                    (
-                        <ListItem
-                            key={index}
-                            taskName={task.taskName}
-                            studyTime={task.studyTime}
-                        />
-                    ))
+                    tasks.length > 1 ?
+                        tasks.map((task, index) =>
+                        (
+                            <ListItem
+                                key={index}
+                                taskName={task.taskName}
+                                studyTime={task.studyTime}
+                            />
+                        )) :
+                        <div>
+                            <p className={styles.text}>Nenhuma tarefa ainda...</p>
+                        </div>
                 }
             </ul>
         </section>
