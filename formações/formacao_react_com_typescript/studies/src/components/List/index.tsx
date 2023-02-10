@@ -17,8 +17,6 @@ const List = () => {
     },
     ])
 
-
-
     return (
         <section className={styles.taskList}>
             <h2 onClick={() => {
