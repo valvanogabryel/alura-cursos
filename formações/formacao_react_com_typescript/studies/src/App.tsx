@@ -5,13 +5,10 @@ import List from './components/List';
 import Stopwatch from './components/Stopwatch';
 
 import styles from './App.module.scss';
+import ITask from './types/tasks';
 
 function App() {
-  const [taskList, setTasks] = useState([
-    {
-      taskName: '',
-      studyTime: ''
-    }
+  const [taskList, setTasks] = useState<ITask[]>([
     // {
     //   taskName: 'React',
     //   studyTime: '01:30:00'

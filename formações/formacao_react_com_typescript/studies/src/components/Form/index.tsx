@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import ITask from '../../types/tasks';
+
 import Button from '../Button';
+
+import { v4 as uuidv4 } from 'uuid';
+
+import ITask from '../../types/tasks';
 import styles from './Form.module.scss';
 
 interface IFormProps {
@@ -21,9 +25,12 @@ const Form = ({ tasks, setTasks }: IFormProps) => {
     function addTask(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        setTasks([...tasks, {
+        setTasks(previousTasks => [...previousTasks, {
             taskName: task,
-            studyTime: time
+            studyTime: time,
+            isSelected: false,
+            isCompleted: false,
+            id: uuidv4()
         }]);
 
         cleanInputs();

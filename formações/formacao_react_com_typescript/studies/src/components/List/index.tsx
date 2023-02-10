@@ -16,7 +16,7 @@ const List = ({ tasks }: IListProps) => {
             <h2>Estudos do dia</h2>
             <ul>
                 {
-                    tasks.length > 1 ?
+                    tasks.length ?
                         tasks.map((task, index) =>
                         (
                             <ListItem

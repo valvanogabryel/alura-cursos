@@ -1,9 +1,7 @@
+import ITask from '../../../types/tasks';
 import styles from './ListItem.module.scss';
 
-const ListItem = ({ taskName, studyTime }: {
-    taskName: string,
-    studyTime: string
-}) => {
+const ListItem = ({ taskName, studyTime, isSelected, isCompleted, id }: ITask) => {
     return (
         <li className={styles.item}>
             <h3>
