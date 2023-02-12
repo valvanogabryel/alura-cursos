@@ -8,14 +8,12 @@ export const TaskListProvider = ({ children }: any) => {
     const [taskList, setTasks] = useState<ITask[]>([]);
 
     return (
-        <TaskListContext.Provider value={
-            {
-                taskList,
-                setTasks
-            }
-        }>
+        <TaskListContext.Provider value={{
+            taskList,
+            setTasks
+        }}
+        >
             {children}
-
         </TaskListContext.Provider>
     )
 }
