@@ -11,10 +11,9 @@ const ListItem = ({ taskName, studyTime, isSelected, isCompleted, id }: ITask) =
             className=
             {`${styles.item} 
             ${isSelected ? styles.selectedItem : ''}
-            ${isCompleted ? styles.completedItem : ''}
-            ${isCompleted ? styles.concluded : ''}`
+            ${isCompleted ? styles.completedItem : ''}`
             }
-            onClick={(() => selectTask(
+            onClick={(() => !isCompleted && selectTask(
                 {
                     taskName,
                     studyTime,
@@ -31,6 +30,7 @@ const ListItem = ({ taskName, studyTime, isSelected, isCompleted, id }: ITask) =
             <span>
                 {studyTime}
             </span>
+            {isCompleted && <span className={styles.concluded} aria-label='tarefa completada'></span>}
         </li>
     );
 }

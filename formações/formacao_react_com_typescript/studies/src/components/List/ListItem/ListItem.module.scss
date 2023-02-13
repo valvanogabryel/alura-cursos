@@ -41,6 +41,11 @@
 .completedItem {
     background: #566f42;
     cursor: default;
+
+    &:hover {
+        transform: translateY(0);  
+        box-shadow: none;      
+    }
     
 
     .concluded {

@@ -28,7 +28,6 @@ const Stopwatch = () => {
         }, 1000)
         if (counter === 0) {
             concludeTask();
-            alert(`Tarefa ${selected.taskName} concluída`);
         }
     }
 
