@@ -9,8 +9,6 @@ interface IListProps {
 }
 
 const List = ({ tasks }: IListProps) => {
-
-
     return (
         <section className={styles.taskList}>
             <h2>Estudos do dia</h2>

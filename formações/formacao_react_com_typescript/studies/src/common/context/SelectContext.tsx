@@ -40,9 +40,26 @@ export const useSelectContext = () => {
         })));
     }
 
+    function concludeTask() {
+        if (selected) {
+            setSelected(undefined);
+            setTasks((previousTasks: ITask[]) => previousTasks.map((task: ITask) => {
+                if (task.id === selected.id) {
+                    return {
+                        ...task,
+                        isSelected: false,
+                        isCompleted: true
+                    }
+                }
+                return task;
+            }))
+        }
+    }
+
     return {
         selected,
         setSelected,
-        selectTask
+        selectTask,
+        concludeTask
     }
 }

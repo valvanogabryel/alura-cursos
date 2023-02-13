@@ -8,7 +8,12 @@ const ListItem = ({ taskName, studyTime, isSelected, isCompleted, id }: ITask) =
 
     return (
         <li
-            className={`${styles.item} ${isSelected ? styles.selectedItem : ''}`}
+            className=
+            {`${styles.item} 
+            ${isSelected ? styles.selectedItem : ''}
+            ${isCompleted ? styles.completedItem : ''}
+            ${isCompleted ? styles.concluded : ''}`
+            }
             onClick={(() => selectTask(
                 {
                     taskName,
