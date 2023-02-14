@@ -1,11 +1,11 @@
-import Button from '../../components/Button';
 import styles from './Menu.module.scss';
+import { ReactComponent as Logo } from 'assets/logo.svg';
 
 const Menu = () => {
     return (
         <main>
             <nav className={styles.menu}>
-                <Button />
+                <Logo title='Logo da aluroni' />
             </nav>
         </main>
     );
