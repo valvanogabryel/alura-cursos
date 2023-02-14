@@ -4,6 +4,7 @@ import { useState } from 'react';
 import SearchEngine from './SearchEngine';
 import Filters from './Filters';
 import Ordenator from './Ordenator';
+import Items from './Items';
 
 import styles from './Menu.module.scss';
 
@@ -38,6 +39,7 @@ const Menu = () => {
                         setOrdenator={setOrdenator}
                     />
                 </div>
+                <Items />
             </section>
         </main>
     );

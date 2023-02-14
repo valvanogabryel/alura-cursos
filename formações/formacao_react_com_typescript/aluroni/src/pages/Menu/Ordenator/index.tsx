@@ -22,7 +22,6 @@ const Ordenator = ({
     const [open, setOpen] = useState(false);
     const ordenatorName = ordenator && options.find(option => ordenator === option.value)?.name;
 
-
     return (
         <button
             className={classNames({
