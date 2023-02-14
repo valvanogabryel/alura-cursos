@@ -31,10 +31,10 @@ const Item = (props: IItems) => {
                     <p>{description}</p>
                 </div>
                 <div className={styles.item__tags}>
-                    <div className={classNames({
-                        [styles.item__type]: true,
-                        [styles[`item__type__${type}`]]: true
-                    })}>
+                    <div className={classNames(
+                        styles.item__type,
+                        styles[`item__type__${type}`]
+                    )}>
                         {category.label}
                     </div>
                     <div className={styles.item__portion}>
