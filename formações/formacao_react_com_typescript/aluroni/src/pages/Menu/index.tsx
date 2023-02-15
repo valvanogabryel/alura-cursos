@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import SearchEngine from './SearchEngine';
 import Filters from './Filters';
-import Ordenator from './Ordenator';
+import Ordenator, { OrdenatorOptions } from './Ordenator';
 import Items from './Items';
 
 import styles from './Menu.module.scss';
@@ -11,7 +11,7 @@ import styles from './Menu.module.scss';
 const Menu = () => {
     const [search, setSearch] = useState('');
     const [filter, setFilter] = useState<number | null>(null);
-    const [ordenator, setOrdenator] = useState('');
+    const [ordenator, setOrdenator] = useState<OrdenatorOptions>('');
 
     return (
         <main>
@@ -39,7 +39,11 @@ const Menu = () => {
                         setOrdenator={setOrdenator}
                     />
                 </div>
-                <Items />
+                <Items
+                    search={search}
+                    filter={filter}
+                    ordenator={ordenator}
+                />
             </section>
         </main>
     );

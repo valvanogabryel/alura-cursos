@@ -9,10 +9,12 @@ import {
     MdKeyboardArrowDown
 } from 'react-icons/md';
 
+export type OrdenatorOptions = '' | 'porcao' | 'qtd_pessoas' | 'preco';
+
 
 interface OrdenatorProps {
-    ordenator: string,
-    setOrdenator: React.Dispatch<React.SetStateAction<string>>
+    ordenator: OrdenatorOptions,
+    setOrdenator: React.Dispatch<React.SetStateAction<OrdenatorOptions>>
 }
 
 const Ordenator = ({
@@ -47,7 +49,7 @@ const Ordenator = ({
                         <div
                             className={styles.ordenator__option}
                             key={option.value}
-                            onClick={() => setOrdenator(option.value)}
+                            onClick={() => setOrdenator(option.value as OrdenatorOptions)}
                         >
                             {option.name}
                         </div>
