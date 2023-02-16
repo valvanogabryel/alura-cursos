@@ -3,6 +3,7 @@
 
 .nav {
     display: flex;
+    user-select: none;
     padding: 20px $horizontal-padding;
     @media (max-width: $desktop_xsm) {
       padding: 20px $horizontal-padding-mobile;
