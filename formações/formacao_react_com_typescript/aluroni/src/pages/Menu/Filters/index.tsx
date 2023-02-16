@@ -33,6 +33,6 @@ const Filters = ({ filter, setFilter }: FiltersProps) => {
             }
         </div >
     );
-}
+};
 
 export default Filters;

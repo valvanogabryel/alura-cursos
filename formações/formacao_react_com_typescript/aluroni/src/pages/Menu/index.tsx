@@ -1,12 +1,12 @@
-import { ReactComponent as Logo } from 'assets/logo.svg';
 import { useState } from 'react';
 
 import SearchEngine from './SearchEngine';
 import Filters from './Filters';
 import Ordenator, { OrdenatorOptions } from './Ordenator';
 import Items from './Items';
-
+// styles
 import styles from './Menu.module.scss';
+import themeStyles from 'styles/Theme.module.scss';
 
 const Menu = () => {
     const [search, setSearch] = useState('');
@@ -14,39 +14,30 @@ const Menu = () => {
     const [ordenator, setOrdenator] = useState<OrdenatorOptions>('');
 
     return (
-        <main>
-            <nav className={styles.nav}>
-                <Logo />
-            </nav>
-            <header className={styles.header}>
-                <div className={styles.header__text}>
-                    A casa da massa!
-                </div>
-            </header>
-            <section className={styles.menu}>
-                <h3 className={styles.menu__title}>Cardápio</h3>
-                <SearchEngine
-                    search={search}
-                    setSearch={setSearch}
-                />
-                <div className={styles.menu__filters}>
-                    <Filters
-                        filter={filter}
-                        setFilter={setFilter}
-                    />
-                    <Ordenator
-                        ordenator={ordenator}
-                        setOrdenator={setOrdenator}
-                    />
-                </div>
-                <Items
-                    search={search}
+        <section className={styles.menu}>
+            <h3 className={themeStyles.title}>Cardápio</h3>
+            <SearchEngine
+                search={search}
+                setSearch={setSearch}
+            />
+            <div className={styles.menu__filters}>
+                <Filters
                     filter={filter}
-                    ordenator={ordenator}
+                    setFilter={setFilter}
                 />
-            </section>
-        </main>
+                <Ordenator
+                    ordenator={ordenator}
+                    setOrdenator={setOrdenator}
+                />
+            </div>
+            <Items
+                search={search}
+                filter={filter}
+                ordenator={ordenator}
+            />
+        </section>
+
     );
-}
+};
 
 export default Menu;

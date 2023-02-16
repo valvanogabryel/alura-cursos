@@ -58,6 +58,6 @@ const Ordenator = ({
             </div>
         </button>
     );
-}
+};
 
 export default Ordenator;

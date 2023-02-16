@@ -6,6 +6,6 @@ const Button = () => {
             Botão
         </button>
     );
-}
+};
 
 export default Button;

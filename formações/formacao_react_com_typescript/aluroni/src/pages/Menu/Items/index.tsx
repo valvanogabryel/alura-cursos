@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Item from './Item';
 
-import menu from './items.json';
+import menu from 'data/items.json';
 
 import styles from './Items.module.scss';
 
@@ -48,18 +48,18 @@ const Items = (props: ItemsProps) => {
 
     useEffect(() => {
         const newList = menu.filter(
-            (item) => testSearch(item.title) && testFilter(item.category.id)
+            item => testSearch(item.title) && testFilter(item.category.id)
         );
         setList(order(newList));
     }, [search,
         filter,
         ordenator
-    ])
+    ]);
 
     return (
         <div className={styles.items}>
             {
-                list.length > 1 ?
+                list.length > 0 ?
                     list.map(item => (
                         <Item
                             key={item.id}
@@ -73,6 +73,6 @@ const Items = (props: ItemsProps) => {
             }
         </div>
     );
-}
+};
 
 export default Items;

@@ -1,12 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Italiana&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
 :root {
   --main-font: "Italiana", serif;
+  --dark-red: #c62a2a;
+  --red: #d73b3b;
 }
 
 * {
   font-family: var(--main-font);
   box-sizing: border-box;
+}
+
+#root > main.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 html,
@@ -137,6 +146,19 @@ table {
 body {
   background-color: #f6f6f6;
   height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, var(--dark-red), var(--red));
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
 }
 
 a {

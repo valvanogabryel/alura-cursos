@@ -1,5 +1,5 @@
 import styles from './Item.module.scss';
-import menu from '../items.json';
+import menu from 'data/items.json';
 import classNames from 'classnames';
 
 type IItems = typeof menu[0];
@@ -50,6 +50,6 @@ const Item = (props: IItems) => {
             </div>
         </div >
     );
-}
+};
 
 export default Item;

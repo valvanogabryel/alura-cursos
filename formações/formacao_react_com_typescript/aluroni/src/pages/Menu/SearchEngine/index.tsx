@@ -23,6 +23,6 @@ const SearchEngine = ({ search, setSearch }: SearchEngineProps) => {
             />
         </div>
     );
-}
+};
 
 export default SearchEngine;
