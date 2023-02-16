@@ -17,13 +17,19 @@ const About = () => {
                 <img src={house} alt="Casa Aluroni" />
                 <div className={styles.aboutUs__text}>
                     <p>
-                        Nós do Aluroni oferecemos a vocês, nossos queridos clientes, a Massa Italiana Caseira mais saborosa e sofisticada de São Paulo! Prezamos pelos ingredientes tradicionais da culinária Italiana, frescos e de excelente qualidade para que sua experiência seja ainda mais intensa!
+                        Nós do <span className={styles.aboutUs__text__highlight} style={{
+                            fontFamily: 'Italiana',
+                            color: '#d73b3b'
+                        }}>ALURONI&trade;</span> oferecemos a vocês, nossos queridos clientes, a <span className={styles.aboutUs__text__highlight}>Massa Italiana Caseira</span> mais <span className={styles.aboutUs__text__highlight}>saborosa</span> e <span className={styles.aboutUs__text__highlight}>sofisticada</span> de São Paulo! Prezamos pelos <span className={styles.aboutUs__text__highlight}>ingredientes tradicionais da culinária Italiana</span>, frescos e de excelente qualidade para que sua experiência seja ainda mais intensa!
                     </p>
                     <p>
                         Também possuímos uma cardápio de carnes com muitas opções de acordo com o seu gosto!
                     </p>
                     <p>
-                        Para acompanhar as massas italianas, Aluroni possui uma reserva de vinhos especiais, que harmonizam perfeitamente com o seu parto, seja carne ou massa!
+                        Para acompanhar as massas italianas, <span className={styles.aboutUs__text__highlight} style={{
+                            fontFamily: 'Italiana',
+                            color: '#d73b3b'
+                        }}>ALURONI&trade;</span> possui uma reserva de vinhos especiais, que <span className={styles.aboutUs__text__highlight}>harmonizam perfeitamente</span> com o seu prato, seja carne ou massa!
                     </p>
                 </div>
             </div>

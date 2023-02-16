@@ -8,12 +8,17 @@
       flex-direction: column;
       justify-content: center;
       font-size: 1.5rem;
-      font-weight: bold;
+      font-weight: normal;
       text-align: justify;
+
+      &__highlight {
+        font-weight: bold;
+      }
 
   p {
         font-family: 'Josefin Sans', sans-serif;
         margin: 2rem 0;
+
       }
     }
   }
