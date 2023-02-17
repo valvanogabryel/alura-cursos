@@ -1,24 +1,31 @@
+import DishTags from 'components/DishTags';
+import { useNavigate } from 'react-router-dom';
+import { Dish } from 'types/dish';
 import styles from './Item.module.scss';
-import menu from 'data/items.json';
-import classNames from 'classnames';
-
-type IItems = typeof menu[0];
 
 
-const Item = (props: IItems) => {
+const Item = (props: Dish) => {
     const {
         title,
         description,
         photo,
-        size,
-        category,
-        serving,
-        price } = props;
+        id
+    } = props;
 
-    const type = category.label.toLowerCase();
+    const navigate = useNavigate();
 
     return (
-        <div className={styles.item}>
+        <div
+            className={styles.item}
+            onClick={() => {
+                window.scrollTo({
+                    top: 405
+                });
+
+                return navigate(`/prato/${id}`);
+            }
+            }
+        >
             <div className={styles.item__image}>
                 <img
                     src={photo}
@@ -30,23 +37,9 @@ const Item = (props: IItems) => {
                     <h2>{title}</h2>
                     <p>{description}</p>
                 </div>
-                <div className={styles.item__tags}>
-                    <div className={classNames(
-                        styles.item__type,
-                        styles[`item__type__${type}`]
-                    )}>
-                        {category.label}
-                    </div>
-                    <div className={styles.item__portion}>
-                        {size}g
-                    </div>
-                    <div className={styles.item__peopleqtd}>
-                        {`Serve ${serving} ${serving > 1 ? 'pessoas' : 'pessoa'}`}
-                    </div>
-                    <div className={styles.item__value}>
-                        R${price.toFixed(2)}
-                    </div>
-                </div>
+                <DishTags
+                    {...props}
+                />
             </div>
         </div >
     );

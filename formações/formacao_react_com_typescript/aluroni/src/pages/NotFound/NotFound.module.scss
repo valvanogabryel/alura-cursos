@@ -22,13 +22,13 @@
     font-weight: bold;
 
     &:hover {
-        animation: teste 1s infinite;
+        animation: hover 1s infinite;
         color: $red-dark;
     }
   }
 }
 
-@keyframes teste {
+@keyframes hover {
     0% {
         margin-left: 0;
     }

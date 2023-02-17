@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import menu from 'data/items.json';
 
 import ourHouseImage from 'assets/nossa_casa.png';
@@ -5,9 +7,15 @@ import ourHouseImage from 'assets/nossa_casa.png';
 // styles
 import styles from './Home.module.scss';
 import themeStyles from 'styles/Theme.module.scss';
+import { Dish } from 'types/dish';
 
 const Home = () => {
     const recommendedFood = [...menu].sort(() => 0.5 - Math.random()).splice(0, 3);
+    const navigate = useNavigate();
+
+    function redirectToDetails(dish: Dish) {
+        navigate(`/prato/${dish.id}`, { state: { dish } });
+    }
 
     return (
         <section>
@@ -26,7 +34,10 @@ const Home = () => {
                                 alt={item.title}
                             />
                         </div>
-                        <button className={styles.recommended__button}>
+                        <button
+                            className={styles.recommended__button}
+                            onClick={() => redirectToDetails(item)}
+                        >
                             Ver mais
                         </button>
                     </div>

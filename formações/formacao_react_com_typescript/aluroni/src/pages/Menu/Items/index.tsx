@@ -1,8 +1,12 @@
+// react
 import { useState, useEffect } from 'react';
+// components
 import Item from './Item';
-
+// data
 import menu from 'data/items.json';
-
+// types
+import { MenuItems } from 'types/dish';
+// styles
 import styles from './Items.module.scss';
 
 interface ItemsProps {
@@ -26,7 +30,7 @@ const Items = (props: ItemsProps) => {
         return true;
     }
 
-    function order(newList: typeof menu) {
+    function order(newList: MenuItems) {
         switch (ordenator) {
             case 'porcao':
                 return orderInCrescent(newList, 'size');
@@ -40,7 +44,7 @@ const Items = (props: ItemsProps) => {
     }
 
     function orderInCrescent(
-        newList: typeof menu,
+        newList: MenuItems,
         type: 'size' | 'serving' | 'price'
     ) {
         return newList.sort((a, b) => a[type] - b[type]);
