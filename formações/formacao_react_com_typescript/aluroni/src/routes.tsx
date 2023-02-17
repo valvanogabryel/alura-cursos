@@ -8,6 +8,7 @@ import About from 'pages/About';
 import Footer from 'components/Footer';
 import NotFound from 'pages/NotFound';
 import Dish from 'pages/Dish';
+import Admin from 'components/Admin';
 
 const AppRouter = () => {
     return (
@@ -20,6 +21,7 @@ const AppRouter = () => {
                         <Route path='cardapio' element={<Menu />} />
                         <Route path='sobre' element={<About />} />
                     </Route>
+                    <Route path='admin/:user' element={<Admin />} />
                     <Route path='prato/:id' element={<Dish />} />
                     <Route path='*' element={<NotFound />} />
                 </Routes>
