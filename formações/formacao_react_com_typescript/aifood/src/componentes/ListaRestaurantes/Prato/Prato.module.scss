@@ -3,6 +3,13 @@
     width: 240px;
     text-align: center;
     margin-right: 8px;
+    transition: .3s ease;
+    user-select: none;
+
+    &:hover {
+         transform: translateY(-10px);
+         box-shadow: 0px 50px 50px rgba(0, 0, 0, 0.087);
+    }
 
     .Tag {
         background: #f2745f;
