@@ -75,7 +75,13 @@ const AdminDishes = () => {
                   {dish.tag}
                 </TableCell>
                 <TableCell>
-                  <a href={dish.imagem} target='_blank' rel="noreferrer">Ver imagem</a>
+                  <a
+                    href={dish.imagem}
+                    target='_blank'
+                    rel="noreferrer"
+                  >
+                    Ver imagem
+                  </a>
                 </TableCell>
                 <TableCell>
                   [ <Link to={`/admin/pratos/${dish.id}`}>Editar</Link> ]
@@ -84,7 +90,8 @@ const AdminDishes = () => {
                   <Button
                     variant="outlined"
                     color="error"
-                    onClick={() => deleteDish(dish)}
+                    onClick={() =>
+                      deleteDish(dish)}
                   >
                     Excluir
                   </Button>
