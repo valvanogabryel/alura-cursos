@@ -71,7 +71,7 @@ const FormRestaurants = () => {
         type='submit'
         disabled={restaurantName.length < 3}
       >
-        {params.id ? 'Atualizar' : 'Cadastrar'}
+        Salvar
       </Button>
     </form>
   );

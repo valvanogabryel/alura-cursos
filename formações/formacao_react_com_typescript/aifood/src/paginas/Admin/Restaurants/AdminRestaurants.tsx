@@ -4,7 +4,8 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  Paper
+  Paper,
+  Button
 } from "@mui/material";
 
 import {
@@ -27,6 +28,14 @@ const AdminRestaurants = () => {
       })
   });
 
+  function deleteRestaurant(restaurantToDelete: IRestaurante) {
+    axios.delete(`http://localhost:8000/api/v2/restaurantes/${restaurantToDelete.id}/`)
+      .then(() => {
+        const restaurantsList = restaurants.filter(restaurant => restaurant.id !== restaurantToDelete.id);
+        setRestaurants([...restaurantsList]);
+      })
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -37,6 +46,9 @@ const AdminRestaurants = () => {
             </TableCell>
             <TableCell>
               Editar
+            </TableCell>
+            <TableCell>
+              Excluir
             </TableCell>
           </TableRow>
         </TableHead>
@@ -49,6 +61,15 @@ const AdminRestaurants = () => {
                 </TableCell>
                 <TableCell>
                   [ <Link to={`/admin/restaurantes/${restaurant.id}`}>Editar</Link> ]
+                </TableCell>
+                <TableCell>
+                  <Button
+                    variant="outlined"
+                    color="error"
+                    onClick={() => deleteRestaurant(restaurant)}
+                  >
+                    Excluir
+                  </Button>
                 </TableCell>
               </TableRow>
             ))
