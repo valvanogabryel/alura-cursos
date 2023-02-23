@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import BaseAdminPage from './paginas/Admin/BaseAdminPage';
 import AdminRestaurants from './paginas/Admin/Restaurants/AdminRestaurants';
 import FormRestaurants from './paginas/Admin/Restaurants/FormRestaurants';
 import Home from './paginas/Home';
@@ -10,9 +11,13 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/restaurantes" element={<VitrineRestaurantes />} />
-      <Route path="/admin/restaurantes" element={<AdminRestaurants />} />
-      <Route path="/admin/restaurantes/novo" element={<FormRestaurants />} />
-      <Route path="/admin/restaurantes/:id" element={<FormRestaurants />} />
+      <Route path='/admin' element={<BaseAdminPage />}>
+
+        <Route path="restaurantes" element={<AdminRestaurants />} />
+        <Route path="restaurantes/novo" element={<FormRestaurants />} />
+        <Route path="restaurantes/:id" element={<FormRestaurants />} />
+
+      </Route>
     </Routes>
   );
 }

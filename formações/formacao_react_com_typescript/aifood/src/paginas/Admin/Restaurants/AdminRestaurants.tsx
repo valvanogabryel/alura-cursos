@@ -14,22 +14,22 @@ import {
 } from "react";
 
 import IRestaurante from "../../../interfaces/IRestaurante";
-import axios from 'axios';
 import TableRow from "@mui/material/TableRow";
 import { Link } from "react-router-dom";
+import http from "../../../http";
 
 const AdminRestaurants = () => {
   const [restaurants, setRestaurants] = useState<IRestaurante[]>([]);
 
   useEffect(() => {
-    axios.get<IRestaurante[]>('http://localhost:8000/api/v2/restaurantes/')
+    http.get<IRestaurante[]>('restaurantes/')
       .then(response => {
         setRestaurants(response.data);
       })
   });
 
   function deleteRestaurant(restaurantToDelete: IRestaurante) {
-    axios.delete(`http://localhost:8000/api/v2/restaurantes/${restaurantToDelete.id}/`)
+    http.delete(`restaurantes/${restaurantToDelete.id}/`)
       .then(() => {
         const restaurantsList = restaurants.filter(restaurant => restaurant.id !== restaurantToDelete.id);
         setRestaurants([...restaurantsList]);

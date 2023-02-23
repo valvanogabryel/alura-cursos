@@ -1,11 +1,14 @@
 import {
   TextField,
-  Button
+  Button,
+  Box,
+  Typography,
+  Container
 } from '@mui/material';
 
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import http from '../../../http';
 
 const FormRestaurants = () => {
   const [restaurantName, setRestaurantName] = useState('');
@@ -13,7 +16,7 @@ const FormRestaurants = () => {
 
   useEffect(() => {
     if (params.id) {
-      axios.get(`http://localhost:8000/api/v2/restaurantes/${params.id}/`)
+      http.get(`restaurantes/${params.id}/`)
         .then((response) => setRestaurantName(response.data.nome));
     }
   }, [params]);
@@ -40,14 +43,14 @@ const FormRestaurants = () => {
     event.preventDefault();
 
     if (params.id) {
-      axios.put(`http://localhost:8000/api/v2/restaurantes/${params.id}/`, {
+      http.put(`restaurantes/${params.id}/`, {
         nome: restaurantName
       })
         .then(() => {
           alert('Restaurante atualizado com sucesso.');
         });
     } else {
-      axios.post('http://localhost:8000/api/v2/restaurantes/', {
+      http.post('restaurantes/', {
         nome: restaurantName
       })
         .then(() => {
@@ -57,23 +60,56 @@ const FormRestaurants = () => {
   }
 
   return (
-    <form onSubmit={getRestaurantName}>
-      <TextField
-        value={restaurantName}
-        id='outlined-basic'
-        label='Nome do restaurante'
-        variant='outlined'
-        placeholder={placeholder() || 'McDonalds'}
-        onChange={event => setRestaurantName(event.target.value)}
-      />
-      <Button
-        variant='outlined'
-        type='submit'
-        disabled={restaurantName.length < 3}
-      >
-        Salvar
-      </Button>
-    </form>
+    <>
+      <Box>
+        <Container maxWidth='lg' sx={{ mt: 1 }}>
+
+          {/* Conteudo da página */}
+          <Box sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            flexGrow: 1
+          }}>
+            <Typography
+              component='h1'
+              variant='h6'
+            >
+              Formulário de Restaurantes
+            </Typography>
+            <Box
+              component='form'
+              onSubmit={getRestaurantName}
+              sx={{
+                my: 1,
+                width: '100%'
+              }}
+            >
+              <TextField
+                value={restaurantName}
+                id='outlined-basic'
+                label='Nome do restaurante'
+                variant='outlined'
+                placeholder={placeholder() || 'McDonalds'}
+                onChange={event => setRestaurantName(event.target.value)}
+                fullWidth
+              />
+              <Button
+                sx={{
+                  marginTop: 1
+                }}
+                fullWidth
+                variant='outlined'
+                type='submit'
+                disabled={restaurantName.length < 3}
+              >
+                Salvar
+              </Button>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+    </>
   );
 }
 
