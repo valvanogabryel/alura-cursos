@@ -74,7 +74,7 @@ const AdminDishes = () => {
                     target='_blank'
                     rel="noreferrer"
                   >
-                    Ver imagem
+                    {dish.imagem ? 'Ver imagem' : 'Nenhuma imagem'}
                   </a>
                 </TableCell>
                 <TableCell>

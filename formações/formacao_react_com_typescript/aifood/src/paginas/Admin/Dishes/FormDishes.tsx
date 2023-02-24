@@ -11,26 +11,44 @@ import {
 } from '@mui/material';
 
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import http from '../../../http';
+import IPrato from '../../../interfaces/IPrato';
 import IRestaurante from '../../../interfaces/IRestaurante';
 import ITag from '../../../interfaces/ITag';
 
 const FormDishes = () => {
+  const params = useParams();
+
   const [dishName, setDishName] = useState('');
   const [description, setDescription] = useState('');
   const [tag, setTag] = useState('');
   const [restaurant, setRestaurant] = useState('');
 
+  const [image, setImage] = useState<File | null>(null);
+
   const [tags, setTags] = useState<ITag[]>([]);
   const [restaurants, setRestaurants] = useState<IRestaurante[]>([]);
 
   useEffect(() => {
+    if (params.id) {
+      http.get<IPrato>(`pratos/${params.id}/`)
+        .then(response => setFullDish(response.data))
+    }
+
     http.get<{ tags: ITag[] }>('tags/')
       .then(response => setTags(response.data.tags));
 
     http.get<IRestaurante[]>('restaurantes/')
       .then(response => setRestaurants(response.data));
-  }, []);
+  }, [params]);
+
+  function setFullDish({ nome, descricao, tag, restaurante }: any) {
+    setDishName(nome);
+    setDescription(descricao);
+    setTag(tag);
+    setRestaurant(restaurante);
+  }
 
   const placeholders = [
     'Macarrão',
@@ -50,15 +68,70 @@ const FormDishes = () => {
     return placeholders[choosedIndex];
   };
 
-  function getDishName(event: React.FormEvent<HTMLFormElement>) {
+  const selectFiles = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files?.length) {
+      setImage(event.target.files[0]);
+    } else {
+      setImage(null);
+    }
+  }
+
+  function appendFormData() {
+    const formData = new FormData();
+
+    formData.append('nome', dishName);
+    formData.append('descricao', description);
+    formData.append('tag', tag);
+    formData.append('restaurante', restaurant);
+
+    if (image) {
+      formData.append('imagem', image);
+    }
+
+    return formData;
+  }
+
+  function getDish(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    http.post('pratos/', {
+    const formData = appendFormData();
 
-    })
-      .then(() => {
-        alert('Prato adicionado com sucesso!');
+    if (params.id) {
+      http.request({
+        url: `pratos/${params.id}/`,
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        data: formData
       })
+        .then(() => {
+          cleanForm();
+          alert('Prato atualizado com sucesso.');
+        })
+        .catch(err => console.log(err))
+    } else {
+      http.request({
+        url: 'pratos/',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        },
+        data: formData
+      })
+        .then(() => {
+          cleanForm();
+          alert('Prato cadastrado com sucesso.');
+        })
+        .catch(err => console.log(err))
+    }
+  }
+
+  function cleanForm() {
+    setDishName('');
+    setDescription('');
+    setTag('');
+    setRestaurant('');
   }
 
   return (
@@ -81,7 +154,7 @@ const FormDishes = () => {
             </Typography>
             <Box
               component='form'
-              onSubmit={getDishName}
+              onSubmit={getDish}
               sx={{
                 my: 1,
                 width: '100%'
@@ -121,7 +194,7 @@ const FormDishes = () => {
                   {tags.map(tag => (
                     <MenuItem
                       key={tag.id}
-                      value={tag.id}
+                      value={tag.value}
                     >
                       {tag.value}
                     </MenuItem>
@@ -151,6 +224,10 @@ const FormDishes = () => {
                 </Select>
               </FormControl>
 
+              <input
+                type="file"
+                onChange={selectFiles}
+              />
 
               <Button
                 sx={{
