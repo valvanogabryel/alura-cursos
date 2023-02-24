@@ -52,7 +52,7 @@ const BaseAdminPage = () => {
                   my: 2,
                   color: 'white'
                 }}>
-                  Novo pratos
+                  Novo prato
                 </Button>
               </Link>
             </Box>

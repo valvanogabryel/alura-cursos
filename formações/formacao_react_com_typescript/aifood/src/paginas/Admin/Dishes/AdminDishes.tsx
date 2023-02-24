@@ -45,9 +45,6 @@ const AdminDishes = () => {
               Nome
             </TableCell>
             <TableCell>
-              Descrição
-            </TableCell>
-            <TableCell>
               Tag
             </TableCell>
             <TableCell>
@@ -67,9 +64,6 @@ const AdminDishes = () => {
               <TableRow key={dish.id}>
                 <TableCell>
                   {dish.nome}
-                </TableCell>
-                <TableCell>
-                  {dish.descricao}
                 </TableCell>
                 <TableCell>
                   {dish.tag}

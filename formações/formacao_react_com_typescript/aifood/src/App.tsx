@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import BaseAdminPage from './paginas/Admin/BaseAdminPage';
 import AdminDishes from './paginas/Admin/Dishes/AdminDishes';
+import FormDishes from './paginas/Admin/Dishes/FormDishes';
 import AdminRestaurants from './paginas/Admin/Restaurants/AdminRestaurants';
 import FormRestaurants from './paginas/Admin/Restaurants/FormRestaurants';
 import Home from './paginas/Home';
@@ -18,6 +19,7 @@ function App() {
         <Route path="restaurantes/novo" element={<FormRestaurants />} />
         <Route path="restaurantes/:id" element={<FormRestaurants />} />
         <Route path="pratos" element={<AdminDishes />} />
+        <Route path="pratos/novo" element={<FormDishes />} />
 
       </Route>
     </Routes>
