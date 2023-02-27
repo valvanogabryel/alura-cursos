@@ -10,7 +10,6 @@ button {
     color: inherit;
     padding: 0px;
     font-size: inherit;
-
 }
 
 /*Variaveis globais*/
@@ -18,10 +17,10 @@ button {
     --azul-escuro: #041833;
     --azul-medio: #154580;
     --azul-degrade: linear-gradient(180deg, var(--azul-medio) 0%, var(--azul-escuro) 100%);
-    --verde: #84EEC1;
+    --verde: #84eec1;
     --cinza: rgba(196, 196, 196, 0.2);
     --cor-textos: #ffffff;
-    --fonte-textos: 'Open Sans', sans-serif;
+    --fonte-textos: "Open Sans", sans-serif;
 }
 
 * {
@@ -37,22 +36,20 @@ body {
 .container {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
-    
 }
-
 
 /*Aside*/
 .menu-lateral {
     background-color: var(--azul-escuro);
-    padding: 2.5rem .5rem 0;
+    padding: 2.5rem 0.5rem 0;
     font-weight: 600;
     letter-spacing: 2px;
     width: 230px;
 }
 
-.menu-lateral__link::before  {
+.menu-lateral__link::before {
     padding-left: 1rem;
-    padding-right: .5rem;
+    padding-right: 0.5rem;
     vertical-align: middle;
 }
 
@@ -60,13 +57,13 @@ body {
     font-family: var(--fonte-textos);
     font-weight: 600;
     letter-spacing: 2px;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .ativo {
     background-color: var(--azul-medio);
     border-radius: 5px;
-    padding: .75rem 0;
+    padding: 0.75rem 0;
 }
 
 .menu-lateral__link--home::before {
@@ -106,12 +103,13 @@ body {
 /*Main*/
 
 /*Estilos compartilhados pelos elementos presentes na seção horizontal e elementos da seção vertical*/
+
 .secao__titulo {
     font-weight: 700;
     font-size: 1.5rem;
 }
 
-.cartao__titulo{
+.cartao__titulo {
     font-weight: 700;
     line-height: 22px;
 }
@@ -142,7 +140,6 @@ body {
     width: 70px;
 }
 
-
 /*Seção vertical*/
 .secao-vertical .cartao {
     background: rgba(196, 196, 196, 0.2);
@@ -153,10 +150,10 @@ body {
 
 .secao-vertical .cartao__imagem {
     height: 133px;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 .secao-vertical .cartao__subtitulo {
-    margin-top: .75rem;
+    margin-top: 0.75rem;
 }
 
 /*Navbar*/
@@ -169,11 +166,11 @@ body {
 }
 .navbar__items {
     width: 80%;
-    margin: .5rem auto;
+    margin: 0.5rem auto;
 }
 
 .navbar__item {
-    font-size: .75rem;
+    font-size: 0.75rem;
     text-align: center;
 }
 
@@ -188,10 +185,8 @@ body {
 
 .navbar__item--busca::before {
     content: url("../img/icone-busca-mb.svg");
-
 }
 
 .navbar__item--biblioteca::before {
     content: url("../img/icone-biblioteca-mb.svg");
 }
-
