@@ -5,7 +5,6 @@ import Formulario from './components/Formulario';
 import Calendario from './components/Calendario';
 import ListaDeEventos from './components/ListaDeEventos';
 import { RecoilRoot } from 'recoil';
-import { IEvento } from './interfaces/IEvento';
 
 function App() {
 
@@ -28,16 +27,16 @@ function App() {
 
   const [filtro, setFiltro] = useState<Date | null>()
 
-  const adicionarEvento = (evento: IEvento) => {
-    evento.id = Math.round((new Date()).getTime() / 1000)
-    // eventos.push(evento)
-    // setEventos([...eventos])
-  }
-  const alterarStatusEvento = (id: number) => {
-    // const evento = eventos.find(evento => evento.id === id)
-    // if (evento) {
-    //   evento.completo = !evento.completo
-  }
+  // const adicionarEvento = (evento: IEvento) => {
+  //   evento.id = Math.round((new Date()).getTime() / 1000)
+  //   // eventos.push(evento)
+  //   // setEventos([...eventos])
+  // }
+  // const alterarStatusEvento = (id: number) => {
+  // const evento = eventos.find(evento => evento.id === id)
+  // if (evento) {
+  //   evento.completo = !evento.completo
+  // }
   // setEventos([...eventos])
   // }
   // const deletarEvento = (id: number) => {
@@ -65,7 +64,6 @@ function App() {
           <Card>
             <ListaDeEventos
               aoFiltroAplicado={aplicarFiltro}
-              aoAlterarStatus={alterarStatusEvento}
             />
           </Card>
         </div>
