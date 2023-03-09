@@ -7,6 +7,7 @@ import style from './Filtro.module.scss';
 const Filtro: React.FC = () => {
 
   const [data, setData] = useState('');
+  const [estado, setEstado] = useState<'ambos' | 'completo' | 'incompleto'>('ambos');
 
   const setFiltroEventos = useSetRecoilState<IFiltroEventos>(filtroEventos);
 
