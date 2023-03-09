@@ -17,9 +17,10 @@ export const eventosFiltradosState = selector({
       if (!filtros.estado) {
         return true;
       }
-      return filtros.estado === 'completo' ? evento.completo : !evento.completo;
+      const taCompleto = filtros.estado === 'completo' ? evento.completo : !evento.completo;
+      return taCompleto;
     });
 
     return eventos;
   }
-})
+});
