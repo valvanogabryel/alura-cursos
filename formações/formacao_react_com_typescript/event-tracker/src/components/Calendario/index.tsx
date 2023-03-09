@@ -4,9 +4,8 @@ import style from './Calendario.module.scss';
 import ptBR from './localizacao/ptBR.json'
 import Kalend, { CalendarEvent, CalendarView, OnEventDragFinish } from 'kalend';
 import 'kalend/dist/styles/index.css';
-import { useRecoilValue } from 'recoil';
-import { eventListState } from '../../state/atom';
 import useAtualizarEvento from '../../state/hooks/useAtualizarEventio';
+import useListaEventos from '../../state/hooks/useListaEventos';
 
 interface IKalendEvento {
   id?: number
@@ -19,24 +18,9 @@ interface IKalendEvento {
 const Calendario: React.FC = () => {
   const eventosKalend = new Map<string, IKalendEvento[]>();
 
-  const eventos = useRecoilValue(eventListState);
-
+  const eventos = useListaEventos();
 
   const atualizarEvento = useAtualizarEvento();
-
-  eventos.forEach(evento => {
-    const chave = evento.inicio.toISOString().slice(0, 10)
-    if (!eventosKalend.has(chave)) {
-      eventosKalend.set(chave, [])
-    }
-    eventosKalend.get(chave)?.push({
-      id: evento.id,
-      startAt: evento.inicio.toISOString(),
-      endAt: evento.fim.toISOString(),
-      summary: evento.descricao,
-      color: 'blue'
-    })
-  })
 
   const onEventDragFinish: OnEventDragFinish = (
     unchangedKalendEvent: CalendarEvent,
@@ -55,6 +39,20 @@ const Calendario: React.FC = () => {
       atualizarEvento(evento);
     }
   }
+
+  eventos.forEach(evento => {
+    const chave = evento.inicio.toISOString().slice(0, 10)
+    if (!eventosKalend.has(chave)) {
+      eventosKalend.set(chave, [])
+    }
+    eventosKalend.get(chave)?.push({
+      id: evento.id,
+      startAt: evento.inicio.toISOString(),
+      endAt: evento.fim.toISOString(),
+      summary: evento.descricao,
+      color: 'blue'
+    })
+  })
 
   return (
     <div className={style.Container}>
