@@ -7,9 +7,23 @@ import style from './Filtro.module.scss';
 const Filtro: React.FC = () => {
 
   const [data, setData] = useState('');
-  const [estado, setEstado] = useState<'ambos' | 'completo' | 'incompleto'>('ambos');
-
+  const [estado, setEstado] = useState<string>('ambos');
   const setFiltroEventos = useSetRecoilState<IFiltroEventos>(filtroEventos);
+
+  const estados = [
+    {
+      label: 'Ambos',
+      value: 'ambos'
+    },
+    {
+      label: 'Completo',
+      value: 'completo'
+    },
+    {
+      label: 'Incompleto',
+      value: 'incompleto'
+    }
+  ];
 
   const submeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
@@ -20,6 +34,10 @@ const Filtro: React.FC = () => {
       filtro.data = new Date(data);
     } else {
       filtro.data = null;
+    }
+
+    if (estado !== 'ambos') {
+      filtro.estado = estado;
     }
 
     setFiltroEventos(filtro);
@@ -34,7 +52,25 @@ const Filtro: React.FC = () => {
       onChange={evento => setData(evento.target.value)}
       placeholder="Por data"
       value={data} />
-
+    <div>
+      <h3>Filtrar por estado</h3>
+      <select
+        name="estados"
+        value={estado}
+        onChange={event => setEstado(event.target.value)}
+      >
+        {
+          estados.map((estado, index) => (
+            <option
+              value={estado.value}
+              key={index}
+            >
+              {estado.label}
+            </option>
+          ))
+        }
+      </select>
+    </div>
     <button className={style.botao}>
       Filtrar
     </button>

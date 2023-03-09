@@ -13,7 +13,12 @@ export const eventosFiltradosState = selector({
 
       const mesmoDia = filtros.data.toISOString().slice(0, 10) === evento.inicio.toISOString().slice(0, 10);
       return mesmoDia;
-    })
+    }).filter(evento => {
+      if (!filtros.estado) {
+        return true;
+      }
+      return filtros.estado === 'completo' ? evento.completo : !evento.completo;
+    });
 
     return eventos;
   }
