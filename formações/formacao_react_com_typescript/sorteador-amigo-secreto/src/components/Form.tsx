@@ -13,7 +13,7 @@ const Form = () => {
 
     addOnList(name);
     setName('');
-    inputRef.current?.focus()
+    inputRef.current?.focus();
   }
 
   return (
@@ -26,7 +26,6 @@ const Form = () => {
         placeholder="Insira os nomes dos participantes"
       />
       <button
-        type="button"
         disabled={!name}
       >
         Adicionar
