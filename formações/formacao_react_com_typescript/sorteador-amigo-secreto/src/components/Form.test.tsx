@@ -3,7 +3,6 @@ import {
   render,
   screen
 } from "@testing-library/react";
-import React from "react";
 import { RecoilRoot } from "recoil";
 import Form from "./Form";
 
@@ -55,4 +54,33 @@ test('adicionar um participante quando o campo de participantes tiver preenchido
   expect(input).toHaveFocus();
   // ? Garantir que o input não tenha um valor;
   expect(input).toHaveValue('');
-})
+});
+
+test('adicionar um participante já existente', () => {
+  render(
+    <RecoilRoot>
+      <Form />
+    </RecoilRoot>
+  );
+
+  const input = screen.getByPlaceholderText('Insira os nomes dos participantes');
+  const button = screen.getByRole('button');
+
+  fireEvent.change(input, {
+    target: {
+      value: 'Gabryel Valvano'
+    }
+  });
+  fireEvent.click(button);
+  fireEvent.change(input, {
+    target: {
+      value: 'Gabryel Valvano'
+    }
+  });
+  fireEvent.click(button);
+
+  const errorMessage = screen.getByRole('alert');
+
+  expect(errorMessage.textContent).toBe('Nomes duplicados não podem ser adicionados!');
+});
+
