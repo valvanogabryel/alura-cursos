@@ -36,7 +36,7 @@ describe('quando não há participantes o suficiente', () => {
 });
 
 describe('quando há participantes o suficiente', () => {
-  // const once = 1;
+  const once = 1;
 
   beforeEach(() => {
     (useParticipantsList as jest.Mock).mockReturnValue(['Gabryel', 'Fellype', 'José']);
@@ -64,7 +64,8 @@ describe('quando há participantes o suficiente', () => {
     const button = screen.getByRole('button');
     fireEvent.click(button);
 
-    expect(mockNavigate).toHaveBeenCalledTimes(1);
+    expect(mockNavigate).toHaveBeenCalledTimes(once);
+    expect(mockNavigate).toHaveBeenCalledWith('/sorteio');
   });
 });
 
