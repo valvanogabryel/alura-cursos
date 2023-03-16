@@ -1,0 +1,62 @@
+.inputBtn__wrapper
+  margin-bottom: 2rem
+
+  input
+    font-size: 20px
+    border: 2px solid black
+    border-top-left-radius: 45px
+    border-bottom-left-radius: 45px
+    height: 82px
+    width: 70%
+    padding-left: 2rem
+    box-sizing: border-box
+    box-shadow: 0 2px 0 1px #000
+
+    &:focus
+      outline: none
+
+  button
+    font-size: 20px
+    border: 2px solid black
+    border-top-right-radius: 45px
+    border-bottom-right-radius: 45px
+    height: 82px
+    width: 30%
+    color: #000
+    box-sizing: border-box
+    box-shadow: 2px 2px 0 1px #000
+    cursor: pointer
+    background: #c4c4c4
+    transition: opacity .3s ease-in
+
+    &:hover
+      opacity: .8
+
+    &:disabled
+      opacity: .6
+      cursor: not-allowed
+
+.alert__error
+  color: #842029
+  background: #f8d7da
+  padding: 16px
+  border: 1px solid #f5c2c7
+  border-radius: 8px
+
+@media (max-width: 800px)
+  .inputBtn__wrapper
+    display: block
+    width: 100%
+    border-radius: 45px
+    box-shadow: 0 2px 0 1px #000
+    margin-bottom: 18px
+
+    button
+      display: block
+      margin-top: 16px
+      margin: 0 auto
+      width: 220px
+      border-radius: 45px
+
+  .alert__error
+    margin: 48px 0

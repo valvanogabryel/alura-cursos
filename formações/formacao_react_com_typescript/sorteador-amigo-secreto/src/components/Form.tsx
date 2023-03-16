@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import { useAddParticipant } from "../state/hooks/useAddParticipant";
 import { useErrorMessage } from "../state/hooks/useErrorMessage";
 
+import styles from './Form.module.sass';
+
 const Form = () => {
   const [name, setName] = useState('');
 
@@ -21,20 +23,28 @@ const Form = () => {
 
   return (
     <form onSubmit={addParticipant}>
-      <input
-        ref={inputRef}
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-        type="text"
-        placeholder="Insira os nomes dos participantes"
-      />
-      <button
-        type="submit"
-        disabled={name.length < 3}
-      >
-        Adicionar
-      </button>
-      {errorMessage && <p role='alert'>{errorMessage}</p>}
+      <div className={styles.inputBtn__wrapper}>
+        <input
+          ref={inputRef}
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          type="text"
+          placeholder="Insira os nomes dos participantes"
+        />
+        <button
+          type="submit"
+          disabled={name.length < 3}
+        >
+          Adicionar
+        </button>
+      </div >
+      {errorMessage &&
+        <p
+          role='alert'
+          className={styles.alert__error}
+        >
+          {errorMessage}
+        </p>}
     </form>
   );
 }
