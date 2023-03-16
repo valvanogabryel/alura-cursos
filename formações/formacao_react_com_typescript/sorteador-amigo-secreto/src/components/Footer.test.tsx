@@ -9,7 +9,15 @@ jest.mock('../state/hooks/useParticipantsList', () => {
   }
 });
 
+
 const mockNavigate = jest.fn();
+const mockRaffle = jest.fn();
+
+jest.mock('../state/hooks/useRaffle', () => {
+  return {
+    useRaffle: () => mockRaffle
+  }
+});
 
 jest.mock('react-router-dom', () => {
   return {
@@ -66,6 +74,7 @@ describe('quando há participantes o suficiente', () => {
 
     expect(mockNavigate).toHaveBeenCalledTimes(once);
     expect(mockNavigate).toHaveBeenCalledWith('/sorteio');
+    expect(mockRaffle).toHaveBeenCalledTimes(once);
   });
 });
 
