@@ -1,13 +1,14 @@
-import styles from './Ordenator.module.scss';
-import options from './options.json';
-
-import classNames from 'classnames';
-
-import { useState } from 'react';
+import {
+    useState,
+    memo
+} from 'react';
 import {
     MdKeyboardArrowUp,
     MdKeyboardArrowDown
 } from 'react-icons/md';
+import options from './options.json';
+import classNames from 'classnames';
+import styles from './Ordenator.module.scss';
 
 export type OrdenatorOptions = '' | 'porcao' | 'qtd_pessoas' | 'preco';
 
@@ -60,4 +61,4 @@ const Ordenator = ({
     );
 };
 
-export default Ordenator;
+export default memo(Ordenator);
