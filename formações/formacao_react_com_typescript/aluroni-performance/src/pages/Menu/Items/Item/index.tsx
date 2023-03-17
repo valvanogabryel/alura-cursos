@@ -1,4 +1,5 @@
 import DishTags from 'components/DishTags';
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Dish } from 'types/dish';
 import styles from './Item.module.scss';
@@ -45,4 +46,4 @@ const Item = (props: Dish) => {
     );
 };
 
-export default Item;
+export default memo(Item);
