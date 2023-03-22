@@ -137,7 +137,13 @@ body {
 }
 
 .secao-horizontal .cartao__botao {
+    cursor: pointer;
     width: 70px;
+    transition: 0.2s ease-in-out;
+}
+
+.secao-horizontal .cartao__botao:hover {
+    filter: hue-rotate(25deg);
 }
 
 /*Seção vertical*/
