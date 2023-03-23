@@ -1,0 +1,31 @@
+@import '../abstract/variables';
+
+nav {
+  text-align: center;
+  padding: 1rem;
+
+  ul {
+    display: flex;
+    justify-content: center;
+
+    li {
+      padding: 1rem;
+      list-style: none;
+
+      a {
+        position: relative;
+        color: $primary_color;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: bold;
+        transition: .3s ease-in-out;
+        z-index: 1;
+
+        &:hover {
+        color: $hover_primary_color;   
+        text-decoration: underline;
+        }          
+    }
+  }
+  }
+}

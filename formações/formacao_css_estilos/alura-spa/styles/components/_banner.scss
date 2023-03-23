@@ -1,0 +1,46 @@
+@import '../abstract/variables';
+
+.banner {
+  background: url('../imagens/banner.jpeg') 27% center no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  background-size: cover;
+  opacity: .9;
+
+  &__inner {
+    font-size: 2rem;
+    text-align: center;
+    color: $tertiary_color;
+    user-select: none;
+    background: #00000015;
+    padding: 3rem;
+    border-radius: 1rem 0 1rem 0;
+    animation: fade-in 1s normal;
+    
+    h1 {
+      font-size: $font_size_1;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: calc($font_size_1 / 2); //half of the "font_size_1" size
+    }
+    
+    .highlight-text {
+      font-family: 'Cinzel', serif;
+      color: $secondary_color;
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    margin-top: 5rem;
+  } to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}

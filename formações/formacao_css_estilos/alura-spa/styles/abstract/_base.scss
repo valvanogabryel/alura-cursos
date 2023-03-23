@@ -1,0 +1,19 @@
+@import './variables';
+
+html,
+body {
+  background: $background_color;
+  font-family: $main_font;
+  height: 100vh;
+  width: 100vw;
+}
+
+main 
+{
+  max-width: 90vw;
+  margin: 4rem auto;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
