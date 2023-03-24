@@ -1,0 +1,12 @@
+.discount__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  background: $primary_color;
+  width: 100vw;
+  padding: 8rem;
+  margin: auto;
+}
