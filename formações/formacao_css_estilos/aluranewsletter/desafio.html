@@ -2,31 +2,38 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        colors: {
-          primary: '#F2DAE7'
-        },
-        fontFamily: {
-          main: ['Vast Shadow', 'cursive']
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F2DAE7'
+                    },
+                    fontFamily: {
+                        main: ['Vast Shadow', 'cursive']
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
+    </script>
 </head>
 
 <body>
-  <div class="bg-gradient-to-r from-purple-600 to-slate-400 p-10 m-auto my-10 flex flex-col justify-center w-2/5">
-    <p class="font-black text-6xl text-primary font-main">Gabryel</p>
-    <p class="text-4xl">Desenvolvedor Front-end</p>
-  </div>
+    <div class="flex justify-center items-center h-screen">
+        <img class="h-44"
+            src="https://img.freepik.com/free-photo/website-development-developer-working-program-codes-office-computer-program-programmer-workplace-programming-code-software-source-code_372999-389.jpg?w=1380"
+            alt="codigo json">
+        <div class="bg-gradient-to-r from-purple-600 to-slate-400 p-10 flex flex-col justify-center w-2/5 h-44">
+            <p class="font-black text-6xl text-primary font-main mb-4">Gabryel</p>
+            <p class="text-4xl">Desenvolvedor Front-end</p>
+        </div>
+    </div>
 </body>
