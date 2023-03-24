@@ -1,0 +1,29 @@
+@use '../abstract/_mixins.scss'
+@use '../abstract/_variables.scss'
+
+.curiosities
+  &__container
+    @include flex_align(column)
+    max-width: 50%
+    margin: auto
+  &__image
+    margin: 3rem
+
+  &__wrapper
+    font-size: calc($font_size_1 / 3)
+    text-align: center
+    h3,
+    h4,
+    p
+      margin: 1.25rem auto
+
+    h3
+      color: $primary_color
+      font-size: calc($font_size_1 / 2)
+    h4
+      color: $secondary_color
+      font-size: calc($font_size_1 / 2.5)
+    p
+      color: $black
+      opacity: .8
+      font-size: calc($font_size_1 / 4)

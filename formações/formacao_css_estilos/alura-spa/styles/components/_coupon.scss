@@ -1,12 +1,55 @@
-.discount__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: 2rem;
-  background: $primary_color;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+@import '../abstract/variables';
+@import '../abstract/mixins';
+
+.discount {
+  &__container {
+    @include flex_align(column);
+    text-align: center;
+    gap: 2rem;
+    background: $tertiary_color;
+    width: 100vw;
+    padding: 8rem 6rem;
+    position: relative;
+    right: 10%; 
+  }
+  &__title {
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #363f64;
+  }
+  &__form {
+    input {
+      font-size: 1.4rem;
+      text-align: center;
+      width: 30vw;
+      padding: 1rem;
+      margin: 1rem;
+      border-radius: 1rem;
+      border: none;
+      outline: none;
+      transition: .3s ease;
+      &:focus {
+        background: #ffffff8f;
+      }
+    }
+
+    .form__button {
+      padding:1rem;
+      width: 8vw;
+      text-transform: uppercase;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: $tertiary_color;
+      background: $secondary_color;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: .3s;
+      margin-top: .9rem;
+      &:hover {
+        opacity: .8;
+        transform: scale(.99);
+      }
+    }
+  }  
 }

@@ -1,10 +1,10 @@
 @import '../abstract/variables';
+@import '../abstract/mixins';
 
 .banner {
+  @include flex_align(column);
   background: url('../imagens/banner.jpeg') 27% center no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  
   min-height: 500px;
   background-size: cover;
   opacity: .9;

@@ -4,14 +4,12 @@ body {
   font-family: "Roboto", sans-serif;
   height: 100vh;
   width: 100vw;
-  padding: 0;
-  margin: 0;
+  overflow-x: hidden;
 }
 
 main {
   max-width: 90vw;
   margin: 4rem auto;
-  padding: 0;
 }
 
 ::-webkit-scrollbar {
@@ -45,10 +43,11 @@ nav ul li a:hover {
 }
 
 .banner {
-  background: url("../imagens/banner.jpeg") 27% center no-repeat;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: url("../imagens/banner.jpeg") 27% center no-repeat;
   min-height: 500px;
   background-size: cover;
   opacity: 0.9;
@@ -141,8 +140,92 @@ nav ul li a:hover {
   align-items: center;
   text-align: center;
   gap: 2rem;
-  background: #7286D3;
-  width: 100%;
-  padding: 0;
-  margin: 0;
+  background: #E5E0FF;
+  width: 100vw;
+  padding: 8rem 6rem;
+  position: relative;
+  right: 10%;
+}
+.discount__title {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #363f64;
+}
+.discount__form input {
+  font-size: 1.4rem;
+  text-align: center;
+  width: 30vw;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  transition: 0.3s ease;
+}
+.discount__form input:focus {
+  background: rgba(255, 255, 255, 0.5607843137);
+}
+.discount__form .form__button {
+  padding: 1rem;
+  width: 8vw;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #E5E0FF;
+  background: #8EA7E9;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 0.9rem;
+}
+.discount__form .form__button:hover {
+  opacity: 0.8;
+  transform: scale(0.99);
+}
+
+.curiosities__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  margin: auto;
+}
+.curiosities__image {
+  margin: 3rem;
+}
+.curiosities__wrapper {
+  font-size: 1.3333333333rem;
+  text-align: center;
+}
+.curiosities__wrapper h3,
+.curiosities__wrapper h4,
+.curiosities__wrapper p {
+  margin: 1.25rem auto;
+}
+.curiosities__wrapper h3 {
+  color: #7286D3;
+  font-size: 2rem;
+}
+.curiosities__wrapper h4 {
+  color: #8EA7E9;
+  font-size: 1.6rem;
+}
+.curiosities__wrapper p {
+  color: #000;
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+footer {
+  font-size: 2rem;
+  text-align: center;
+  border-top: 2px solid #7286D3;
+  padding: 2rem;
+  margin: 1rem auto 0 auto;
+  max-width: 30vw;
+}
+footer i {
+  color: red;
 }/*# sourceMappingURL=style.css.map */
