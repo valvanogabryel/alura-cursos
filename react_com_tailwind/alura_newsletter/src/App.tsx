@@ -1,18 +1,11 @@
-import Header from "./components/Header"
-
-const styles = {
-  centerOnScreen: 'h-screen flex justify-center items-center',
-  mainTextStylish: 'text-center items-center text-2xl font-black border w-1/12 rounded-md shadow-lg h-10 hover:bg-slate-400 duration-300 cursor-pointer'
-}
+import Header from "./components/Header";
 
 const App = () => {
   return (
-    <div className={styles.centerOnScreen}>
+    <div className='h-screen flex justify-center items-center'>
       <Header />
     </div>
-  )
-}
-
-
+  );
+};
 
 export default App
