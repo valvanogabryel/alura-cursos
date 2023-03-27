@@ -19,6 +19,19 @@
                     },
                     fontFamily: {
                         main: ['Vast Shadow', 'cursive']
+                    },
+                    keyframes: {
+                        shake_kf: {
+                            '0%, 100%': {
+                                transform: 'rotate(-10deg)'
+                            },
+                            '50%': {
+                                transform: 'rotate(10deg)'
+                            }
+                        }
+                    },
+                    animation: {
+                        shake: 'shake_kf .5s ease-in-out infinite'
                     }
                 }
             }
@@ -27,11 +40,12 @@
 </head>
 
 <body>
-    <div class="flex justify-center items-center h-screen">
+    <div class="flex justify-center items-center h-screen group">
         <img class="h-44"
             src="https://img.freepik.com/free-photo/website-development-developer-working-program-codes-office-computer-program-programmer-workplace-programming-code-software-source-code_372999-389.jpg?w=1380"
             alt="codigo json">
-        <div class="bg-gradient-to-r from-purple-600 to-slate-400 p-10 flex flex-col justify-center w-2/5 h-44">
+        <div
+            class="bg-gradient-to-r from-purple-600 to-slate-400 p-10 flex flex-col justify-center w-2/5 h-44 group-hover:animate-shake">
             <p class="font-black text-6xl text-primary font-main mb-4">Gabryel</p>
             <p class="text-4xl">Desenvolvedor Front-end</p>
             <ul class="flex gap-3 mb-4 [&>*:hover]:text-primary [&>*:hover]:font-bold [&>*:hover]:duration-150">
@@ -42,3 +56,45 @@
         </div>
     </div>
 </body>
+
+<!-- <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+       tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#f2dae7'
+                    },
+                    fontFamily: {
+                        titulo: ['Vast Shadow', 'cursive']                              },
+    
+                    animation: {
+                        sino: 'sino_kf 0.31s ease-in-out infinite'
+                    },
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+  <div class="flex w-fit m-auto my-10 shadow-2xl">
+    <img class="h-44" src="https://img.freepik.com/free-photo/website-development-developer-working-program-codes-office-computer-program-programmer-workplace-programming-code-software-source-code_372999-389.jpg?w=1380" alt="codigo json">
+    <div class="p-10 flex flex-col bg-gradient-to-r from-pink-300 to-slate-400 justify-center h-44">
+      <p class="text-6xl font-black text-primary font-titulo">Gabriela</p>
+      <p class="text-4xl mb-4">Desenvolvedora Front-end</p>
+      <ul class="flex gap-3 mb-4">
+        <li><a class="hover:font-bold hover:text-primary" href="#">Linkedin</a></li>
+        <li><a class="hover:font-bold hover:text-primary" href="#">Email</a></li>
+        <li><a class="hover:font-bold hover:text-primary" href="#">Github</a></li>
+      </ul>
+    </div>
+  </div>
+</body> -->
