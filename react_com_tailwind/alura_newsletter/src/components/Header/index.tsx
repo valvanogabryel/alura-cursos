@@ -1,25 +1,17 @@
-import { MoonIcon } from '@heroicons/react/24/solid';
-import { SunIcon } from '@heroicons/react/24/solid';
+import ToggleTheme from "../ToggleTheme";
 
 interface HeaderProps {
-  scrollDir: 'up' | 'down';
+  scrollPos: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ scrollDir }) => {
-  const headerClasses = `header transition transform duration-200 ease-in-out ${scrollDir === 'up' ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`;
+const Header: React.FC<HeaderProps> = ({ scrollPos }) => {
+  const headerClasses = `flex justify-between text-white items-center px-5 h-20 bg-blue-dark transition transform duration-300 ease-in-out ${scrollPos < 400 ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'} sm:rounded-xl sm:m-5 dark:bg-dark-200`;
 
   return (
     <header className={headerClasses}>
-      <span className="">Olá, usuário!</span>
-      <h1 className="text-2xl">Alura Newsletter</h1>
-      <input
-        type="checkbox"
-        name="theme-changer"
-        id="theme-changer"
-        className="hidden sm:block"
-      />
-      <MoonIcon className='h-8 cursor-pointer hidden sm:block' />
-      <SunIcon className='h-8 cursor-pointer hidden sm:block' />
+      <span className="text-gray-100">Olá, usuário!</span>
+      <h1 className="text-xl text-gray-100">Alura Newsletter</h1>
+      <ToggleTheme />
     </header>
   );
 }
