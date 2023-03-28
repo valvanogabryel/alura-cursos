@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 import ArticleList from "./components/ArticleList";
+import Form from "./components/Form";
 import Header from "./components/Header";
+import ScrollListener from "./components/ScrollListener";
+import User from "./interfaces/IUser";
 
 const App: React.FC = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const [user, setUser] = useState<User | undefined>();
+
+  const hasUser = Boolean(user);
 
   function handleScroll() {
     setScrollPosition(window.pageYOffset);
   };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
     <>
-      <Header scrollPos={scrollPosition} />
-      <ArticleList />
+      <ScrollListener onScroll={handleScroll} />
+      <Header scrollPos={scrollPosition} user={user} />
+      {hasUser && <ArticleList />}
+      {hasUser || <Form setUser={setUser} />}
     </>
   );
 };
