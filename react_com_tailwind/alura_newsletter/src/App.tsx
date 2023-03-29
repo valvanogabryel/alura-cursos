@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ArticleList from "./components/ArticleList";
 import Form from "./components/Form";
 import Header from "./components/Header";
@@ -16,12 +16,12 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="h-screen">
       <ScrollListener onScroll={handleScroll} />
       <Header scrollPos={scrollPosition} user={user} />
       {hasUser && <ArticleList />}
       {hasUser || <Form setUser={setUser} />}
-    </>
+    </div>
   );
 };
 

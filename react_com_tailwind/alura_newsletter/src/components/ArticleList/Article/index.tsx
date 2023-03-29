@@ -14,9 +14,8 @@ const Article: React.FC<ArticleProps> = ({
   image,
   alt
 }) => {
-
   return (
-    <div className="flex flex-col items-center bg-gray-200 duration-300 p-5 dark:bg-dark-200 sm:rounded-xl sm:shadow-lg hover:-translate-y-1 hover:shadow-2xl">
+    <article className="flex flex-col items-center bg-gray-200 duration-300 p-5 dark:bg-dark-200 sm:rounded-xl sm:shadow-lg hover:-translate-y-1 hover:shadow-2xl">
       <h3 className="text-xl  text-blue-dark font-bold dark:text-gray-200">{title}</h3>
       <div className="justify-end gap-2 w-full pt-2 select-none cursor-pointer hidden sm:flex">
         {
@@ -33,7 +32,12 @@ const Article: React.FC<ArticleProps> = ({
       <div className="grid gap-1 ">
         {
           text.map((content, index) =>
-            <p key={index} className=' mt-3 text-blue-dark dark:text-gray-400'>{content}</p>
+            <p
+              key={index}
+              className='mt-3 text-blue-dark dark:text-gray-400 line-clamp-6 sm:line-clamp-none'
+            >
+              {content}
+            </p>
           )
         }
       </div>
@@ -45,7 +49,7 @@ const Article: React.FC<ArticleProps> = ({
           </>
         )
       }
-    </div>
+    </article>
   );
 }
 

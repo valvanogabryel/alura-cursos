@@ -11,8 +11,8 @@ const Header: React.FC<HeaderProps> = ({ scrollPos, user }) => {
 
   return (
     <header className={headerClasses}>
-      <span className="text-gray-100">Olá, {user?.name || 'Usuário'}!</span>
-      <h1 className="text-xl text-gray-100">Alura Newsletter</h1>
+      <span className="text-gray-100">Olá, <span className="font-black -tracking-tight cursor-pointer hover:underline">{user?.name || 'Usuário'}!</span></span>
+      <h1>Alura Newsletter</h1>
       <ToggleTheme />
     </header>
   );
