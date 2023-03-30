@@ -1,7 +1,7 @@
 export default interface ITask {
-    taskName: string,
-    studyTime: string,
-    isSelected?: boolean,
-    isCompleted?: boolean,
-    id?: string
-}
+    taskName: string;
+    studyTime: string;
+    isSelected?: boolean;
+    isCompleted?: boolean;
+    id?: string;
+};
