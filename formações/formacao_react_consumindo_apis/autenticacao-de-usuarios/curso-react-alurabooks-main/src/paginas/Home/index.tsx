@@ -20,10 +20,10 @@ const Home = () => {
             preco: 29.9
         },
         {
-            autor: 'Sass',
+            autor: 'Natan Souza',
             descricao: 'Aprendendo pré-processadores CSS',
             imagem: '/imagens/livros/sass.jpg',
-            nome: 'Natan Souza',
+            nome: 'Sass',
             preco: 29.9
         },
         {
@@ -61,7 +61,7 @@ const Home = () => {
     return (<section className="home">
         <Banner subtitulo="Encontre em nossa estante o que precisa para seu desenvolvimento!" titulo="Já sabe por onde começar?">
             <form className="buscar">
-                <AbCampoTexto 
+                <AbCampoTexto
                     placeholder="Qual será sua próxima leitura?"
                     value={busca}
                     onChange={setBusca}
@@ -70,10 +70,10 @@ const Home = () => {
                 />
             </form>
         </Banner>
-        <Titulo texto="ÚLTIMOS LANÇAMENTOS"/>
-        <LivrosDestaque livros={lancamentos}/>
-        <Titulo texto="MAIS VENDIDOS"/>
-        <LivrosDestaque livros={maisVendidos}/>
+        <Titulo texto="ÚLTIMOS LANÇAMENTOS" />
+        <LivrosDestaque livros={lancamentos} />
+        <Titulo texto="MAIS VENDIDOS" />
+        <LivrosDestaque livros={maisVendidos} />
         <TagsCategorias />
         <Newsletter />
     </section>)

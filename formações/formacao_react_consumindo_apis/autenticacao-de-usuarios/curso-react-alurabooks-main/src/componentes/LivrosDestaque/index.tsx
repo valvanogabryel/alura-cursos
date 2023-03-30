@@ -15,16 +15,18 @@ const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
     return (<section className="LivrosDestaque">
         <div>
             <ul className="livros">
-                {livros.map(livro => {
-                    return (
-                    <li 
-                        key={livro.nome}
-                        onClick={() => selecionarLivro(livro)} 
-                        className={selecionado?.nome === livro.nome ? 'selecionado' : ''}
-                    >
-                        <img src={livro.imagem} alt={`Capa do livro ${livro.nome} escrito por ${livro.autor}`} />
-                    </li>)
-                })}
+                {
+                    livros.map(livro => {
+                        return (
+                            <li
+                                key={livro.nome}
+                                onClick={() => selecionarLivro(livro)}
+                                className={selecionado?.nome === livro.nome ? 'selecionado' : ''}
+                            >
+                                <img src={livro.imagem} alt={`Capa do livro ${livro.nome} escrito por ${livro.autor}`} />
+                            </li>)
+                    })
+                }
             </ul>
         </div>
         <AbCard>
@@ -38,7 +40,7 @@ const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
                 <footer>
                     <div className="preco">
                         <em>A partir de:</em>
-                        <strong>{Intl.NumberFormat('pt-br', {style: 'currency', currency: 'BRL'}).format(selecionado.preco)}</strong>
+                        <strong>{Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' }).format(selecionado.preco)}</strong>
                     </div>
                     <div>
                         <AbBotao texto="Comprar" />
