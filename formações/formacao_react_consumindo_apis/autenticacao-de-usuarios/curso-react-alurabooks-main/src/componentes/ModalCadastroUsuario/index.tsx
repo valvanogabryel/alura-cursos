@@ -1,7 +1,9 @@
-import { AbBotao, AbCampoTexto, AbModal, } from "ds-alurabooks"
 import { useState } from "react"
+import { AbBotao, AbCampoTexto, AbModal, } from "ds-alurabooks"
 
 import imagemPrincipal from './assets/login.png'
+
+import axios from "axios";
 
 import './ModalCadastroUsuario.css'
 
@@ -24,8 +26,11 @@ const ModalCadastroUsuario = () => {
             cep,
             complemento
         };
-        console.log(usuario);
-        alert('Usuário foi cadastrado com sucesso!');
+
+        axios.post('http://localhost:8000/public/registrar', usuario)
+            .then(res => console.log(res.data.status));
+
+        // alert('Usuário foi cadastrado com sucesso!');
     }
 
     return (
@@ -36,7 +41,10 @@ const ModalCadastroUsuario = () => {
         >
             <section className="corpoModalCadastro">
                 <figure>
-                    <img src={imagemPrincipal} alt="Pessoa segurando uma chave na frente de uma tela de computador que está exibindo uma fechadura" />
+                    <img
+                        src={imagemPrincipal}
+                        alt="Pessoa segurando uma chave na frente de uma tela de computador que está exibindo uma fechadura"
+                    />
                 </figure>
                 <form onSubmit={aoSubmeterFormulario}>
                     <AbCampoTexto
