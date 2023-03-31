@@ -27,11 +27,28 @@ const ModalCadastroUsuario = () => {
             complemento
         };
 
-        axios.post('http://localhost:8000/public/registrar', usuario)
-            .then(res => console.log(res.data.status));
 
-        // alert('Usuário foi cadastrado com sucesso!');
+        axios.post('http://localhost:8000/public/registrar', usuario)
+            .then(() => {
+                alert('Usuário foi cadastrado com sucesso!');
+            })
+            .catch((err) => {
+                alert('Ops... Algo deu errado.')
+                console.log(err);
+            })
+
+        limparFormulario();
     }
+
+    const limparFormulario = () => {
+        setNome('');
+        setEmail('');
+        setEndereco('');
+        setComplemento('');
+        setCep('');
+        setSenha('');
+        setSenhaConfirmada('');
+    };
 
     return (
         <AbModal
