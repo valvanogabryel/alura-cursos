@@ -11,6 +11,7 @@ import './Home.css'
 const Home = () => {
     const [busca, setBusca] = useState("")
 
+
     const lancamentos = [
         {
             autor: 'Tárcio Zemel',
@@ -33,7 +34,7 @@ const Home = () => {
             nome: 'Guia Front-End',
             preco: 29.9
         },
-    ]
+    ];
     const maisVendidos = [
         {
             autor: 'Thiago da Silva Adriano',
@@ -56,27 +57,29 @@ const Home = () => {
             nome: 'PostgreSQL',
             preco: 29.9
         },
-    ]
+    ];
 
-    return (<section className="home">
-        <Banner subtitulo="Encontre em nossa estante o que precisa para seu desenvolvimento!" titulo="Já sabe por onde começar?">
-            <form className="buscar">
-                <AbCampoTexto
-                    placeholder="Qual será sua próxima leitura?"
-                    value={busca}
-                    onChange={setBusca}
-                    darkmode={true}
-                    placeholderAlign="center"
-                />
-            </form>
-        </Banner>
-        <Titulo texto="ÚLTIMOS LANÇAMENTOS" />
-        <LivrosDestaque livros={lancamentos} />
-        <Titulo texto="MAIS VENDIDOS" />
-        <LivrosDestaque livros={maisVendidos} />
-        <TagsCategorias />
-        <Newsletter />
-    </section>)
+    return (
+        <section className="home">
+            <Banner subtitulo="Encontre em nossa estante o que precisa para seu desenvolvimento!" titulo="Já sabe por onde começar?">
+                <form className="buscar">
+                    <AbCampoTexto
+                        placeholder="Qual será sua próxima leitura?"
+                        value={busca}
+                        onChange={setBusca}
+                        darkmode={true}
+                        placeholderAlign="center"
+                    />
+                </form>
+            </Banner>
+            <Titulo texto="ÚLTIMOS LANÇAMENTOS" />
+            <LivrosDestaque livros={lancamentos} />
+            <Titulo texto="MAIS VENDIDOS" />
+            <LivrosDestaque livros={maisVendidos} />
+            <TagsCategorias />
+            <Newsletter />
+        </section>
+    );
 }
 
 export default Home
