@@ -1,0 +1,59 @@
+.login__container {
+  display: flex;
+  align-items: center;
+  padding-top: 32px;
+}
+
+.login__container form {
+  width: 500px;
+  max-width: 100%;
+}
+
+.login__acoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 48px;
+}
+
+div label + input {
+  margin-bottom: 1.5rem;
+}
+
+.acoes__link {
+  text-decoration: underline;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.acoes__link a {
+  text-transform: none !important;
+}
+
+.acoes__link:hover {
+  opacity: 0.8;
+}
+
+.linha::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 5%;
+  height: 1px;
+  width: 50%;
+  background-color: black;
+}
+
+.login__footer {
+  margin: auto;
+  width: 50%;
+  position: relative;
+  left: 23%;
+  padding-top: 1rem;
+  margin-top: 2rem;
+}
+
+.login__footer div {
+  display: flex;
+  justify-content: space-between;
+}

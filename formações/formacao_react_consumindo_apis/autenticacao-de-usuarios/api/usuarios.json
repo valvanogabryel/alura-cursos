@@ -53,6 +53,15 @@
       "endereco": "Rua Z",
       "complemento": "X",
       "cep": "123"
+    },
+    {
+      "id": 7,
+      "email": "gabryelvalvano@gmail.com",
+      "senha": "jiojiojoij",
+      "nome": "Gabryel Valvano do Nascimento",
+      "endereco": "Travessa Laurinda, 124",
+      "complemento": "",
+      "cep": "21073430"
     }
   ]
 }

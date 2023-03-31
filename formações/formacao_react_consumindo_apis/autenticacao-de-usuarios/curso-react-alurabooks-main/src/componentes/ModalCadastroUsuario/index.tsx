@@ -7,7 +7,12 @@ import axios from "axios";
 
 import './ModalCadastroUsuario.css'
 
-const ModalCadastroUsuario = () => {
+interface ModalCadastroUsuarioProps {
+    aberta: boolean;
+    aoFechar: () => void;
+}
+
+const ModalCadastroUsuario = ({ aberta, aoFechar }: ModalCadastroUsuarioProps) => {
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [endereco, setEndereco] = useState('');
@@ -27,17 +32,16 @@ const ModalCadastroUsuario = () => {
             complemento
         };
 
-
         axios.post('http://localhost:8000/public/registrar', usuario)
             .then(() => {
                 alert('Usuário foi cadastrado com sucesso!');
             })
-            .catch((err) => {
-                alert('Ops... Algo deu errado.')
-                console.log(err);
+            .catch(() => {
+                alert('Ops... Algo deu errado.');
             })
 
         limparFormulario();
+        aoFechar();
     }
 
     const limparFormulario = () => {
@@ -53,8 +57,8 @@ const ModalCadastroUsuario = () => {
     return (
         <AbModal
             titulo="Cadastrar"
-            aberta={true}
-            aoFechar={() => AbCampoTexto}
+            aberta={aberta}
+            aoFechar={aoFechar}
         >
             <section className="corpoModalCadastro">
                 <figure>
