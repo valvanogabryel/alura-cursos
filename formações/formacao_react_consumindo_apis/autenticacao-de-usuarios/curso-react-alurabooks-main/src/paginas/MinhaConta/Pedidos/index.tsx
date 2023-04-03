@@ -24,6 +24,18 @@ const Pedidos = () => {
       })
   }, [token]);
 
+  function excluirPedido(idDoPedido: number) {
+    http.delete<IPedido>(`http://localhost:8000/pedidos/${idDoPedido}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(() => {
+        setPedidos(pedidos.filter(pedido => pedido.id !== idDoPedido));
+      })
+      .catch(err => console.log(err));
+  }
+
   function formatar(valorPedido: number) {
     return valorPedido.toLocaleString('pt-BR',
       {
@@ -37,7 +49,10 @@ const Pedidos = () => {
       <h1 className="pedidos__title">Pedidos</h1>
       {
         pedidos.map(pedido => (
-          <div className="pedido" key={pedido.id}>
+          <div
+            className="pedido"
+            key={pedido.id}
+          >
             <ul className="pedido__wrapper">
               <li className="pedido__info">
                 Pedido: <strong>{pedido.id}</strong>
@@ -53,6 +68,13 @@ const Pedidos = () => {
               </li>
             </ul>
             <AbBotao texto="Detalhes" />
+            <button
+              type="button"
+              className="pedidoexcluir"
+              onClick={() => excluirPedido(pedido.id)}
+            >
+              Excluir pedido
+            </button>
           </div>
         ))
       }
