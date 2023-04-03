@@ -4,7 +4,8 @@ import { AbBotao, AbCampoTexto, AbModal } from "ds-alurabooks";
 import imagemPrincipal from './assets/login.png';
 
 import './ModalLoginUsuario.css';
-import axios from "axios";
+import login from "../../utils/login";
+import { usePersistirToken } from "../../hooks";
 
 interface ModalLoginUsuarioProps {
   aberta: boolean
@@ -16,28 +17,22 @@ const ModalLoginUsuario = ({ aberta, aoEfetuarLogin, aoFechar }: ModalLoginUsuar
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+  const setToken = usePersistirToken();
+
   const aoSubmeterFormulario = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const usuario = {
       email,
       senha
-    }
+    };
 
-    axios.post('http://localhost:8000/public/login', usuario)
-      .then(response => {
-        alert(`Bem vindo de volta, ${response.data.user.nome}`);
-        console.log(response);
-        sessionStorage.setItem('Token', response.data.access_token);
-        limparFormulario();
-      })
-      .catch(err => {
-        if (err?.response?.data?.message) {
-          alert(err.response.data.message);
-        } else {
-          alert('Ocorreu um erro inesperado ao efetuar o login. Contate o suporte para relatar o ocorrido.')
-        }
-      });
+    aoEfetuarLogin();
+    login({
+      usuario,
+      setToken
+    });
+    limparFormulario();
   }
 
   function limparFormulario() {

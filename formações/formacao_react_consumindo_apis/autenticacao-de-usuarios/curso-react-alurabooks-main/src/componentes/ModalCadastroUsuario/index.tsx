@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { AbBotao, AbCampoTexto, AbModal, } from "ds-alurabooks"
 
-import imagemPrincipal from './assets/login.png'
+import imagemPrincipal from './assets/login.png';
 
-import axios from "axios";
+import { http } from "../../http";
 
 import './ModalCadastroUsuario.css'
 
@@ -32,13 +32,13 @@ const ModalCadastroUsuario = ({ aberta, aoFechar }: ModalCadastroUsuarioProps) =
             complemento
         };
 
-        axios.post('http://localhost:8000/public/registrar', usuario)
+        http.post('http://localhost:8000/public/registrar', usuario)
             .then(() => {
                 alert('Usuário foi cadastrado com sucesso!');
             })
             .catch(() => {
                 alert('Ops... Algo deu errado.');
-            })
+            });
 
         limparFormulario();
         aoFechar();

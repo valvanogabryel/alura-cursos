@@ -1,0 +1,17 @@
+.pedidos__container {
+  padding: 32px;
+}
+
+.pedidos__title {
+  margin-top: 0;
+}
+
+.pedido {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-width: 50vw;
+  max-width: 60vw;
+  border-bottom: 1px solid #002f52;
+  padding: 12px;
+}
