@@ -24,61 +24,17 @@ const Pedidos = () => {
       })
   }, [token]);
 
+  function formatar(valorPedido: number) {
+    return valorPedido.toLocaleString('pt-BR',
+      {
+        style: 'currency',
+        currency: 'BRL'
+      });
+  }
 
   return (
     <section className="pedidos__container">
       <h1 className="pedidos__title">Pedidos</h1>
-      <div className="pedido">
-        <ul className="pedido__wrapper">
-          <li className="pedido__info">
-            Pedido: <strong>89019041</strong>
-          </li>
-          <li className="pedido__info">
-            Data do pedido: <strong>26/05/2023</strong>
-          </li>
-          <li className="pedido__info">
-            Valor total: <strong>R$48,00</strong>
-          </li>
-          <li className="pedido__info">
-            Entrega realizada em: <strong>30/05/2023</strong>
-          </li>
-        </ul>
-        <AbBotao texto="Detalhes" />
-      </div>
-      <div className="pedido">
-        <ul className="pedido__wrapper">
-          <li className="pedido__info">
-            Pedido: <strong>89019041</strong>
-          </li>
-          <li className="pedido__info">
-            Data do pedido: <strong>26/05/2023</strong>
-          </li>
-          <li className="pedido__info">
-            Valor total: <strong>R$48,00</strong>
-          </li>
-          <li className="pedido__info">
-            Entrega realizada em: <strong>30/05/2023</strong>
-          </li>
-        </ul>
-        <AbBotao texto="Detalhes" />
-      </div>
-      <div className="pedido">
-        <ul className="pedido__wrapper">
-          <li className="pedido__info">
-            Pedido: <strong>89019041</strong>
-          </li>
-          <li className="pedido__info">
-            Data do pedido: <strong>26/05/2023</strong>
-          </li>
-          <li className="pedido__info">
-            Valor total: <strong>R$48,00</strong>
-          </li>
-          <li className="pedido__info">
-            Entrega realizada em: <strong>30/05/2023</strong>
-          </li>
-        </ul>
-        <AbBotao texto="Detalhes" />
-      </div>
       {
         pedidos.map(pedido => (
           <div className="pedido" key={pedido.id}>
@@ -87,13 +43,13 @@ const Pedidos = () => {
                 Pedido: <strong>{pedido.id}</strong>
               </li>
               <li className="pedido__info">
-                Data do pedido: <strong>{pedido.data}</strong>
+                Data do pedido: <strong>{new Date(pedido.data).toLocaleDateString()}</strong>
               </li>
               <li className="pedido__info">
-                Valor total: <strong>R${pedido.total}</strong>
+                Valor total: <strong>{formatar(pedido.total)}</strong>
               </li>
               <li className="pedido__info">
-                Entrega realizada em: <strong>{pedido.entrega}</strong>
+                Entrega realizada em: <strong>{new Date(pedido.entrega).toLocaleDateString()}</strong>
               </li>
             </ul>
             <AbBotao texto="Detalhes" />
