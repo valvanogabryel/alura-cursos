@@ -16,10 +16,20 @@
   padding: 12px;
 }
 
-.pedido button {
+.pedido__excluir {
+  font-weight: bold;
+  font-size: 0.7rem;
+  cursor: pointer;
   border: none;
   background: #002f52;
   color: white;
-  padding: 1.2rem;
-  border-radius: 50%;
+  padding: 1rem;
+  border-radius: 1rem;
+  transition: 0.3s;
+  opacity: 0.7;
+}
+
+.pedido__excluir:hover {
+  background: #0061ab;
+  opacity: 1;
 }

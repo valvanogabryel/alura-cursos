@@ -18,11 +18,14 @@ const Pedidos = () => {
   }, []);
 
   function excluirPedido(idDoPedido: number) {
-    http.delete<IPedido>(`pedidos/${idDoPedido}`)
-      .then(() => {
-        setPedidos(pedidos.filter(pedido => pedido.id !== idDoPedido));
-      })
-      .catch(err => console.log(err));
+    const usuarioTemCerteza = window.confirm('Tem certeza que deseja excluir o pedido?');
+    if (usuarioTemCerteza) {
+      http.delete<IPedido>(`pedidos/${idDoPedido}`)
+        .then(() => {
+          setPedidos(pedidos.filter(pedido => pedido.id !== idDoPedido));
+        })
+        .catch(err => console.log(err));
+    }
   }
 
   function formatar(valorPedido: number) {
@@ -59,7 +62,7 @@ const Pedidos = () => {
             <AbBotao texto="Detalhes" />
             <button
               type="button"
-              className="pedidoexcluir"
+              className="pedido__excluir"
               onClick={() => excluirPedido(pedido.id)}
             >
               Excluir pedido

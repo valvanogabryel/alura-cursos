@@ -18,8 +18,6 @@ const BarraNavegacao = () => {
 
   const [usuarioLogado, setUsuarioLogado] = useState<boolean>(token != null);
 
-  console.log(usuarioLogado);
-
   function aoEfetuarLogin() {
     setModalLoginAberta(false);
     setUsuarioLogado(true);
