@@ -9,5 +9,5 @@ export const useObterToken = () => {
 }
 
 export const useLimparToken = () => {
-  return sessionStorage.removeItem('token');
+  return () => sessionStorage.removeItem('token');
 }

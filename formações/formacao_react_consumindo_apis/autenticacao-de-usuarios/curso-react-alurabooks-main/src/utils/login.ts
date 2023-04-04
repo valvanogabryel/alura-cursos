@@ -1,4 +1,4 @@
-import { http } from "../http";
+import http from "../http";
 
 interface IUser {
   usuario: {
@@ -9,7 +9,7 @@ interface IUser {
 }
 
 export default function login({ usuario, setToken }: IUser) {
-  http.post('http://localhost:8000/public/login', usuario)
+  http.post('public/login', usuario)
     .then(response => {
       setToken(response.data.access_token);
       alert(`Bem vindo de volta, ${response.data.user.nome}!`);

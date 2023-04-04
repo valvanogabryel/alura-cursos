@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import BotaoNavegacao from "../BotaoNavegacao"
 import ModalCadastroUsuario from "../ModalCadastroUsuario"
 import logo from './assets/logo.png'
@@ -6,13 +6,15 @@ import usuario from './assets/usuario.svg'
 import './BarraNavegacao.css'
 import { useState } from "react"
 import ModalLoginUsuario from "../ModalLoginUsuario"
-import { useObterToken } from "../../hooks"
+import { useLimparToken, useObterToken } from "../../hooks"
 
 const BarraNavegacao = () => {
   const [modalLoginAberta, setModalLoginAberta] = useState(false);
   const [modalCadastroAberta, setModalCadastroAberta] = useState(false);
 
+  const navigate = useNavigate();
   const token = useObterToken();
+  const limparToken = useLimparToken();
 
   const [usuarioLogado, setUsuarioLogado] = useState<boolean>(token != null);
 
@@ -21,6 +23,15 @@ const BarraNavegacao = () => {
   function aoEfetuarLogin() {
     setModalLoginAberta(false);
     setUsuarioLogado(true);
+  }
+
+  function efetuarLogout() {
+    const usuarioQuerDeslogar = window.confirm('Realmente deseja sair da sua conta?');
+    if (usuarioQuerDeslogar) {
+      setUsuarioLogado(false);
+      limparToken();
+      navigate('/');
+    }
   }
 
   return (
@@ -65,9 +76,19 @@ const BarraNavegacao = () => {
       <ul className="acoes">
         {
           usuarioLogado ?
-            <li>
-              <Link to='minha-conta/pedidos'>MINHA CONTA</Link>
-            </li>
+            <>
+              <li>
+                <Link to='minha-conta/pedidos'>MINHA CONTA</Link>
+              </li>
+              <li>
+                <BotaoNavegacao
+                  texto="Logout"
+                  textoAltSrc="Icone representando um usuário"
+                  imagemSrc={usuario}
+                  onClick={efetuarLogout}
+                />
+              </li>
+            </>
             :
             <>
               <li>

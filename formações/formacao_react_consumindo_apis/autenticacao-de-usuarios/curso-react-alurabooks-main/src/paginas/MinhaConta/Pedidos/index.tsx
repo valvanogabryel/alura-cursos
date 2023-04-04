@@ -1,35 +1,24 @@
-import { AbBotao } from "ds-alurabooks";
-import './Pedidos.css';
 import { useEffect, useState } from "react";
-import { http } from "../../../http";
-import { useObterToken } from "../../../hooks";
+import { AbBotao } from "ds-alurabooks";
 import { IPedido } from "../../../interfaces/IPedido";
+import http from "../../../http";
+import './Pedidos.css';
 
 const Pedidos = () => {
   const [pedidos, setPedidos] = useState<IPedido[]>([]);
 
-  const token = useObterToken();
-
   useEffect(() => {
-    http.get<IPedido[]>('http://localhost:8000/pedidos', {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
+    http.get<IPedido[]>('pedidos')
       .then(res => {
         setPedidos(res.data);
       })
       .catch(err => {
         alert(err);
       })
-  }, [token]);
+  }, []);
 
   function excluirPedido(idDoPedido: number) {
-    http.delete<IPedido>(`http://localhost:8000/pedidos/${idDoPedido}`, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
+    http.delete<IPedido>(`pedidos/${idDoPedido}`)
       .then(() => {
         setPedidos(pedidos.filter(pedido => pedido.id !== idDoPedido));
       })

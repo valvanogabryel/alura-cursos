@@ -1,12 +1,15 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import './App.css';
+import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
 import Rotas from './rotas';
+import { createBrowserHistory } from 'history';
+import './App.css';
+
+export const history = createBrowserHistory({ window });
+
 function App() {
   return (
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <Rotas />
-    </BrowserRouter>
+    </HistoryRouter>
   );
 }
 
