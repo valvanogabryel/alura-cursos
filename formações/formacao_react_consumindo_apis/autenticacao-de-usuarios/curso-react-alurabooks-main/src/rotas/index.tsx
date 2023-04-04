@@ -3,6 +3,7 @@ import Home from "../paginas/Home"
 import PaginaBase from "../paginas/PaginaBase"
 import MinhaConta from "../paginas/MinhaConta"
 import Pedidos from "../paginas/MinhaConta/Pedidos"
+import Categoria from "../paginas/Categoria"
 
 const Rotas = () => {
   return (
@@ -12,6 +13,7 @@ const Rotas = () => {
         <Route path='/minha-conta' element={<MinhaConta />}>
           <Route path="pedidos" element={<Pedidos />} />
         </Route>
+        <Route path="/categorias/:slug" element={<Categoria />} />
       </Route>
     </Routes>
   );

@@ -5,7 +5,7 @@ import imagemPrincipal from './assets/login.png';
 
 import './ModalLoginUsuario.css';
 import login from "../../utils/login";
-import { usePersistirToken } from "../../hooks";
+import { usePersistirToken } from "../../hooks/useSessions";
 
 interface ModalLoginUsuarioProps {
   aberta: boolean

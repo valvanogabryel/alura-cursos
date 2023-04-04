@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { useObterToken } from "../hooks";
+import { useObterToken } from "../hooks/useSessions";
 import { history } from "../App";
 
 const http = axios.create({

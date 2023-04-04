@@ -1,11 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 import './MinhaConta.css'
+import TituloPrincipal from "../../componentes/TituloPrincipal";
 
 const MinhaConta = () => {
   return (
     <>
-      <h1 className="minha-conta__title">Minha Conta</h1>
+      <TituloPrincipal>Minha conta</TituloPrincipal>
       <section className="minha-conta__container">
         <div className="minha-conta__navegacao">
           <ul>

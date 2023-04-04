@@ -1,22 +1,30 @@
-import { Link, useNavigate } from "react-router-dom"
-import BotaoNavegacao from "../BotaoNavegacao"
-import ModalCadastroUsuario from "../ModalCadastroUsuario"
-import logo from './assets/logo.png'
-import usuario from './assets/usuario.svg'
-import './BarraNavegacao.css'
-import { useState } from "react"
-import ModalLoginUsuario from "../ModalLoginUsuario"
-import { useLimparToken, useObterToken } from "../../hooks"
+// React
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+// Components
+import BotaoNavegacao from "../BotaoNavegacao";
+import ModalLoginUsuario from "../ModalLoginUsuario";
+import ModalCadastroUsuario from "../ModalCadastroUsuario";
+// Hooks
+import { useLimparToken, useObterToken } from "../../hooks/useSessions";
+import useCategorias from "../../hooks/useCategorias";
+// Interfaces
+import { ICategoria } from "../../interfaces/ICategoria";
+// Images
+import logo from './assets/logo.png';
+import usuario from './assets/usuario.svg';
+// Styles
+import './BarraNavegacao.css';
 
 const BarraNavegacao = () => {
   const [modalLoginAberta, setModalLoginAberta] = useState(false);
   const [modalCadastroAberta, setModalCadastroAberta] = useState(false);
-
-  const navigate = useNavigate();
   const token = useObterToken();
-  const limparToken = useLimparToken();
-
   const [usuarioLogado, setUsuarioLogado] = useState<boolean>(token != null);
+
+  const categorias: ICategoria[] = useCategorias();
+  const navigate = useNavigate();
+  const limparToken = useLimparToken();
 
   function aoEfetuarLogin() {
     setModalLoginAberta(false);
@@ -43,31 +51,15 @@ const BarraNavegacao = () => {
         <li>
           <a href="#!">Categorias</a>
           <ul className="submenu">
-            <li>
-              <Link to="/">
-                Frontend
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                Programação
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                Infraestrutura
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                Business
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                Design e UX
-              </Link>
-            </li>
+            {
+              categorias.map(categoria => (
+                <li key={categoria.id}>
+                  <Link to={`/categorias/${categoria.slug}`}>
+                    {categoria.nome}
+                  </Link>
+                </li>
+              ))
+            }
           </ul>
         </li>
       </ul>
