@@ -1,6 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { useObterToken } from "../hooks/useSessions";
 import { history } from "../App";
+import { ICategoria } from "../interfaces/ICategoria";
 
 const http = axios.create({
   baseURL: 'http://localhost:8000',
@@ -29,5 +30,12 @@ http.interceptors.response.use(function (response) {
   return Promise.reject(error);
 });
 
-
 export default http;
+
+export const obterCategoriaPorSlug = async (slug: string) => {
+  const response = await http.get<ICategoria[]>(`categorias?slug=${slug}`);
+  // const response = await http.get<ICategoria[]>('categorias', {
+  //   params: slug
+  // });
+  return response.data[0];
+}
