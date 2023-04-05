@@ -2,6 +2,7 @@ import axios, { AxiosError } from "axios";
 import { useObterToken } from "../hooks/useSessions";
 import { history } from "../App";
 import { ICategoria } from "../interfaces/ICategoria";
+import { ILivro } from "../interfaces/ILivro";
 
 const http = axios.create({
   baseURL: 'http://localhost:8000',
@@ -33,9 +34,16 @@ http.interceptors.response.use(function (response) {
 export default http;
 
 export const obterCategoriaPorSlug = async (slug: string) => {
-  const response = await http.get<ICategoria[]>(`categorias?slug=${slug}`);
-  // const response = await http.get<ICategoria[]>('categorias', {
-  //   params: slug
-  // });
-  return response.data[0];
+  const { data: [categoria] } = await http.get<ICategoria[]>(`categorias?slug=${slug}`);
+  return categoria;
+}
+
+export const obterLivrosDestaques = async (tipo: string) => {
+  const { data: livros } = await http.get<ILivro[]>(`public/${tipo}`);
+  return livros;
+}
+
+export const obterLivrosPorCategoria = async (categoria: ICategoria) => {
+  const { data: livros } = await http.get<ILivro[]>(`livros?categoria=${categoria.id}`);
+  return livros;
 }

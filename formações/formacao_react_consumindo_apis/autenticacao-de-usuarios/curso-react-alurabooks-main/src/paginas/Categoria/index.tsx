@@ -3,6 +3,7 @@ import TituloPrincipal from "../../componentes/TituloPrincipal";
 import { obterCategoriaPorSlug } from "../../http";
 import Loader from "../../componentes/Loader";
 import { useQuery } from "@tanstack/react-query";
+import ListaLivros from "../../componentes/ListaLivros";
 
 const Categoria = () => {
   const { slug } = useParams();
@@ -16,9 +17,7 @@ const Categoria = () => {
   return (
     <section>
       <TituloPrincipal>{categoria?.nome}</TituloPrincipal>
-      {
-
-      }
+      <ListaLivros categoria={categoria!} />
     </section>
   );
 }
