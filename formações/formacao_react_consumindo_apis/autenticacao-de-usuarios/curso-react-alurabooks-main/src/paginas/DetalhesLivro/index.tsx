@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import TituloPrincipal from "../../componentes/TituloPrincipal";
 import { AbBotao, AbGrupoOpcao, AbGrupoOpcoes } from "ds-alurabooks"
 import { AbInputQuantidade } from "ds-alurabooks"
-import { obterAutor, obterLivrosPorSlug } from "../../http";
+import { obterLivrosPorSlug } from "../../http";
 import { useParams } from "react-router-dom";
 
 import './DetalhesLivro.css';
@@ -12,6 +12,7 @@ import { useState } from "react";
 import formatadorMoeda from "../../utils/formatadorMoeda";
 import SobreAutor from "../../componentes/SobreAutor";
 import BlocoSobre from "../../componentes/BlocoSobre";
+import useObterAutor from "../../hooks/useObterAutor";
 
 const DetalhesLivro = () => {
   const [opcao, setOpcao] = useState<AbGrupoOpcao>();
@@ -22,9 +23,9 @@ const DetalhesLivro = () => {
     isLoading
   } = useQuery(['livroSlug', slug], () => obterLivrosPorSlug(slug || ''));
 
-  const { data: autor } = useQuery(['autor', livro?.autor], () => obterAutor(livro?.autor));
+  const autor = useObterAutor(livro);
 
-  const nomeAutor = autor && autor.nome ? autor.nome : 'Autor';
+  const nomeAutor: string = autor && autor.nome ? autor.nome : 'Autor desconhecido';
 
   if (isLoading || !livro) return <Loader />
 
@@ -35,7 +36,6 @@ const DetalhesLivro = () => {
     rodape: opcao.formatos ? opcao.formatos.join(',') : ''
   }))
     : [];
-
 
   return (
     <>

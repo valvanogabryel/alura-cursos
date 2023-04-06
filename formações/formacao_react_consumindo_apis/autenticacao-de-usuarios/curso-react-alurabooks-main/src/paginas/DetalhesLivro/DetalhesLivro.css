@@ -7,6 +7,7 @@
   filter: drop-shadow(4px 4px 16px rgba(0, 0, 0, 0.15));
   height: 562px;
   width: 377px;
+  z-index: -10;
 }
 
 .detalhes__livro {
