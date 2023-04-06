@@ -47,3 +47,8 @@ export const obterLivrosPorCategoria = async (categoria: ICategoria) => {
   const { data: livros } = await http.get<ILivro[]>(`livros?categoria=${categoria.id}`);
   return livros;
 }
+
+export const obterLivrosPorSlug = async (slug: string) => {
+  const { data: livro } = await http.get<ILivro[]>(`livros?slug=${slug}`);
+  return livro[0];
+}
