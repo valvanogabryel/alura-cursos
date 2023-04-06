@@ -3,35 +3,39 @@ import { useQuery } from "@tanstack/react-query";
 import TituloPrincipal from "../../componentes/TituloPrincipal";
 import { AbBotao, AbGrupoOpcao, AbGrupoOpcoes } from "ds-alurabooks"
 import { AbInputQuantidade } from "ds-alurabooks"
-import { obterLivrosPorSlug } from "../../http";
+import { obterAutor, obterLivrosPorSlug } from "../../http";
 import { useParams } from "react-router-dom";
 
 import './DetalhesLivro.css';
+import Loader from "../../componentes/Loader";
+import { useState } from "react";
+import formatadorMoeda from "../../utils/formatadorMoeda";
+import SobreAutor from "../../componentes/SobreAutor";
+import BlocoSobre from "../../componentes/BlocoSobre";
 
 const DetalhesLivro = () => {
-  const { slug } = useParams();
-  const { data: livro } = useQuery(['livroSlug'], () => obterLivrosPorSlug(slug || ''));
+  const [opcao, setOpcao] = useState<AbGrupoOpcao>();
 
-  const opcoes: AbGrupoOpcao[] = [
-    {
-      id: 1,
-      titulo: 'E-book',
-      corpo: 'R$29.00',
-      rodape: '.pdf, .epub, .mob'
-    },
-    {
-      id: 2,
-      titulo: 'Impresso',
-      corpo: 'R$29.00',
-      rodape: '.pdf, .epub, .mob'
-    },
-    {
-      id: 3,
-      titulo: 'Impresso + E-book',
-      corpo: 'R$40.00',
-      rodape: '.pdf, .epub, .mob'
-    },
-  ];
+  const { slug } = useParams();
+  const {
+    data: livro,
+    isLoading
+  } = useQuery(['livroSlug', slug], () => obterLivrosPorSlug(slug || ''));
+
+  const { data: autor } = useQuery(['autor', livro?.autor], () => obterAutor(livro?.autor));
+
+  const nomeAutor = autor && autor.nome ? autor.nome : 'Autor';
+
+  if (isLoading || !livro) return <Loader />
+
+  const opcoes: AbGrupoOpcao[] = livro.opcoesCompra ? livro.opcoesCompra.map(opcao => ({
+    id: opcao.id,
+    corpo: formatadorMoeda(opcao.preco),
+    titulo: opcao.titulo,
+    rodape: opcao.formatos ? opcao.formatos.join(',') : ''
+  }))
+    : [];
+
 
   return (
     <>
@@ -39,15 +43,19 @@ const DetalhesLivro = () => {
       <section className="detalhes__container">
         <div className="detalhes__livro">
           <div className="detalhes__capa">
-            <img src={livro?.imagemCapa} alt={livro?.descricao} />
+            <img src={livro.imagemCapa} alt={livro.descricao} />
           </div>
           <div className="detalhes__info">
-            <h1 className="info__title">{livro?.titulo}</h1>
-            <p className="info__descricao">{livro?.descricao}</p>
-            <p className="info__autor">Por: {livro?.autor}</p>
+            <h1 className="info__title">{livro.titulo}</h1>
+            <p className="info__descricao">{livro.descricao}</p>
+            <p className="info__autor">Por: {nomeAutor}</p>
             <h5>Selecione o formato do seu livro</h5>
             <div className="detalhes__opcoes">
-              <AbGrupoOpcoes opcoes={opcoes} valorPadrao={opcoes[0]} />
+              <AbGrupoOpcoes
+                opcoes={opcoes}
+                onChange={setOpcao}
+                valorPadrao={opcao}
+              />
               <span>*Você terá acesso às futuras atualizações do livro.</span>
             </div>
             <div className="quantidade">
@@ -56,13 +64,12 @@ const DetalhesLivro = () => {
             </div>
           </div>
         </div>
-        <div>
-          <h2>Sobre o autor</h2>
-          {/* linha */}
-          <p>{livro?.sobre}</p>
-          <h2>Sobre o livro</h2>
-          {/* linha */}
-          <p>{livro?.sobre}</p>
+        <div className="sobre__wrapper">
+          <SobreAutor idAutor={livro.autor} />
+          <BlocoSobre
+            titulo="Sobre o livro"
+            corpo={livro.sobre}
+          />
         </div>
       </section>
     </>

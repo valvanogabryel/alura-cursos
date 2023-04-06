@@ -48,6 +48,11 @@ export const obterLivrosPorCategoria = async (categoria: ICategoria) => {
   return livros;
 }
 
+export const obterAutor = async (id: number | undefined) => {
+  const { data: autor } = await http.get(`autores/${id}`);
+  return autor
+}
+
 export const obterLivrosPorSlug = async (slug: string) => {
   const { data: livro } = await http.get<ILivro[]>(`livros?slug=${slug}`);
   return livro[0];

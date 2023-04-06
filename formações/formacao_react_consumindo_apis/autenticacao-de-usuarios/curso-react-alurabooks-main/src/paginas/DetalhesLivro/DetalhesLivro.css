@@ -1,6 +1,6 @@
 .detalhes__container {
-  width: 100%;
-  margin: auto;
+  width: 70vw;
+  margin: 4rem auto;
 }
 
 .detalhes__capa {
@@ -12,6 +12,8 @@
 .detalhes__livro {
   display: flex;
   justify-content: center;
+  position: relative;
+  left: 5rem;
 }
 
 .detalhes__info {
@@ -66,7 +68,8 @@ span {
 .quantidade {
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: auto;
+  max-width: 20%;
   gap: 2rem;
   margin-top: 2rem;
 }
