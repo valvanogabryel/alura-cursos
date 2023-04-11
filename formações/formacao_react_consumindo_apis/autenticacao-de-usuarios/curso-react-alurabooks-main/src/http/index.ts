@@ -49,12 +49,12 @@ export const obterLivrosPorCategoria = async (categoria: ICategoria) => {
 }
 
 export const obterAutor = async (id: number | undefined) => {
-  const { data: autor } = await http.get(`autores/${id}`);
-
-  if (autor.length === 0) {
-    return null;
+  try {
+    const { data: autor } = await http.get(`autores/${id}`);
+    return autor;
+  } catch (error) {
+    console.log(`Não foi possível obter o autor: ${error}`);
   }
-  return autor;
 }
 
 export const obterLivrosPorSlug = async (slug: string) => {
