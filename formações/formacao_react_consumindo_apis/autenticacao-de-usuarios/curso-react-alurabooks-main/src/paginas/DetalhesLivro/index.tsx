@@ -13,6 +13,8 @@ import formatadorMoeda from "../../utils/formatadorMoeda";
 import SobreAutor from "../../componentes/SobreAutor";
 import BlocoSobre from "../../componentes/BlocoSobre";
 import useObterAutor from "../../hooks/useObterAutor";
+import { ILivro } from "../../interfaces/ILivro";
+import { AxiosError } from "axios";
 
 const DetalhesLivro = () => {
   const [opcao, setOpcao] = useState<AbGrupoOpcao>();
@@ -20,12 +22,18 @@ const DetalhesLivro = () => {
   const { slug } = useParams();
   const {
     data: livro,
-    isLoading
-  } = useQuery(['livroSlug', slug], () => obterLivrosPorSlug(slug || ''));
+    isLoading,
+    error
+  } = useQuery<ILivro, AxiosError>(['livroSlug', slug], () => obterLivrosPorSlug(slug || ''));
 
   const autor = useObterAutor(livro);
 
   const nomeAutor: string = autor && autor.nome ? autor.nome : 'Autor desconhecido';
+
+  if (error) {
+    console.log(error.message);
+    return <h1>Ops... Algum erro inesperado aconteceu :(</h1>
+  }
 
   if (isLoading || !livro) return <Loader />
 
