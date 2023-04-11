@@ -50,7 +50,11 @@ export const obterLivrosPorCategoria = async (categoria: ICategoria) => {
 
 export const obterAutor = async (id: number | undefined) => {
   const { data: autor } = await http.get(`autores/${id}`);
-  return autor
+
+  if (autor.length === 0) {
+    return null;
+  }
+  return autor;
 }
 
 export const obterLivrosPorSlug = async (slug: string) => {

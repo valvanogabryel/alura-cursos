@@ -24,13 +24,15 @@ const DetalhesLivro = () => {
     data: livro,
     isLoading,
     error
-  } = useQuery<ILivro, AxiosError>(['livroSlug', slug], () => obterLivrosPorSlug(slug || ''));
+  } = useQuery<ILivro | null, AxiosError>(['livroSlug', slug], () => obterLivrosPorSlug(slug || ''));
 
   const autor = useObterAutor(livro);
 
   const nomeAutor: string = autor && autor.nome ? autor.nome : 'Autor desconhecido';
 
-  if (error) {
+  if (livro === null) return <h1>Livro não encontrado</h1>
+
+  if (error && error.message) {
     console.log(error.message);
     return <h1>Ops... Algum erro inesperado aconteceu :(</h1>
   }
