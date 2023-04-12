@@ -18,24 +18,20 @@ const ListaLivros = ({ categoria }: ListaLivrosProps) => {
 
   // const { data: livros } = useQuery(['buscaLivrosPorCategoria', categoria], () => obterLivrosPorCategoria(categoria));
 
-  const { data, refetch } = useObterLivros(categoria);
+  useObterLivros(categoria);
   // const livros = data?.livros;
 
   const livros = useReactiveVar(livrosVar);
   console.log(`livros => ${livros}`);
 
-  if (data?.livros) {
-    livrosVar(data.livros);
-  }
-
   function buscarLivro(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     if (tituloBusca) {
-      refetch({
-        categoriaId: categoria.id,
-        titulo: tituloBusca
-      });
+      // refetch({
+      //   categoriaId: categoria.id,
+      //   titulo: tituloBusca
+      // });
     }
   }
 
@@ -61,7 +57,7 @@ const ListaLivros = ({ categoria }: ListaLivrosProps) => {
       </form>
       <div className="livros__container">
         {
-          livros?.map(livro => (
+          livros.map(livro => (
             <MiniCardLivro
               {...livro}
               key={livro.id}
