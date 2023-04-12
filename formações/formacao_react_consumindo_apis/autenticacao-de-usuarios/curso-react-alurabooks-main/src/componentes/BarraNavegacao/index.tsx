@@ -7,7 +7,6 @@ import ModalLoginUsuario from "../ModalLoginUsuario";
 import ModalCadastroUsuario from "../ModalCadastroUsuario";
 // Hooks
 import { useLimparToken, useObterToken } from "../../hooks/useSessions";
-import useCategorias from "../../hooks/useCategorias";
 // Interfaces
 import { ICategoria } from "../../interfaces/ICategoria";
 // Images
@@ -15,6 +14,17 @@ import logo from './assets/logo.png';
 import usuario from './assets/usuario.svg';
 // Styles
 import './BarraNavegacao.css';
+import { gql, useQuery } from "@apollo/client";
+
+const OBTER_CATEGORIAS = gql`
+  query ObterCategorias {
+    categorias {
+      id
+      slug
+      nome
+    }
+  }
+`;
 
 const BarraNavegacao = () => {
   const [modalLoginAberta, setModalLoginAberta] = useState(false);
@@ -22,7 +32,11 @@ const BarraNavegacao = () => {
   const token = useObterToken();
   const [usuarioLogado, setUsuarioLogado] = useState<boolean>(token != null);
 
-  const categorias: ICategoria[] = useCategorias();
+  // const categorias: ICategoria[] = useCategorias();
+
+  const { data } = useQuery<{ categorias: ICategoria[] }>(OBTER_CATEGORIAS);
+  const categorias = data?.categorias;
+
   const navigate = useNavigate();
   const limparToken = useLimparToken();
 
@@ -52,7 +66,7 @@ const BarraNavegacao = () => {
           <a href="#!">Categorias</a>
           <ul className="submenu">
             {
-              categorias.map(categoria => (
+              categorias?.map(categoria => (
                 <li key={categoria.id}>
                   <Link to={`/categorias/${categoria.slug}`}>
                     {categoria.nome}
