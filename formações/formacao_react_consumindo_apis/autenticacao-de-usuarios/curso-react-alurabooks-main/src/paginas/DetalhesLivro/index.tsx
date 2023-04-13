@@ -15,27 +15,24 @@ const DetalhesLivro = () => {
   const [opcao, setOpcao] = useState<AbGrupoOpcao>();
 
   const { slug } = useParams();
-  // const {
-  //   data: livro,
-  //   isLoading,
-  //   error
-  // } = useQuery<ILivro | null, AxiosError>(['livroSlug', slug], () => obterLivrosPorSlug(slug || ''));
 
-  const { data, loading } = useObterDetalhes(slug || '');
+  const {
+    data,
+    loading,
+    error
+  } = useObterDetalhes(slug || '');
   const livro = data?.livro;
   const autor = {
     nome: livro?.autor.nome,
     sobre: livro?.autor.sobre
   };
 
-  // const nomeAutor: string = autor && autor.nome ? autor.nome : 'Autor desconhecido';
-
   if (livro === null) return <h1>Livro não encontrado</h1>
 
-  // if (error && error.message) {
-  //   console.log(error.message);
-  //   return <h1>Ops... Algum erro inesperado aconteceu :(</h1>
-  // }
+  if (error && error.message) {
+    console.log(error);
+    return <h1>Ops... Algum erro inesperado aconteceu :(</h1>
+  }
 
   if (loading || !livro) return <Loader />
 
