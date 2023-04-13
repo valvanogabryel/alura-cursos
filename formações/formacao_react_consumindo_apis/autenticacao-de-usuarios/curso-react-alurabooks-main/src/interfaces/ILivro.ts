@@ -10,7 +10,7 @@ export interface ILivro {
     numeroPaginas: number;
     publicacao: string;
     imagemCapa: string;
-    autor: number;
+    autor: any;
     opcoesCompra: IOpcaoCompra[];
     sobre: string;
 }

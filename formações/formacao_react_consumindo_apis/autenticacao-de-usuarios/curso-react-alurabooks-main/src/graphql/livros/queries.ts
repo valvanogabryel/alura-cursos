@@ -40,3 +40,32 @@ query ObterLivrosDestaque {
     }
   }
 }`
+
+export const OBTER_DETALHES_LIVRO = gql`
+query ObterDetalhesLivro ($slug: String!) {
+  livro (slug: $slug) {
+    id
+    titulo
+    descricao
+    sobre
+    imagemCapa
+    opcoesCompra {
+      preco
+      id
+      titulo
+      formatos 
+    }
+    autor {
+      nome
+      sobre
+    }
+    tags {
+      nome
+    }
+  }
+}
+`
+
+/*
+
+*/

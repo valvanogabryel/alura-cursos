@@ -3,7 +3,7 @@ import { obterAutor } from "../../http";
 import BlocoSobre from "../BlocoSobre";
 
 interface SobreAutorProps {
-  idAutor: number
+  idAutor?: number
 }
 
 const SobreAutor = ({ idAutor }: SobreAutorProps) => {

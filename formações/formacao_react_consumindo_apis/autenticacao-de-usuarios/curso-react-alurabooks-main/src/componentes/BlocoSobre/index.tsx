@@ -1,8 +1,8 @@
 import './BlocoSobre.css';
 
 interface BlocoSobreProps {
-  titulo: string;
-  corpo: string;
+  titulo?: string;
+  corpo?: string;
 }
 
 const BlocoSobre = ({
