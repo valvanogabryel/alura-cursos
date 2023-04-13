@@ -6,8 +6,8 @@ import './LivrosDestaque.css'
 import formatadorMoeda from "../../utils/formatadorMoeda"
 
 interface LivrosDestaqueProps {
-  livros: ILivro[]
-}
+  livros: ILivro[];
+};
 
 const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
 
@@ -15,7 +15,7 @@ const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
 
   useEffect(() => {
     if (livros?.length) {
-      selecionarLivro(livros[0]);
+      selecionarLivro(livros[1]);
     }
   }, [livros]);
 
@@ -32,7 +32,7 @@ const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
                 onClick={() => selecionarLivro(livro)}
                 className={selecionado?.titulo === livro.titulo ? 'selecionado' : ''}
               >
-                <img src={livro.imagemCapa} alt={`Capa do livro ${livro.titulo} escrito por ${livro.autor}`} />
+                <img src={livro.imagemCapa} alt={`Capa do livro ${livro.titulo} escrito por ${livro.autor || 'autor desconhecido'}`} />
               </li>);
           })
         }
@@ -45,7 +45,7 @@ const LivrosDestaque = ({ livros }: LivrosDestaqueProps) => {
         </header>
         <h6>{selecionado?.titulo}</h6>
         <p>{selecionado?.descricao}</p>
-        <p>Por: {selecionado?.autor}</p>
+        <p>Por: {selecionado?.autor || 'Autor desconhecido'}</p>
         <footer>
           <div className="preco">
             <em>A partir de:</em>

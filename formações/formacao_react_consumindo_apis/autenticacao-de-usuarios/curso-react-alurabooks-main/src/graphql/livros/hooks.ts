@@ -1,16 +1,27 @@
-import { useQuery } from "@apollo/client";
+import { useQuery, useReactiveVar } from "@apollo/client";
 import { ILivro } from "../../interfaces/ILivro";
-import { ICategoria } from "../../interfaces/ICategoria";
-import { OBTER_LIVROS } from "./queries";
-import { livrosVar } from "./state";
+import { OBTER_LIVROS, OBTER_LIVROS_DESTAQUE } from "./queries";
+import { filtroLivrosVar, livrosVar } from "./state";
 
-export const useObterLivros = (categoria: ICategoria) => {
+export const useObterLivros = () => {
+  const filtros = useReactiveVar(filtroLivrosVar);
+
   return useQuery<{ livros: ILivro[] }>(OBTER_LIVROS, {
     variables: {
-      categoriaId: categoria.id
+      categoriaId: filtros.categoria?.id,
+      titulo: filtros.titulo
     },
     onCompleted(data) {
       if (data.livros) livrosVar(data.livros);
     }
   });
+}
+
+export const useObterDestaques = () => {
+  return useQuery<{
+    destaques: {
+      lancamentos: ILivro[],
+      maisVendidos: ILivro[]
+    }
+  }>(OBTER_LIVROS_DESTAQUE);
 }

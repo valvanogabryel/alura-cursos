@@ -14,3 +14,29 @@ export const OBTER_LIVROS = gql`
     }  
   }
 `;
+
+export const OBTER_LIVROS_DESTAQUE = gql`
+query ObterLivrosDestaque {
+  destaques {
+   		lancamentos {
+      imagemCapa
+      autorId
+      titulo
+      descricao
+			opcoesCompra {
+        id
+        preco
+      }
+    }
+    maisVendidos {
+      imagemCapa
+      autorId
+      titulo
+      descricao
+			opcoesCompra {
+        id
+        preco
+      }
+    }
+  }
+}`
