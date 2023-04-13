@@ -27,6 +27,9 @@ query ObterLivrosDestaque {
         id
         preco
       }
+      autor {
+        nome
+      }
     }
     maisVendidos {
       imagemCapa
@@ -37,6 +40,9 @@ query ObterLivrosDestaque {
         id
         preco
       }
+    }
+    autor {
+      nome
     }
   }
 }`
