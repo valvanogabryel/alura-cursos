@@ -21,7 +21,7 @@ const DetalhesLivro = () => {
   //   error
   // } = useQuery<ILivro | null, AxiosError>(['livroSlug', slug], () => obterLivrosPorSlug(slug || ''));
 
-  const { data } = useObterDetalhes(slug || '');
+  const { data, loading } = useObterDetalhes(slug || '');
   const livro = data?.livro;
   const autor = {
     nome: livro?.autor.nome,
@@ -37,7 +37,7 @@ const DetalhesLivro = () => {
   //   return <h1>Ops... Algum erro inesperado aconteceu :(</h1>
   // }
 
-  if (!livro) return <Loader />
+  if (loading || !livro) return <Loader />
 
   const opcoes: AbGrupoOpcao[] = livro?.opcoesCompra ? livro.opcoesCompra.map(opcao => ({
     id: opcao.id,
