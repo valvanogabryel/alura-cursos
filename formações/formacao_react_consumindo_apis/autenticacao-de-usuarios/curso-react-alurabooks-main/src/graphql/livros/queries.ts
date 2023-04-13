@@ -40,9 +40,9 @@ query ObterLivrosDestaque {
         id
         preco
       }
-    }
-    autor {
-      nome
+      autor {
+        nome
+      }
     }
   }
 }`
