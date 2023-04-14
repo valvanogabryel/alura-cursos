@@ -66,7 +66,10 @@ const DetalhesLivro = () => {
               <span>*Você terá acesso às futuras atualizações do livro.</span>
             </div>
             <div className="quantidade">
-              <AbInputQuantidade />
+              <AbInputQuantidade
+                onChange={() => { }}
+                value={0}
+              />
               <AbBotao texto="Comprar" />
             </div>
           </div>
