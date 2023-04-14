@@ -1,28 +1,41 @@
+import { AbBotao } from "ds-alurabooks";
 import TituloPrincipal from "../../componentes/TituloPrincipal";
 import { useCarrinho } from "../../graphql/carrinho/hooks";
+import { ICarrinho } from "../../interfaces/ICarrinho";
+import { Fragment } from "react";
+import ItemCarrinho from "../../componentes/ItemCarrinho";
+
+import './Carrinho.css';
+import formatadorMoeda from "../../utils/formatadorMoeda";
 
 const Carrinho = () => {
   const { data } = useCarrinho();
-  const carrinho = { ...data?.carrinho };
+  const carrinho: ICarrinho = { ...data?.carrinho };
 
-  console.log(carrinho);
-
+  const valorTotal = carrinho.total ? carrinho.total : 0;
 
   return (
     <>
       <TituloPrincipal>Carrinho</TituloPrincipal>
-      <h2>Total: {carrinho.total}</h2>
-      <ul>
+      <section className="cart__container">
+        <h3>Itens selecionados</h3>
         {
-          carrinho.itens.map((item: any) => (
-            <li>
-              Título: {item.livro.titulo}
-              Descrição: {item.livro.descricao}
-              Quantidade: {item.quantidade}
-            </li>
+          carrinho.itens?.map((livro, index) => (
+            <ItemCarrinho
+              item={livro}
+              key={index}
+            />
           ))
         }
-      </ul>
+        <a href="/categorias/programação">Continuar comprando</a>
+
+        <div className="cart-total">
+          <span className="total-label">Total da compra:</span>
+          <span className="total-value">{formatadorMoeda(valorTotal)}</span>
+          <AbBotao texto="Finalizar compra" />
+        </div>
+      </section>
+
     </>
   );
 }

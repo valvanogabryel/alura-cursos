@@ -1,0 +1,42 @@
+.item__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 0 auto 2rem auto;
+  width: 100%;
+}
+
+.image__wrapper img {
+  width: 150px;
+}
+
+.item__info {
+  min-width: 30%;
+  max-width: 35%;
+  margin-right: 8rem;
+}
+
+.item__price {
+  text-align: center;
+  line-height: 0.8rem;
+}
+
+.item__price p {
+  font-weight: bold;
+}
+
+.item__about {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+.trash-icon {
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.trash-icon:hover {
+  transform: scale(0.9);
+}

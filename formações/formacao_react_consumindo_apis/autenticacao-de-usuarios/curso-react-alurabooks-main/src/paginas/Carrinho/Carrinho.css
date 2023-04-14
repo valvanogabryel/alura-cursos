@@ -1,0 +1,45 @@
+.cart__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 52%;
+  margin: auto;
+  position: relative;
+}
+
+.cart__container h3 {
+  text-align: start;
+  width: 100%;
+}
+
+.cart__container a::after {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 100%;
+  background-color: black;
+}
+
+.cart__container a {
+  text-align: start;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+}
+
+.cart-total .total-label {
+  font-weight: normal;
+  color: #000;
+}
+
+.cart-total .total-value {
+  color: #000;
+}
