@@ -85,12 +85,15 @@ const DetalhesLivro = () => {
             corpo={livro?.sobre}
           />
         </div>
-        <div>
+        <div className="tags">
           {
-            data?.livro.tags?.map(tag => <AbTag
-              key={tag.id}
-              texto={tag.nome}
-            />)
+            data?.livro.tags?.map(tag => (
+              <AbTag
+                key={tag.id}
+                texto={tag.nome}
+                contexto="secundario"
+              />
+            ))
           }
         </div>
       </section>
