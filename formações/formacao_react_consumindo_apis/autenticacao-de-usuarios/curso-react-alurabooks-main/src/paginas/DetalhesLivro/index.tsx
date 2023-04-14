@@ -1,6 +1,6 @@
 // import { useParams } from "react-router-dom";
 import TituloPrincipal from "../../componentes/TituloPrincipal";
-import { AbBotao, AbGrupoOpcao, AbGrupoOpcoes } from "ds-alurabooks"
+import { AbBotao, AbGrupoOpcao, AbGrupoOpcoes, AbTag } from "ds-alurabooks"
 import { AbInputQuantidade } from "ds-alurabooks"
 import { useParams } from "react-router-dom";
 
@@ -84,6 +84,14 @@ const DetalhesLivro = () => {
             titulo="Sobre o livro"
             corpo={livro?.sobre}
           />
+        </div>
+        <div>
+          {
+            data?.livro.tags?.map(tag => <AbTag
+              key={tag.id}
+              texto={tag.nome}
+            />)
+          }
         </div>
       </section>
     </>
