@@ -8,7 +8,7 @@ import formatadorMoeda from "../../utils/formatadorMoeda";
 import { useCarrinhoContext } from "../../common/contexts/carrinho";
 
 const Carrinho = () => {
-  const { carrinho } = useCarrinhoContext();
+  const { carrinho, adicionarItemCarrinho } = useCarrinhoContext();
 
   const valorTotal = carrinho?.total ? carrinho.total : 0;
 

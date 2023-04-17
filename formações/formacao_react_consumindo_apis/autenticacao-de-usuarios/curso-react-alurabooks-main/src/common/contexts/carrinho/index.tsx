@@ -8,7 +8,9 @@ export interface ICarrinhoContext {
   adicionarItemCarrinho: (item: IItens) => void;
 }
 
-export const CarrinhoContext = createContext<ICarrinhoContext>({});
+export const CarrinhoContext = createContext<ICarrinhoContext>({
+  adicionarItemCarrinho: () => null
+});
 
 interface ICarrinhoProvider {
   children: ReactElement;
@@ -18,8 +20,15 @@ const CarrinhoProvider = ({ children }: ICarrinhoProvider) => {
   const { data } = useCarrinho();
   const carrinho = data?.carrinho;
 
+  const adicionarItemCarrinho = (item: IItens) => {
+    console.log('[CarrinhoProvider] - adicionarItemCarrinho()', item);
+  }
+
   return (
-    <CarrinhoContext.Provider value={{ carrinho }}>
+    <CarrinhoContext.Provider value={{
+      carrinho,
+      adicionarItemCarrinho
+    }}>
       {children}
     </CarrinhoContext.Provider>
   );
