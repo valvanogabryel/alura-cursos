@@ -1,6 +1,5 @@
 import { AbBotao } from "ds-alurabooks";
 import TituloPrincipal from "../../componentes/TituloPrincipal";
-import { Fragment } from "react";
 import ItemCarrinho from "../../componentes/ItemCarrinho";
 
 import './Carrinho.css';
@@ -8,7 +7,7 @@ import formatadorMoeda from "../../utils/formatadorMoeda";
 import { useCarrinhoContext } from "../../common/contexts/carrinho";
 
 const Carrinho = () => {
-  const { carrinho, adicionarItemCarrinho } = useCarrinhoContext();
+  const { carrinho } = useCarrinhoContext();
 
   const valorTotal = carrinho?.total ? carrinho.total : 0;
 

@@ -10,11 +10,15 @@ import { useState } from "react";
 import formatadorMoeda from "../../utils/formatadorMoeda";
 import BlocoSobre from "../../componentes/BlocoSobre";
 import { useObterDetalhes } from "../../graphql/livros/hooks";
+import { useCarrinhoContext } from "../../common/contexts/carrinho";
 
 const DetalhesLivro = () => {
   const [opcao, setOpcao] = useState<AbGrupoOpcao>();
+  const [quantidade, setQuantidade] = useState(1);
 
   const { slug } = useParams();
+
+  const { adicionarItemCarrinho } = useCarrinhoContext();
 
   const {
     data,
@@ -44,6 +48,10 @@ const DetalhesLivro = () => {
   }))
     : [];
 
+  const aoAdicionarItem = () => {
+
+  }
+
   return (
     <>
       <TituloPrincipal>Detalhes do Livro</TituloPrincipal>
@@ -67,10 +75,10 @@ const DetalhesLivro = () => {
             </div>
             <div className="quantidade">
               <AbInputQuantidade
-                onChange={() => { }}
-                value={0}
+                onChange={setQuantidade}
+                value={quantidade < 0 ? 0 : quantidade}
               />
-              <AbBotao texto="Comprar" />
+              <AbBotao texto="Comprar" onClick={aoAdicionarItem} />
             </div>
           </div>
         </div>

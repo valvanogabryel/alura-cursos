@@ -8,6 +8,7 @@ query ObterCarrinho {
       quantidade
   		opcaoCompra {
         preco
+        id
       }
       livro {
         titulo
@@ -19,5 +20,11 @@ query ObterCarrinho {
       }
     }
   }
+}
+`
+
+export const ADICIONAR_ITEM = gql`
+mutation AdicionarItemCarrihno ($item: ItemCarrinhoInput!) {
+  adicionarItem(item: $item)
 }
 `
