@@ -1,18 +1,16 @@
 import { AbBotao } from "ds-alurabooks";
 import TituloPrincipal from "../../componentes/TituloPrincipal";
-import { useCarrinho } from "../../graphql/carrinho/hooks";
-import { ICarrinho } from "../../interfaces/ICarrinho";
 import { Fragment } from "react";
 import ItemCarrinho from "../../componentes/ItemCarrinho";
 
 import './Carrinho.css';
 import formatadorMoeda from "../../utils/formatadorMoeda";
+import { useCarrinhoContext } from "../../common/contexts/carrinho";
 
 const Carrinho = () => {
-  const { data } = useCarrinho();
-  const carrinho: ICarrinho = { ...data?.carrinho };
+  const { carrinho } = useCarrinhoContext();
 
-  const valorTotal = carrinho.total ? carrinho.total : 0;
+  const valorTotal = carrinho?.total ? carrinho.total : 0;
 
   return (
     <>
@@ -20,7 +18,7 @@ const Carrinho = () => {
       <section className="cart__container">
         <h3>Itens selecionados</h3>
         {
-          carrinho.itens?.map((livro, index) => (
+          carrinho?.itens?.map((livro, index) => (
             <ItemCarrinho
               item={livro}
               key={index}
