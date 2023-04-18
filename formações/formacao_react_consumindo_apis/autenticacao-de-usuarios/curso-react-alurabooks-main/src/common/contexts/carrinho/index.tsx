@@ -1,15 +1,17 @@
 import { ReactElement, createContext, useContext } from "react";
 import { ICarrinho } from "../../../interfaces/ICarrinho";
-import { useAdicionarItem, useCarrinho } from "../../../graphql/carrinho/hooks";
+import { useAdicionarItem, useCarrinho, useRemoverItem } from "../../../graphql/carrinho/hooks";
 import { IItens } from "../../../interfaces/IItems";
 
 export interface ICarrinhoContext {
   carrinho?: ICarrinho;
   adicionarItemCarrinho: (item: IItens) => void;
+  removerItemCarrinho: (item: IItens) => void;
 }
 
 export const CarrinhoContext = createContext<ICarrinhoContext>({
-  adicionarItemCarrinho: () => null
+  adicionarItemCarrinho: () => null,
+  removerItemCarrinho: () => null
 });
 
 interface ICarrinhoProvider {
@@ -21,6 +23,7 @@ const CarrinhoProvider = ({ children }: ICarrinhoProvider) => {
   const carrinho = data?.carrinho;
 
   const [adicionar] = useAdicionarItem();
+  const [remover] = useRemoverItem();
 
   const adicionarItemCarrinho = (item: IItens) => {
     adicionar({
@@ -34,10 +37,23 @@ const CarrinhoProvider = ({ children }: ICarrinhoProvider) => {
     });
   }
 
+  const removerItemCarrinho = (item: IItens) => {
+    remover({
+      variables: {
+        item: {
+          livroId: item.livro.id,
+          opcaoCompraId: item.opcaoCompra.id,
+          quantidade: item.quantidade
+        }
+      }
+    });
+  }
+
   return (
     <CarrinhoContext.Provider value={{
       carrinho,
-      adicionarItemCarrinho
+      adicionarItemCarrinho,
+      removerItemCarrinho
     }}>
       {children}
     </CarrinhoContext.Provider>

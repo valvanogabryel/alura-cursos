@@ -7,10 +7,11 @@ query ObterCarrinho {
     itens {
       quantidade
   		opcaoCompra {
-        preco
         id
+        preco
       }
       livro {
+        id
         titulo
         descricao
       	imagemCapa
@@ -26,5 +27,11 @@ query ObterCarrinho {
 export const ADICIONAR_ITEM = gql`
 mutation AdicionarItemCarrihno ($item: ItemCarrinhoInput!) {
   adicionarItem(item: $item)
+}
+`
+
+export const REMOVER_ITEM = gql`
+mutation RemoverItemCarrinho ($item: ItemCarrinhoInput!) {
+  removerItem(item: $item)
 }
 `

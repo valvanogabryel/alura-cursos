@@ -15,6 +15,7 @@ import usuario from './assets/usuario.svg';
 // Styles
 import './BarraNavegacao.css';
 import { gql, useQuery } from "@apollo/client";
+import MiniCarrinho from "../MiniCarrinho";
 
 const OBTER_CATEGORIAS = gql`
   query ObterCategorias {
@@ -82,7 +83,10 @@ const BarraNavegacao = () => {
           usuarioLogado ?
             <>
               <li>
-                <Link to='minha-conta/pedidos'>MINHA CONTA</Link>
+                <Link to="/minha-conta/pedidos">Minha conta</Link>
+              </li>
+              <li>
+                <MiniCarrinho />
               </li>
               <li>
                 <BotaoNavegacao
@@ -122,6 +126,7 @@ const BarraNavegacao = () => {
               </li>
             </>
         }
+
       </ul>
     </nav>
   );

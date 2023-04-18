@@ -4,6 +4,7 @@ import iconeLixeira from './assets/lixeira.png';
 
 import './ItemCarrinho.css';
 import formatadorMoeda from "../../utils/formatadorMoeda";
+import { useCarrinhoContext } from "../../common/contexts/carrinho";
 
 interface ItemCarrinhoProps {
   item: IItens
@@ -11,6 +12,31 @@ interface ItemCarrinhoProps {
 
 const ItemCarrinho = ({ item }: ItemCarrinhoProps) => {
   const livro = item.livro;
+
+  const { adicionarItemCarrinho, removerItemCarrinho } = useCarrinhoContext();
+
+  function alterarQuantidade(quantidade: number) {
+    if (quantidade === 0) {
+      removerItemCarrinho({
+        livro,
+        opcaoCompra: item.opcaoCompra,
+        quantidade
+      });
+    }
+
+    adicionarItemCarrinho({
+      livro,
+      opcaoCompra: item.opcaoCompra,
+      quantidade
+    });
+  }
+
+  // if (item.quantidade === 0) {
+  //   return (
+  //     <>
+  //     </>
+  //   )
+  // }
 
   return (
     <div className="item__container">
@@ -37,8 +63,8 @@ const ItemCarrinho = ({ item }: ItemCarrinhoProps) => {
 
         <div>
           <AbInputQuantidade
-            value={0}
-            onChange={() => { }}
+            value={item.quantidade}
+            onChange={(alterarQuantidade)}
           />
         </div>
 

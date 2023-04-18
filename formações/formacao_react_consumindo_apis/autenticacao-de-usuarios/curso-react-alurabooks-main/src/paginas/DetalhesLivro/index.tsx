@@ -49,7 +49,22 @@ const DetalhesLivro = () => {
     : [];
 
   const aoAdicionarItem = () => {
+    if (!data?.livro)
+      return;
 
+    const opcaoCompra = data.livro.opcoesCompra.find(opt => opt.id === opcao?.id);
+
+    if (!opcaoCompra) {
+      alert('Por favor, selecione uma opção de compra.');
+
+      return;
+    }
+
+    adicionarItemCarrinho({
+      livro: livro,
+      quantidade,
+      opcaoCompra
+    });
   }
 
   return (
