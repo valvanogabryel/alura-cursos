@@ -539,7 +539,7 @@
         {
           "livroId": 5,
           "opcaoCompraId": 3,
-          "quantidade": 5,
+          "quantidade": 3,
           "livro": {
             "id": 5,
             "categoriaId": 3,
