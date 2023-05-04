@@ -31,13 +31,6 @@ const ItemCarrinho = ({ item }: ItemCarrinhoProps) => {
     });
   }
 
-  // if (item.quantidade === 0) {
-  //   return (
-  //     <>
-  //     </>
-  //   )
-  // }
-
   return (
     <div className="item__container">
       <div className="image__wrapper">

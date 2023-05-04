@@ -7,11 +7,13 @@ export interface ICarrinhoContext {
   carrinho?: ICarrinho;
   adicionarItemCarrinho: (item: IItens) => void;
   removerItemCarrinho: (item: IItens) => void;
+  loading: boolean;
 }
 
 export const CarrinhoContext = createContext<ICarrinhoContext>({
   adicionarItemCarrinho: () => null,
-  removerItemCarrinho: () => null
+  removerItemCarrinho: () => null,
+  loading: false,
 });
 
 interface ICarrinhoProvider {
@@ -19,10 +21,10 @@ interface ICarrinhoProvider {
 }
 
 const CarrinhoProvider = ({ children }: ICarrinhoProvider) => {
-  const { data } = useCarrinho();
+  const { data, loading: loadingCarrinho } = useCarrinho();
   const carrinho = data?.carrinho;
 
-  const [adicionar] = useAdicionarItem();
+  const [adicionar, { loading: loadingAdicionar }] = useAdicionarItem();
   const [remover] = useRemoverItem();
 
   const adicionarItemCarrinho = (item: IItens) => {
@@ -53,7 +55,8 @@ const CarrinhoProvider = ({ children }: ICarrinhoProvider) => {
     <CarrinhoContext.Provider value={{
       carrinho,
       adicionarItemCarrinho,
-      removerItemCarrinho
+      removerItemCarrinho,
+      loading: loadingCarrinho || loadingAdicionar
     }}>
       {children}
     </CarrinhoContext.Provider>

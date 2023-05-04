@@ -2,12 +2,17 @@ import { AbBotao } from "ds-alurabooks";
 import TituloPrincipal from "../../componentes/TituloPrincipal";
 import ItemCarrinho from "../../componentes/ItemCarrinho";
 
-import './Carrinho.css';
-import formatadorMoeda from "../../utils/formatadorMoeda";
 import { useCarrinhoContext } from "../../common/contexts/carrinho";
 
+import formatadorMoeda from "../../utils/formatadorMoeda";
+
+// import Loader from "../../componentes/Loader";
+
+import './Carrinho.css';
+import FullPageLoader from "../../componentes/Loader/FullPageLoader";
+
 const Carrinho = () => {
-  const { carrinho } = useCarrinhoContext();
+  const { carrinho, loading } = useCarrinhoContext();
 
   const valorTotal = carrinho?.total ? carrinho.total : 0;
 
@@ -16,6 +21,7 @@ const Carrinho = () => {
       <TituloPrincipal>Carrinho</TituloPrincipal>
       <section className="cart__container">
         <h3>Itens selecionados</h3>
+        {loading && <FullPageLoader />}
         {
           carrinho?.itens?.map((livro, index) => (
             <ItemCarrinho
