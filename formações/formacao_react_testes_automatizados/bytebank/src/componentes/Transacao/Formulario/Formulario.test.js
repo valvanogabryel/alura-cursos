@@ -24,8 +24,10 @@ describe('should render an input field', () => {
 });
 
 test('should fire an "onSubmit" event when "Realizar transação" is clicked', () => {
-  render(<Form />);
-  const inputField = screen.getByPlaceholderText('Digite um valor');
-  userEvent.type(inputField, '100');
-  expect(inputField).toHaveValue(100);
+  const performTransaction = jest.fn();
+
+  render(<Form realizarTransacao={performTransaction} />);
+  const button = screen.getByRole('button');
+  userEvent.click(button);
+  expect(button).toHaveBeenCalledTimes(1);
 });
