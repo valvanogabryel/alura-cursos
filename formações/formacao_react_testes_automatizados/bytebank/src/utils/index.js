@@ -1,7 +1,13 @@
 export const calculaNovoSaldo = (valores, saldo) => {
-  if (valores.transacao === "Depósito") {
-    return saldo - parseInt(valores.valor);
+  const isNum = Number(valores.valor);
+  if (isNum) {
+    if (valores.transacao === "Depósito") {
+      return saldo + parseInt(valores.valor);
+    } else {
+      return saldo - parseInt(valores.valor);
+    }
   } else {
-    return saldo + parseInt(valores.valor);
+    alert('insira um valor válido');
+    return saldo;
   }
 };

@@ -24,7 +24,7 @@ describe('should render an input field', () => {
 });
 
 
-test('should fire an "onSubmit" event when "Realizar transação" is clicked', () => {
+it('should fire an "onSubmit" event when "Realizar transação" is clicked', () => {
   const performTransaction = jest.fn();
 
   render(<Form realizarTransacao={performTransaction} />);
@@ -33,7 +33,7 @@ test('should fire an "onSubmit" event when "Realizar transação" is clicked', (
   expect(performTransaction).toHaveBeenCalled();
 });
 
-test('it must be possible to select an option from the <select/> element', () => {
+it('must be possible to select an option from the <select/> element', () => {
   render(<Form />);
 
   const select = screen.getByTestId('select-opcoes');
