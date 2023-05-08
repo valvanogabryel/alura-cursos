@@ -23,11 +23,30 @@ describe('should render an input field', () => {
   });
 });
 
+
 test('should fire an "onSubmit" event when "Realizar transação" is clicked', () => {
   const performTransaction = jest.fn();
 
   render(<Form realizarTransacao={performTransaction} />);
   const button = screen.getByRole('button');
   userEvent.click(button);
-  expect(button).toHaveBeenCalledTimes(1);
+  expect(performTransaction).toHaveBeenCalled();
+});
+
+test('it must be possible to select an option from the <select/> element', () => {
+  render(<Form />);
+
+  const select = screen.getByTestId('select-opcoes');
+
+  userEvent.selectOptions(select, 'Depósito');
+
+  const selectOption = screen.getByRole('option', {
+    name: 'Selecione um tipo de transação'
+  });
+  const depositOption = screen.getByRole('option', {
+    name: 'Depósito'
+  });
+
+  expect(selectOption.selected).toBe(false);
+  expect(depositOption.selected).toBe(true);
 });
