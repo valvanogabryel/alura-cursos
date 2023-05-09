@@ -35,6 +35,7 @@ export default function App() {
           {location.pathname === '/' && (
             <Transacao realizarTransacao={realizarTransacao} />
           )}
+          <noscript data-testid='location'>{location.pathname}</noscript>
           <Outlet />
         </div>
         <Extrato transacoes={transacoes} />
