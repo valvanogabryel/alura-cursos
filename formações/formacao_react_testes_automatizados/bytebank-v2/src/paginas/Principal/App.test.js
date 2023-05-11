@@ -6,9 +6,10 @@ import AppRoutes from '../../routes';
 
 describe('<App/> component', () => {
   it('should allow add a transaction in extract', () => {
-    render(<App />, {
-      wrapper: BrowserRouter
-    });
+    render(<App />,
+      {
+        wrapper: BrowserRouter
+      });
 
     const select = screen.getByTestId('select-opcoes');
     const valueInput = screen.getByPlaceholderText('Digite um valor');
@@ -26,18 +27,31 @@ describe('<App/> component', () => {
 
   it('must navigate to the page corresponding to the clicked link', async () => {
     render(
-      <AppRoutes />, {
-      wrapper: BrowserRouter
-    });
+      <AppRoutes />,
+      {
+        wrapper: BrowserRouter
+      });
 
     const cardsPageLink = screen.getByText('Cartões');
-
     expect(cardsPageLink).toBeInTheDocument();
-
     userEvent.click(cardsPageLink);
 
     const cardPageTitle = await screen.findByText('Meus cartões');
-
     expect(cardPageTitle).toBeInTheDocument();
+  });
+
+  it('must navigate to the investment page when corresponding link is clicked', async () => {
+    render(
+      <AppRoutes />,
+      {
+        wrapper: BrowserRouter
+      });
+
+    const investmentPageLink = screen.getByText('Investimentos');
+    expect(investmentPageLink).toBeInTheDocument();
+    userEvent.click(investmentPageLink);
+
+    const investmentPageTitle = await screen.findByTestId('investimentos');
+    expect(investmentPageTitle).toBeInTheDocument();
   });
 });
