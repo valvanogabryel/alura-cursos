@@ -8,7 +8,7 @@ const client = new ApolloClient({
 
 type Props = {
   children: ReactElement;
-};
+}
 
 const AbApolloClient = ({ children }: Props) => {
   return (

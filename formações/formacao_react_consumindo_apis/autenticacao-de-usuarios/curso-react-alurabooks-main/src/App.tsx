@@ -7,7 +7,6 @@ import AbApolloClient from './componentes/AbApolloClient';
 import CarrinhoProvider from './common/contexts/carrinho';
 
 export const history = createBrowserHistory({ window });
-
 const queryClient = new QueryClient();
 
 function App() {
