@@ -1,8 +1,10 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div>
       <h1>Alura cases - Home</h1>
-      <a href="/faq">Ir para a FAQ</a>
+      <Link href="/faq">Ir para a FAQ</Link>
     </div>
   )
 }
