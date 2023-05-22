@@ -9,6 +9,7 @@ body {
   flex: 1;
   flex-direction: column;
   background-color: #e3f9e5;
+  overflow-x: hidden!important;
 }
 
 .conteudo-pagina {

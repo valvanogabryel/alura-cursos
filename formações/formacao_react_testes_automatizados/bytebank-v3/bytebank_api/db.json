@@ -34,9 +34,142 @@
       "data": "05/01/2023",
       "mes": "Janeiro",
       "id": 5
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 6
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 7
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 8
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 9
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 10
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 11
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 12
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 13
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 14
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 15
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 16
+    },
+    {
+      "transacao": "",
+      "valor": "6",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 17
+    },
+    {
+      "transacao": "",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 18
+    },
+    {
+      "transacao": "Depósito",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 19
+    },
+    {
+      "transacao": "Transferência",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 20
+    },
+    {
+      "transacao": "Transferência",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 21
+    },
+    {
+      "transacao": "Transferência",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 22
+    },
+    {
+      "transacao": "Transferência",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 23
+    },
+    {
+      "transacao": "Transferência",
+      "valor": "",
+      "data": "22/05/2023",
+      "mes": "Maio",
+      "id": 24
     }
   ],
   "saldo": {
-    "valor": 3750
+    "valor": null
   }
 }
