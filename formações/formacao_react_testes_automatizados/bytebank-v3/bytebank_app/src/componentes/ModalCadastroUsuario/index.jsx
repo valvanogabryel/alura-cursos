@@ -92,6 +92,7 @@ export default function ModalCadastroUsuario({ aberta, aoFechar }) {
                 id="nome"
                 data-test="nome-input"
                 placeholder="Digite seu nome completo"
+
                 value={nome}
                 onChange={(event) => setNome(event.target.value)}
               />
@@ -107,6 +108,7 @@ export default function ModalCadastroUsuario({ aberta, aoFechar }) {
                 type="email"
                 data-test="email-input"
                 placeholder="Digite seu email"
+
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
@@ -123,6 +125,7 @@ export default function ModalCadastroUsuario({ aberta, aoFechar }) {
                 id="senha"
                 data-test="senha-input"
                 placeholder="Digite sua senha"
+
                 value={senha}
                 onChange={(event) => setSenha(event.target.value)}
               />
