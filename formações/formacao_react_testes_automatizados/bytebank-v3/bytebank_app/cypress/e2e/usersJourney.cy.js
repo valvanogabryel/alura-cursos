@@ -28,7 +28,7 @@ describe('User"s journey', () => {
     cy.getByData('botao-cadastro').click();
 
     cy.getByData('nome-input').type('Gabryel Valvano');
-    cy.getByData('email-input').type('gabryelval@gmail.com');
+    cy.getByData('email-input').type('gabryelval3@gmail.com');
     cy.getByData('senha-input').type('123');
     cy.getByData('checkbox-input').check();
     cy.getByData('botao-enviar').click();
@@ -40,7 +40,7 @@ describe('User"s journey', () => {
     cy.location('pathname').should('eq', '/');
 
     cy.getByData('botao-login').click();
-    cy.getByData('email-input').type('gabryelval@gmail.com');
+    cy.getByData('email-input').type('gabryelval3@gmail.com');
     cy.getByData('senha-input').type('123');
     cy.getByData('botao-enviar').click();
 

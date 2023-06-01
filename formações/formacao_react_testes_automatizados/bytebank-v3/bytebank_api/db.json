@@ -468,9 +468,51 @@
       "data": "01/06/2023",
       "mes": "Junho",
       "id": 67
+    },
+    {
+      "transacao": "Transferência",
+      "valor": "80",
+      "data": "01/06/2023",
+      "mes": "Junho",
+      "id": 68
+    },
+    {
+      "transacao": "Transferência",
+      "valor": "80",
+      "data": "01/06/2023",
+      "mes": "Junho",
+      "id": 69
+    },
+    {
+      "transacao": "Depósito",
+      "valor": "1200",
+      "data": "01/06/2023",
+      "mes": "Junho",
+      "id": 70
+    },
+    {
+      "transacao": "Depósito",
+      "valor": "1200",
+      "data": "01/06/2023",
+      "mes": "Junho",
+      "id": 71
+    },
+    {
+      "transacao": "Transferência",
+      "valor": "80",
+      "data": "01/06/2023",
+      "mes": "Junho",
+      "id": 72
+    },
+    {
+      "transacao": "Depósito",
+      "valor": "1200",
+      "data": "01/06/2023",
+      "mes": "Junho",
+      "id": 73
     }
   ],
   "saldo": {
-    "valor": -3440
+    "valor": -80
   }
 }
