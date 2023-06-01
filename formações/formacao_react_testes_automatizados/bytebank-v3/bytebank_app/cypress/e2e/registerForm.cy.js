@@ -1,6 +1,6 @@
 describe('Register Form', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000');
+    cy.visit('/');
   });
 
   it('should register a new user in case of success', () => {

@@ -1,6 +1,6 @@
 describe('homepage', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('/');
   });
 
   it('should render correctly the text in "advantages" section', () => {
