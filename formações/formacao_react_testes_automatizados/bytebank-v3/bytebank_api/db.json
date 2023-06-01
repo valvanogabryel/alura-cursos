@@ -510,9 +510,16 @@
       "data": "01/06/2023",
       "mes": "Junho",
       "id": 73
+    },
+    {
+      "transacao": "Transferência",
+      "valor": "80",
+      "data": "01/06/2023",
+      "mes": "Junho",
+      "id": 74
     }
   ],
   "saldo": {
-    "valor": -80
+    "valor": -160
   }
 }
