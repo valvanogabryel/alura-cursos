@@ -4,6 +4,11 @@ interface AppLayoutProps {
   children: ReactNode;
 }
 
+export const metadata = {
+  title: "App Layout",
+  description: "Layout",
+};
+
 export default function AppLayout({ children }: AppLayoutProps) {
   return (
     <div>
