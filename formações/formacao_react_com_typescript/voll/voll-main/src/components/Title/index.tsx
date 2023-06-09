@@ -16,7 +16,7 @@ interface IImages {
 }
 
 const StyledSpan = styled.span<TitleProps>`
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-image: ${(props) => (props.img ? `url(${props.img})` : "none")};
@@ -28,6 +28,11 @@ const StyledTitle = styled.h2`
   color: var(--azul-claro);
 `;
 
+const StyledContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 export function Title({ img, children }: TitleProps) {
   const imageList: IImages = {
     rating: rating,
@@ -36,9 +41,9 @@ export function Title({ img, children }: TitleProps) {
   };
 
   return (
-    <div>
-      <StyledSpan img={imageList[img as keyof IImages]} />
+    <StyledContainer>
+      {img && <StyledSpan img={imageList[img as keyof IImages]} />}
       <StyledTitle>{children}</StyledTitle>
-    </div>
+    </StyledContainer>
   );
 }
