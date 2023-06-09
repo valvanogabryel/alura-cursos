@@ -21,6 +21,11 @@ const StyledList = styled.ul`
 
 const StyledListItem = styled.li`
   list-style: none;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export function Footer() {
@@ -30,6 +35,21 @@ export function Footer() {
         <StyledListItem>
           <a href="/">
             <img src={facebook} alt="logo do facebook" />
+          </a>
+        </StyledListItem>
+        <StyledListItem>
+          <a href="/">
+            <img src={whatsapp} alt="logo do whatsapp" />
+          </a>
+        </StyledListItem>
+        <StyledListItem>
+          <a href="/">
+            <img src={google} alt="logo do google" />
+          </a>
+        </StyledListItem>
+        <StyledListItem>
+          <a href="/">
+            <img src={instagram} alt="logo do instagram" />
           </a>
         </StyledListItem>
       </StyledList>
