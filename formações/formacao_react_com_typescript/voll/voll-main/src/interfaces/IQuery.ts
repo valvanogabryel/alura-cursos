@@ -3,9 +3,9 @@ import IProfessional from "./IIProfessional";
 export default interface IQuery extends IProfessional {
   id: number;
   data: string;
-  time: string;
-  professional: IProfessional[];
-  especiality: string;
-  patient: string;
-  modality: string;
+  horario: string;
+  profissional: IProfessional[];
+  especialidade: string;
+  paciente: string;
+  modalidade: string;
 }

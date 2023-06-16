@@ -1,8 +1,7 @@
 export default interface IProfessional {
   id: number;
-  image: string;
-  name: string;
-  especiality: string;
-  rating: number;
+  imagem: string;
+  nome: string;
+  especialidade: string;
+  nota: number;
 }
-  
