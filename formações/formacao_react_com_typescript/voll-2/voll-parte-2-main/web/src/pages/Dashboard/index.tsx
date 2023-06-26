@@ -1,4 +1,4 @@
-import { Container } from "@mui/material";
+import Container from "../../components/Container";
 import Avaliacao from "../../components/Avaliacao";
 import Botao from "../../components/Botao";
 import Cabecalho from "../../components/Cabecalho";
@@ -20,20 +20,16 @@ export default function Dashboard() {
   }
 
   return (
-    <>
-      <Cabecalho />
-      <Container>
-        <Titulo>Área Administrativa</Titulo>
-        <Botao>Cadastrar especialista</Botao>
-        <Titulo imagem="consulta">Consultas do Dia</Titulo>
-        <Tabela consultas={consultas} />
-        <Titulo imagem="grafico">Consultas mensais por especialista</Titulo>
-        <Subtitulo>Dezembro/22</Subtitulo>
-        <Grafico consultas={consultas} profissionais={profissionais} />
-        <Titulo imagem="avaliacao">Avaliações de especialistas</Titulo>
-        <Avaliacao profissionais={profissionais} />
-      </Container>
-      <Rodape />
-    </>
+    <Container>
+      <Titulo>Área Administrativa</Titulo>
+      <Botao>Cadastrar especialista</Botao>
+      <Titulo imagem="consulta">Consultas do Dia</Titulo>
+      <Tabela consultas={consultas} />
+      <Titulo imagem="grafico">Consultas mensais por especialista</Titulo>
+      <Subtitulo>Dezembro/22</Subtitulo>
+      <Grafico consultas={consultas} profissionais={profissionais} />
+      <Titulo imagem="avaliacao">Avaliações de especialistas</Titulo>
+      <Avaliacao profissionais={profissionais} />
+    </Container>
   );
 }
