@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import IProfessional from "../../interfaces/IIProfessional";
 import { Card } from "./Card";
+import Button from "../Button";
 
 const CardSection = styled.section`
   display: flex;
@@ -16,10 +17,13 @@ export function Assentment({
   professionals: IProfessional[] | null;
 }) {
   return (
-    <CardSection>
-      {professionals?.map((professional) => (
-        <Card professional={professional} key={professional.id} />
-      ))}
-    </CardSection>
+    <>
+      <CardSection>
+        {professionals?.map((professional) => (
+          <Card professional={professional} key={professional.id} />
+        ))}
+      </CardSection>
+      <Button>Ver mais</Button>
+    </>
   );
 }
