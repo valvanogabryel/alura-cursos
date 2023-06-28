@@ -2,6 +2,7 @@ import { Step, StepLabel, Stepper } from "@mui/material";
 import logo from "./logo.png";
 import styled from "styled-components";
 import { useState } from "react";
+import Botao from "../../components/Botao";
 
 interface CustomProps {
   color: string;
@@ -28,9 +29,7 @@ export default function SignUp() {
         <Stepper activeStep={activeStep}>
           <Step>
             <StepLabel
-              StepIconComponent={(props) => (
-                <CustomStep color={props.active ? "lightblue" : "lightgray"} />
-              )}
+              StepIconComponent={() => <CustomStep color="lightblue" />}
             />
           </Step>
           <Step>
@@ -45,19 +44,19 @@ export default function SignUp() {
         {activeStep === 1 && (
           // PASSO 2 DO FORMULÁRIO
           <div>
-            <h1>cu</h1>
+            <h1>passo 2</h1>
           </div>
         )}
 
-        <button
+        <Botao
           onClick={() => {
             if (activeStep === 0) {
-              setActiveStep((previousStep) => previousStep + 1);
+              setActiveStep(activeStep + 1);
             }
           }}
         >
-          Next
-        </button>
+          {activeStep === 1 ? "Cadastrar" : "Avançar"}
+        </Botao>
       </div>
     </>
   );
