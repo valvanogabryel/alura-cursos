@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import backgroundImage from "./backgroundImage.png";
 import styled from "styled-components";
 
-const MainContainer = styled.div`
+const MainContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@ const MainContainer = styled.div`
   height: 100vh;
 `;
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;

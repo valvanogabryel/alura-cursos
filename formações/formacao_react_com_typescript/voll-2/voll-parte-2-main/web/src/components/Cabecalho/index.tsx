@@ -109,9 +109,9 @@ function Cabecalho() {
               <input type="search" placeholder="Digite sua busca" />
             </StyledSearchWrapper>
 
-            <Botao>
-              <a href="/login">Login</a>
-            </Botao>
+            <a href="/login">
+              <Botao>Login</Botao>
+            </a>
           </HomeHeaderWrapper>
         )}
       </Container>
