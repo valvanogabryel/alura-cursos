@@ -9,6 +9,11 @@ const Botao = styled.button`
   font-weight: 700;
   line-height: 19px;
   cursor: pointer;
+  transition: all 0.1s linear;
+
+  &:hover {
+    background-color: #0f558b;
+  }
 `;
 
 export default Botao;

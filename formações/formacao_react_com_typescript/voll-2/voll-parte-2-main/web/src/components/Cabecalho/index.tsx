@@ -11,6 +11,11 @@ const CabecalhoEstilizado = styled.header`
   justify-content: space-between;
   padding: 1.5rem 7.5rem;
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   @media screen and (max-width: 920px) {
     padding: 1.5rem 3.5rem;
   }
@@ -104,7 +109,9 @@ function Cabecalho() {
               <input type="search" placeholder="Digite sua busca" />
             </StyledSearchWrapper>
 
-            <Botao>Login</Botao>
+            <Botao>
+              <a href="/login">Login</a>
+            </Botao>
           </HomeHeaderWrapper>
         )}
       </Container>
