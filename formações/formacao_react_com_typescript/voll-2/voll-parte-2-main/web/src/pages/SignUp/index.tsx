@@ -3,6 +3,9 @@ import logo from "./logo.png";
 import styled from "styled-components";
 import { useState } from "react";
 import Botao from "../../components/Botao";
+import { InputField } from "../../components/InputField";
+import { FirstStep } from "./FirstStep";
+import { SecondStep } from "./SecondStep";
 
 interface CustomProps {
   color: string;
@@ -23,41 +26,40 @@ export default function SignUp() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <>
-      <div>
+    <section>
+      <header>
         <Image src={logo} alt="Logo da Voll" />
-        <Stepper activeStep={activeStep}>
-          <Step>
-            <StepLabel
-              StepIconComponent={() => <CustomStep color="lightblue" />}
-            />
-          </Step>
-          <Step>
-            <StepLabel
-              StepIconComponent={(props) => (
-                <CustomStep color={props.active ? "lightblue" : "lightgray"} />
-              )}
-            />
-          </Step>
-        </Stepper>
+      </header>
+      <Stepper activeStep={activeStep}>
+        <Step>
+          <StepLabel
+            StepIconComponent={() => <CustomStep color="lightblue" />}
+          />
+        </Step>
+        <Step>
+          <StepLabel
+            StepIconComponent={(props) => (
+              <CustomStep color={props.active ? "lightblue" : "lightgray"} />
+            )}
+          />
+        </Step>
+      </Stepper>
 
-        {activeStep === 1 && (
-          // PASSO 2 DO FORMULÁRIO
-          <div>
-            <h1>passo 2</h1>
-          </div>
-        )}
+      <main>
+        <h2>
+          {activeStep === 0
+            ? "Primeiro, alguns dados básicos:"
+            : "Agora, os dados técnicos"}
+        </h2>
 
-        <Botao
-          onClick={() => {
-            if (activeStep === 0) {
-              setActiveStep(activeStep + 1);
-            }
-          }}
-        >
-          {activeStep === 1 ? "Cadastrar" : "Avançar"}
-        </Botao>
-      </div>
-    </>
+        <form>
+          {activeStep === 0 ? (
+            <FirstStep {...{ activeStep, setActiveStep }} />
+          ) : (
+            <SecondStep />
+          )}
+        </form>
+      </main>
+    </section>
   );
 }
