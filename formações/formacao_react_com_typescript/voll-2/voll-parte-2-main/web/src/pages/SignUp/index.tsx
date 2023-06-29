@@ -2,8 +2,6 @@ import { Step, StepLabel, Stepper } from "@mui/material";
 import logo from "./logo.png";
 import styled from "styled-components";
 import { useState } from "react";
-import Botao from "../../components/Botao";
-import { InputField } from "../../components/InputField";
 import { FirstStep } from "./FirstStep";
 import { SecondStep } from "./SecondStep";
 
@@ -11,8 +9,32 @@ interface CustomProps {
   color: string;
 }
 
-const Image = styled.img`
-  padding: 2em 0;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 1.5rem auto;
+`;
+
+const Header = styled.header`
+  text-align: center;
+  margin-bottom: 3.5rem;
+  width: 100%;
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Title = styled.h2`
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cinza);
+  width: 60%;
+  text-align: center;
+  margin: 2rem auto;
 `;
 
 const CustomStep = styled.div<CustomProps>`
@@ -26,11 +48,14 @@ export default function SignUp() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section>
-      <header>
-        <Image src={logo} alt="Logo da Voll" />
-      </header>
-      <Stepper activeStep={activeStep}>
+    <Container>
+      <Header>
+        <img src={logo} alt="Logo da Voll" />
+      </Header>
+      <Stepper
+        activeStep={activeStep}
+        style={{ maxWidth: "8rem", margin: "auto" }}
+      >
         <Step>
           <StepLabel
             StepIconComponent={() => <CustomStep color="lightblue" />}
@@ -46,20 +71,20 @@ export default function SignUp() {
       </Stepper>
 
       <main>
-        <h2>
+        <Title>
           {activeStep === 0
             ? "Primeiro, alguns dados básicos:"
-            : "Agora, os dados técnicos"}
-        </h2>
+            : "Agora, os dados técnicos:"}
+        </Title>
 
-        <form>
+        <StyledForm>
           {activeStep === 0 ? (
             <FirstStep {...{ activeStep, setActiveStep }} />
           ) : (
             <SecondStep />
           )}
-        </form>
+        </StyledForm>
       </main>
-    </section>
+    </Container>
   );
 }

@@ -102,7 +102,7 @@ function Cabecalho() {
                 <a href="/about">Sobre</a>
               </li>
               <li>
-                <a href="/sing-up">Cadastrar-se</a>
+                <a href="/sign-up">Cadastrar-se</a>
               </li>
             </StyledList>
             <StyledSearchWrapper>
