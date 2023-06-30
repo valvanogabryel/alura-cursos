@@ -14,6 +14,9 @@ export default function usePost() {
     try {
       await fetch(`http://localhost:8080/${endpoint}`, {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(data),
       });
 

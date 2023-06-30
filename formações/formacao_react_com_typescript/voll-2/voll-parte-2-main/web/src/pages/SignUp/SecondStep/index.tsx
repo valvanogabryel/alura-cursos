@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Botao from "../../../components/Botao";
 import { InputField } from "../../../components/InputField";
 import locationIcon from "./location_on.png";
@@ -73,14 +72,20 @@ const Grid = styled.div`
   }
 `;
 
-export function SecondStep() {
-  const [phone, setPhone] = useState("");
-  const [cep, setCep] = useState("");
-  const [street, setStreet] = useState("");
-  const [streetNumber, setStreetNumber] = useState("");
-  const [complement, setComplement] = useState("");
-  const [state, setState] = useState("");
-
+export function SecondStep({
+  phone,
+  setPhone,
+  cep,
+  setCep,
+  street,
+  setStreet,
+  streetNumber,
+  setStreetNumber,
+  complement,
+  setComplement,
+  state,
+  setState,
+}: any) {
   return (
     <>
       <InputField

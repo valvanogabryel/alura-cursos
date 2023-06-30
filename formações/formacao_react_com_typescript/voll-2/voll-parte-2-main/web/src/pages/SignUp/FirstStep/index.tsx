@@ -1,14 +1,20 @@
-import { useState } from "react";
 import Botao from "../../../components/Botao";
 import { InputField } from "../../../components/InputField";
 
-export function FirstStep() {
-  const [name, setName] = useState("");
-  const [cnpj, setCnpj] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatedPassword, setRepeatedPassword] = useState("");
-
+export function FirstStep({
+  name,
+  cnpj,
+  email,
+  password,
+  repeatedPassword,
+  setName,
+  setCnpj,
+  setEmail,
+  setPassword,
+  setRepeatedPassword,
+  activeStep,
+  setActiveStep,
+}: any) {
   return (
     <>
       <InputField
@@ -51,7 +57,11 @@ export function FirstStep() {
         label="Repita a senha"
         required
       />
-      <Botao type="submit" width="280px">
+      <Botao
+        type="button"
+        width="280px"
+        onClick={() => setActiveStep(activeStep + 1)}
+      >
         Avançar
       </Botao>
     </>

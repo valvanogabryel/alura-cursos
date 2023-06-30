@@ -4,6 +4,9 @@ import styled from "styled-components";
 import { FormEvent, useState } from "react";
 import { FirstStep } from "./FirstStep";
 import { SecondStep } from "./SecondStep";
+import IClinic from "../../types/IClinic";
+import usePost from "../../usePost";
+import { useNavigate } from "react-router-dom";
 
 interface CustomProps {
   color: string;
@@ -46,9 +49,52 @@ const CustomStep = styled.div<CustomProps>`
 
 export default function SignUp() {
   const [activeStep, setActiveStep] = useState(0);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>): void {
+  const [name, setName] = useState("");
+  const [cnpj, setCnpj] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatedPassword, setRepeatedPassword] = useState("");
+
+  const [phone, setPhone] = useState("");
+  const [cep, setCep] = useState("");
+  const [street, setStreet] = useState("");
+  const [streetNumber, setStreetNumber] = useState("");
+  const [complement, setComplement] = useState("");
+  const [state, setState] = useState("");
+
+  const { signUpData, error, success } = usePost();
+
+  const navigate = useNavigate();
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    const clinic: IClinic = {
+      email,
+      nome: name,
+      senha: password,
+      endereco: {
+        cep,
+        rua: street,
+        numero: streetNumber,
+        complemento: complement,
+        estado: state,
+      },
+    };
+
+    if (activeStep !== 0) {
+      try {
+        signUpData({
+          endpoint: "clinica",
+          data: clinic,
+        });
+        navigate("/login");
+      } catch (error) {
+        error && alert("Erro ao cadastrar os dados");
+      }
+    }
 
     setActiveStep(activeStep + 1);
   }
@@ -84,7 +130,38 @@ export default function SignUp() {
         </Title>
 
         <StyledForm onSubmit={handleSubmit}>
-          {activeStep === 0 ? <FirstStep /> : <SecondStep />}
+          {activeStep === 0 ? (
+            <FirstStep
+              name={name}
+              setName={setName}
+              cnpj={cnpj}
+              setCnpj={setCnpj}
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              repeatedPassword={repeatedPassword}
+              setRepeatedPassword={setRepeatedPassword}
+              activeStep={activeStep}
+              setActiveStep={setActiveStep}
+            />
+          ) : (
+            <SecondStep
+              phone={phone}
+              setPhone={setPhone}
+              cep={cep}
+              setCep={setCep}
+              street={street}
+              setStreet={setStreet}
+              streetNumber={streetNumber}
+              setStreetNumber={setStreetNumber}
+              complement={complement}
+              setComplement={setComplement}
+              state={state}
+              setState={setState}
+            />
+          )}
+          {errorMessage && <span>{errorMessage}</span>}
         </StyledForm>
       </main>
     </Container>
