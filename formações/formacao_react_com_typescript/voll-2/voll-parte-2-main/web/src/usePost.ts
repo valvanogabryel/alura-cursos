@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function usePost() {
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  const [success, setSuccess] = useState(false);
 
   async function signUpData<T>({
     endpoint,
@@ -11,9 +11,21 @@ export default function usePost() {
     endpoint: string;
     data: T;
   }) {
-    await fetch(`http://localhost:8080/${endpoint}`, {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
+    try {
+      await fetch(`http://localhost:8080/${endpoint}`, {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+
+      setSuccess(true);
+    } catch (error) {
+      setError("Não foi possível enviar os dados");
+    }
   }
+
+  return {
+    signUpData,
+    error,
+    success,
+  };
 }
