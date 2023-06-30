@@ -1,7 +1,7 @@
 import { Step, StepLabel, Stepper } from "@mui/material";
 import logo from "./logo.png";
 import styled from "styled-components";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { FirstStep } from "./FirstStep";
 import { SecondStep } from "./SecondStep";
 
@@ -47,6 +47,12 @@ const CustomStep = styled.div<CustomProps>`
 export default function SignUp() {
   const [activeStep, setActiveStep] = useState(0);
 
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    setActiveStep(activeStep + 1);
+  }
+
   return (
     <Container>
       <Header>
@@ -77,12 +83,8 @@ export default function SignUp() {
             : "Agora, os dados técnicos:"}
         </Title>
 
-        <StyledForm>
-          {activeStep === 0 ? (
-            <FirstStep {...{ activeStep, setActiveStep }} />
-          ) : (
-            <SecondStep />
-          )}
+        <StyledForm onSubmit={handleSubmit}>
+          {activeStep === 0 ? <FirstStep /> : <SecondStep />}
         </StyledForm>
       </main>
     </Container>

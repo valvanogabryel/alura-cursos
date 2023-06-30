@@ -2,12 +2,7 @@ import { useState } from "react";
 import Botao from "../../../components/Botao";
 import { InputField } from "../../../components/InputField";
 
-interface Props {
-  activeStep: number;
-  setActiveStep: (value: number) => void;
-}
-
-export function FirstStep({ activeStep, setActiveStep }: Props) {
+export function FirstStep() {
   const [name, setName] = useState("");
   const [cnpj, setCnpj] = useState("");
   const [email, setEmail] = useState("");
@@ -56,11 +51,7 @@ export function FirstStep({ activeStep, setActiveStep }: Props) {
         label="Repita a senha"
         required
       />
-      <Botao
-        type="submit"
-        onClick={() => setActiveStep(activeStep + 1)}
-        width="280px"
-      >
+      <Botao type="submit" width="280px">
         Avançar
       </Botao>
     </>
