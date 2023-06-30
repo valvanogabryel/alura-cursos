@@ -47,7 +47,7 @@ const CustomStep = styled.div<CustomProps>`
 export default function SignUp() {
   const [activeStep, setActiveStep] = useState(0);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
 
     setActiveStep(activeStep + 1);
