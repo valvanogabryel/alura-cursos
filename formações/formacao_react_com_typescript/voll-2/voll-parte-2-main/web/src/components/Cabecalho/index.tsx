@@ -4,6 +4,7 @@ import perfil from "./assets/perfil.png";
 import searchIcon from "./assets/search.png";
 import { useLocation } from "react-router-dom";
 import Botao from "../Botao";
+import authStore from "../../stores/auth.store";
 
 const CabecalhoEstilizado = styled.header`
   display: flex;
@@ -84,16 +85,22 @@ const StyledSearchWrapper = styled.div`
 `;
 
 function Cabecalho() {
-  const { pathname } = useLocation();
+  const { isAuthenticated, logout } = authStore;
+
+  function handleLogout() {
+    logout();
+  }
 
   return (
     <CabecalhoEstilizado>
       <img src={logo} alt="logo da empresa Voll" />
       <Container>
-        {pathname === "/dashboard" ? (
+        {isAuthenticated ? (
           <>
             <img src={perfil} alt="imagem de perfil do usuário" />
-            <LinkEstilizado href="#">Sair</LinkEstilizado>
+            <LinkEstilizado href="/" onClick={handleLogout}>
+              Sair
+            </LinkEstilizado>
           </>
         ) : (
           <HomeHeaderWrapper>

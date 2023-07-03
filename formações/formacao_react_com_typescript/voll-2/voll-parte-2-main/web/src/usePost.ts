@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function usePost() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [token, setToken] = useState("");
 
   async function signUpData<T>({
     endpoint,
@@ -12,7 +13,7 @@ export default function usePost() {
     data: T;
   }) {
     try {
-      await fetch(`http://localhost:8080/${endpoint}`, {
+      const response = await fetch(`http://localhost:8080/${endpoint}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -21,6 +22,8 @@ export default function usePost() {
       });
 
       setSuccess(true);
+      const convertedResponse = await response.json();
+      setToken(convertedResponse.token);
     } catch (error) {
       setError("Não foi possível enviar os dados");
     }
@@ -30,5 +33,6 @@ export default function usePost() {
     signUpData,
     error,
     success,
+    token,
   };
 }

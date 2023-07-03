@@ -5,6 +5,8 @@ import Botao from "../../components/Botao";
 import logo from "./logo.png";
 import styled from "styled-components";
 import usePost from "../../usePost";
+import authStore from "../../stores/auth.store";
+import { useNavigate } from "react-router-dom";
 
 interface ILogin {
   email: string;
@@ -71,8 +73,9 @@ const Form = styled.form`
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const navigate = useNavigate();
 
-  const { signUpData, error, success } = usePost();
+  const { signUpData, token } = usePost();
 
   async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -87,6 +90,8 @@ export default function Login() {
         endpoint: "auth/login",
         data: user,
       });
+      authStore.login({ email, token });
+      token && navigate("/dashboard");
     } catch (error) {
       error && alert("Não foi possível efetuar o login");
     }

@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import FormBasePage from "./pages/FormBasePage";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import PrivateRoute from "./utils/PrivateRoute";
 
 export default function AppRoutes() {
   return (
@@ -12,7 +13,9 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/" element={<BasePage />}>
           <Route index element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
         </Route>
         <Route path="/" element={<FormBasePage />}>
           <Route path="/login" element={<Login />} />
