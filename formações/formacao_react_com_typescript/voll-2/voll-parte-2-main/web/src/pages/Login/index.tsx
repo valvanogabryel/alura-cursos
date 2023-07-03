@@ -1,9 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { InputField } from "../../components/InputField";
 import Botao from "../../components/Botao";
 
 import logo from "./logo.png";
 import styled from "styled-components";
+import usePost from "../../usePost";
+
+interface ILogin {
+  email: string;
+  senha: string;
+}
 
 const Container = styled.div`
   display: flex;
@@ -66,6 +72,26 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
+  const { signUpData, error, success } = usePost();
+
+  async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const user: ILogin = {
+      email: email,
+      senha: senha,
+    };
+
+    try {
+      await signUpData({
+        endpoint: "auth/login",
+        data: user,
+      });
+    } catch (error) {
+      error && alert("Não foi possível efetuar o login");
+    }
+  }
+
   return (
     <Container>
       <Logo>
@@ -74,7 +100,7 @@ export default function Login() {
 
       <FormWrapper>
         <h2>Faça login em sua conta</h2>
-        <Form>
+        <Form onSubmit={handleLogin}>
           <InputField
             label="Email"
             type="email"
