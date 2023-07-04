@@ -64,7 +64,7 @@ export default function SignUp() {
   const [complement, setComplement] = useState("");
   const [state, setState] = useState("");
 
-  const { signUpData, error, success } = usePost();
+  const { signUpData } = usePost();
 
   const navigate = useNavigate();
 
