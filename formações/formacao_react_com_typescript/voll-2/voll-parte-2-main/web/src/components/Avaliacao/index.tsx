@@ -19,8 +19,8 @@ function Avaliacao({
     <>
       <SecaoCard>
         {profissionais?.length
-          ? profissionais.map((profissional) => {
-              return <Card profissional={profissional} key={profissional.id} />;
+          ? profissionais.map((profissional, index) => {
+              return <Card profissional={profissional} key={index} />;
             })
           : "Não há avaliações para mostrar"}
       </SecaoCard>

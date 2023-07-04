@@ -2,6 +2,37 @@ import { useState } from "react";
 import { InputField } from "../../../../components/InputField";
 import locationIcon from "../location_on.png";
 import styled from "styled-components";
+import IProfissional from "../../../../types/IProfissional";
+import { log } from "console";
+
+interface ModalFormProps {
+  name: string;
+  setName: (value: string) => void;
+  email: string;
+  setEmail: (value: string) => void;
+  password: string;
+  setPassword: (value: string) => void;
+  repeatedPassword: string;
+  setRepeatedPassword: (value: string) => void;
+  specialty: string;
+  setSpecialty: (value: string) => void;
+  crm: string;
+  setCrm: (value: string) => void;
+  phone: string;
+  setPhone: (value: string) => void;
+  imageURL: string;
+  setImageURL: (value: string) => void;
+  cep: string;
+  setCep: (value: string) => void;
+  street: string;
+  setStreet: (value: string) => void;
+  streetNumber: string;
+  setStreetNumber: (value: string) => void;
+  complement: string;
+  setComplement: (value: string) => void;
+  state: string;
+  setState: (value: string) => void;
+}
 
 const StyledInput = styled.div`
   display: flex;
@@ -48,34 +79,64 @@ const StyledInput = styled.div`
   }
 `;
 
-export function ModalForm() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatedPassword, setRepeatedPassword] = useState("");
-  const [specialty, setSpecialty] = useState("");
-  const [crm, setCrm] = useState("");
-  const [phone, setPhone] = useState("");
-  const [imageURL, setImageURL] = useState("");
-  const [cep, setCep] = useState("");
-  const [street, setStreet] = useState("");
-  const [streetNumber, setStreetNumber] = useState("");
-  const [complement, setComplement] = useState("");
-  const [state, setState] = useState("");
+const Label = styled.label`
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 19px;
+  color: var(--azul-escuro);
+  margin-bottom: 1rem;
+`;
 
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 70% 25%;
+  grid-template-rows: repeat(2, 50%);
+  column-gap: 2rem;
+  margin-top: 1.5rem;
+`;
+
+export function ModalForm({
+  name,
+  setName,
+  email,
+  setEmail,
+  password,
+  setPassword,
+  repeatedPassword,
+  setRepeatedPassword,
+  specialty,
+  setSpecialty,
+  crm,
+  setCrm,
+  phone,
+  setPhone,
+  imageURL,
+  setImageURL,
+  cep,
+  setCep,
+  street,
+  setStreet,
+  streetNumber,
+  setStreetNumber,
+  complement,
+  setComplement,
+  state,
+  setState,
+}: ModalFormProps) {
   return (
     <>
       <InputField
         type="text"
         value={name}
         onChange={setName}
-        placeholder="Digite o nome da clínica"
+        placeholder="Digite seu nome completo"
         label="Nome"
         required
       />
       <InputField
         type="email"
-        placeholder="Insira o endereço de e-mail para login"
+        placeholder="Insira o endereço de email"
         value={email}
         onChange={setEmail}
         label="Email"
@@ -83,7 +144,7 @@ export function ModalForm() {
       />
       <InputField
         type="password"
-        placeholder="Digite sua senha"
+        placeholder="Crie uma senha"
         value={password}
         onChange={setPassword}
         label="Crie uma senha"
@@ -99,18 +160,18 @@ export function ModalForm() {
       />
       <InputField
         type="string"
-        placeholder="Digite o CPNJ"
+        placeholder="Qual sua especialidade?"
         value={specialty}
         onChange={setSpecialty}
-        label="CNPJ"
+        label="Especialidade"
         required
       />
       <InputField
         type="number"
-        placeholder="Digite o CPNJ"
+        placeholder="Insia seu número de registro"
         value={crm}
         onChange={setCrm}
-        label="CNPJ"
+        label="CRM"
         required
       />
       <InputField
@@ -123,13 +184,14 @@ export function ModalForm() {
       />
       <InputField
         type="string"
-        placeholder="Digite o CPNJ"
+        placeholder="https://img.com/fotos/retrato-de-um-jovem-medico"
         value={imageURL}
         onChange={setImageURL}
-        label="CNPJ"
+        label="Insira o URL da imagem"
         required
       />
 
+      <Label>Endereço</Label>
       <StyledInput>
         <div>
           <img src={locationIcon} alt="" />
@@ -143,33 +205,35 @@ export function ModalForm() {
         />
       </StyledInput>
 
-      <InputField
-        type="address"
-        placeholder="Rua"
-        value={street}
-        onChange={setStreet}
-        required
-      />
-      <InputField
-        type="number"
-        placeholder="Número"
-        value={streetNumber}
-        onChange={setStreetNumber}
-        required
-      />
-      <InputField
-        type="text"
-        placeholder="Complemento"
-        value={complement}
-        onChange={setComplement}
-      />
-      <InputField
-        type="text"
-        placeholder="Estado"
-        value={state}
-        onChange={setState}
-        required
-      />
+      <Grid>
+        <InputField
+          type="address"
+          placeholder="Rua"
+          value={street}
+          onChange={setStreet}
+          required
+        />
+        <InputField
+          type="number"
+          placeholder="Número"
+          value={streetNumber}
+          onChange={setStreetNumber}
+          required
+        />
+        <InputField
+          type="text"
+          placeholder="Complemento"
+          value={complement}
+          onChange={setComplement}
+        />
+        <InputField
+          type="text"
+          placeholder="Estado"
+          value={state}
+          onChange={setState}
+          required
+        />
+      </Grid>
     </>
   );
 }

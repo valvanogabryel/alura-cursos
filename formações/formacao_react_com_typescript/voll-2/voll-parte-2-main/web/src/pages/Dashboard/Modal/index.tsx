@@ -8,10 +8,14 @@ import {
   SwitchProps,
 } from "@mui/material";
 import Titulo from "../../../components/Titulo";
-import styled, { keyframes } from "styled-components";
 
 import { ModalForm } from "./ModalForm";
 import Botao from "../../../components/Botao";
+import IProfissional from "../../../types/IProfissional";
+import styled, { keyframes } from "styled-components";
+import { useState } from "react";
+import usePost from "../../../usePost";
+import authStore from "../../../stores/auth.store";
 
 const IOSSwitch = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -82,7 +86,7 @@ const CustomBox = styled(Box)`
   transform: translate(-50%, -50%);
   border: none;
   border-radius: 16px;
-  padding: 1rem 5rem;
+  padding: 1rem 5.75rem;
   width: 50vw;
   max-height: 90vh;
   overflow-y: auto;
@@ -91,6 +95,10 @@ const CustomBox = styled(Box)`
   div {
     justify-content: center;
     animation: ${scaleUp} 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  label.switch-label {
+    color: var(--cinza);
   }
 `;
 
@@ -126,31 +134,147 @@ export function ModalSignUp({
   open: boolean;
   handleClose: () => void;
 }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repeatedPassword, setRepeatedPassword] = useState("");
+  const [specialty, setSpecialty] = useState("");
+  const [crm, setCrm] = useState("");
+  const [meetsByPlan, setMeetsByPlan] = useState(false);
+  const [checkedPlans, setCheckedPlans] = useState<string[]>([]);
+  const [phone, setPhone] = useState("");
+  const [imageURL, setImageURL] = useState("");
+  const [cep, setCep] = useState("");
+  const [street, setStreet] = useState("");
+  const [streetNumber, setStreetNumber] = useState("");
+  const [complement, setComplement] = useState("");
+  const [state, setState] = useState("");
+
+  const { signUpData } = usePost();
+  const { user } = authStore;
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const professional: IProfissional = {
+      nome: name,
+      crm,
+      imagem: imageURL,
+      especialidade: specialty,
+      possuiPlanoSaude: meetsByPlan,
+      senha: password,
+      planosSaude: checkedPlans,
+      estaAtivo: true,
+      email,
+      telefone: phone,
+      endereco: {
+        cep,
+        rua: street,
+        estado: state,
+        numero: streetNumber,
+        complemento: complement,
+      },
+    };
+
+    await signUpData({
+      endpoint: "especialista",
+      data: professional,
+      token: user.token,
+    });
+  }
+
+  function handleCheckboxChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { value, checked } = event.target;
+
+    if (checked) {
+      setCheckedPlans((prevChecked) => [...prevChecked, value]);
+    } else {
+      setCheckedPlans((prevChecked) =>
+        prevChecked.filter((plan) => plan !== value)
+      );
+    }
+  }
+
   return (
     <Modal open={open} onClose={handleClose}>
       <CustomBox>
         <Titulo>Cadastre o especialista inserindo os dados abaixo:</Titulo>
 
-        <form>
-          <ModalForm />
+        <form onSubmit={handleSubmit}>
+          <ModalForm
+            name={name}
+            setName={setName}
+            email={email}
+            setEmail={setEmail}
+            password={password}
+            setPassword={setPassword}
+            repeatedPassword={repeatedPassword}
+            setRepeatedPassword={setRepeatedPassword}
+            specialty={specialty}
+            setSpecialty={setSpecialty}
+            crm={crm}
+            setCrm={setCrm}
+            phone={phone}
+            setPhone={setPhone}
+            imageURL={imageURL}
+            setImageURL={setImageURL}
+            cep={cep}
+            setCep={setCep}
+            street={street}
+            setStreet={setStreet}
+            streetNumber={streetNumber}
+            setStreetNumber={setStreetNumber}
+            complement={complement}
+            setComplement={setComplement}
+            state={state}
+            setState={setState}
+          />
           <ToggleWrapper>
             <StyledParagraph>Atende por plano?</StyledParagraph>
-            <IOSSwitch lang="pt-BR" />
-            <span>Não/Sim</span>
+            <IOSSwitch
+              lang="pt-BR"
+              onChange={() => setMeetsByPlan(!meetsByPlan)}
+            />
+            <label className="switch-label">Não/Sim</label>
           </ToggleWrapper>
           <div>
             <StyledParagraph>Selecione os planos: </StyledParagraph>
             <CustomFormGroup>
               <FormControlLabel
-                control={<CustomCheckbox />}
+                control={<CustomCheckbox onChange={handleCheckboxChange} />}
                 label="Sulamerica"
+                value="1"
               />
-              <FormControlLabel control={<CustomCheckbox />} label="Unimed" />
-              <FormControlLabel control={<CustomCheckbox />} label="Bradesco" />
-              <FormControlLabel control={<CustomCheckbox />} label="Amil" />
-              <FormControlLabel control={<CustomCheckbox />} label="Biosaúde" />
-              <FormControlLabel control={<CustomCheckbox />} label="Biovida" />
-              <FormControlLabel control={<CustomCheckbox />} label="Outro" />
+              <FormControlLabel
+                control={<CustomCheckbox onChange={handleCheckboxChange} />}
+                label="Unimed"
+                value="2"
+              />
+              <FormControlLabel
+                control={<CustomCheckbox onChange={handleCheckboxChange} />}
+                label="Bradesco"
+                value="3"
+              />
+              <FormControlLabel
+                control={<CustomCheckbox onChange={handleCheckboxChange} />}
+                label="Amil"
+                value="4"
+              />
+              <FormControlLabel
+                control={<CustomCheckbox onChange={handleCheckboxChange} />}
+                label="Biosaúde"
+                value="5"
+              />
+              <FormControlLabel
+                control={<CustomCheckbox onChange={handleCheckboxChange} />}
+                label="Biovida"
+                value="6"
+              />
+              <FormControlLabel
+                control={<CustomCheckbox onChange={handleCheckboxChange} />}
+                label="Outro"
+                value="7"
+              />
             </CustomFormGroup>
           </div>
           <Botao width="280px">Cadastrar</Botao>

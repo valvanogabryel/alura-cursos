@@ -8,16 +8,24 @@ export default function usePost() {
   async function signUpData<T>({
     endpoint,
     data,
+    token,
   }: {
     endpoint: string;
     data: T;
+    token?: string;
   }) {
+    const headers: HeadersInit = {
+      "Content-Type": "application/json",
+    };
+
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+
     try {
       const response = await fetch(`http://localhost:8080/${endpoint}`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers,
         body: JSON.stringify(data),
       });
 
