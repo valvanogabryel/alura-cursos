@@ -28,3 +28,19 @@
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .tags {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .tags {
+    &__list {
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+}

@@ -8,6 +8,8 @@
   color: $roxo;
   font-family: $fonte-normal;
   font-size: 16px;
+  position: sticky;
+  top: 0;
 
   h2 {
     margin-top: 5.3rem;
@@ -25,5 +27,11 @@
       width: 150px;
       height: 100px;
     }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .populars {
+    display: none;
   }
 }
