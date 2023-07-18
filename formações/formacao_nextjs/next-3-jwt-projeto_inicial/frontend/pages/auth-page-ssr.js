@@ -11,7 +11,7 @@ export default function AuthPageSSR(props) {
   );
 }
 
-// Decorator pattern
+//! Decorator pattern
 export const getServerSideProps = withSession(async ({ req }) => {
   return {
     props: {
