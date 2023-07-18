@@ -1,3 +1,6 @@
+import { tokenService } from "../src/services/auth/tokenService";
+import nookies from "nookies";
+
 export default function AuthPageSSR(props) {
   return (
     <div>
@@ -6,4 +9,15 @@ export default function AuthPageSSR(props) {
       <pre>{JSON.stringify(props, null, 2)}</pre>
     </div>
   );
+}
+
+export async function getServerSideProps(ctx) {
+  console.log(tokenService.get());
+  const cookies = nookies.get(ctx);
+  console.log("cookies", cookies);
+  return {
+    props: {
+      token: tokenService.get(ctx),
+    },
+  };
 }
