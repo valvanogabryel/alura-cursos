@@ -1,5 +1,4 @@
 import withSession from "../src/services/auth/session";
-import nookies from "nookies";
 
 export default function AuthPageSSR(props) {
   return (
