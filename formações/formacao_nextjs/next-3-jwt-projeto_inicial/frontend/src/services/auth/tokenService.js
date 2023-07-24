@@ -1,12 +1,12 @@
 import nookies from "nookies";
-const ONE_YEAR = 60 * 60 * 24 * 365;
+const AGE = 3;
 
 export const tokenService = {
   save(accessToken, ctx = null) {
     // globalThis?.localStorage?.setItem("token", accessToken);
     // globalThis?.sessionStorage?.setItem("token", accessToken);
     nookies.set(ctx, "token", accessToken, {
-      maxAge: ONE_YEAR,
+      maxAge: AGE,
       path: "/",
     });
   },
