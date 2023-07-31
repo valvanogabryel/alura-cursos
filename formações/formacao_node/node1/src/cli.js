@@ -19,13 +19,17 @@ async function processText(args) {
     printResults(results);
   } else if (fs.lstatSync(path).isDirectory()) {
     const files = await fs.promises.readdir(path);
-    console.log(files);
 
     if (files.length < 1)
       handleError("Não há arquivos no diretório especificado.");
 
     files.forEach(async (filename) => {
       const file = await fileCatcher(`${path}/${filename}`);
+
+      if (!file) {
+        printResults("Não há links no diretório especificado.");
+        return;
+      }
 
       printResults(file);
     });
