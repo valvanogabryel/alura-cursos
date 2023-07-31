@@ -11,7 +11,9 @@ function printResults(results, filename) {
       : `Não há links no arquivo [${chalk.blue.bold(filename)}]`;
 
   console.log(
-    chalk.bold.yellow(`Lista de links no arquivo [${chalk.blue.bold(filename)}]:`),
+    chalk.bold.yellow(
+      `Lista de links no arquivo [${chalk.blue.bold(filename)}]:`
+    ),
     realResults
   );
 }
@@ -32,9 +34,10 @@ async function processText(args) {
   if (fs.lstatSync(path).isFile()) {
     const results = await fileCatcher(path);
 
-    if (!results) handleError("Não há links no arquivo.");
+    if (!results)
+      handleError(`Não há links no arquivo [${chalk.blue.bold(path)}].`);
 
-    printResults(results);
+    printResults(results, path);
   } else if (fs.lstatSync(path).isDirectory()) {
     const files = await fs.promises.readdir(path);
 
