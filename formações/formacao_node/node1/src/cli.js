@@ -4,12 +4,30 @@ import fileCatcher, { handleError } from "./index.js";
 
 const path = process.argv;
 
-function printResults(results) {
-  console.log(chalk.bold.yellow("Lista de links:"), results);
+function printResults(results, filename) {
+  const realResults =
+    results !== null
+      ? results
+      : `Não há links no arquivo [${chalk.blue.bold(filename)}]`;
+
+  console.log(
+    chalk.bold.yellow(`Lista de links no arquivo [${chalk.blue.bold(filename)}]:`),
+    realResults
+  );
 }
 
 async function processText(args) {
   const path = args[2];
+
+  try {
+    fs.lstatSync(path);
+  } catch (err) {
+    if (err.code === "ENOENT")
+      handleError(
+        `${err.code}: O arquivo ou diretório especificado (${path}) não existe.`
+      );
+    return;
+  }
 
   if (fs.lstatSync(path).isFile()) {
     const results = await fileCatcher(path);
@@ -26,12 +44,7 @@ async function processText(args) {
     files.forEach(async (filename) => {
       const file = await fileCatcher(`${path}/${filename}`);
 
-      if (!file) {
-        printResults("Não há links no diretório especificado.");
-        return;
-      }
-
-      printResults(file);
+      printResults(file, filename);
     });
   }
 }
