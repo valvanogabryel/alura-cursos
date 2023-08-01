@@ -63,5 +63,3 @@ export default fileCatcher;
 
 //   return fileContent;
 // }
-
-// [gatinho salsicha](http://gatinhosalsicha.com.br/)

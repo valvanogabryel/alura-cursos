@@ -3,7 +3,7 @@ import fs from "fs";
 import fileCatcher, { handleError } from "./index.js";
 import validateList from "./http-validate.js";
 
-const path = process.argv;
+const args = process.argv;
 
 async function printResults(validate, results, filename = "") {
   const realResults =
@@ -11,9 +11,9 @@ async function printResults(validate, results, filename = "") {
       ? results
       : `Não há links no arquivo [${chalk.blue.bold(filename)}]`;
 
-  if (validate) {
+  if (validate && results !== null) {
     console.log(
-      chalk.bold.yellow(`Lista validada:`),
+      chalk.bold.yellow(filename !== "" ? `Lista validada no arquivo [${chalk.blue.bold(filename)}]:` : "Lista validada:"),
       await validateList(realResults)
     );
   } else if (filename) {
@@ -30,7 +30,7 @@ async function printResults(validate, results, filename = "") {
 
 async function processText(args) {
   const path = args[2];
-  const validate = args[3] === "--validate";
+  const validate = args[3] === "validate";
 
   try {
     fs.lstatSync(path);
@@ -63,4 +63,4 @@ async function processText(args) {
   }
 }
 
-processText(path);
+processText(args);

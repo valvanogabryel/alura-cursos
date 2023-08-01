@@ -5,12 +5,23 @@ function extractLinks(linksArray) {
 async function validateURLs(urlsArray) {
   const statuses = await Promise.all(
     urlsArray.map(async (url) => {
-      const res = await fetch(url);
-      return res.status;
+      try {
+        const res = await fetch(url);
+        return `${res.status} - ${res.statusText}`;
+      } catch (error) {
+        return handleError(error);
+      }
     })
   );
-
   return statuses;
+}
+
+function handleError(error) {
+  if (error.cause.code === "ENOTFOUND") {
+    return "Link não encontrado!";
+  } else {
+    return "Erro inesperado!";
+  }
 }
 
 export default async function validateList(linksList) {
