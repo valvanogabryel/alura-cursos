@@ -13,7 +13,11 @@ async function printResults(validate, results, filename = "") {
 
   if (validate && results !== null) {
     console.log(
-      chalk.bold.yellow(filename !== "" ? `Lista validada no arquivo [${chalk.blue.bold(filename)}]:` : "Lista validada:"),
+      chalk.bold.yellow(
+        filename !== ""
+          ? `Lista validada no arquivo [${chalk.blue.bold(filename)}]:`
+          : "Lista validada:"
+      ),
       await validateList(realResults)
     );
   } else if (filename) {
