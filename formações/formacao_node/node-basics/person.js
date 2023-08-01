@@ -8,6 +8,4 @@ class Person {
   }
 }
 
-export default {
-  Person,
-};
+export { Person };
