@@ -1,25 +1,36 @@
 import chalk from "chalk";
 import fs from "fs";
 import fileCatcher, { handleError } from "./index.js";
+import validateList from "./http-validate.js";
 
 const path = process.argv;
 
-function printResults(results, filename) {
+async function printResults(validate, results, filename = "") {
   const realResults =
     results !== null
       ? results
       : `Não há links no arquivo [${chalk.blue.bold(filename)}]`;
 
-  console.log(
-    chalk.bold.yellow(
-      `Lista de links no arquivo [${chalk.blue.bold(filename)}]:`
-    ),
-    realResults
-  );
+  if (validate) {
+    console.log(
+      chalk.bold.yellow(`Lista validada:`),
+      await validateList(realResults)
+    );
+  } else if (filename) {
+    console.log(
+      chalk.bold.yellow(
+        `Lista de links no arquivo [${chalk.blue.bold(filename)}]:`
+      ),
+      realResults
+    );
+  } else {
+    console.log(chalk.bold.yellow(`Lista de links:`), realResults);
+  }
 }
 
 async function processText(args) {
   const path = args[2];
+  const validate = args[3] === "--validate";
 
   try {
     fs.lstatSync(path);
@@ -37,7 +48,7 @@ async function processText(args) {
     if (!results)
       handleError(`Não há links no arquivo [${chalk.blue.bold(path)}].`);
 
-    printResults(results, path);
+    printResults(validate, results);
   } else if (fs.lstatSync(path).isDirectory()) {
     const files = await fs.promises.readdir(path);
 
@@ -47,7 +58,7 @@ async function processText(args) {
     files.forEach(async (filename) => {
       const file = await fileCatcher(`${path}/${filename}`);
 
-      printResults(file, filename);
+      printResults(validate, file, filename);
     });
   }
 }
