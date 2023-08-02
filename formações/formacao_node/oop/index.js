@@ -1,15 +1,18 @@
-class User {
-  constructor(name, age) {
+export default class User {
+  constructor(name, email, birthdate, role, isActive = true) {
     this.name = name;
-    this.age = age;
+    this.email = email;
+    this.birthdate = birthdate;
+    this.role = role || "estudante";
+    this.isActive = isActive;
   }
 
-  sayHello() {
-    console.log(`Hello ${this.name}!`);
+  showInfo() {
+    return `Nome: ${this.name}, Email: ${this.email}, Data de nascimento: ${this.birthdate}, Role: ${this.role}, Ativo: ${this.isActive}`;
   }
 }
 
-const user = new User("John", 20);
+const user = new User("Gabryel", "valvanogabryel@gmail.com", "2003-07-08");
 
-console.log(`${user.name} has ${user.age} years of age!`);
-user.sayHello();
+console.log(user);
+console.log(user.showInfo());
