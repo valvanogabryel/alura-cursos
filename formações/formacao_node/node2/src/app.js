@@ -44,7 +44,7 @@ app.post("/books", (req, res) => {
 app.put("/books/:id", (req, res) => {
   const { id } = req.params;
 
-  const index = books.findIndex((book) => book.id == id);
+  const index = getBookById(id);
 
   const updatedBook = req.body;
 
@@ -52,5 +52,18 @@ app.put("/books/:id", (req, res) => {
 
   res.status(200).json(books).send("Livro atualizado com sucesso!");
 });
+
+app.delete("/books/:id", (req, res) => {
+  const { id } = req.params;
+  const index = getBookById(id);
+
+  books.splice(index, 1);
+
+  res.send(`Livro ${books[index - 1].title} removido com sucesso`);
+});
+
+function getBookById(id) {
+  return books.findIndex((book) => book.id == id);
+}
 
 export default app;
