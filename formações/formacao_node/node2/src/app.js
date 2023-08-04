@@ -59,7 +59,7 @@ app.delete("/books/:id", (req, res) => {
 
   books.splice(index, 1);
 
-  res.send(`Livro ${books[index - 1].title} removido com sucesso`);
+  res.send(`Livro ${id} removido com sucesso`);
 });
 
 function getBookById(id) {
