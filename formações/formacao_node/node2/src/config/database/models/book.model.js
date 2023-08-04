@@ -2,25 +2,25 @@ import mongoose from "mongoose";
 
 const { Schema, model } = mongoose;
 
-const userSchema = new Schema({
-  firstName: {
+const booksSchema = new Schema({
+  title: {
     type: String,
     required: true,
   },
-  lastName: {
+  author: {
     type: String,
     required: true,
   },
-  email: {
-    type: String,
+  pages: {
+    type: Number,
     required: true,
   },
-  password: {
+  publishing_company: {
     type: String,
     required: true,
   },
 });
 
-const UserModel = model("User", userSchema);
+const BooksModel = model("Books", booksSchema);
 
-export default UserModel;
+export default BooksModel;

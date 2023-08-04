@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const username = process.env.MONGODB_USERNAME;
 const password = process.env.MONGODB_PASSWORD;
 
-const uri = `mongodb+srv://${username}:${password}@cluster0.6cbuths.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${username}:${password}@cluster0.6cbuths.mongodb.net/`;
 
 const connectToDatabase = async () => {
   mongoose.set("strictQuery", false);
