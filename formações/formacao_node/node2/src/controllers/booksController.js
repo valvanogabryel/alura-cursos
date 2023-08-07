@@ -11,13 +11,31 @@ class BooksController {
     }
   }
 
+  static async listBookById(req, res) {
+    const { id } = req.params;
+
+    try {
+      const book = await BooksModel.findById(id);
+      res.status(200).json(book);
+    } catch (error) {
+      res
+        .status(400)
+        .send({ message: `${error}: Não foi possível listar o livro` });
+    }
+  }
+
   //* POST
   static async registerBook(req, res) {
     try {
       const newBook = await BooksModel.create(req.body);
-      res.status(201).json(newBook);
+      res
+        .status(201)
+        .json(newBook)
+        .send({ message: "Livro cadastrado com sucesso!" });
     } catch (error) {
-      res.status(500).send(`${error}: Não foi possível criar o livro`);
+      res
+        .status(500)
+        .send({ message: `${error}: Não foi possível criar o livro` });
     }
   }
 
@@ -41,12 +59,17 @@ class BooksController {
     try {
       const updatedBook = await BooksModel.findByIdAndUpdate(
         id,
-        { title: req.body.title },
+        { $set: req.body },
         { new: true }
       );
-      res.status(200).json(updatedBook).send("Livro atualizado com sucesso!");
+      res
+        .status(200)
+        .json(updatedBook)
+        .send({ message: "Livro atualizado com sucesso!" });
     } catch (error) {
-      res.status(500).send(`${error}: Não foi possível atualizar o livro`);
+      res
+        .status(500)
+        .send({ message: `${error}: Não foi possível atualizar o livro` });
     }
   }
 
@@ -56,9 +79,14 @@ class BooksController {
 
     try {
       const deletedBook = await BooksModel.findByIdAndRemove(id);
-      res.status(200).json(deletedBook);
+      res
+        .status(200)
+        .json(deletedBook)
+        .send({ message: "Livro deletado com sucesso!" });
     } catch (error) {
-      res.status(500).send(`${error}: Não foi possível deletar o livro`);
+      res
+        .status(500)
+        .send({ message: `${error}: Não foi possível deletar o livro` });
     }
   }
 }
