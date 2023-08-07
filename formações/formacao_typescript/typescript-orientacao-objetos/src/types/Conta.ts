@@ -1,12 +1,14 @@
-import { GrupoTransacao } from "./GrupoTransacao";
-import { TipoTransacao } from "./TipoTransacao";
-import { Transacao } from "./Transacao";
+import { Armazenador } from "../utils/Armazenador.js";
+import { ValidaDebito, ValidaDeposito } from "./Decorators.js";
+import { GrupoTransacao } from "./GrupoTransacao.js";
+import { TipoTransacao } from "./TipoTransacao.js";
+import { Transacao } from "./Transacao.js";
 
 export class Conta {
-  nome: string;
-  saldo: number = JSON.parse(localStorage.getItem("saldo")) || 0;
-  transacoes: Transacao[] =
-    JSON.parse(localStorage.getItem("transacoes"), (key, value) => {
+  protected nome: string;
+  protected saldo: number = Armazenador.obter<number>("saldo") || 0;
+  private transacoes: Transacao[] =
+    Armazenador.obter<Transacao[]>("transacoes", (key, value) => {
       if (key === "data") {
         return new Date(value);
       }
@@ -73,27 +75,37 @@ export class Conta {
 
     console.log(this.getGruposTransacoes());
 
-    localStorage.setItem("transacoes", JSON.stringify(this.transacoes));
+    Armazenador.salvar("transacoes", JSON.stringify(this.transacoes));
   }
 
-  depositar(valor: number): void {
-    if (valor <= 0)
-      throw new Error("O valor a ser depositado deve ser maior que 0");
-
+  @ValidaDeposito
+  private depositar(valor: number): void {
     this.saldo += valor;
-    localStorage.setItem("saldo", this.saldo.toString());
+    Armazenador.salvar("saldo", this.saldo.toString());
   }
-  debitar(valor: number): void {
-    if (valor <= 0)
-      throw new Error("O valor a ser debitado deve ser maior que 0");
 
-    if (valor > this.saldo) throw new Error("Saldo insuficiente");
-
+  @ValidaDebito
+  private debitar(valor: number): void {
     this.saldo -= valor;
-    localStorage.setItem("saldo", this.saldo.toString());
+    Armazenador.salvar("saldo", this.saldo.toString());
   }
 }
 
-const conta = new Conta("Gabryel Valvano");
+export class ContaPremium extends Conta {
+  registrarTransacao(transacao: Transacao): void {
+    const valorBonus = 0.5;
+    const tipoBonus = valorBonus < 1 ? "centavos" : "reais";
+
+    if (transacao.tipoTransacao === TipoTransacao.DEPOSITO) {
+      console.log(`Você recebeu um bônus de ${valorBonus} ${tipoBonus}!`);
+      transacao.valor += 0.5;
+    }
+
+    super.registrarTransacao(transacao);
+  }
+}
+
+const conta = new Conta("Walter White");
+const contaPremium = new ContaPremium("Gabryel Valvano");
 
 export default conta;
