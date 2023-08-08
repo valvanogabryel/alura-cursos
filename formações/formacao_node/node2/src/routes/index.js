@@ -1,5 +1,6 @@
 import express from "express";
 import books from "./books_router.js";
+import authors from "./authors_router.js";
 
 const routes = (app) => {
   app.route("/").get((_, res) => {
@@ -8,7 +9,7 @@ const routes = (app) => {
     });
   });
 
-  app.use(express.json(), books);
+  app.use(express.json(), books, authors);
 };
 
 export default routes;
