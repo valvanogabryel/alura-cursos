@@ -34,10 +34,11 @@ describe('performing requests to API', () => {
 
   context('interceptating network requests', () => {
     it('should intercept the POST users/login', () => {
-      cy.intercept('POST', 'users/login').as('loginRequest');
-
+      cy.intercept({
+        method: 'POST',
+        url: 'users/login',
+      }).as('loginRequest');
       cy.login('neilton@alura.com', '123456');
-
       cy.wait('@loginRequest').then((interception) => {
         interception.response = {
           statusCode: 200,
