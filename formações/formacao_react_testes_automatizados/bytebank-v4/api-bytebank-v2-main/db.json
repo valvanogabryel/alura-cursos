@@ -2,7 +2,9 @@
   "users": [
     {
       "id": "40a41438-84a6-4b4d-ae1d-7f1713d0a9fe",
+      "nome": "Neilton",
       "email": "neilton@alura.com",
+      "senha": 123456,
       "transacoes": [
         {
           "id": "788f434b-11ee-451d-b968-02d203bfc81a",
@@ -33,8 +35,7 @@
           "mes": "Março"
         }
       ],
-      "saldo": 2340,
-      "nome": "Gabryel Valvano"
+      "saldo": 2340
     },
     {
       "id": "c691fd15-dcd5-4f24-89da-cdfa3cef9d67",
@@ -56,7 +57,7 @@
           "mes": "Fevereiro"
         }
       ],
-      "saldo": 3500
+      "saldo": 10000
     }
   ]
 }
