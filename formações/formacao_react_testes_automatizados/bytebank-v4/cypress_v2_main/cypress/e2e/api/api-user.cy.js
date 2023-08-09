@@ -34,11 +34,10 @@ describe('performing requests to API', () => {
 
   context('interceptating network requests', () => {
     it('should intercept the POST users/login', () => {
-      cy.intercept({
-        method: 'POST',
-        url: 'users/login',
-      }).as('loginRequest');
+      cy.intercept('POST', 'users/login').as('loginRequest');
+
       cy.login('neilton@alura.com', '123456');
+
       cy.wait('@loginRequest').then((interception) => {
         interception.response = {
           statusCode: 200,
@@ -58,18 +57,32 @@ describe('performing requests to API', () => {
     });
   });
 
-  // context('PUT /users/:userId', () => {
-  //   it('should update a single user', () => {
-  //     cy.request({
-  //       method: 'PUT',
-  //       url: 'http://localhost:8000/users/c691fd15-dcd5-4f24-89da-cdfa3cef9d67',
-  //       body: {
-  //         nome: 'Gabryel Valvano',
-  //       },
-  //     }).then((response) => {
-  //       expect(response.status).to.be(200);
-  //       expect(response.body).to.have.property('nome', 'Vinny Neves');
-  //     });
-  //   });
-  // });
+  context('PUT /users/:userId', () => {
+    it('should update a single user', () => {
+      cy.request({
+        method: 'PUT',
+        url: 'http://localhost:8000/users/c691fd15-dcd5-4f24-89da-cdfa3cef9d67',
+        body: {
+          nome: 'Vinny Neves',
+        },
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body).to.have.property('nome', 'Vinny Neves');
+      });
+    });
+
+    it('should return a error when user does not exist', () => {
+      cy.request({
+        method: 'PUT',
+        url: 'http://localhost:8000/users/c6982019',
+        body: {
+          nome: 'Gabryel Valvano',
+        },
+        failOnStatusCode: false,
+      }).then((response) => {
+        expect(response.status).to.eq(404);
+        expect(response.body).to.be.eq('Not Found');
+      });
+    });
+  });
 });
