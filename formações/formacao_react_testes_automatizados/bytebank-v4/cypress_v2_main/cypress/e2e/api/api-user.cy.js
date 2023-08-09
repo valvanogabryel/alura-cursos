@@ -34,11 +34,10 @@ describe('performing requests to API', () => {
 
   context('interceptating network requests', () => {
     it('should intercept the POST users/login', () => {
-      cy.intercept({
-        method: 'POST',
-        url: 'users/login',
-      }).as('loginRequest');
+      cy.intercept('POST', 'users/login').as('loginRequest');
+
       cy.login('neilton@alura.com', '123456');
+
       cy.wait('@loginRequest').then((interception) => {
         interception.response = {
           statusCode: 200,
@@ -68,7 +67,7 @@ describe('performing requests to API', () => {
   //       },
   //     }).then((response) => {
   //       expect(response.status).to.be(200);
-  //       expect(response.body).to.have.property('nome', 'Gabryel Valvano');
+  //       expect(response.body).to.have.property('nome', 'Vinny Neves');
   //     });
   //   });
   // });
