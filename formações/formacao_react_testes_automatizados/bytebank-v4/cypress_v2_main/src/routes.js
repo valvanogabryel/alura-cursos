@@ -13,6 +13,11 @@ import { ModalProvider } from 'common/context/ModalContext';
 import { MinhaConta } from 'paginas/MinhaConta';
 
 export default function AppRoutes() {
+
+
+
+
+
   return (
     <HomeProvider>
       <CabecalhoProvider>
