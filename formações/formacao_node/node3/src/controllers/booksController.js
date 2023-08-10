@@ -2,16 +2,16 @@ import BooksModel from "../config/database/models/book.model.js";
 
 class BooksController {
   //* GET
-  static async listBooks(_, res) {
+  static async listBooks(_, res, next) {
     try {
       const books = await BooksModel.find().populate("author");
       res.status(200).json(books);
     } catch (error) {
-      res.status(500).send(`${error}: Não foi possível listar os livros`);
+      next(error);
     }
   }
 
-  static async listBookById(req, res) {
+  static async listBookById(req, res, next) {
     const { id } = req.params;
 
     try {
@@ -19,24 +19,22 @@ class BooksController {
       // .populate("author", "name -_id") o nome do autor, mas não o id
       res.status(200).json(book);
     } catch (error) {
-      res
-        .status(400)
-        .send({ message: `${error}: Não foi possível listar o livro` });
+      next(error);
     }
   }
 
   //* POST
-  static async registerBook(req, res) {
+  static async registerBook(req, res, next) {
     try {
       const newBook = await BooksModel.create(req.body);
       res.status(201).json(newBook);
     } catch (error) {
-      res.status(500);
+      next(error);
     }
   }
 
   /*//! ||
-//   ?  static registerBook(req, res) {
+//   ?  static registerBook(req, res, next) {
 //   ?    let book = new BookModel(req.body);
 //   ?    book.save(err => { 
 //    ?   if (err) {
@@ -49,7 +47,7 @@ class BooksController {
 */
 
   //* PUT
-  static async updateBook(req, res) {
+  static async updateBook(req, res, next) {
     const { id } = req.params;
 
     try {
@@ -60,27 +58,23 @@ class BooksController {
       );
       res.status(200).json(updatedBook);
     } catch (error) {
-      res
-        .status(500)
-        .send({ message: `${error}: Não foi possível atualizar o livro` });
+      next(error);
     }
   }
 
   //* DELETE
-  static async deleteBook(req, res) {
+  static async deleteBook(req, res, next) {
     const { id } = req.params;
 
     try {
       const deletedBook = await BooksModel.findByIdAndRemove(id);
       res.status(200).json(deletedBook);
     } catch (error) {
-      res
-        .status(500)
-        .send({ message: `${error}: Não foi possível deletar o livro` });
+      next(error);
     }
   }
 
-  static async listBookByPublisher(req, res) {
+  static async listBookByPublisher(req, res, next) {
     const { publisher } = req.query;
 
     try {
@@ -89,9 +83,7 @@ class BooksController {
       }).populate("author", "name -_id");
       res.status(200).json(booksByPublisher);
     } catch (error) {
-      res.status(500).send({
-        message: `${error}: Não foi possível pegar nenhum livro(s) por editora...`,
-      });
+      next(error);
     }
   }
 }

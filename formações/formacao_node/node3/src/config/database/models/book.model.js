@@ -5,20 +5,20 @@ const { Schema, model } = mongoose;
 const booksSchema = new Schema({
   title: {
     type: String,
-    required: true,
+    required: [true, "O título do livro é obrigatório"],
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Authors",
-    required: true,
+    required: [true, "O(a) autor(a) é obrigatório(a)"],
   },
   pages: {
     type: Number,
-    required: true,
+    required: [true, "O número de páginas é obrigatório"],
   },
   publishing_company: {
     type: String,
-    required: true,
+    required: [true, "O nome da editora é obrigatório"],
   },
 });
 

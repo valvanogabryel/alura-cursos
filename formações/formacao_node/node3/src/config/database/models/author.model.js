@@ -4,7 +4,7 @@ const AuthorSchema = new Schema(
   {
     name: {
       type: String,
-      required: true,
+      required: [true, "O nome do(a) autor(a) é obrigatório"],
     },
     nationality: {
       type: String,
