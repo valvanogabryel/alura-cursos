@@ -58,6 +58,38 @@
         }
       ],
       "saldo": 10000
+    },
+    {
+      "id": "229ca8a7-57e8-4002-bc51-754e1c972339",
+      "nome": "Gabryel Valvano",
+      "email": "gabryelvalvano1@gmail.com",
+      "senha": "gabryelval123",
+      "transacoes": [],
+      "saldo": 0
+    },
+    {
+      "id": "a49b2bbd-946b-4450-956f-ffa24d05538e",
+      "nome": "Gabriel Feest",
+      "email": "Casandra54@yahoo.com",
+      "senha": "nKp3XMjh65xzlGx",
+      "transacoes": [],
+      "saldo": 0
+    },
+    {
+      "id": "f1793dce-6f31-4db1-ace3-36ae32ef156f",
+      "nome": "Evan Harris III",
+      "email": "Devon53@gmail.com",
+      "senha": "CUxo1V5gyy61Gyd",
+      "transacoes": [],
+      "saldo": 0
+    },
+    {
+      "id": "3e38e005-a769-41cc-926c-771db1926dc6",
+      "nome": "Marcelo Franco",
+      "email": "Felipe_Pereira@yahoo.com",
+      "senha": "thGLYcRYlzJuvIr",
+      "transacoes": [],
+      "saldo": 0
     }
   ]
 }

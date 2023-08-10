@@ -1,6 +1,20 @@
 describe('Formulario de Login', () => {
-  beforeEach(() => {
-    cy.login('neilton@alura.com', '123456');
+  // beforeEach(() => {
+  //   cy.login('neilton@alura.com', '123456');
+  // });
+
+  it.only('should access the home page', () => {
+    cy.fixture('usuarios').then((usersList) => {
+      cy.login(usersList[0].email, usersList[0].senha);
+      cy.visit('/home');
+      cy.url().should('include', '/home');
+      cy.getByData('titulo-boas-vindas').should(
+        'contain',
+        'Bem vindo de volta!'
+      );
+
+      cy.contains(usersList[0].nome).should('be.visible');
+    });
   });
 
   it('should access the home page', () => {
