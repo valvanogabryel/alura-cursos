@@ -40,23 +40,9 @@
     "id": "c691fd15-dcd5-4f24-89da-cdfa3cef9d67",
     "nome": "Vinny Neves",
     "email": "vinny@alura.com",
-    "transacoes": [
-      {
-        "id": "b0411964-c8d4-4742-ad6d-15bb35b71b97",
-        "tipoTransacao": "Depósito",
-        "valor": "5000",
-        "data": "17/02/2023",
-        "mes": "Fevereiro"
-      },
-      {
-        "id": "f065a917-d283-4075-bbc3-4e1b3d8d1f3a",
-        "tipoTransacao": "Depósito",
-        "valor": "1500",
-        "data": "17/02/2023",
-        "mes": "Fevereiro"
-      }
-    ],
-    "saldo": 10000
+    "senha": "123456",
+    "transacoes": [],
+    "saldo": 1000000000
   },
   {
     "id": "229ca8a7-57e8-4002-bc51-754e1c972339",

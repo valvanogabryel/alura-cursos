@@ -1,6 +1,4 @@
 import React from 'react';
-import Cabecalho from '../../componentes/Cabecalho';
-import Rodape from '../../componentes/Rodape';
 import ilustracaoBanner from '../../assets/ilustracao-banner.svg';
 import estilos from './Inicio.module.css';
 import presente from '../../assets/presente.svg';

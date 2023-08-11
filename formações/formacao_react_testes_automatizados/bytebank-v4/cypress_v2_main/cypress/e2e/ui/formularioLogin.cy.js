@@ -3,7 +3,7 @@ describe('Formulario de Login', () => {
   //   cy.login('neilton@alura.com', '123456');
   // });
 
-  it.only('should access the home page', () => {
+  it('should access the home page', () => {
     cy.fixture('usuarios').then((usersList) => {
       cy.login(usersList[0].email, usersList[0].senha);
       cy.visit('/home');
@@ -14,6 +14,25 @@ describe('Formulario de Login', () => {
       );
 
       cy.contains(usersList[0].nome).should('be.visible');
+    });
+  });
+
+  it.only('should correctly show the user info on UI', () => {
+    cy.visit('/');
+    cy.fixture('dadosUsuario').then((user) => {
+      cy.getByData('botao-login').click();
+      cy.login(user.email, user.senha);
+
+      cy.visit('/home');
+      cy.url().should('include', '/home');
+
+      cy.contains(user.nome).should('be.visible');
+
+      cy.get(`[data-testid=saldo]`).contains(user.saldo);
+      cy.getByData('lista-transacoes')
+        .find('li')
+        .last()
+        .contains(user.transacoes[user.transacoes.length - 1].valor);
     });
   });
 
