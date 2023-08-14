@@ -1,4 +1,4 @@
-import BooksModel from "../config/database/models/book.model.js";
+import { BooksModel } from "../config/database/models/index.js";
 
 class BooksController {
   //* GET
@@ -18,6 +18,20 @@ class BooksController {
       const book = await BooksModel.findById(id).populate("author", "name");
       // .populate("author", "name -_id") o nome do autor, mas não o id
       res.status(200).json(book);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async listBookByFilter(req, res, next) {
+    try {
+      const query = processQuery(req.query);
+
+      const filteredBooks = await BooksModel.find(query).populate(
+        "author",
+        "name -_id"
+      );
+      res.status(200).json(filteredBooks);
     } catch (error) {
       next(error);
     }
@@ -73,19 +87,33 @@ class BooksController {
       next(error);
     }
   }
+}
 
-  static async listBookByPublisher(req, res, next) {
-    const { publisher } = req.query;
+function processQuery(params) {
+  const { publisher, queriedTitle, maxPages, minPages } = params;
 
-    try {
-      const booksByPublisher = await BooksModel.find({
-        publishing_company: publisher,
-      }).populate("author", "name -_id");
-      res.status(200).json(booksByPublisher);
-    } catch (error) {
-      next(error);
-    }
-  }
+  const query = {};
+
+  if (publisher)
+    query.publishing_company = {
+      $regex: publisher,
+      $options: "i",
+    };
+  if (queriedTitle)
+    query.title = {
+      $regex: queriedTitle,
+      $options: "i",
+    };
+
+  if (minPages || maxPages) query.pages = {};
+
+  if (minPages) query.pages.$gte = minPages;
+  if (maxPages) query.pages.$lte = maxPages;
+  if (minPages && maxPages)
+    query.pages = {
+      $gte: minPages,
+      $lte: maxPages,
+    };
 }
 
 export default BooksController;

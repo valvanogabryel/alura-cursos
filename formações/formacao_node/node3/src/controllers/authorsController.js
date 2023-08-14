@@ -1,4 +1,5 @@
-import AuthorsModel from "../config/database/models/author.model.js";
+import { AuthorsModel } from "../config/database/models/index.js";
+import NotFound from "../errors/NotFound.js";
 
 class AuthorsController {
   static listAuthors(_, res, next) {
@@ -17,9 +18,8 @@ class AuthorsController {
     AuthorsModel.findById(id)
       .then((author) => {
         if (!author)
-          return res.status(404).send({
-            message: "Autor não encontrado",
-          });
+          return next(new NotFound("Id do(a) autor(a) não encontrado..."));
+
         res.status(200).json(author);
       })
       .catch((error) => {
@@ -35,8 +35,7 @@ class AuthorsController {
         name,
       });
 
-      if (existingAuthor)
-        throw new Erroror("Já existe um autor com esse nome.");
+      if (existingAuthor) throw new Error("Já existe um autor com esse nome.");
 
       const newAuthor = await AuthorsModel.create(req.body);
 
@@ -51,6 +50,9 @@ class AuthorsController {
 
     AuthorsModel.findByIdAndUpdate(id, { $set: req.body }, { new: true })
       .then((updatedAuthor) => {
+        if (!updatedAuthor)
+          return next(new NotFound("Id do(a) autor(a) não encontrado..."));
+
         res.status(200).json(updatedAuthor);
       })
       .catch((error) => {
@@ -63,6 +65,9 @@ class AuthorsController {
 
     AuthorsModel.findByIdAndRemove(id)
       .then((deletedAuthor) => {
+        if (!deletedAuthor)
+          return next(new NotFound("Id do(a) autor(a) não encontrado..."));
+
         res.status(200).json(deletedAuthor);
       })
       .catch((error) => {
