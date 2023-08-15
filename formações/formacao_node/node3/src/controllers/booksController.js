@@ -2,10 +2,13 @@ import { AuthorsModel, BooksModel } from "../config/database/models/index.js";
 
 class BooksController {
   //* GET
-  static async listBooks(_, res, next) {
+  static async listBooks(req, _, next) {
     try {
-      const books = await BooksModel.find().populate("author");
-      res.status(200).json(books);
+      const booksResult = BooksModel.find();
+
+      req.result = booksResult;
+
+      next();
     } catch (error) {
       next(error);
     }
@@ -15,8 +18,10 @@ class BooksController {
     const { id } = req.params;
 
     try {
-      const book = await BooksModel.findById(id).populate("author", "name");
-      // .populate("author", "name -_id") o nome do autor, mas não o id
+      const book = await BooksModel.findById(id, {}, { autopopulate: false })
+        .populate("author", "-_id")
+        .exec();
+      // // .populate("author", "name -_id") o nome do autor, mas não o id
       res.status(200).json(book);
     } catch (error) {
       next(error);
@@ -28,8 +33,11 @@ class BooksController {
       const query = await processQuery(req.query);
 
       if (query) {
-        const filteredBooks = await BooksModel.find(query).populate("author");
-        res.status(200).send(filteredBooks);
+        const filteredBooks = BooksModel.find(query);
+
+        req.result = filteredBooks;
+
+        next();
       } else {
         res.status(200).send([]);
       }

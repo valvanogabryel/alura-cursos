@@ -2,14 +2,16 @@ import { AuthorsModel } from "../config/database/models/index.js";
 import NotFound from "../errors/NotFound.js";
 
 class AuthorsController {
-  static listAuthors(_, res, next) {
-    AuthorsModel.find()
-      .then((author) => {
-        res.status(200).json(author);
-      })
-      .catch((error) => {
-        next(error);
-      });
+  static listAuthors(req, _, next) {
+    try {
+      const authors = AuthorsModel.find();
+
+      req.result = authors;
+
+      next();
+    } catch (error) {
+      next(error);
+    }
   }
 
   static async listAuthorById(req, res, next) {
