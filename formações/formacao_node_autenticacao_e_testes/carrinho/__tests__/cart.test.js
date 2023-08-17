@@ -21,7 +21,8 @@ describe("Cart tests", () => {
     cart.adiciona(apple);
 
     expect(cart.itens).toHaveLength(2);
-    expect(cart.itens).toContain(banana && apple);
+    expect(cart.itens).toContain(banana);
+    expect(cart.itens).toContain(apple);
     expect(cart.itens[0]).toBe(banana);
     expect(cart.itens[1]).toBe(apple);
     expect(cart).toHaveProperty("total");
