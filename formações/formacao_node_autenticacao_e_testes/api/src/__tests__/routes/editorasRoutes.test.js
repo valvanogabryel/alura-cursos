@@ -1,4 +1,11 @@
-import { afterEach, beforeEach, describe, expect } from "@jest/globals";
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  test,
+  jest,
+} from "@jest/globals";
 import app from "../../app.js";
 import request from "supertest";
 
@@ -27,7 +34,7 @@ describe("GET /editoras", () => {
 
 let id;
 describe("POST /editoras", () => {
-  it("should create a new Publisher", async () => {
+  it("should create a new publisher", async () => {
     const res = await request(app)
       .post("/editoras")
       .send({
@@ -39,6 +46,10 @@ describe("POST /editoras", () => {
 
     id = res.body.content.id;
   });
+
+  it("shouldn't create a new publisher if there's missing informations", async () => {
+    await request(app).post("/editoras").send({}).expect(400);
+  });
 });
 
 describe("GET /editoras/:id", () => {
@@ -48,13 +59,17 @@ describe("GET /editoras/:id", () => {
 });
 
 describe("PUT /editoras/:id", () => {
-  it("should update a single publisher", async () => {
-    await request(app)
-      .put(`/editoras/${id}`)
-      .send({
-        nome: "Jambô",
-      })
-      .expect(200);
+  test.each([
+    ["nome", { nome: "Jambô" }],
+    ["cidade", { cidade: "SP" }],
+    ["email", { email: "jamboje@gmail.com" }],
+  ])(`should update a single publisher [%s]`, async (key, param) => {
+    const req = { request };
+    const spy = jest.spyOn(req, "request");
+
+    await req.request(app).put(`/editoras/${id}`).send(param).expect(204);
+
+    expect(spy).toHaveBeenCalled();
   });
 });
 
