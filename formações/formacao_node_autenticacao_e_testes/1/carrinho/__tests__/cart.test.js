@@ -48,7 +48,19 @@ describe("Cart tests", () => {
     expect(cart.frete).toEqual(10);
   });
 
-  it("must be able to complete the purchase", () => {
+  it("should calculate the cart's total price", () => {
+    const banana = new Item("Banana", 0.5, 5);
+    const apple = new Item("Maçã", 1, 3);
+
+    cart.adiciona(banana);
+    cart.adiciona(apple);
+    cart.adicionaFrete(10);
+    const totalPrice = cart.calculaTotal();
+
+    expect(totalPrice).toEqual(15.5);
+  });
+
+  it("should be able to complete the purchase", () => {
     const banana = new Item("Banana", 0.5, 5);
     const apple = new Item("Maçã", 1, 3);
 
