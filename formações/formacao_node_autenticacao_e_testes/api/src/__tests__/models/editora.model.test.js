@@ -7,7 +7,7 @@ describe("Editora's model test", () => {
     cidade: "São Paulo",
     email: "s@s.com",
   };
-  it("should instantiate correctly", () => {
+  it("should instantiate the publisher correctly", () => {
     const publisher = new Editora(publisherObj);
     expect(publisher).toEqual(expect.objectContaining(publisherObj));
   });
