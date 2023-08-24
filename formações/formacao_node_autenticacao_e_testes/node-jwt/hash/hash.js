@@ -19,16 +19,30 @@ class User {
   }
 
   auth(name, password) {
-    if (this.name === name && this.hash === hash(password)) {
-      console.log("Usuário autenticado com sucesso!");
-      return true;
-    }
+    try {
+      if (!name || !password) {
+        throw new Error("Insira informações");
+      }
 
-    console.log("Usuário ou senha inválidos...");
-    return false;
+      if (this.name === name && this.hash === hash(password)) {
+        console.log("Usuário autenticado com sucesso!");
+        return true;
+      }
+
+      console.log("Usuário ou senha inválido(s)...");
+      return false;
+    } catch (err) {
+      console.log(err);
+    }
   }
 }
 
 const user = new User("Gabryel Valvano", "gabryelval123");
 
 user.showInfo();
+
+console.log("Caso de sucesso:");
+user.auth("Gabryel Valvano", "gabryelval123");
+
+console.log("Caso de fracasso:");
+user.auth("Gabryel Valvano", "gabryelval12");
