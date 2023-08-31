@@ -17,7 +17,6 @@ class User {
     }
       `);
   }
-
   auth(name, password) {
     try {
       if (!name || !password) {
