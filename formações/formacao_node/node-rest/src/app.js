@@ -3,18 +3,9 @@ import express from "express";
 const app = express();
 app.use(express.json());
 
-const books = [
-  {
-    id: 1,
-    title: "Lord of the Rings",
-    author: "JRR Tolkien",
-  },
-  {
-    id: 2,
-    title: "The Hobbit",
-    author: "JRR Tolkien",
-  },
-];
+
+
+
 
 function getBookById(id) {
   return books.find((book) => book.id === Number(id));
