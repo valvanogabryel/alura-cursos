@@ -14,7 +14,7 @@ export default class BooksController {
 
   static async registerBook(req, res) {
     const newBook = await BooksModel.create(req.body);
-    res.status(200).json({
+    res.status(201).json({
       message: "livro cadastrado com sucesso.",
       data: newBook,
     });
@@ -22,7 +22,10 @@ export default class BooksController {
 
   static async updateBook(req, res) {
     const { id } = req.params;
-    const book = await BooksModel.findByIdAndUpdate(id, req.body);
+    const book = await BooksModel.findByIdAndUpdate(id, {
+      $set: req.body,
+      new: true,
+    });
     res.status(200).json({ message: "livro atualizado", data: book });
   }
 

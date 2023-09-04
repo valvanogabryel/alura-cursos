@@ -9,3 +9,5 @@ router
   .post("/books", BooksController.registerBook)
   .put("/books/:id", BooksController.updateBook)
   .delete("/books/:id", BooksController.deleteBook);
+
+export default router;
