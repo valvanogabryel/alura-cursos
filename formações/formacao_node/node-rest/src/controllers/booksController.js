@@ -13,25 +13,43 @@ export default class BooksController {
   }
 
   static async registerBook(req, res) {
-    const newBook = await BooksModel.create(req.body);
-    res.status(201).json({
-      message: "livro cadastrado com sucesso.",
-      data: newBook,
-    });
+    try {
+      const newBook = await BooksModel.create(req.body);
+      res.status(201).json({
+        message: "livro cadastrado com sucesso.",
+        data: newBook,
+      });
+    } catch (err) {
+      res.status(500).json({
+        message: `${err.message} - ocorreu um erro inesperado...`,
+      });
+    }
   }
 
   static async updateBook(req, res) {
-    const { id } = req.params;
-    const book = await BooksModel.findByIdAndUpdate(id, {
-      $set: req.body,
-      new: true,
-    });
-    res.status(200).json({ message: "livro atualizado", data: book });
+    try {
+      const { id } = req.params;
+      await BooksModel.findByIdAndUpdate(id, {
+        $set: req.body,
+        new: true,
+      });
+      res.status(200).json({ message: "livro atualizado" });
+    } catch (err) {
+      res.status(500).json({
+        message: `${err.message} - ocorreu um erro inesperado...`,
+      });
+    }
   }
 
   static async deleteBook(req, res) {
-    const { id } = req.params;
-    await BooksModel.findByIdAndDelete(id);
-    res.status(200).send("Livro deletado com sucesso!");
+    try {
+      const { id } = req.params;
+      await BooksModel.findByIdAndDelete(id);
+      res.status(200).send("Livro deletado com sucesso!");
+    } catch (err) {
+      res.status(500).json({
+        message: `${err.message} - ocorreu um erro inesperado...`,
+      });
+    }
   }
 }
