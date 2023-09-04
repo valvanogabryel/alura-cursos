@@ -1,11 +1,21 @@
+import "dotenv/config";
 import express from "express";
+import db from "./config/database/connect.js";
+import BooksModel from "./config/database/models/books.model.js";
 
 const app = express();
 app.use(express.json());
 
+db.on("error", (err) => {
+  console.log.bind(
+    console,
+    `${err}: Não foi possível se conectar com o banco de dados...`
+  );
+});
 
-
-
+db.once("open", () => {
+  console.log("Connected to database");
+});
 
 function getBookById(id) {
   return books.find((book) => book.id === Number(id));
@@ -15,42 +25,43 @@ app.get("/", (_, res) => {
   res.status(200).send({ message: "Curso de NodeJS & Express" });
 });
 
-app.get("/livros", (_, res) => {
-  res.status(200).send(books);
+app.get("/books", async (_, res) => {
+  const books = await BooksModel.find();
+
+  res.status(200).json(books);
 });
 
-app.get("/livros/:id", (req, res) => {
+app.get("/books/:id", async (req, res) => {
   const { id } = req.params;
 
-  const book = getBookById(id);
-
-  res.status(200).send(book);
-});
-
-app.post("/livros", (req, res) => {
-  books.push(req.body);
-  res.status(201).send("livro cadastrado com sucesso.");
-});
-
-app.put("/livros/:id", (req, res) => {
-  const { id } = req.params;
-
-  const book = getBookById(id);
-
-  book.title = req.body.title;
+  const book = await BooksModel.findById(id);
 
   res.status(200).json(book);
 });
 
-app.delete("/livros/:id", (req, res) => {
+app.post("/books", async (req, res) => {
+  const newBook = await BooksModel.create(req.body);
+
+  res.status(200).json({
+    message: "livro cadastrado com sucesso.",
+    data: newBook,
+  });
+});
+
+app.put("/books/:id", async (req, res) => {
   const { id } = req.params;
 
-  const book = getBookById(id);
-  const index = books.indexOf(book);
+  const book = await BooksModel.findByIdAndUpdate(id, req.body);
 
-  books.splice(index, 1);
+  res.status(200).json({ message: "livro atualizado", data: book });
+});
 
-  res.status(200).send("Livro excluído com sucesso");
+app.delete("/books/:id", async (req, res) => {
+  const { id } = req.params;
+
+  await BooksModel.findByIdAndDelete(id);
+
+  res.status(200).send("Livro deletado com sucesso!");
 });
 
 export default app;

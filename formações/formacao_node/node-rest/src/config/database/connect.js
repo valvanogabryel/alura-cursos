@@ -1,5 +1,4 @@
-import { config } from "dotenv";
-config();
+import "dotenv/config";
 import mongoose from "mongoose";
 
 const username = process.env.MONGODB_URI_USERNAME;
@@ -9,7 +8,10 @@ const uri = `mongodb+srv://${username}:${password}@cluster0.6cbuths.mongodb.net/
 
 mongoose.set("strictQuery", false);
 
-mongoose.connect(uri);
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const db = mongoose.connection;
 
