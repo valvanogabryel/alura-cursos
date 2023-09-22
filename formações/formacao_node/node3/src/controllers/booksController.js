@@ -2,7 +2,7 @@ import { AuthorsModel, BooksModel } from "../config/database/models/index.js";
 
 class BooksController {
   //* GET
-  static async listBooks(req, _, next) {
+  static async listAllBooks(req, _, next) {
     try {
       const booksResult = BooksModel.find();
 
