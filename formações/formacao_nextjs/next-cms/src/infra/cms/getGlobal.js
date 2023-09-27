@@ -1,8 +1,14 @@
-import getGlobal from "./getGlobal";
-
 const TOKEN = process.env.DATO_TOKEN;
 
-export async function cmsService({ query }) {
+const query = `
+query {
+  glogalFooter {
+    description
+  }
+}
+`;
+
+export default async function getGlobal() {
   try {
     const { data } = await fetch("https://graphql.datocms.com/", {
       method: "POST",
@@ -19,15 +25,8 @@ export async function cmsService({ query }) {
       throw new Error(JSON.stringify(body.errors));
     });
 
-    const globalContentResponse = await getGlobal();
-
     return {
-      data: {
-        ...data,
-        globalContent: {
-          ...globalContentResponse,
-        },
-      },
+      data,
     };
   } catch (err) {
     throw new Error(JSON.stringify(err.message));
