@@ -13,7 +13,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, preview }) {
   const { id } = params;
 
   const contentQuery = `
@@ -29,10 +29,12 @@ export async function getStaticProps({ params }) {
 
   const { data } = await cmsService({
     query: contentQuery,
+    preview: false,
   });
 
   return {
     props: {
+      cmsContent: data,
       id,
       title: data.contentFaqQuestion.title,
       content: data.contentFaqQuestion.content.value,
@@ -40,7 +42,10 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function FAQQuestionScreen({ title, content }) {
+export default function FAQQuestionScreen({ cmsContent }) {
+  const { title, content } = cmsContent.contentFaqQuestion;
+  const { description } = cmsContent.globalContent.data.globalFooter;
+
   return (
     <>
       <Head>
@@ -90,7 +95,7 @@ export default function FAQQuestionScreen({ title, content }) {
         </Box>
       </Box>
 
-      <Footer />
+      <Footer description={description} />
     </>
   );
 }

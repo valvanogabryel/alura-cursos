@@ -2,15 +2,15 @@ const TOKEN = process.env.DATO_TOKEN;
 
 const query = `
 query {
-  glogalFooter {
-    description
+	globalFooter {
+      description
+    }
   }
-}
 `;
 
-export default async function getGlobal() {
+export default async function getGlobal(url) {
   try {
-    const { data } = await fetch("https://graphql.datocms.com/", {
+    const { data } = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
