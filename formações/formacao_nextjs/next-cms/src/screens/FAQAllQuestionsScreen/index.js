@@ -4,8 +4,7 @@ import { CMSSectionRender } from "../../infra/cms/CMSSectionRender";
 
 export async function getStaticProps({ preview }) {
   const { data: cmsContent } = await cmsService({
-    query: `
-    query {
+    query: `query {
       pageFaq {
         pageContent {
           section {
@@ -20,14 +19,12 @@ export async function getStaticProps({ preview }) {
                     id
                   }
                 }
-              }
-              
+              } 
             }
           }
         }
       }
-}
-    `,
+}`,
     preview,
   });
 

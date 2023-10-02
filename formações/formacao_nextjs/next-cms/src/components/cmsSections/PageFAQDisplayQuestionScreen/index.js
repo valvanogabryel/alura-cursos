@@ -1,7 +1,5 @@
 import { Box, Text, Image, theme, Link } from "../../../theme/components";
 export function PageFAQDisplayQuestionScreen({ categories }) {
-  console.log(categories);
-
   return (
     <Box
       tag="main"

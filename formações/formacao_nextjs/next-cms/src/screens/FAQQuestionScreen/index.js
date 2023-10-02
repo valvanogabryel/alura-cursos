@@ -5,10 +5,22 @@ import { Box, Text, theme } from "../../theme/components";
 import { cmsService } from "../../infra/cms/cmsService";
 import { renderNodeRule, StructuredText } from "react-datocms";
 import { isHeading } from "datocms-structured-text-utils";
-import CMSProvider from "../../infra/cms/CMSProvider";
 import { pageHOC } from "../../components/wrappers/pageHOC";
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ preview }) {
+  const pathsQuery = `
+  query {
+    allContentFaqQuestions(first: 100, skip: 0) {
+      id
+      title
+  }
+}
+  `;
+
+  const { data } = await cmsService({
+    query: pathsQuery,
+  });
+
   return {
     paths: [{ params: { id: "f138c88d" } }, { params: { id: "h138c88d" } }],
     fallback: false,
