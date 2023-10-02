@@ -5,7 +5,7 @@ const TOKEN = process.env.DATO_TOKEN;
 const baseURL = "https://graphql.datocms.com/";
 const previewURL = `${baseURL}/preview`;
 
-export async function cmsService({ query, preview }) {
+export async function cmsService({ query, variables, preview }) {
   const url = preview ? previewURL : baseURL;
 
   try {
@@ -15,7 +15,7 @@ export async function cmsService({ query, preview }) {
         "Content-Type": "application/json",
         Authorization: `Bearer ${TOKEN}`,
       },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify({ query, variables }),
     }).then(async (serverResponse) => {
       const body = await serverResponse.json();
 

@@ -7,22 +7,33 @@ import { renderNodeRule, StructuredText } from "react-datocms";
 import { isHeading } from "datocms-structured-text-utils";
 import { pageHOC } from "../../components/wrappers/pageHOC";
 
-export async function getStaticPaths({ preview }) {
+export async function getStaticPaths() {
   const pathsQuery = `
-  query {
-    allContentFaqQuestions(first: 100, skip: 0) {
-      id
-      title
-  }
+  query($first: IntType, $skip: IntType) {
+    allContentFaqQuestions(first: $first, skip: $skip) {
+     id
+     title
+   }
 }
   `;
 
   const { data } = await cmsService({
     query: pathsQuery,
+    globalContent: false,
+    variables: {
+      first: 100,
+      skip: 0,
+    },
+  });
+
+  const paths = data.allContentFaqQuestions.map(({ id }) => {
+    return {
+      params: { id },
+    };
   });
 
   return {
-    paths: [{ params: { id: "f138c88d" } }, { params: { id: "h138c88d" } }],
+    paths,
     fallback: false,
   };
 }
@@ -31,8 +42,12 @@ export async function getStaticProps({ params, preview }) {
   const { id } = params;
 
   const contentQuery = `
-  query {
-    contentFaqQuestion {
+  query ($id: ItemId) {
+    contentFaqQuestion (filter: {
+      id: {
+        eq: $id
+      }
+    } ) {
       title
       content {
         value
@@ -43,6 +58,9 @@ export async function getStaticProps({ params, preview }) {
 
   const { data } = await cmsService({
     query: contentQuery,
+    variables: {
+      id,
+    },
     preview: preview,
   });
 
