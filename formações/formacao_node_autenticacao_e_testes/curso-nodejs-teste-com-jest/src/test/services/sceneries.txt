@@ -1,0 +1,1 @@
+Cenário 4: Ao cadastrar um usuário, validar o retorno das informações do usuário.

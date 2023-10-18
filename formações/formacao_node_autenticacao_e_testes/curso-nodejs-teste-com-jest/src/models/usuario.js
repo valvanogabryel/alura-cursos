@@ -1,17 +1,10 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable camelcase */
-import db from '../db/dbconfig.js';
+import db from "../db/dbconfig.js";
 
 class Usuario {
-  constructor({
-    id,
-    nome,
-    email,
-    senha,
-    created_at,
-    updated_at
-  }) {
-    this.id = null || id;
+  constructor({ id, nome, email, senha, created_at, updated_at }) {
+    this.id = id ?? null;
     this.nome = nome;
     this.email = email;
     this.senha = senha;
@@ -20,40 +13,38 @@ class Usuario {
   }
 
   static async pegarUsuarios() {
-    return db.select('*').from('usuarios');
+    return db.select("*").from("usuarios");
   }
 
   static async pegarPeloId(id) {
-    const resultado = await db.select('*').from('usuarios').where({ id });
+    const resultado = await db.select("*").from("usuarios").where({ id });
     return resultado[0];
   }
 
   static async pegarPeloEmail(email) {
-    const resultado = await db.select('*').from('usuarios').where({ email });
+    const resultado = await db.select("*").from("usuarios").where({ email });
     return resultado[0];
   }
 
   async criar() {
-    return db('usuarios').insert(this)
-      .then((registroCriado) => db('usuarios')
-        .where('id', registroCriado[0]))
+    return db("usuarios")
+      .insert(this)
+      .then((registroCriado) => db("usuarios").where("id", registroCriado[0]))
       .then((registroSelecionado) => new Usuario(registroSelecionado[0]));
   }
 
   async atualizar(id) {
     // o update retorna a quantidade de rows atualizados e não o objeto do registro atualizado
-    await db('usuarios')
+    await db("usuarios")
       .where({ id })
       .update({ ...this, updated_at: new Date().toISOString() });
 
-    return db.select('*').from('usuarios').where({ id });
+    return db.select("*").from("usuarios").where({ id });
   }
 
   static async excluir(id) {
     // o del retorna a quantidade de rows deletados
-    await db('usuarios')
-      .where({ id })
-      .del();
+    await db("usuarios").where({ id }).del();
   }
 
   async salvar() {
