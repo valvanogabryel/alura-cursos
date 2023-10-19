@@ -1,11 +1,11 @@
-import nodemailer from 'nodemailer';
+import nodemailer from "nodemailer";
 
 const enviarEmail = async (para, assunto, mensagem) => {
   try {
     const testAccount = await nodemailer.createTestAccount();
 
     const transporter = nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
+      host: "smtp.ethereal.email",
       port: 587,
       secure: false,
       auth: {
@@ -25,7 +25,7 @@ const enviarEmail = async (para, assunto, mensagem) => {
 
     return info;
   } catch (error) {
-    throw new Error('Erro ao enviar o e-mail.');
+    throw new Error("Erro ao enviar o e-mail.");
   }
 };
 
