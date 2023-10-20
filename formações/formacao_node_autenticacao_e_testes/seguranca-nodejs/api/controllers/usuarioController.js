@@ -3,7 +3,7 @@ const UsuarioService = require("../services/usuarioService");
 const usuarioService = new UsuarioService();
 
 class UsuarioController {
-  async register(req, res) {
+  static async register(req, res) {
     try {
       const { name, email, password } = req.body;
 
