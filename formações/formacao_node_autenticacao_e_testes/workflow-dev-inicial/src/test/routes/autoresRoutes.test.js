@@ -49,7 +49,7 @@ describe('GET em /autores', () => {
       .request(app)
       .get(`/autores/${idAutor}`)
       .set('Accept', 'application/json')
-      .end((err, res) => {
+      .end((_, res) => {
         expect(res.status).to.equal(200);
         expect(res.body).to.have.property('id');
         expect(res.body).to.have.property('nome');
