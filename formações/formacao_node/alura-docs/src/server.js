@@ -1,6 +1,7 @@
 import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
+import './database/connect.js';
 
 const app = express();
 const port = process.env.PORT ?? 8080;
@@ -16,6 +17,4 @@ httpServer.listen(port, () => {
 
 const io = new Server(httpServer);
 
-io.on('connection', () => {
-  console.log('Um cliente se conectou');
-});
+export default io;
