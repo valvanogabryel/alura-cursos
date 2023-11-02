@@ -1,6 +1,16 @@
+import { getCookie } from '../utils/cookies.js';
 import { alertAndRedirect, updateEditorText } from './document.js';
 
-const socket = io();
+const socket = io('/users', {
+  auth: {
+    token: getCookie('access_token'),
+  },
+});
+
+socket.on('connect_error', (error) => {
+  alert(error);
+  window.location.href = '/login';
+});
 
 function emitEditorText(data) {
   socket.emit('editor_text', data);

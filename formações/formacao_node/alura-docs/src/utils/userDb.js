@@ -19,3 +19,8 @@ export async function registerUser({ name, password }) {
 
   return userCreated;
 }
+
+export async function authUser(passwordReceived, passwordHash) {
+  const passwordsMatch = await bcrypt.compare(passwordReceived, passwordHash);
+  return passwordsMatch;
+}
