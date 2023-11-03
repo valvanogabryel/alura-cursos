@@ -1,11 +1,11 @@
 import { documentsCollections } from '../database/connect.js';
 
-export function getDocuments() {
+function getDocuments() {
   const documents = documentsCollections.find().toArray();
   return documents;
 }
 
-export async function insertDocument(documentName) {
+async function insertDocument(documentName) {
   try {
     const documentAlreadyExist = Boolean(await findDocument(documentName));
 
@@ -26,14 +26,14 @@ export async function insertDocument(documentName) {
   }
 }
 
-export function findDocument(documentName) {
+function findDocument(documentName) {
   const document = documentsCollections.findOne({
     name: documentName,
   });
   return document;
 }
 
-export function updateDocument(documentName, text) {
+function updateDocument(documentName, text) {
   const updatedDocument = documentsCollections.updateOne(
     {
       name: documentName,
@@ -48,10 +48,18 @@ export function updateDocument(documentName, text) {
   return updatedDocument;
 }
 
-export async function deleteDocument(documentName) {
+async function deleteDocument(documentName) {
   const deletedDocument = await documentsCollections.deleteOne({
     name: documentName,
   });
 
   return deletedDocument;
 }
+
+export {
+  getDocuments,
+  insertDocument,
+  updateDocument,
+  deleteDocument,
+  findDocument,
+};

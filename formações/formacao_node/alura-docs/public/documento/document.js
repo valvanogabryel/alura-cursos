@@ -10,10 +10,13 @@ const documentName = params.get('nome');
 const editorText = document.querySelector('#editor-texto');
 const documentTitle = document.querySelector('#titulo-documento');
 const deleteBtn = document.querySelector('#excluir-documento');
+const connectedUsers = document.querySelector('#usuarios-conectados');
 
 documentTitle.textContent = documentName ?? 'Documento sem título';
 
-selectDocument(documentName);
+export function handleAuthorizationSuccess({ name: username }) {
+  selectDocument({ documentName, username });
+}
 
 editorText.addEventListener('keyup', () => {
   emitEditorText({
@@ -26,13 +29,23 @@ deleteBtn.addEventListener('click', () => {
   emitDeleteDocument(documentName);
 });
 
-export function updateEditorText(text) {
+function updateConnectedUsers(usersInDocument) {
+  connectedUsers.innerHTML = '';
+
+  usersInDocument.forEach((user) => {
+    connectedUsers.innerHTML += `<li class="list-group-item">${user}</li>`;
+  });
+}
+
+function updateEditorText(text) {
   editorText.value = text;
 }
 
-export function alertAndRedirect(name) {
+function alertAndRedirect(name) {
   if (name === documentName) {
     alert(`Documento ${name} excluído com sucesso!`);
     window.location.href = '/';
   }
 }
+
+export { updateConnectedUsers, updateEditorText, alertAndRedirect };
